@@ -23,3 +23,10 @@
   ros_type_name: geometry_msgs/msg/Twist
   gz_type_name: ignition.msgs.Twist
   direction: ROS_TO_GZ
+
+# Evaluation only; navigation and exploration do not subscribe to this topic.
+- ros_topic_name: /simulation/ground_truth
+  gz_topic_name: /world/wheeltec_room/dynamic_pose/info
+  ros_type_name: tf2_msgs/msg/TFMessage
+  gz_type_name: ignition.msgs.Pose_V
+  direction: GZ_TO_ROS
