@@ -1,0 +1,197 @@
+{
+  "success": true,
+  "run_dir": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261022-203127_exploration",
+  "ros_domain_id": 80,
+  "task_timeout_wall_seconds": 300.0,
+  "ground_truth_used_only_for_evaluation": true,
+  "status_history": [
+    {
+      "state": "exploring",
+      "reason": "Selecting reachable frontiers",
+      "elapsed_wall_seconds": 0.64
+    },
+    {
+      "state": "exploring",
+      "reason": "Navigating to a frontier approach",
+      "elapsed_wall_seconds": 0.74
+    },
+    {
+      "state": "exploring",
+      "reason": "Navigating to a frontier approach",
+      "elapsed_wall_seconds": 18.83
+    },
+    {
+      "state": "exploring",
+      "reason": "Navigating to a frontier approach",
+      "elapsed_wall_seconds": 30.84
+    },
+    {
+      "state": "exploring",
+      "reason": "Navigating to a frontier approach",
+      "elapsed_wall_seconds": 37.87
+    },
+    {
+      "state": "saving",
+      "reason": "Saving occupancy grid and SLAM pose graph",
+      "elapsed_wall_seconds": 57.88
+    },
+    {
+      "state": "returning",
+      "reason": "Returning to the exploration start position",
+      "elapsed_wall_seconds": 58.16
+    },
+    {
+      "state": "completed",
+      "reason": "no_reachable_frontiers",
+      "elapsed_wall_seconds": 83.15
+    }
+  ],
+  "initial_truth_world_m": [
+    -1.7,
+    -1.5
+  ],
+  "maximum_distance_from_start_m": 3.8484041411752923,
+  "return_snapshots": [
+    "return-snapshot-000.json",
+    "return-snapshot-001.json",
+    "return-snapshot-002.json",
+    "return-snapshot-003.json",
+    "return-snapshot-004.json",
+    "return-snapshot-005.json",
+    "return-snapshot-006.json",
+    "return-snapshot-007.json",
+    "return-snapshot-008.json",
+    "return-snapshot-009.json",
+    "return-snapshot-010.json",
+    "return-snapshot-011.json"
+  ],
+  "explorer": {
+    "state": "completed",
+    "map_output": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261022-203127_exploration/map",
+    "goals": [
+      {
+        "target": [
+          1.2134364988574493,
+          2.422234776286544
+        ],
+        "success": true,
+        "result": "4"
+      },
+      {
+        "target": [
+          2.6772978707776165,
+          2.6576801654007043
+        ],
+        "success": true,
+        "result": "4"
+      },
+      {
+        "target": [
+          2.908317671959381,
+          2.0576801564600076
+        ],
+        "success": true,
+        "result": "4"
+      },
+      {
+        "target": [
+          3.808317685370426,
+          0.007680125912627123
+        ],
+        "success": true,
+        "result": "4"
+      }
+    ],
+    "reference_yaw_rad": 0.0,
+    "reason": "no_reachable_frontiers",
+    "elapsed_wall_seconds": 83.15,
+    "start_pose": [
+      -2.1041503696642063e-16,
+      2.104219576359867e-16,
+      -5.060985027861464e-21
+    ],
+    "known_free_area_m2": 22.713,
+    "frontier_clusters": 0,
+    "unreachable_clusters": 0,
+    "ignored_small_clusters": 13,
+    "target": [
+      3.808317685370426,
+      0.007680125912627123
+    ],
+    "map_saved": true,
+    "returned": true,
+    "completion_criteria": {
+      "stable_empty_maps": 3,
+      "minimum_free_area_m2": 8.0,
+      "no_unreachable_clusters": true
+    },
+    "history": [
+      {
+        "state": "starting",
+        "reason": "Waiting for SLAM map, robot transform and Nav2",
+        "elapsed_wall_seconds": 0.0
+      },
+      {
+        "state": "exploring",
+        "reason": "Selecting reachable frontiers",
+        "elapsed_wall_seconds": 0.64
+      },
+      {
+        "state": "exploring",
+        "reason": "Navigating to a frontier approach",
+        "elapsed_wall_seconds": 0.74
+      },
+      {
+        "state": "exploring",
+        "reason": "Navigating to a frontier approach",
+        "elapsed_wall_seconds": 18.83
+      },
+      {
+        "state": "exploring",
+        "reason": "Navigating to a frontier approach",
+        "elapsed_wall_seconds": 30.84
+      },
+      {
+        "state": "exploring",
+        "reason": "Navigating to a frontier approach",
+        "elapsed_wall_seconds": 37.87
+      },
+      {
+        "state": "saving",
+        "reason": "Saving occupancy grid and SLAM pose graph",
+        "elapsed_wall_seconds": 57.88
+      },
+      {
+        "state": "returning",
+        "reason": "Returning to the exploration start position",
+        "elapsed_wall_seconds": 58.16
+      }
+    ]
+  },
+  "final_truth_world_m": [
+    -1.5580418085750982,
+    -1.4440717275390884
+  ],
+  "gazebo_return_error_m": 0.15257817593971626,
+  "artifact_bytes": {
+    ".yaml": 122,
+    ".pgm": 10521,
+    ".posegraph": 22527289,
+    ".data": 17332487,
+    ".metadata.json": 419
+  },
+  "map_metadata": {
+    "map_yaml": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261022-203127_exploration/map.yaml",
+    "posegraph": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261022-203127_exploration/map",
+    "reference_yaw_rad": 0.0,
+    "map_frame": "map",
+    "saved_at": "2026-10-22T20:32:33+0800",
+    "source": "wheeltec_explore",
+    "start_pose": [
+      -2.1041503696642063e-16,
+      2.104219576359867e-16,
+      -5.060985027861464e-21
+    ]
+  },
+  "elapsed_wall_seconds": 92.48659233699982
+}

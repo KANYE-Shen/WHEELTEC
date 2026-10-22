@@ -1,7 +1,7 @@
 # 算法源码
 
-后续 ROS 功能包和仿真、实车共用逻辑统一放在这里。目前尚无功能包。
+`wheeltec_explore/` 是前沿探索 ROS 功能包：读取占据地图和估计位姿，向 Nav2 下目标，处理有限重试、保存地图与返回起点。运行与测试见 [包说明](wheeltec_explore/README.md)。
 
-Windows 项目内的源码是维护源，WSL 通过 `/mnt/d/虚拟c盘/WHEELTEC/src` 读取。编译产物写入 `/home/wheeltec/wheeltec_sim_ws` 的 `build/`、`install/`、`log/`，不在这里生成。
+SLAM Toolbox、Nav2 和 AMCL 复用已安装的 Humble 软件包；本项目配置在 `../simulation/config/`。仿真与实车共用的算法源码统一维护在这里，仿真世界与图形工具留在 simulation。
 
-使用 Nav2、SLAM Toolbox 等已有项目时优先通过依赖和配置接入；需引入源码时记录仓库、版本、许可证与改动。
+WSL 构建读取 `/mnt/d/虚拟c盘/WHEELTEC/src`，产物写入 `/home/wheeltec/wheeltec_sim_ws` 的 build、install 和 log；不要另存一套源码。

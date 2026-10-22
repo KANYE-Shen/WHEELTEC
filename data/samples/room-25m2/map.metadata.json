@@ -1,0 +1,13 @@
+{
+  "map_yaml": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261022-203127_exploration/map.yaml",
+  "posegraph": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261022-203127_exploration/map",
+  "reference_yaw_rad": 0.0,
+  "map_frame": "map",
+  "saved_at": "2026-10-22T20:32:33+0800",
+  "source": "wheeltec_explore",
+  "start_pose": [
+    -2.1041503696642063e-16,
+    2.104219576359867e-16,
+    -5.060985027861464e-21
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "success": true,
+  "run_dir": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261022-203255_navigation",
+  "goals": [
+    {
+      "mode": "mapping",
+      "target": [
+        2.7,
+        0.0
+      ],
+      "status": 4,
+      "estimated_error_m": 0.14691300510947222,
+      "gazebo_truth_error_m": 0.14641562043580733,
+      "wall_seconds": 14.391244123999968
+    },
+    {
+      "mode": "mapping",
+      "target": [
+        3.0,
+        3.3
+      ],
+      "status": 4,
+      "estimated_error_m": 0.14734944963587482,
+      "gazebo_truth_error_m": 0.1555919952159359,
+      "wall_seconds": 19.861749735999865
+    },
+    {
+      "mode": "mapping",
+      "target": [
+        0.0,
+        3.4
+      ],
+      "status": 4,
+      "estimated_error_m": 0.14487349518214754,
+      "gazebo_truth_error_m": 0.17300117912052432,
+      "wall_seconds": 18.921078039999884
+    },
+    {
+      "mode": "mapping",
+      "target": [
+        0.0,
+        0.0
+      ],
+      "status": 4,
+      "estimated_error_m": 0.14653902721053078,
+      "gazebo_truth_error_m": 0.15801204977390906,
+      "wall_seconds": 20.521822251000003
+    },
+    {
+      "mode": "localization",
+      "target": [
+        1.8,
+        0.2
+      ],
+      "status": 4,
+      "estimated_error_m": 0.1459945463000344,
+      "gazebo_truth_error_m": 0.12624956294552878,
+      "wall_seconds": 10.12136403500017
+    }
+  ],
+  "mapping": {
+    "free_cells": 5677,
+    "occupied_cells": 238,
+    "resolution": 0.05000000074505806
+  },
+  "saved_map": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261022-203255_navigation/map.yaml",
+  "localization": {
+    "free_cells": 9707,
+    "occupied_cells": 1005,
+    "resolution": 0.05000000074505806
+  }
+}

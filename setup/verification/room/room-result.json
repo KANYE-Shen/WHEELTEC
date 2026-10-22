@@ -1,10 +1,10 @@
 {
-  "run_dir": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261022-153243_room_interfaces",
+  "run_dir": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261022-200420_room_interfaces",
   "success": true,
   "beam_count": 720,
   "scan_frame": "wheeltec_reference/base_link/laser",
   "messages": {
-    "scan": 74,
+    "scan": 75,
     "odom": 217,
     "clock": 7403
   },
@@ -18,9 +18,9 @@
       "base_link"
     ]
   ],
-  "displacement_m": 0.44985000000177733,
-  "lateral_drift_m": 3.9619922212688475e-13,
-  "front_wall_distance_change_m": 0.44991278648376465,
+  "displacement_m": 0.4500000000017773,
+  "lateral_drift_m": 3.9633945833047106e-13,
+  "front_wall_distance_change_m": 0.45006251335144043,
   "turn_radians": 0.6999999998447726,
   "elapsed_sim_seconds": 7.0
 }

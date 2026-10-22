@@ -1,0 +1,61 @@
+{
+  "success": true,
+  "run_dir": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261022-203138_obstacles",
+  "map": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261022-201446_navigation/map.yaml",
+  "domain": 81,
+  "partition": "wheeltec-obstacles-789",
+  "saved_map_sha256_before": {
+    "/home/wheeltec/wheeltec_sim_ws/data/runs/20261022-201446_navigation/map.yaml": "9d3d6f539c82b832f1c332e411db0a0c3c4b48e6f0f4f39844fd780dc31bf8bc",
+    "/home/wheeltec/wheeltec_sim_ws/data/runs/20261022-201446_navigation/map.pgm": "46c23673a76ed782b4cd9a31d77ee7d8b3546ec422976c5d48bb9e1e12747e4b"
+  },
+  "nav2_config_sha256": "f3d8a5c2ac100ac3359db2424873280c3f872fc61d322686872463ecd34d4a83",
+  "initial_physics_pose": {
+    "wall_time": 1388.842820287,
+    "world_x": -1.7,
+    "world_y": -1.5,
+    "yaw": -1.4242887397090776e-29,
+    "map_x": 0.0,
+    "map_y": 0.0
+  },
+  "avoidance": {
+    "status": 4,
+    "gazebo_truth_error_m": 0.15194586032962712,
+    "minimum_physical_footprint_clearance_m": 0.24090798441349548,
+    "maximum_distance_from_original_line_m": 0.7980147791804899,
+    "wall_seconds": 16.52190376800013,
+    "samples": 965
+  },
+  "blocked_route": {
+    "task_still_active": true,
+    "observation_wall_seconds": 19.33716959100002,
+    "wait_reached_after_wall_seconds": 15.490099869999995,
+    "measured_waiting_wall_seconds": 3.0,
+    "minimum_physical_wall_clearance_m": 0.45142101321016337,
+    "crossed_wall": false,
+    "waiting_translation_m": 0.0,
+    "waiting_heading_change_rad": 0.0
+  },
+  "obstacle_removal_resume": {
+    "same_goal_status": 4,
+    "new_goal_submitted": false,
+    "gazebo_truth_error_m": 0.15391398848934523,
+    "wall_seconds_after_removal": 30.076796884000032
+  },
+  "cancellation": {
+    "status": 5,
+    "cancel_response_goal_count": 1,
+    "final_zero_velocity": true,
+    "last_command": [
+      1461.321407274,
+      0.0,
+      0.0
+    ],
+    "stationary_last_second_displacement_m": 0.0,
+    "displacement_after_result_m": 2.0373194494018054e-13
+  },
+  "saved_map_sha256_after": {
+    "/home/wheeltec/wheeltec_sim_ws/data/runs/20261022-201446_navigation/map.yaml": "9d3d6f539c82b832f1c332e411db0a0c3c4b48e6f0f4f39844fd780dc31bf8bc",
+    "/home/wheeltec/wheeltec_sim_ws/data/runs/20261022-201446_navigation/map.pgm": "46c23673a76ed782b4cd9a31d77ee7d8b3546ec422976c5d48bb9e1e12747e4b"
+  },
+  "saved_map_unchanged": true
+}

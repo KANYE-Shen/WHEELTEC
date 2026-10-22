@@ -1,11 +1,11 @@
 {
-  "log_dir": "/home/wheeltec/simulation-checks/gui-20261022-153044",
+  "log_dir": "/home/wheeltec/simulation-checks/gui-20261022-171838",
   "gazebo_gui_engine": "ogre",
   "scene": "room_25m2",
-  "windows_capture": "[\r\n    {\r\n        \"Title\":  \"Gazebo\",\r\n        \"Path\":  \"D:\\\\\u865a\u62dfc\u76d8\\\\WHEELTEC\\\\setup\\\\verification\\\\room\\\\gazebo-windows.png\",\r\n        \"Method\":  \"PrintWindow\",\r\n        \"Width\":  1276,\r\n        \"Height\":  1097\r\n    },\r\n    {\r\n        \"Title\":  \"RViz\",\r\n        \"Path\":  \"D:\\\\\u865a\u62dfc\u76d8\\\\WHEELTEC\\\\setup\\\\verification\\\\room\\\\rviz-windows.png\",\r\n        \"Method\":  \"PrintWindow\",\r\n        \"Width\":  1126,\r\n        \"Height\":  897\r\n    }\r\n]\r\n",
+  "windows_capture": "[\r\n    {\r\n        \"Title\":  \"Gazebo\",\r\n        \"Path\":  \"D:\\\\\u865a\u62dfc\u76d8\\\\WHEELTEC\\\\setup\\\\verification\\\\room\\\\gazebo-windows.png\",\r\n        \"Method\":  \"PrintWindow\",\r\n        \"Width\":  1276,\r\n        \"Height\":  952\r\n    },\r\n    {\r\n        \"Title\":  \"RViz\",\r\n        \"Path\":  \"D:\\\\\u865a\u62dfc\u76d8\\\\WHEELTEC\\\\setup\\\\verification\\\\room\\\\rviz-windows.png\",\r\n        \"Method\":  \"PrintWindow\",\r\n        \"Width\":  1226,\r\n        \"Height\":  947\r\n    }\r\n]\r\n",
   "windows": {
     "rviz": {
-      "id": "0x600015",
+      "id": "0x600014",
       "title": "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/simulation/config/room.rviz - RViz"
     },
     "gazebo": {

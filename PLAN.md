@@ -2,7 +2,7 @@
 
 ## 当前授权与阶段
 
-电脑端仿真环境已安装。用户已要求将全部项目迁至 `D:\虚拟c盘\WHEELTEC`，迁移后开始准备仿真。已建立首轮 25 平方米参考场景并接通传感器与运动接口；后续按已确认方案逐步接入建图、探索和导航。实车运动留到硬件核查与现场测试阶段。
+电脑端仿真环境已安装。用户已要求将全部项目迁至 `D:\虚拟c盘\WHEELTEC`，迁移后开始准备仿真。已建立 25 平方米参考场景，接入 SLAM 建图、地图保存、AMCL 和 Nav2，五次目标行驶已通过真值误差检查。前沿探索、保存后返回起点与临时障碍绕行/封路/取消检查均已通过，结果见 setup/verification。下一步实车只读核查和网页整合。实车运动留到硬件核查与现场测试阶段。
 
 环境安装的实际进度见 [setup/STATUS.md](setup/STATUS.md)。
 
@@ -31,7 +31,7 @@
 
 - [SLAM Toolbox](https://github.com/SteveMacenski/slam_toolbox)：二维激光建图。
 - [Nav2](https://github.com/ros-navigation/navigation2)：路径规划、控制、代价地图、AMCL 定位。
-- [m-explore-ros2 / explore_lite](https://github.com/robo-friends/m-explore-ros2)：自主探索候选，需检查结束条件和 Fortress 仿真适配。
+- [m-explore-ros2 / explore_lite](https://github.com/robo-friends/m-explore-ros2)：探索思路及后续对比候选；当前使用本项目 wheeltec_explore，通过 Nav2 action 调度并明确保存、返回及完成判据。
 - [rosbridge_suite](https://github.com/RobotWebTools/rosbridge_suite)：可选网页桥接；也可扩展现有 HTTP/SSH 桥，暂未定。
 - [robot-wheeltec-r550](https://github.com/syswonder/robot-wheeltec-r550)：配置参考，硬件与当前实车并不相同，不能整套照搬。
 

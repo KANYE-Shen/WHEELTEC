@@ -1,0 +1,38 @@
+{
+  "recorded_at": "2026-10-22T20:36:30.308308+08:00",
+  "text_normalization": "CRLF to LF before SHA256",
+  "source_sha256": {
+    "simulation/check_exploration.py": "fda93df0121517277ec5e7bba07c507edcdd29e5bc722b2d8e7a0a3ebcc005a3",
+    "simulation/check_navigation.py": "30182ef9477657d425b009093a53288403118a0219342efef0ed14551e88fe90",
+    "simulation/check_obstacles.py": "9a0328c32edbd58b8347b8633cacec709a43367ca9ed08874ca7e430f5b435a0",
+    "simulation/check_room.py": "fc77e1144994f0b983ba7c1d24c5603c08ce52cc15d9012f14f47fb937439c60",
+    "simulation/config/bridge.yaml": "8c03ed14072c12defb80d1471a511e9cf2f786c81df86a6a79d1fb3e50ada2d9",
+    "simulation/config/nav2.yaml": "f3d8a5c2ac100ac3359db2424873280c3f872fc61d322686872463ecd34d4a83",
+    "simulation/config/navigate_wait.xml": "72d6d3ad72e82fb295233b26a4c31e36972ccdc431e7288b98f8b3cdd061292e",
+    "simulation/config/room.rviz": "bcd8b2a6ceb729678652f6e68cfe741271076386240b5210c787daba567327d2",
+    "simulation/config/slam.yaml": "3c10f823f1a51b16e01cd5b12843eef1502d696e2a83c4f856420bba020a7942",
+    "simulation/launch/navigation.launch.py": "fe059f29e1afe891ab0b8829572a3c5954bd646bd2d462a98c2014c6ac945ea2",
+    "simulation/launch/room.launch.py": "9d1d5743fae425b1afa2ff6674e9505b4b3ef643f5d07e1a6592aba43cb3b258",
+    "simulation/models/wheeltec_reference/model.sdf": "4fd2180032c671cc781ef12c8ffafd47517feed92246f7fb89e22d8f7db59fd0",
+    "simulation/run_room.py": "4e6c2783452a2efee36a543842d6248794721c4e20af46c8c298aef67922778f",
+    "simulation/save_map.py": "a4fdd30044ed1a41d26e9f55065a2ce3f15938b9bfb80da485de2b09309b0233",
+    "simulation/teleop.py": "edd8624eea0bec098f2e45dcc46038c9871f2c83ba38a9d5192706f6cb6aa1b6",
+    "simulation/test_teleop.py": "0f5db5dccc91042696c541c74def6eb5cfb114de86a85aa7f643dd1777ac2887",
+    "simulation/test_teleop_ros.py": "7caa45cde5aa871f22282eb1c384b2a3ab1ce001752670d476e96b6121be1a53",
+    "simulation/worlds/room_25m2.sdf": "4a2652577e9f2eb37f0b05a3edb8a87b379cbc9c6bea11fbb82c61d61db2f160",
+    "src/wheeltec_explore/setup.py": "32a55a22f13c62de762478d1b4059c7f6c27535e6de11083f1017cbcaa64484c",
+    "src/wheeltec_explore/test/test_frontiers.py": "22c60ea9a7869dc1af75c1fa046c36886d9caefbf5747202a59791595467e6bc",
+    "src/wheeltec_explore/test/test_policy.py": "dcc71fe7189dce2509df05d9d14719ac57fe4c891815c7e1511e78d836bd5983",
+    "src/wheeltec_explore/wheeltec_explore/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/wheeltec_explore/wheeltec_explore/frontiers.py": "9be16eefdfddee3c9954d4f747aadaaaee6a0e601ba038ef2451453518a4ffda",
+    "src/wheeltec_explore/wheeltec_explore/node.py": "1986c3285866d895146a2d2490687e79be1b5a6cc1b03e5c3e8846a747725d07",
+    "src/wheeltec_explore/wheeltec_explore/policy.py": "b4bab9d6fe8985f9bb8e8ddfed1f70a29c8db9c2172df4331f72a8fb1ce74e8f"
+  },
+  "checks": {
+    "navigation": "navigation/result.json",
+    "exploration": "exploration/result.json",
+    "obstacles": "obstacles/result.json",
+    "interfaces": "room/room-result.json",
+    "unit_tests": "unit-results.txt"
+  }
+}

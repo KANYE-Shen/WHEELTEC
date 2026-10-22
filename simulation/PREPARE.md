@@ -20,4 +20,4 @@
 
 依据：[Gazebo 移动车辆](https://gazebosim.org/docs/fortress/moving_robot/)、[传感器](https://gazebosim.org/docs/fortress/sensors/)、[Fortress DiffDrive 参数](https://gazebosim.org/api/gazebo/6/classignition_1_1gazebo_1_1systems_1_1DiffDrive.html)。
 
-最终检查摘要与截图见 `../setup/verification/room/`；原始实验目录通过 `../data/README.md` 查阅。下一阶段：接入 SLAM Toolbox，验证地图生成及保存。
+最终检查摘要与截图见 `../setup/verification/room/`；原始实验目录通过 `../data/README.md` 查阅。本页记录首轮接口准备；后续建图、定位与导航进展见 [实施记录](IMPLEMENTATION.md)。
