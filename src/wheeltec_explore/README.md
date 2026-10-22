@@ -1,0 +1,39 @@
+# wheeltec_explore
+
+从 SLAM Toolbox 的 `/map` 和 TF `map → base_link` 选探索目标，交给 Nav2 `/navigate_to_pose` 行驶。模块不读取 Gazebo 场景或真实位置。源码是本项目独立实现，没有复制 explore_lite 的代码。
+
+默认安全半径 0.35 米，覆盖参考小车足迹外接圆和一格地图误差。算法对障碍、未知区和地图外边界按足迹收缩空地，再在整车可落入的已知可通行区域内做四连通可达搜索；将已知区域与未知区域之间的边界聚类，从前沿向已知区域内退让，选择 0.6 米搜索范围内可达、整车落在已知空地内的接近点。目标按前沿长度和行驶距离评分。到达后的目标及实际观察位置进入访问记录，后续接近点与已访问位置至少相隔0.30米，避免在相邻点之间来回循环；没有新视角的前沿保留为未解决。失败目标暂停 20 秒后再试，同一区域最多尝试 3 次；单目标 120 秒、整任务 900 秒，最多 60 个目标。
+
+## 使用
+
+先启动建图与 Nav2，再执行：
+
+```bash
+source /opt/ros/humble/setup.bash
+cd /home/wheeltec/wheeltec_sim_ws
+colcon build --symlink-install --base-paths /mnt/d/虚拟c盘/WHEELTEC/src --packages-select wheeltec_explore
+source install/setup.bash
+ros2 run wheeltec_explore explore --ros-args -p use_sim_time:=true
+```
+
+需要 `/map_saver/save_map`（已激活的 Nav2 map_saver）、`/slam_toolbox/serialize_map`、`/navigate_to_pose`。参数 `map_output` 指定不带扩展名的地图路径；默认保存在 `~/wheeltec_sim_ws/data/maps/<时间>_explore/room`。
+
+## 任务结果
+
+`/exploration/status` 发布 JSON，当前状态包括 `starting`、`exploring`、`saving`、`returning`、`completed`、`incomplete`、`failed`。同一内容同步写入 `<map_output>.exploration.json`。
+
+连续三次新地图都没有可选目标后，保存 `.yaml`、`.pgm`、`.posegraph`、`.data`，返回起点，再判断结果。只有已观察空地至少 8 平方米、没有剩余不可达前沿、没有因超时或重试耗尽而中断、保存和返回都成功，才报告 `completed`。完成表示按当前分辨率与前沿阈值完成了可达区域探索；小于 `min_frontier_size`（默认 0.25 米）的碎片另外计数。
+
+地图旁的 `.metadata.json` 保存参考方向 `reference_yaw_rad`、起点和保存时间，同时原子更新 `~/wheeltec_sim_ws/data/maps/latest.json`，方便重定位入口找到最新地图。参考方向是 map 坐标系下人为定义的方向，默认 0 弧度。
+
+当前地图改变后仍存在的孤立自由区会记录为不可达前沿。临时无路会先交给 Nav2 恢复，再按探索重试规则处理，不删除障碍或改写保存地图。停止探索程序会取消其当前导航任务。
+
+## 检查
+
+```bash
+python3 -m unittest discover -s /mnt/d/虚拟c盘/WHEELTEC/src/wheeltec_explore/test -v
+```
+
+纯算法测试覆盖已知空地目标、障碍间隙、不可达前沿、完整封闭房间、地图旋转原点、失败冷却及完成判据。仿真整体结果由根目录的阶段记录提供。
+
+接口来源：[Nav2 Humble Map Server](https://api.nav2.org/nav2-humble/html/md_nav2_map_server_README.html)、[SLAM Toolbox](https://github.com/SteveMacenski/slam_toolbox)。候选 [m-explore-ros2](https://github.com/robo-friends/m-explore-ros2) 可作为后续对比。

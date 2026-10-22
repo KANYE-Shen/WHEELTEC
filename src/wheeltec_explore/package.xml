@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>wheeltec_explore</name><version>0.1.0</version>
+  <description>Occupancy-grid frontier exploration using SLAM Toolbox and Nav2.</description>
+  <maintainer email="189834982+KANYE-Shen@users.noreply.github.com">Kanye Shen</maintainer>
+  <license>LicenseRef-Proprietary</license>
+  <buildtool_depend>ament_python</buildtool_depend>
+  <exec_depend>rclpy</exec_depend><exec_depend>action_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend><exec_depend>nav_msgs</exec_depend>
+  <exec_depend>nav2_msgs</exec_depend><exec_depend>slam_toolbox</exec_depend>
+  <exec_depend>std_msgs</exec_depend><exec_depend>sensor_msgs</exec_depend><exec_depend>tf2_ros_py</exec_depend>
+  <test_depend>python3-pytest</test_depend>
+  <export><build_type>ament_python</build_type></export>
+</package>
