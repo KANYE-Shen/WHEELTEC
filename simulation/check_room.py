@@ -19,10 +19,10 @@ publisher = None
 try:
     if not (ROOT / 'simulation/launch/room.launch.py').is_file():
         raise RuntimeError('Room launch file is not implemented yet.')
-    os.environ.update(ROS_LOCALHOST_ONLY='1', ROS_DOMAIN_ID='77')
+    os.environ.update(ROS_LOCALHOST_ONLY='1', ROS_DOMAIN_ID='79')
     log = (run_dir / 'launch.log').open('w')
     process = subprocess.Popen(
-        ['python3', str(ROOT / 'simulation/run_room.py'), 'gui:=false', 'rviz:=false',
+        ['python3', str(ROOT / 'simulation/run_room.py'), 'gui:=false', 'rviz:=false', 'mode:=interfaces', 'ros_domain_id:=79',
          f'partition:=wheeltec-room-check-{os.getpid()}'],
         stdout=log, stderr=subprocess.STDOUT, start_new_session=True)
     import rclpy
