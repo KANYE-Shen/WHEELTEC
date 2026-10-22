@@ -1,0 +1,435 @@
+{
+  "Source": "C:\\Users\\30120\\OneDrive\\文档\\ChatGPT\\WHEELTEC",
+  "Destination": "D:\\虚拟c盘\\WHEELTEC",
+  "FilesVerified": 85,
+  "HashesMatched": true,
+  "SourceEmpty": true,
+  "Files": [
+    {
+      "RelativePath": ".git\\config",
+      "SHA256": "05BECDB83BB897F6103C8D91439E2E9092144EDF5B3955A746FCE4975C12BFDC",
+      "Length": 130
+    },
+    {
+      "RelativePath": ".git\\description",
+      "SHA256": "85AB6C163D43A17EA9CF7788308BCA1466F1B0A8D1CC92E26E9BF63DA4062AEE",
+      "Length": 73
+    },
+    {
+      "RelativePath": ".git\\HEAD",
+      "SHA256": "F6F2B945F6C411B02BA3DA9C7ACE88DCF71B6AF65BA2E0D89AA82900042B5A10",
+      "Length": 23
+    },
+    {
+      "RelativePath": ".git\\hooks\\applypatch-msg.sample",
+      "SHA256": "0223497A0B8B033AA58A3A521B8629869386CF7AB0E2F101963D328AA62193F7",
+      "Length": 478
+    },
+    {
+      "RelativePath": ".git\\hooks\\commit-msg.sample",
+      "SHA256": "1F74D5E9292979B573EBD59741D46CB93FF391ACDD083D340B94370753D92437",
+      "Length": 896
+    },
+    {
+      "RelativePath": ".git\\hooks\\fsmonitor-watchman.sample",
+      "SHA256": "E0549964E93897B519BD8E333C037E51FFF0F88BA13E086A331592BF801FA1D0",
+      "Length": 4726
+    },
+    {
+      "RelativePath": ".git\\hooks\\post-update.sample",
+      "SHA256": "81765AF2DAEF323061DCBC5E61FC16481CB74B3BAC9AD8A174B186523586F6C5",
+      "Length": 189
+    },
+    {
+      "RelativePath": ".git\\hooks\\pre-applypatch.sample",
+      "SHA256": "E15C5B469EA3E0A695BEA6F2C82BCF8E62821074939DDD85B77E0007FF165475",
+      "Length": 424
+    },
+    {
+      "RelativePath": ".git\\hooks\\pre-commit.sample",
+      "SHA256": "57185B7B9F05239D7AB52DB045F5B89EB31348D7B2177EAB214F5EB872E1971B",
+      "Length": 1649
+    },
+    {
+      "RelativePath": ".git\\hooks\\pre-merge-commit.sample",
+      "SHA256": "D3825A70337940EBBD0A5C072984E13245920CDF8898BD225C8D27A6DFC9CB53",
+      "Length": 416
+    },
+    {
+      "RelativePath": ".git\\hooks\\pre-push.sample",
+      "SHA256": "ECCE9C7E04D3F5DD9D8ADA81753DD1D549A9634B26770042B58DDA00217D086A",
+      "Length": 1374
+    },
+    {
+      "RelativePath": ".git\\hooks\\pre-rebase.sample",
+      "SHA256": "4FEBCE867790052338076F4E66CC47EFB14879D18097D1D61C8261859EAAA7B3",
+      "Length": 4898
+    },
+    {
+      "RelativePath": ".git\\hooks\\pre-receive.sample",
+      "SHA256": "A4C3D2B9C7BB3FD8D1441C31BD4EE71A595D66B44FCF49DDB310252320169989",
+      "Length": 544
+    },
+    {
+      "RelativePath": ".git\\hooks\\prepare-commit-msg.sample",
+      "SHA256": "E9DDCAA4189FDDD25ED97FC8C789ECA7B6CA16390B2392AE3276F0C8E1AA4619",
+      "Length": 1492
+    },
+    {
+      "RelativePath": ".git\\hooks\\push-to-checkout.sample",
+      "SHA256": "A53D0741798B287C6DD7AFA64AEE473F305E65D3F49463BB9D7408EC3B12BF5F",
+      "Length": 2783
+    },
+    {
+      "RelativePath": ".git\\hooks\\sendemail-validate.sample",
+      "SHA256": "44EBFC923DC5466BC009602F0ECF067B9C65459ABFE8868DDC49B78E6CED7A92",
+      "Length": 2308
+    },
+    {
+      "RelativePath": ".git\\hooks\\update.sample",
+      "SHA256": "8D5F2FA83E103CF08B57EAA67521DF9194F45CBDBCB37DA52AD586097A14D106",
+      "Length": 3650
+    },
+    {
+      "RelativePath": ".git\\info\\exclude",
+      "SHA256": "6671FE83B7A07C8932EE89164D1F2793B2318058EB8B98DC5C06EE0A5A3B0EC1",
+      "Length": 240
+    },
+    {
+      "RelativePath": ".git\\objects\\02\\1e737052e0150a89f725c13ca68ff14dea62b3",
+      "SHA256": "C3A4D5D995C6E7C704D2E7D63F37BD8D6074446B788E65A8845C78A317F1F533",
+      "Length": 133
+    },
+    {
+      "RelativePath": ".git\\objects\\0f\\dd7e337d5cc6cb7d7d95a9e61ffcbbcb5d4f40",
+      "SHA256": "64EA79AF85D26DA7B2B5786688EBD85274CB3BB84FE53272C5DE79B8D5A2F50A",
+      "Length": 3018
+    },
+    {
+      "RelativePath": ".git\\objects\\2a\\c1dcfd5e49feb7fd170d35be86dc35be0ca41d",
+      "SHA256": "8EF09F790D19ED7B1C4255B381276F7D985DD64044B39D944D99B9B412CE03E8",
+      "Length": 191
+    },
+    {
+      "RelativePath": ".git\\objects\\2f\\fcb6452c96a020cefe6c08f24a1a1cfb1a4908",
+      "SHA256": "BF96C32322911FCD1CE4CABD2A26857DFEE7E0678FCD9B47088C510AD97A51F8",
+      "Length": 1298
+    },
+    {
+      "RelativePath": ".git\\objects\\32\\c33ea90dd73576b1f81c3ace75e2b0fdc0aedb",
+      "SHA256": "CEF8CEC4D8E2E8EFA6C35EE7821F0C8CD8361B34DFA75BB247D786E034C87EB9",
+      "Length": 2086
+    },
+    {
+      "RelativePath": ".git\\objects\\3b\\e91124990f1da7cbce64876479df6b62d83a84",
+      "SHA256": "7C9BFB4132B4770E2F90E89564D4094AFCDF38BD6A7D3CFD7787639FD35A780D",
+      "Length": 441
+    },
+    {
+      "RelativePath": ".git\\objects\\3f\\5f93db67851d0a637fe885334d277320c8793e",
+      "SHA256": "C934DC7EBF8A014586F43FA4404085D9E246AFFD3EBC5753B84273F702EE06B9",
+      "Length": 55702
+    },
+    {
+      "RelativePath": ".git\\objects\\4b\\825dc642cb6eb9a060e54bf8d69288fbee4904",
+      "SHA256": "E72602CAD67ED061EC84B13E92568F873172EFAC19A512A1B561DBF54E2C8426",
+      "Length": 15
+    },
+    {
+      "RelativePath": ".git\\objects\\4e\\55b73bf036bf1d82f6f651b25d964c24e91a5c",
+      "SHA256": "C4DC930CE6144C35939E9F1F6782FF16377D6C3CC5133CE493711AD1EFEC84EF",
+      "Length": 327
+    },
+    {
+      "RelativePath": ".git\\objects\\4e\\e4263ef87add28d9588a4e1b429bc2bfcfb011",
+      "SHA256": "BAB9A52FA715BCC2AEFCC612E4A81D944C23B917BB363EBBAD3EDE4FEB75DCBE",
+      "Length": 327
+    },
+    {
+      "RelativePath": ".git\\objects\\4f\\e0fe2ae87e7f019e136ee618e3130053eb8d5f",
+      "SHA256": "18E3E4F0D544992B4E394132F43E6E6000B2D6A8E4A5C2D0C38B76507BE091F5",
+      "Length": 751
+    },
+    {
+      "RelativePath": ".git\\objects\\50\\c6802af0b0d6f91a77fb4e39e5bdf103eb34c5",
+      "SHA256": "1924F38937C888CF22725BA46914498196C9C34E965DDE9EACD6E4D8F2931757",
+      "Length": 3147
+    },
+    {
+      "RelativePath": ".git\\objects\\53\\d385c05dc0a7e133413ac94dc7b8f6e0a13990",
+      "SHA256": "1F1FDD4A154268EFC8861FE2F143C9A9769EBF4110E8309B01951419620E0813",
+      "Length": 1983
+    },
+    {
+      "RelativePath": ".git\\objects\\5a\\a91030af57bf4c936a51eeca30b2d4ef476f38",
+      "SHA256": "421CA078D61C4BFE1BB6D5804A6B007866FE55F1EBE717031122B078006A67CB",
+      "Length": 103
+    },
+    {
+      "RelativePath": ".git\\objects\\71\\95e4d314ac0ce7a5afb1780051e0b11f5b77e4",
+      "SHA256": "EF6BDF269878BDC7D93407A4526EA883B25C0CC33E36206C7259CC78F504B3C5",
+      "Length": 522
+    },
+    {
+      "RelativePath": ".git\\objects\\73\\2b789e4351a432711a2b1b4a1b726726209d32",
+      "SHA256": "22AF33A35D2B7D26226982E5C9D06A27AD25BD77C4E27886A43FDFED6E741679",
+      "Length": 418
+    },
+    {
+      "RelativePath": ".git\\objects\\87\\7d1764741dcfdbfe6aa782def99f7335c266b1",
+      "SHA256": "AA557A080AECEE33E549EB7A9B97AE99A5E4FB2C043AC4DE4ACCFE2CBD4506A3",
+      "Length": 193
+    },
+    {
+      "RelativePath": ".git\\objects\\9c\\b0df98e00e3f0d197025bb311fca1f4d1d786f",
+      "SHA256": "353D69B552744B8C73DE7625749A3C27EE548356A51BE469BE6D3C53739D6A13",
+      "Length": 54
+    },
+    {
+      "RelativePath": ".git\\objects\\a0\\27a1754184e6da72074334dc3565670519e515",
+      "SHA256": "83F515A5EC1CCBE731FDD62CBFBCD4C2186FDC19A61C7B7ABCC915E53A32FE07",
+      "Length": 1579
+    },
+    {
+      "RelativePath": ".git\\objects\\aa\\b71e17b5618a5c5cde67b72965972a126ed224",
+      "SHA256": "2A3A26D37506A437851C4B6499E8F240D6172B9964BBFE0B8BF601367992F371",
+      "Length": 1613
+    },
+    {
+      "RelativePath": ".git\\objects\\ab\\316c8ab8fedf0539169c56955da7afa19bdf51",
+      "SHA256": "579ED15D371083D8D75A8EB1E708995871C2B8BD92AAA0DD85C8B8A4E53C5445",
+      "Length": 84
+    },
+    {
+      "RelativePath": ".git\\objects\\ae\\5518945b0f6a16d8ebd37bbcacbcee8b81fae8",
+      "SHA256": "25E1245F26C42543A743FC8F5280CB608F30FFD045BBAF1292BD1BDA8F715D36",
+      "Length": 3082
+    },
+    {
+      "RelativePath": ".git\\objects\\af\\d7f7157812c7e114cc18eb33221766a4f8730e",
+      "SHA256": "CD96889528DA874981B2806D3EBC987E7D04286F1BA303E58A1C179EB30AB315",
+      "Length": 174
+    },
+    {
+      "RelativePath": ".git\\objects\\b0\\b6f4cbc1f3eeef763e98b087b0f137e442d89c",
+      "SHA256": "4E3DD99A0E686E9AE805522B047662E961D4A37B2BF8EEB5EE3E126846B3498D",
+      "Length": 54
+    },
+    {
+      "RelativePath": ".git\\objects\\b2\\98b7c6c37625a62f5db67119f497f14582df0f",
+      "SHA256": "4A9C6A3EDF337C5A116C844030B06BFF6E7EF6A9ED1C2D3D6FEF82E837C9A8BB",
+      "Length": 381
+    },
+    {
+      "RelativePath": ".git\\objects\\b4\\77baf170e8eaad4598065b743cfbcee7f93f00",
+      "SHA256": "77D775B6EBAA81E2A4F359B5A062DB19915680AAFF6AEC3E211B8983E356EDBE",
+      "Length": 2116
+    },
+    {
+      "RelativePath": ".git\\objects\\b5\\a2505b75c0fcfe709cf5fcb6e604c4f36c8978",
+      "SHA256": "913611561330F26D4FB3DE8193DBFCF45BF8255F146EC6C68E640F1225706A04",
+      "Length": 119192
+    },
+    {
+      "RelativePath": ".git\\objects\\b8\\113d086692d9f83bf11425880852a056600bdc",
+      "SHA256": "C01D79E9808FE446968489BFF21D8666836B40886E7C3B8D7CC9441724031876",
+      "Length": 230
+    },
+    {
+      "RelativePath": ".git\\objects\\bb\\2dac3256a68d66d2b95399f87ecb3645cc7074",
+      "SHA256": "B863BFC86892BE193BD02BF03B515707716258BF63DAC6BE94A2632C7C24212A",
+      "Length": 2895
+    },
+    {
+      "RelativePath": ".git\\objects\\bc\\fad13b7156ba4290eb2cea000564859c1e84d3",
+      "SHA256": "AF6BC452C93785C1CF0740681CBAB3CE3EA5060D2ABF13C52F8665841D0FA141",
+      "Length": 778
+    },
+    {
+      "RelativePath": ".git\\objects\\c2\\74e22d813e67f5d0d9dc533330f6f12025d6ad",
+      "SHA256": "18EA5901069DF800BE3DD3E621412066F5C48E566D3A7D19628E51EE6A66CC05",
+      "Length": 54
+    },
+    {
+      "RelativePath": ".git\\objects\\c6\\c76c74d3fd9f04cdbe4bedb5bfeafec1a81369",
+      "SHA256": "9FA4732A22131BECC2C8C32C060F524715B3284082CADBD4D3CFCDE458F55D12",
+      "Length": 1538
+    },
+    {
+      "RelativePath": ".git\\objects\\cf\\ed0c2c3f4094d44247b1555555a1681db13e39",
+      "SHA256": "F6E83C01E1B17E47ADFCB2C81731DE5C9BDC9679C56EC39D7CF77F059DF33334",
+      "Length": 210
+    },
+    {
+      "RelativePath": ".git\\objects\\d2\\d521d78feeb11af8288d82978a1c95fb9e4af7",
+      "SHA256": "7146754B434942D203B41BAC189E4ACB73AAB659E9A34139AD7B405EA056DE85",
+      "Length": 3161
+    },
+    {
+      "RelativePath": ".git\\objects\\d9\\e7770cecea11488f8a047c6d06bf79431e8d3a",
+      "SHA256": "1CD37CA665D4A87C2DCD62E374AF516EB1F7C3AC40CCBFA0A5C87265947C165F",
+      "Length": 2865
+    },
+    {
+      "RelativePath": ".git\\objects\\e0\\92fb531b137fd345fe511e4a30c706bfd65f65",
+      "SHA256": "DE42BE55A804D51474D4F456CF8B86E6594EE83ABB7A502F8D2AB02E12CD0BBB",
+      "Length": 1375
+    },
+    {
+      "RelativePath": ".git\\objects\\e1\\f2b3c24c2da5e97f99dafdef56b98adc0bae67",
+      "SHA256": "3753A9901EFC4994D20998D2D8594BB19E787615D1B72B108F98A4E4A146BD38",
+      "Length": 54
+    },
+    {
+      "RelativePath": ".git\\objects\\e5\\d51e09b66e22947b72c7b8246e11b8d5787a90",
+      "SHA256": "083F907CE365A5D86CE25BFE9E8A8C9E0D8AFAACD9D77DA4D72B95B77B73E141",
+      "Length": 1887
+    },
+    {
+      "RelativePath": ".git\\objects\\f0\\bbf62291aaaef860cc58f8b08c160c948f477a",
+      "SHA256": "7B8E1E13F2C356AC6D5882C984B622C4BB28351D5CF3A8B80908530A7C5FA13B",
+      "Length": 1705
+    },
+    {
+      "RelativePath": ".git\\objects\\f8\\517c768f8de8d2cf52c57bc471ac267e68b0fe",
+      "SHA256": "D29F11B7D3A7E12D7B4EF7584F0AE3FE4FC937F9E7F802F2D41C1CE6F1FA4790",
+      "Length": 268
+    },
+    {
+      "RelativePath": ".git\\objects\\f9\\249a543fee3b25b41c221a0c111803b3fab232",
+      "SHA256": "62BB623CBA00C9CFECAE0F0F0D2EAAA8E322BCB6D1358A633C29C3B1969468E8",
+      "Length": 388
+    },
+    {
+      "RelativePath": ".git\\objects\\ff\\3d73e0b7f780bbbb418dc7359f46756a677654",
+      "SHA256": "DE6FC196A2194C30692E4658E76252708B2210EAB80B4107229FD72E96B21682",
+      "Length": 1206
+    },
+    {
+      "RelativePath": ".git\\refs\\codex\\turn-diffs\\captures\\1792653257873\\7f21f3b2-2cb4-4042-acf4-ddebb0e33ffa\\base",
+      "SHA256": "B9AAE00FA576ACB5AFD34AC9A8E8D6593277A2B40C0FC75A2D3F9FD3B39B4924",
+      "Length": 41
+    },
+    {
+      "RelativePath": ".git\\refs\\codex\\turn-diffs\\checkpoints\\4cbb06062c2703286e6de6b0f3f4e6d2\\6901d56bb1d49a66b54684aeaeeda733\\1792652768658\\2d6be81b-30bd-4d09-bac0-e84ec812db69",
+      "SHA256": "B9AAE00FA576ACB5AFD34AC9A8E8D6593277A2B40C0FC75A2D3F9FD3B39B4924",
+      "Length": 41
+    },
+    {
+      "RelativePath": "部署说明.md",
+      "SHA256": "FE3FC5010ECEC17C62499EAFF22D20D2E28FF55DEB2738A36031FDD807D7AF59",
+      "Length": 5276
+    },
+    {
+      "RelativePath": "打开仿真终端.cmd",
+      "SHA256": "3419745A609F4E6C3DCAEF4F76614119CF90C0933CDE2A82A4E33042C10859CE",
+      "Length": 154
+    },
+    {
+      "RelativePath": "打开Gazebo示例.cmd",
+      "SHA256": "C13FB338046D080641DEF87FC39301B70F50746D0260856808FCEBA24F4F65F6",
+      "Length": 211
+    },
+    {
+      "RelativePath": "打开RViz.cmd",
+      "SHA256": "07C6FC6BA68EF480D1D30AC46E10F85E3A45A90E7CEF9804D6A243815B23723A",
+      "Length": 249
+    },
+    {
+      "RelativePath": "AGENTS.md",
+      "SHA256": "452529F7E71C0A56FC115422097F9B344C63E86FBE0B7A685BFE5E3123783735",
+      "Length": 5493
+    },
+    {
+      "RelativePath": "data\\README.md",
+      "SHA256": "A572387BF4FCA7B6F8DEC6300D31B97494322BD11D6A2A2F6F031906CF61A988",
+      "Length": 1126
+    },
+    {
+      "RelativePath": "PLAN.md",
+      "SHA256": "7536084BAFE69C12B4F38A8D0A9BC26892BEF2DFC11614A23F991C220F43A986",
+      "Length": 3504
+    },
+    {
+      "RelativePath": "README.md",
+      "SHA256": "A7ED5034DD8E36C1254202C5CC0CDE856A0BE779CF2E9D546B8590BC7B2F2F9C",
+      "Length": 5717
+    },
+    {
+      "RelativePath": "robot\\README.md",
+      "SHA256": "215BD8258059D09A8DA5A02C909955A147E5D749408FD5C9701B11CC5911A657",
+      "Length": 473
+    },
+    {
+      "RelativePath": "setup\\Capture-SimulationWindows.ps1",
+      "SHA256": "5236C7A9CBBBACB15E97829199A9CAAA9B8F8B7E68ECEA7EED253F189AF91CC1",
+      "Length": 4048
+    },
+    {
+      "RelativePath": "setup\\check-gui.py",
+      "SHA256": "B3D224882A99331E8F56F12C342E6824E2A8D75DCB3C0C4ED3D6A1ABD92CCF74",
+      "Length": 3860
+    },
+    {
+      "RelativePath": "setup\\check-lidar.py",
+      "SHA256": "BD983BBECF8559A62325E86AFD5EB603DA2946B0C25E28AB27AD04FFC2BC2083",
+      "Length": 3106
+    },
+    {
+      "RelativePath": "setup\\check-runtime.py",
+      "SHA256": "879E6DF64938734549869630EC4B45BE2E078750AEFD1B20B3BE2ED8AE1DFE2F",
+      "Length": 4480
+    },
+    {
+      "RelativePath": "setup\\Install-WslFoundation.ps1",
+      "SHA256": "640C223BD93819758EBAA4CA4C318A86A2B0E3C664522008A5172749B23CBDE9",
+      "Length": 2635
+    },
+    {
+      "RelativePath": "setup\\provision-ubuntu.sh",
+      "SHA256": "8F9DCF70B7CFC0E4850C6785BE2124792CA3A263A79BD1655EFDD03F9FB307A8",
+      "Length": 2680
+    },
+    {
+      "RelativePath": "setup\\STATUS.md",
+      "SHA256": "63407B089AE9C866667A42FEF1E6D64094A4A752E1402DE4472C5200955CCF92",
+      "Length": 5422
+    },
+    {
+      "RelativePath": "setup\\verification\\gazebo-windows.png",
+      "SHA256": "018C629577F00016C5742B74B6E5BF736277CA6C22B427E7AB5E40EEFA2748DF",
+      "Length": 129373
+    },
+    {
+      "RelativePath": "setup\\verification\\gui-result.json",
+      "SHA256": "FC99EFD9521DF9A291B7310544C1EE559A7512A4F2B771C544BB9BC960E3BB4A",
+      "Length": 904
+    },
+    {
+      "RelativePath": "setup\\verification\\lidar-result.json",
+      "SHA256": "1681C658D1FD41DDD26FB35FADD609C08B06F3142CCF995E3C5EC48AEFFC9B2D",
+      "Length": 266
+    },
+    {
+      "RelativePath": "setup\\verification\\runtime-result.json",
+      "SHA256": "0B0C565DF4DC0F80E923138DE1887A36F9405FC0BF3440EB416068802FA46C95",
+      "Length": 1825
+    },
+    {
+      "RelativePath": "setup\\verification\\rviz-windows.png",
+      "SHA256": "CE61211C99A676603A488C7831EF5261A28D05FD00B2C10BE238B6772673CA88",
+      "Length": 65260
+    },
+    {
+      "RelativePath": "simulation\\README.md",
+      "SHA256": "E329EF6ADF3166332A8244250E9F067E628D5D95D4D160DF922C0A57E086CCFD",
+      "Length": 681
+    },
+    {
+      "RelativePath": "src\\README.md",
+      "SHA256": "3D2802FB25D387CAB3B3472837630DDA887EC87F63EB8E6501E63E0027B997F4",
+      "Length": 489
+    }
+  ],
+  "VerificationStage": "After copying, before project path updates and simulation additions"
+}

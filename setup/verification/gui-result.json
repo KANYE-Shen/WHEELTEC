@@ -1,0 +1,16 @@
+{
+  "log_dir": "/home/wheeltec/simulation-checks/gui-20261022-114019",
+  "gazebo_gui_engine": "ogre",
+  "windows_capture": "[\r\n    {\r\n        \"Title\":  \"Gazebo\",\r\n        \"Path\":  \"C:\\\\Users\\\\30120\\\\OneDrive\\\\\u6587\u6863\\\\ChatGPT\\\\WHEELTEC\\\\setup\\\\verification\\\\gazebo-windows.png\",\r\n        \"Method\":  \"PrintWindow\",\r\n        \"Width\":  1076,\r\n        \"Height\":  942\r\n    },\r\n    {\r\n        \"Title\":  \"RViz\",\r\n        \"Path\":  \"C:\\\\Users\\\\30120\\\\OneDrive\\\\\u6587\u6863\\\\ChatGPT\\\\WHEELTEC\\\\setup\\\\verification\\\\rviz-windows.png\",\r\n        \"Method\":  \"PrintWindow\",\r\n        \"Width\":  1063,\r\n        \"Height\":  786\r\n    }\r\n]\r\n",
+  "windows": {
+    "rviz": {
+      "id": "0x600015",
+      "title": "RViz"
+    },
+    "gazebo": {
+      "id": "0x800012",
+      "title": "Gazebo"
+    }
+  },
+  "success": true
+}

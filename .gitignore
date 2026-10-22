@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+build/
+install/
+log/
+*.db3
+*.mcap

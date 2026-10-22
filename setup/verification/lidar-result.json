@@ -1,0 +1,10 @@
+{
+  "log_dir": "/home/wheeltec/simulation-checks/lidar-20261022-114113",
+  "render_engine": "ogre",
+  "messages": 2,
+  "ranges": 640,
+  "finite_ranges": 315,
+  "minimum_range": 0.07999999821186066,
+  "frame_id": "model_with_lidar/link/gpu_lidar",
+  "success": true
+}
