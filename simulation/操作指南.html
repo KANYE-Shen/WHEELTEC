@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WHEELTEC 房间仿真操作指南</title>
+<style>
+:root{font-family:"Microsoft YaHei","PingFang SC",sans-serif;color:#192f42;background:#f3f6f8;line-height:1.75;font-size:16px}*{box-sizing:border-box}body{max-width:1120px;margin:0 auto;padding:36px 24px 56px}h1{font-size:30px;line-height:1.35;margin:0 0 12px}h2{font-size:21px;margin:0 0 12px}h3{font-size:17px;margin:18px 0 8px}p{margin:10px 0}.muted{color:#5c6f7e}.intro{margin-bottom:24px}.screens{display:grid;grid-template-columns:1fr 1fr;gap:20px}article,.panel,details{background:#fff;border:1px solid #dbe4eb;border-radius:12px;padding:22px;margin:0 0 18px}figure{margin:0}img{display:block;width:100%;height:auto;border-radius:7px;border:1px solid #dbe4eb}figcaption{color:#5c6f7e;font-size:14px;margin-top:8px}ul,ol{padding-left:24px;margin:10px 0}li{margin:6px 0}code{font-family:Consolas,"Microsoft YaHei",monospace;font-size:.93em;color:#144d75;background:#eef4f8;border-radius:4px;padding:2px 6px;overflow-wrap:anywhere}kbd{display:inline-block;font-family:Consolas,monospace;border:1px solid #bdcbd6;border-bottom:3px solid #b3c1cd;background:#fff;border-radius:4px;padding:0 8px;min-width:30px;text-align:center}table{border-collapse:collapse;width:100%;margin-top:12px}th,td{text-align:left;vertical-align:top;border-bottom:1px solid #e4ebf0;padding:9px 8px}th{font-weight:600;color:#536b7c}summary{font-size:19px;font-weight:600;cursor:pointer;line-height:1.6}details[open] summary{border-bottom:1px solid #e4ebf0;padding-bottom:12px;margin-bottom:14px}.tip{background:#edf6fb;border-left:3px solid #1685b7;padding:10px 14px;border-radius:0 5px 5px 0;margin-top:14px}.path{display:block;white-space:normal;padding:12px;margin-top:10px}.legend{display:grid;grid-template-columns:1fr 1fr;gap:5px 18px;margin-top:14px}.dot{display:inline-block;width:12px;height:12px;border:1px solid #9caebc;border-radius:3px;margin-right:8px}.white{background:#fff}.black{background:#111}.gray{background:#a0a4a9}.red{background:#ff5028}.green{background:#28d246}.blue{background:#2896ff}.yellow{background:#ffdc28}footer{color:#5c6f7e;font-size:13px;text-align:center;margin-top:28px}a{color:#126c9a}@media(max-width:760px){body{padding:22px 14px}h1{font-size:25px}.screens,.legend{grid-template-columns:1fr}article,.panel,details{padding:17px}summary{font-size:18px}}
+</style>
+</head>
+<body>
+<header class="intro">
+<h1>WHEELTEC 房间仿真操作指南</h1>
+<p>从 <code>D:\虚拟c盘\WHEELTEC</code> 双击入口文件。<code>.cmd</code> 用来启动，<code>.md</code> 是说明文档。</p>
+<p class="muted">先关掉旧仿真，再打开一套新的；用启动它的黑色终端 <kbd>Ctrl+C</kbd> 结束。</p>
+</header>
+<section class="screens" aria-label="两个窗口怎么使用">
+<article>
+<h2>Gazebo：看虚拟现场</h2>
+<figure><img src="../setup/verification/room/gazebo-windows.png" alt="Gazebo 中的封闭房间、三处障碍和蓝色小车"><figcaption>这里是预先搭建的三维房间。观察小车实际走到了哪里、有没有碰撞。</figcaption></figure>
+<ul>
+<li><strong>滚轮</strong>缩放；<strong>左键拖动</strong>平移；<strong>按住滚轮拖动</strong>旋转视角。</li>
+<li>右击小车 → <code>Move to</code> 移过去看；<code>Follow</code> 跟随小车。</li>
+<li><strong>左上橙色圆钮</strong>播放/暂停整个仿真。驾驶时保持运行；调整视角不会开动小车。</li>
+</ul>
+</article>
+<article>
+<h2>RViz：看数据、地图和路线</h2>
+<figure><img src="../setup/verification/room/rviz-windows.png" alt="RViz 中的二维地图、雷达点、位置箭头和 Navigation 2 面板"><figcaption>地图由 SLAM 根据雷达和里程计逐步画出来。</figcaption></figure>
+<ul>
+<li>先点顶部 <code>Move Camera</code>，再用<strong>滚轮</strong>缩放、<strong>中键拖动</strong>平移、<strong>左键拖动</strong>旋转俯视图。</li>
+<li><code>Nav2 Goal</code>：下达目标位置；<code>2D Pose Estimate</code>：告诉定位算法小车大概在哪、朝向哪里。</li>
+<li>左侧 <code>Displays</code> 复选框可以显示或隐藏图层。</li>
+</ul>
+</article>
+</section>
+<section class="panel">
+<h2>地图怎么读</h2>
+<div class="legend">
+<div><span class="dot white"></span>白色：已观察到的空地</div><div><span class="dot black"></span>黑色：墙或障碍</div>
+<div><span class="dot gray"></span>灰色/未展开：还没观察到</div><div><span class="dot red"></span>红点：当前雷达测量</div>
+<div><span class="dot green"></span>绿色箭头：里程计经地图变换后的估计姿态</div><div><span class="dot blue"></span>蓝线：规划出的全局路线</div>
+<div><span class="dot yellow"></span>黄线：控制器收到并用于跟踪的路线</div>
+</div>
+<p class="muted">还没下目标时没有路线。先选已经看到的白色空地，避开黑色障碍和未观察区域。</p>
+</section>
+<details open>
+<summary>体验一 · 自己开车，看地图补全</summary>
+<ol>
+<li>在旧仿真的启动终端按 <kbd>Ctrl+C</kbd> 结束，再双击 <code>打开房间仿真.cmd</code>。</li>
+<li>等 Gazebo 和 RViz 打开，RViz 出现第一片地图。</li>
+<li>双击 <code>打开键盘遥控.cmd</code>。点击遥控终端，把输入法切到英文。</li>
+<li>慢慢移动小车，换几个观察位置，看原来被家具挡住的区域逐渐出现。</li>
+</ol>
+<table><thead><tr><th>按键</th><th>动作</th></tr></thead><tbody>
+<tr><td><kbd>i</kbd></td><td>前进，0.15 m/s</td></tr><tr><td><kbd>,</kbd> 英文逗号</td><td>后退，0.15 m/s</td></tr>
+<tr><td><kbd>j</kbd> / <kbd>l</kbd></td><td>原地左转 / 右转，0.5 rad/s</td></tr><tr><td><kbd>k</kbd> / 空格</td><td>停止</td></tr><tr><td><kbd>q</kbd> / <kbd>Ctrl+C</kbd></td><td>停止并退出遥控</td></tr>
+</tbody></table>
+<p>按住或连续点按才持续运动；0.35 秒没有新按键就自动停止。长按刚开始短暂停一下，是系统按键连发的延迟。按键要发给<strong>遥控终端</strong>，在 Gazebo 或 RViz 里按不会开车。</p>
+<div class="tip">手动驾驶时自己避开墙和家具。切换到点选导航前，先在遥控终端按 <kbd>q</kbd> 退出，避免遥控和导航同时发速度。</div>
+</details>
+<details>
+<summary>体验二 · 点地图，让小车自己过去</summary>
+<ol>
+<li>退出键盘遥控，保持房间仿真运行。</li>
+<li>在 RViz 中选一处近距离的白色空地，离墙和家具留出通行宽度。</li>
+<li>点顶部 <code>Nav2 Goal</code>，在目标处按住左键，拖出短箭头后松开。</li>
+<li>看蓝色路线及 Gazebo 中的小车。当前按位置到达，不要求终点车头与箭头一致。</li>
+<li>执行任务时，<code>Navigation 2</code> 中的 <code>Reset</code> 会变成 <code>Cancel</code>；点 <code>Cancel</code> 取消任务。要接管驾驶，先取消，再开键盘遥控。</li>
+</ol>
+<p>临时封路时小车等待，每5秒重新尝试规划，最多约5分钟；障碍移除后原目标继续。需要提前停止时点 <code>Cancel</code>。</p>
+<p>没有任务时面板显示 <code>Reset</code> / <code>Pause</code>，这时不用找 Cancel。普通驾驶和下目标不需要点 Reset 或 Pause；它们会清理或停用导航节点。</p>
+<div class="tip">建图时看到 <code>Navigation: active</code>、<code>Localization: inactive</code> 是正常的：此时 SLAM 提供定位，面板的 Localization 指 AMCL。加载已存地图后才用 AMCL。</div>
+</details>
+<details>
+<summary>体验三 · 保存地图，重启后继续导航</summary>
+<ol>
+<li>建图运行时，让小车停稳，双击 <code>保存当前地图.cmd</code>。</li>
+<li>在原仿真启动终端按 <kbd>Ctrl+C</kbd> 结束。</li>
+<li>双击 <code>打开已存地图导航.cmd</code>，加载最近一次保存的地图。</li>
+<li><strong>每次加载后都先给初始姿态：</strong>点 <code>2D Pose Estimate</code>，在估计的小车位置按住左键，朝实际车头方向拖动再松开。本房间重启后在地图 <code>(0, 0)</code>，车头朝 <code>+X</code>，即默认画面的右侧。</li>
+<li>等红色雷达点贴合地图中的墙，再用 <code>Nav2 Goal</code> 指定目标。</li>
+</ol>
+<p>初始姿态是在告诉算法“小车大概在这里”，不会把 Gazebo 里的车瞬移过去。尚未指定时，可能看不到转换到地图上的雷达或位置箭头。</p>
+<p>把下面路径复制到 Windows 资源管理器地址栏，可查看按时间保存的地图：</p>
+<code class="path">\\wsl.localhost\WHEELTEC-Ubuntu-22.04\home\wheeltec\wheeltec_sim_ws\data\maps</code>
+<p class="muted">还没保存过地图时，先完成一次建图和保存，再用已存地图入口。</p>
+</details>
+<details>
+<summary>体验四 · 自主探索整个房间</summary>
+<ol>
+<li>关闭已有仿真。</li>
+<li>双击 <code>开始自主探索.cmd</code>。</li>
+<li>观察地图逐渐展开，以及任务终端输出的结束状态、地图保存位置和返回起点结果。</li>
+</ol>
+<p>探索时不要打开键盘遥控，也不要同时点击其他导航目标。探索模块会自己选目标。</p>
+<p><code>completed</code> 表示地图已保存并已返回；<code>incomplete</code> 表示还有未解决区域或触发任务限制；<code>failed</code> 表示保存、定位、返回等步骤失败。结束后场景继续显示，用启动终端 <kbd>Ctrl+C</kbd> 退出。</p>
+</details>
+<section class="panel">
+<h2>遇到这些情况</h2>
+<ul>
+<li><strong>小车不动：</strong>看 Gazebo 是否暂停；遥控终端是否有键盘焦点且为英文输入；导航是否已接受目标。</li>
+<li><strong>最初几秒没有地图：</strong>等 SLAM 发布第一张地图；持续没有时看启动终端及左侧 Map 状态。</li>
+<li><strong>看不到房间或地图：</strong>滚轮缩小、中键拖动找回视野；退出重开入口可恢复默认视角。</li>
+<li><strong>完整结束：</strong>遥控用 <kbd>q</kbd> 退出，房间启动终端用 <kbd>Ctrl+C</kbd> 退出。只关 RViz 会结束显示。</li>
+<li><strong>重新建图：</strong>结束当前仿真，再双击 <code>打开房间仿真.cmd</code>。</li>
+</ul>
+</section>
+<footer>本地操作指南 · 2026-10-22 · 本页可离线查看<br><a href="https://gazebosim.org/docs/fortress/gui/">Gazebo 操作依据</a> · <a href="https://github.com/ros2/ros2_documentation/blob/humble/source/Tutorials/Intermediate/RViz/RViz-User-Guide/RViz-User-Guide.rst">RViz 操作依据</a> · <a href="https://github.com/ros-navigation/navigation2/blob/humble/nav2_rviz_plugins/src/nav2_panel.cpp">Nav2 面板按钮依据</a></footer>
+</body>
+</html>

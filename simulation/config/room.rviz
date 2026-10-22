@@ -1,11 +1,13 @@
 Panels:
   - Class: rviz_common/Displays
     Name: Displays
+  - Class: nav2_rviz_plugins/Navigation 2
+    Name: Navigation 2
 Visualization Manager:
   Class: ""
   Global Options:
     Background Color: 35; 35; 40
-    Fixed Frame: odom
+    Fixed Frame: map
     Frame Rate: 30
   Displays:
     - Class: rviz_default_plugins/Grid
@@ -13,6 +15,16 @@ Visualization Manager:
       Enabled: true
       Cell Size: 1
       Plane Cell Count: 20
+    - Class: rviz_default_plugins/Map
+      Name: Map
+      Enabled: true
+      Alpha: 0.8
+      Color Scheme: map
+      Topic:
+        Value: /map
+        Reliability Policy: Reliable
+        Durability Policy: Transient Local
+        Depth: 1
     - Class: rviz_default_plugins/TF
       Name: TF
       Enabled: true
@@ -29,21 +41,58 @@ Visualization Manager:
         Durability Policy: Volatile
         Depth: 5
     - Class: rviz_default_plugins/Odometry
-      Name: Odometry
+      Name: Robot odometry
       Enabled: true
+      Color: 40; 210; 70
       Topic:
         Value: /odom
         Reliability Policy: Best Effort
         Depth: 5
-      Keep: 20
+      Keep: 1
+      Shape: Arrow
+    - Class: rviz_default_plugins/Path
+      Name: Planned route
+      Enabled: true
+      Color: 40; 150; 255
+      Line Style: Lines
+      Line Width: 0.04
+      Topic:
+        Value: /plan
+        Reliability Policy: Reliable
+        Durability Policy: Volatile
+        Depth: 5
+    - Class: rviz_default_plugins/Path
+      Name: Controller path
+      Enabled: true
+      Color: 255; 220; 40
+      Topic:
+        Value: /received_global_plan
+        Reliability Policy: Reliable
+        Durability Policy: Volatile
+        Depth: 5
+  Tools:
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+    - Class: rviz_default_plugins/FocusCamera
+    - Class: rviz_default_plugins/Measure
+    - Class: rviz_default_plugins/SetInitialPose
+      Covariance x: 0.25
+      Covariance y: 0.25
+      Covariance yaw: 0.06853891909122467
+      Topic:
+        Value: /initialpose
+        Reliability Policy: Reliable
+        Durability Policy: Volatile
+        Depth: 5
+    - Class: nav2_rviz_plugins/GoalTool
   Views:
     Current:
       Class: rviz_default_plugins/TopDownOrtho
       Name: Current View
       Angle: 0
-      Scale: 80
-      X: 1.5
+      Scale: 95
+      X: 1.7
       Y: 1.5
 Window Geometry:
-  Width: 1050
-  Height: 800
+  Width: 1150
+  Height: 850
