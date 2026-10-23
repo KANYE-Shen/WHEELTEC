@@ -33,6 +33,7 @@
 - `src/`：共用算法、ROS 功能包及相关接口的唯一维护源。不要在 WSL 工作区维护另一份未经同步的源码。
 - `simulation/`：仿真模型、场景、配置及测试场景定义；`robot/`：车端配置、启动与服务部署文件。
 - `setup/`：环境安装、基础验证及证据；`data/`：数据索引和复现说明。
+- 根目录只保留六个常用 `.cmd` 入口：启动_手动建图、启动_自主探索建图、启动_已有地图导航、控制_键盘遥控、地图_保存当前成果、帮助_操作指南。开发终端和软件自带示例使用文档中的命令，不再另加相似快捷方式。
 - WSL 开发工作区是 `/home/wheeltec/wheeltec_sim_ws`，数据位于 D 盘虚拟磁盘内。构建从 Windows 项目 `src/` 读取，用显式 `--base-paths` 指定源目录；`build`、`install`、`log` 输出到 Linux 工作区。
 - 大体积地图集合、rosbag、实验日志写到 Linux 工作区 `data/maps`、`data/bags`、`data/runs`，不要写进项目源码目录。需共享的小地图和小样例可连同来源及用途纳入项目。
 - 源码、参数、场景变更与实验结果建立对应关系；记录配置、版本、场景、随机种子（使用时）、结果路径和指标。
@@ -47,6 +48,7 @@
 - 首轮差速模型是仿真参考，轮半径 0.075 m、轮距 0.35 m，不据此推定真实底盘。Ogre 单垂直扫描线在本机退化为最小量程；保留三条相邻垂直渲染线，由 ros_gz_bridge 取中间水平扫描线，输出 720 束二维全周 LaserScan。
 - SLAM Toolbox 2.6.10 的 shouldProcessScan 在原地转弯时仍按平移距离过滤，保持 minimum_travel_distance=0.0、minimum_time_interval=0.1，使转弯扫描继续匹配；改动需回归探索返航。探索记录已访问视角，避免相邻成功目标循环；剩余无法观察的前沿须报告未完成。
 - 当前仿真为 ROS2 Humble + Gazebo Fortress；保留本机已验证的 Ogre 渲染配置与独立仿真通信域。实车网络参数另外配置。
+- 本机 WSLg 下保留 simulation/gui_sync 的局部 GUI 插件：在 Ogre Render 事件和 Qt afterRendering 阶段等待 GPU 完成共享纹理操作，避免空白和部分模型消失。系统 Gazebo 库、GPU 加速及雷达配置保持原样；关闭抗锯齿、Qt basic 和 GUI 软件渲染均未通过完整场景检查，不再叠加这些参数。run_room.py 按需编译插件到 Linux build/gui_sync，launch 添加该插件搜索路径。渲染改动用 setup/check-rendering.py 连续帧并核查实际运动，不能只看单张截图或静止画面。
 - 传感器接通、建图成功、导航完成和精度达标分别验证。环境版本检查只说明安装状态，不能代替功能闭环测试。
 - 复用已有 SSH 通道时保留主机密钥校验、localhost 绑定和凭据管理方式；只管理本任务拥有的进程。
 

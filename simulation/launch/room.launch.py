@@ -71,6 +71,7 @@ def generate_launch_description():
         SetEnvironmentVariable('ROS_DOMAIN_ID',LaunchConfiguration('ros_domain_id')),
         SetEnvironmentVariable('IGN_PARTITION',LaunchConfiguration('partition')),
         SetEnvironmentVariable('QT_QPA_PLATFORM','xcb'),
+        SetEnvironmentVariable('IGN_GUI_PLUGIN_PATH',str(Path.home()/'wheeltec_sim_ws/build/gui_sync')+os.pathsep+os.environ.get('IGN_GUI_PLUGIN_PATH','')),
         SetEnvironmentVariable('IGN_GAZEBO_RESOURCE_PATH',str(simulation/'models')+os.pathsep+os.environ.get('IGN_GAZEBO_RESOURCE_PATH','')),
         *handlers, gui, server, bridge, laser_tf,
         OpaqueFunction(function=algorithms, kwargs={'simulation':simulation}), rviz,

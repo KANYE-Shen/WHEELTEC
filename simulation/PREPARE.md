@@ -11,7 +11,7 @@
 - [x] 添加 simulation/check_room.py：启动场景，检查雷达/时钟/TF，并对虚拟车执行短距离前进、停止与转向；核对里程计和雷达墙距变化。
 - [x] 添加 simulation/models/wheeltec_reference/model.sdf 与 model.config。
 - [x] 添加 simulation/worlds/room_25m2.sdf、config/bridge.yaml 和 config/room.rviz。
-- [x] 添加 simulation/launch/room.launch.py、run_room.py、Start-Room.ps1 和根目录打开房间仿真.cmd。
+- [x] 添加 simulation/launch/room.launch.py、run_room.py、Start-Room.ps1 和根目录 `启动_手动建图.cmd`。
 - [x] 在 WSL 中运行检查：python3 /mnt/d/虚拟c盘/WHEELTEC/simulation/check_room.py（先加载 /opt/ros/humble/setup.bash）。
 - [x] 启动图形场景，查看并保存截图；关闭本次检查进程。
 - [x] 更新 README、AGENTS.md 和安装状态，记录实验路径及下一步。

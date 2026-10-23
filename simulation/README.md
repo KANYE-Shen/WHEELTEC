@@ -6,7 +6,7 @@
 
 ## 启动模式
 
-Windows 默认双击 `打开房间仿真.cmd`。Linux 仿真终端也可运行：
+Windows 默认双击 `启动_手动建图.cmd`。Linux 仿真终端也可运行：
 
 ```bash
 python3 /mnt/d/虚拟c盘/WHEELTEC/simulation/run_room.py
@@ -26,7 +26,7 @@ python3 /mnt/d/虚拟c盘/WHEELTEC/simulation/run_room.py gui:=false rviz:=false
 
 ## 地图保存
 
-建图运行、车停稳时双击 `保存当前地图.cmd`，或在加载 ROS 的终端运行：
+建图运行、车停稳时双击 `地图_保存当前成果.cmd`，或在加载 ROS 的终端运行：
 
 ```bash
 python3 /mnt/d/虚拟c盘/WHEELTEC/simulation/save_map.py
@@ -70,3 +70,16 @@ python3 /mnt/d/虚拟c盘/WHEELTEC/setup/check-gui.py --room
 接口来源：[SLAM Toolbox Humble](https://github.com/SteveMacenski/slam_toolbox/tree/humble)、[Nav2 Humble](https://github.com/ros-navigation/navigation2/tree/humble)、[Gazebo Fortress](https://gazebosim.org/docs/fortress/)。
 
 SLAM Toolbox 2.6.10 的扫描预过滤只检查平移，原地旋转时会跳过扫描，造成旋转里程计误差积累并在障碍层留下错误墙线。本项目将 `minimum_travel_distance` 设为0，让原地转弯也进入扫描匹配；`minimum_time_interval: 0.1` 控制处理频率。版本依据：[2.6.10 的 shouldProcessScan](https://github.com/SteveMacenski/slam_toolbox/blob/2.6.10/src/slam_toolbox_common.cpp)。
+
+## 图形兼容与连续帧检查
+
+本机使用 Ogre + GPU 加速。`gui_sync/` 的局部插件在 Ogre 绘制完成及 Qt 读取场景纹理后分别等待 GPU，避免界面拿到未画完的图。`run_room.py` 在插件缺失或源码更新时自动编译到 Linux `~/wheeltec_sim_ws/build/gui_sync/`，无需替换系统 Gazebo 库。物理、雷达和导航参数沿用原配置。改动后需重新启动仿真。
+
+启动房间后，在 WSL 终端可运行以下检查。保持默认房间视角；如果有多个 Gazebo 窗口，先用 `xwininfo -root -tree` 找到对应窗口，再加 `--window-id 0x...`。该检查同时识别场景退化为单色，以及地板、绿色柜体、棕色家具缺失的帧；任一情况会返回非零退出码。结果中的 unique_scene_images 用于配合运动实验确认画面持续变化。
+
+```bash
+python3 /mnt/d/虚拟c盘/WHEELTEC/setup/check-rendering.py \
+  --frames 600 --output ~/simulation-checks/render-check
+```
+
+插件构建需要已安装的 `cmake`、C++ 编译器、`libignition-gui6-dev` 和 Qt5 开发依赖。单独重建可执行 `python3 simulation/build_gui_sync.py`。渲染修复原理和验证记录见 [环境状态](../setup/STATUS.md)。

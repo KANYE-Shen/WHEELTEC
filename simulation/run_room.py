@@ -4,6 +4,7 @@ import json
 import os
 from pathlib import Path
 import sys
+from build_gui_sync import ensure_gui_sync
 
 arguments = list(sys.argv[1:])
 options = dict(arg.split(':=', 1) for arg in arguments if ':=' in arg)
@@ -22,6 +23,8 @@ try:
 except BlockingIOError:
     raise SystemExit('A room simulation is already running in this ROS domain. Close its launch terminal first.')
 os.set_inheritable(lock, True)
+if options.get('gui', 'true').lower() not in ('false', '0'):
+    ensure_gui_sync()
 launch_file = Path(__file__).resolve().parent/'launch/room.launch.py'
 setup = Path.home()/'wheeltec_sim_ws/install/setup.bash'
 command = 'source /opt/ros/humble/setup.bash; if [ -f "$1" ]; then source "$1"; fi; shift; exec ros2 launch "$@"'

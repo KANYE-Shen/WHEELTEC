@@ -14,6 +14,18 @@
 <p>从 <code>D:\虚拟c盘\WHEELTEC</code> 双击入口文件。<code>.cmd</code> 用来启动，<code>.md</code> 是说明文档。</p>
 <p class="muted">先关掉旧仿真，再打开一套新的；用启动它的黑色终端 <kbd>Ctrl+C</kbd> 结束。</p>
 </header>
+<section class="panel">
+<h2>根目录入口怎么选</h2>
+<p>三个启动入口每次选一个；切换模式先在原启动终端按 <kbd>Ctrl+C</kbd>。</p>
+<table><thead><tr><th>入口</th><th>用途</th></tr></thead><tbody>
+<tr><td><code>启动_手动建图.cmd</code></td><td>自己驾驶建图，也可在已观察区域点选导航</td></tr>
+<tr><td><code>启动_自主探索建图.cmd</code></td><td>自动选点、建图、保存并返回起点</td></tr>
+<tr><td><code>启动_已有地图导航.cmd</code></td><td>加载最近地图，给定初始姿态后点选导航</td></tr>
+<tr><td><code>控制_键盘遥控.cmd</code></td><td>仿真运行时打开驾驶终端</td></tr>
+<tr><td><code>地图_保存当前成果.cmd</code></td><td>建图时保存地图、位姿图及参考方向</td></tr>
+<tr><td><code>帮助_操作指南.cmd</code></td><td>在浏览器打开本指南</td></tr>
+</tbody></table>
+</section>
 <section class="screens" aria-label="两个窗口怎么使用">
 <article>
 <h2>Gazebo：看虚拟现场</h2>
@@ -47,9 +59,9 @@
 <details open>
 <summary>体验一 · 自己开车，看地图补全</summary>
 <ol>
-<li>在旧仿真的启动终端按 <kbd>Ctrl+C</kbd> 结束，再双击 <code>打开房间仿真.cmd</code>。</li>
+<li>在旧仿真的启动终端按 <kbd>Ctrl+C</kbd> 结束，再双击 <code>启动_手动建图.cmd</code>。</li>
 <li>等 Gazebo 和 RViz 打开，RViz 出现第一片地图。</li>
-<li>双击 <code>打开键盘遥控.cmd</code>。点击遥控终端，把输入法切到英文。</li>
+<li>双击 <code>控制_键盘遥控.cmd</code>。点击遥控终端，把输入法切到英文。</li>
 <li>慢慢移动小车，换几个观察位置，看原来被家具挡住的区域逐渐出现。</li>
 </ol>
 <table><thead><tr><th>按键</th><th>动作</th></tr></thead><tbody>
@@ -75,9 +87,9 @@
 <details>
 <summary>体验三 · 保存地图，重启后继续导航</summary>
 <ol>
-<li>建图运行时，让小车停稳，双击 <code>保存当前地图.cmd</code>。</li>
+<li>建图运行时，让小车停稳，双击 <code>地图_保存当前成果.cmd</code>。</li>
 <li>在原仿真启动终端按 <kbd>Ctrl+C</kbd> 结束。</li>
-<li>双击 <code>打开已存地图导航.cmd</code>，加载最近一次保存的地图。</li>
+<li>双击 <code>启动_已有地图导航.cmd</code>，加载最近一次保存的地图。</li>
 <li><strong>每次加载后都先给初始姿态：</strong>点 <code>2D Pose Estimate</code>，在估计的小车位置按住左键，朝实际车头方向拖动再松开。本房间重启后在地图 <code>(0, 0)</code>，车头朝 <code>+X</code>，即默认画面的右侧。</li>
 <li>等红色雷达点贴合地图中的墙，再用 <code>Nav2 Goal</code> 指定目标。</li>
 </ol>
@@ -90,7 +102,7 @@
 <summary>体验四 · 自主探索整个房间</summary>
 <ol>
 <li>关闭已有仿真。</li>
-<li>双击 <code>开始自主探索.cmd</code>。</li>
+<li>双击 <code>启动_自主探索建图.cmd</code>。</li>
 <li>观察地图逐渐展开，以及任务终端输出的结束状态、地图保存位置和返回起点结果。</li>
 </ol>
 <p>探索时不要打开键盘遥控，也不要同时点击其他导航目标。探索模块会自己选目标。</p>
@@ -99,13 +111,14 @@
 <section class="panel">
 <h2>遇到这些情况</h2>
 <ul>
+<li><strong>三维画面闪白、闪黑或房间消失：</strong>2026-10-23 已加入适配 WSLg 的画面同步补丁；旧窗口不会自动更新，请在原启动终端按 <kbd>Ctrl+C</kbd> 后重新打开入口。</li>
 <li><strong>小车不动：</strong>看 Gazebo 是否暂停；遥控终端是否有键盘焦点且为英文输入；导航是否已接受目标。</li>
 <li><strong>最初几秒没有地图：</strong>等 SLAM 发布第一张地图；持续没有时看启动终端及左侧 Map 状态。</li>
 <li><strong>看不到房间或地图：</strong>滚轮缩小、中键拖动找回视野；退出重开入口可恢复默认视角。</li>
 <li><strong>完整结束：</strong>遥控用 <kbd>q</kbd> 退出，房间启动终端用 <kbd>Ctrl+C</kbd> 退出。只关 RViz 会结束显示。</li>
-<li><strong>重新建图：</strong>结束当前仿真，再双击 <code>打开房间仿真.cmd</code>。</li>
+<li><strong>重新建图：</strong>结束当前仿真，再双击 <code>启动_手动建图.cmd</code>。</li>
 </ul>
 </section>
-<footer>本地操作指南 · 2026-10-22 · 本页可离线查看<br><a href="https://gazebosim.org/docs/fortress/gui/">Gazebo 操作依据</a> · <a href="https://github.com/ros2/ros2_documentation/blob/humble/source/Tutorials/Intermediate/RViz/RViz-User-Guide/RViz-User-Guide.rst">RViz 操作依据</a> · <a href="https://github.com/ros-navigation/navigation2/blob/humble/nav2_rviz_plugins/src/nav2_panel.cpp">Nav2 面板按钮依据</a></footer>
+<footer>本地操作指南 · 2026-10-23 · 本页可离线查看<br><a href="https://gazebosim.org/docs/fortress/gui/">Gazebo 操作依据</a> · <a href="https://github.com/ros2/ros2_documentation/blob/humble/source/Tutorials/Intermediate/RViz/RViz-User-Guide/RViz-User-Guide.rst">RViz 操作依据</a> · <a href="https://github.com/ros-navigation/navigation2/blob/humble/nav2_rviz_plugins/src/nav2_panel.cpp">Nav2 面板按钮依据</a></footer>
 </body>
 </html>

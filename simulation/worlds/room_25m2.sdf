@@ -20,6 +20,15 @@
       <background_color>0.75 0.8 0.85</background_color>
       <camera_pose>4 -5 5 0 0.65 2.2455</camera_pose>
     </plugin>
+    <!-- Finish GPU work when the shared scene texture passes between Ogre and Qt. -->
+    <plugin filename="WheeltecRenderSync" name="WHEELTEC GPU sync">
+      <ignition-gui>
+        <property type="string" key="state">floating</property>
+        <property type="double" key="width">1</property>
+        <property type="double" key="height">1</property>
+        <property type="bool" key="showTitleBar">false</property>
+      </ignition-gui>
+    </plugin>
     <plugin filename="GzSceneManager" name="Scene Manager">
       <ignition-gui>
         <property type="bool" key="resizable">false</property>
