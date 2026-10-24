@@ -1,0 +1,350 @@
+{
+  "started_at": "2026-10-23T21:51:03+0800",
+  "latest_before": "46fe655145eceeb53d0882f7c56cc22714553eea0e9c563c475055409c9ca1c6",
+  "finished": false,
+  "cases": [
+    {
+      "case": "baseline-spawn0",
+      "command": [
+        "python3",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/simulation/check_exploration.py",
+        "--output",
+        "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-validation-suite/baseline-spawn0",
+        "--task-timeout",
+        "300",
+        "--timeout",
+        "460",
+        "--record"
+      ],
+      "exit_code": 1,
+      "result": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-validation-suite/baseline-spawn0/result.json",
+      "state": "completed",
+      "success": false,
+      "acceptance": {
+        "truth_quality": true,
+        "completed": true,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": true,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": true
+      },
+      "truth_quality": {
+        "valid": true,
+        "issues": [],
+        "limits": {
+          "minimum_distinct_measurement_stamps": 3,
+          "maximum_sim_gap_s": 0.2,
+          "maximum_wall_gap_s": 0.5,
+          "maximum_terminal_sim_age_s": 0.2,
+          "maximum_terminal_wall_age_s": 0.5,
+          "future_tolerance_s": 0.1
+        },
+        "task_start_wall_t": 6.694556556000009,
+        "decision_wall_t": 204.73435532399998,
+        "decision_sim_t": 199.528,
+        "task_samples": 5821,
+        "distinct_measurement_stamps": 5821,
+        "maximum_sim_gap_s": 0.03500000000002501,
+        "maximum_wall_gap_s": 0.39880380900001455,
+        "last_truth_wall_age_s": 0.028037507999954414,
+        "last_truth_sim_age_s": 0.027999999999991587
+      },
+      "return_error_m": 0.20281457812057554,
+      "reachable_coverage": 1.0,
+      "contour_p95_m": 0.10885311203635864,
+      "contour_coverage": 0.9924812030075187,
+      "geometric_overlap": 0,
+      "failures": [],
+      "elapsed_wall_seconds": 217.12530524899995
+    },
+    {
+      "case": "l_shape-spawn0",
+      "command": [
+        "python3",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/simulation/check_exploration.py",
+        "--output",
+        "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-validation-suite/l_shape-spawn0",
+        "--task-timeout",
+        "300",
+        "--timeout",
+        "460",
+        "--record",
+        "--scenario",
+        "l_shape",
+        "--spawn",
+        "0"
+      ],
+      "exit_code": 1,
+      "result": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-validation-suite/l_shape-spawn0/result.json",
+      "state": null,
+      "success": false,
+      "acceptance": {
+        "truth_quality": false,
+        "completed": false,
+        "map_saved": false,
+        "returned": false,
+        "return_error": false,
+        "no_geometric_overlap": false,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false
+      },
+      "truth_quality": {
+        "valid": false,
+        "issues": [
+          "arrival_gap_exceeded"
+        ],
+        "limits": {
+          "minimum_distinct_measurement_stamps": 3,
+          "maximum_sim_gap_s": 0.2,
+          "maximum_wall_gap_s": 0.5,
+          "maximum_terminal_sim_age_s": 0.2,
+          "maximum_terminal_wall_age_s": 0.5,
+          "future_tolerance_s": 0.1
+        },
+        "task_start_wall_t": 0.0,
+        "decision_wall_t": 50.57450798699995,
+        "decision_sim_t": 46.013,
+        "task_samples": 1354,
+        "distinct_measurement_stamps": 1354,
+        "maximum_sim_gap_s": 0.03500000000000014,
+        "maximum_wall_gap_s": 4.467211971999973,
+        "last_truth_wall_age_s": 0.0011910700000044017,
+        "last_truth_sim_age_s": 0.0009999999999976694
+      },
+      "return_error_m": null,
+      "reachable_coverage": null,
+      "contour_p95_m": null,
+      "contour_coverage": null,
+      "geometric_overlap": null,
+      "failures": [
+        "RuntimeError('Nav2 did not become active')",
+        "Invalid evaluation truth: arrival_gap_exceeded",
+        "Missing map artifact .yaml",
+        "Missing map artifact .pgm",
+        "Missing map artifact .posegraph",
+        "Missing map artifact .data",
+        "Missing map artifact .metadata.json",
+        "rosbag missing required messages or unreadable"
+      ],
+      "elapsed_wall_seconds": 61.78132364399994
+    },
+    {
+      "case": "l_shape-spawn1",
+      "command": [
+        "python3",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/simulation/check_exploration.py",
+        "--output",
+        "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-validation-suite/l_shape-spawn1",
+        "--task-timeout",
+        "300",
+        "--timeout",
+        "460",
+        "--record",
+        "--scenario",
+        "l_shape",
+        "--spawn",
+        "1"
+      ],
+      "exit_code": 1,
+      "result": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-validation-suite/l_shape-spawn1/result.json",
+      "state": "completed",
+      "success": false,
+      "acceptance": {
+        "truth_quality": true,
+        "completed": true,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false
+      },
+      "truth_quality": {
+        "valid": true,
+        "issues": [],
+        "limits": {
+          "minimum_distinct_measurement_stamps": 3,
+          "maximum_sim_gap_s": 0.2,
+          "maximum_wall_gap_s": 0.5,
+          "maximum_terminal_sim_age_s": 0.2,
+          "maximum_terminal_wall_age_s": 0.5,
+          "future_tolerance_s": 0.1
+        },
+        "task_start_wall_t": 5.795209792000037,
+        "decision_wall_t": 10.09234823700001,
+        "decision_sim_t": 5.644,
+        "task_samples": 127,
+        "distinct_measurement_stamps": 127,
+        "maximum_sim_gap_s": 0.03500000000000014,
+        "maximum_wall_gap_s": 0.0372131060000811,
+        "last_truth_wall_age_s": 0.003699185999948895,
+        "last_truth_sim_age_s": 0.004000000000000448
+      },
+      "return_error_m": 0.0,
+      "reachable_coverage": 0.7602850664075154,
+      "contour_p95_m": 2.3317741106087366,
+      "contour_coverage": 0.5409836065573771,
+      "geometric_overlap": 0,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "elapsed_wall_seconds": 12.105174046000002
+    },
+    {
+      "case": "l_shape-spawn2",
+      "command": [
+        "python3",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/simulation/check_exploration.py",
+        "--output",
+        "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-validation-suite/l_shape-spawn2",
+        "--task-timeout",
+        "300",
+        "--timeout",
+        "460",
+        "--record",
+        "--scenario",
+        "l_shape",
+        "--spawn",
+        "2"
+      ],
+      "exit_code": 1,
+      "result": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-validation-suite/l_shape-spawn2/result.json",
+      "state": "completed",
+      "success": false,
+      "acceptance": {
+        "truth_quality": true,
+        "completed": true,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false
+      },
+      "truth_quality": {
+        "valid": true,
+        "issues": [],
+        "limits": {
+          "minimum_distinct_measurement_stamps": 3,
+          "maximum_sim_gap_s": 0.2,
+          "maximum_wall_gap_s": 0.5,
+          "maximum_terminal_sim_age_s": 0.2,
+          "maximum_terminal_wall_age_s": 0.5,
+          "future_tolerance_s": 0.1
+        },
+        "task_start_wall_t": 5.960044073000063,
+        "decision_wall_t": 10.71317689099999,
+        "decision_sim_t": 6.171,
+        "task_samples": 140,
+        "distinct_measurement_stamps": 140,
+        "maximum_sim_gap_s": 0.03500000000000014,
+        "maximum_wall_gap_s": 0.03949624100005167,
+        "last_truth_wall_age_s": 0.024793531999989682,
+        "last_truth_sim_age_s": 0.025000000000000355
+      },
+      "return_error_m": 0.0,
+      "reachable_coverage": 0.7719468739876904,
+      "contour_p95_m": 1.5201900927317922,
+      "contour_coverage": 0.5428051001821493,
+      "geometric_overlap": 0,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "elapsed_wall_seconds": 12.75487337300001
+    },
+    {
+      "case": "clutter-spawn0",
+      "command": [
+        "python3",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/simulation/check_exploration.py",
+        "--output",
+        "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-validation-suite/clutter-spawn0",
+        "--task-timeout",
+        "300",
+        "--timeout",
+        "460",
+        "--record",
+        "--scenario",
+        "clutter",
+        "--spawn",
+        "0"
+      ],
+      "exit_code": 1,
+      "result": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-validation-suite/clutter-spawn0/result.json",
+      "state": "failed",
+      "success": false,
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": false,
+        "return_error": false,
+        "no_geometric_overlap": true,
+        "reachable_coverage": true,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false
+      },
+      "truth_quality": {
+        "valid": true,
+        "issues": [],
+        "limits": {
+          "minimum_distinct_measurement_stamps": 3,
+          "maximum_sim_gap_s": 0.2,
+          "maximum_wall_gap_s": 0.5,
+          "maximum_terminal_sim_age_s": 0.2,
+          "maximum_terminal_wall_age_s": 0.5,
+          "future_tolerance_s": 0.1
+        },
+        "task_start_wall_t": 6.320621771999981,
+        "decision_wall_t": 183.574000061,
+        "decision_sim_t": 178.81,
+        "task_samples": 5209,
+        "distinct_measurement_stamps": 5209,
+        "maximum_sim_gap_s": 0.036000000000001364,
+        "maximum_wall_gap_s": 0.3737768389999019,
+        "last_truth_wall_age_s": 0.021996124999986932,
+        "last_truth_sim_age_s": 0.02199999999999136
+      },
+      "return_error_m": 3.48346572624697,
+      "reachable_coverage": 0.9903370786516854,
+      "contour_p95_m": 1.606025217734766,
+      "contour_coverage": 0.917981072555205,
+      "geometric_overlap": 0,
+      "failures": [
+        "abnormal shutdown explorer: {'returncode': 2, 'forced_kill': False}"
+      ],
+      "elapsed_wall_seconds": 187.26395575800007
+    },
+    {
+      "case": "clutter-spawn1",
+      "result": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-validation-suite/clutter-spawn1/result.json",
+      "success": false,
+      "state": "completed",
+      "acceptance": {
+        "truth_quality": true,
+        "completed": true,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": true,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false
+      },
+      "failures": [
+        "User latest map selection changed during validation"
+      ],
+      "reachable_coverage": 1.0,
+      "contour_p95_m": 0.2653828276739636
+    }
+  ],
+  "latest_after": "46fe655145eceeb53d0882f7c56cc22714553eea0e9c563c475055409c9ca1c6",
+  "stopped_reason": "Known four-connected frontier fragmentation; full corrected suite will be recorded separately. Ordinary entry integration also changed latest during final diagnostic case; original exact selection restored.",
+  "latest_restored_exactly": true
+}

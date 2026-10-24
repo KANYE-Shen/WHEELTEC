@@ -34,9 +34,13 @@ class Grid:
         c, s = math.cos(self.origin_yaw), math.sin(self.origin_yaw)
         return self.origin_x+c*lx-s*ly, self.origin_y+s*lx+c*ly
 
-    def neighbors(self, cell):
+    def neighbors(self, cell, diagonal=False):
         x, y = cell
-        for nx, ny in ((x-1,y), (x+1,y), (x,y-1), (x,y+1)):
+        offsets = [(-1,0),(1,0),(0,-1),(0,1)]
+        if diagonal:
+            offsets += [(-1,-1),(-1,1),(1,-1),(1,1)]
+        for dx, dy in offsets:
+            nx, ny = x+dx, y+dy
             if 0 <= nx < self.width and 0 <= ny < self.height:
                 yield nx, ny
 
@@ -68,6 +72,7 @@ def select_frontiers(grid: Grid, robot: Tuple[float, float], robot_radius=0.35,
     navigation targets or traversed by the reachability search. The whole robot
     footprint must fit in observed free cells. Four-connected
     travel deliberately refuses diagonal shortcuts through occupied corners.
+    Frontier clustering uses eight neighbours to retain slanted visible edges.
     """
     free = {(i % grid.width, i // grid.width) for i, v in enumerate(grid.data) if 0 <= v <= 25}
     unsafe = [(i % grid.width, i // grid.width) for i, v in enumerate(grid.data) if not 0 <= v <= 25]
@@ -107,7 +112,7 @@ def select_frontiers(grid: Grid, robot: Tuple[float, float], robot_radius=0.35,
         frontiers.remove(seed)
         cluster, queue = [seed], deque([seed])
         while queue:
-            for nxt in grid.neighbors(queue.popleft()):
+            for nxt in grid.neighbors(queue.popleft(), diagonal=True):
                 if nxt in frontiers:
                     frontiers.remove(nxt)
                     cluster.append(nxt)

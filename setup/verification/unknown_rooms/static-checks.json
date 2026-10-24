@@ -1,0 +1,16 @@
+{
+  "checked_at": "2026-10-24T09:38:13.119770+08:00",
+  "python_files_parsed": 37,
+  "python_errors": [],
+  "broken_document_links": [],
+  "root_shortcuts": [
+    "启动_已有地图导航.cmd",
+    "启动_手动建图.cmd",
+    "启动_自主探索建图.cmd",
+    "地图_保存当前成果.cmd",
+    "帮助_操作指南.cmd",
+    "控制_键盘遥控.cmd"
+  ],
+  "start_room_has_utf8_bom": true,
+  "reviewed_core_matches_frozen_hashes": true
+}

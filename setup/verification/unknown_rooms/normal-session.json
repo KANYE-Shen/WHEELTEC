@@ -1,0 +1,362 @@
+{
+  "success": true,
+  "run_dir": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261024-normal-session-check",
+  "domain": 82,
+  "scenario": "l_shape",
+  "spawn_index": 1,
+  "latest_sha256_before": "46fe655145eceeb53d0882f7c56cc22714553eea0e9c563c475055409c9ca1c6",
+  "latest_existed_before": true,
+  "independent_exploration_assessment": false,
+  "failures": [],
+  "exploration_session": {
+    "version": 1,
+    "ros_domain_id": 82,
+    "owner_pid": 22148,
+    "owner_start_ticks": "4233926",
+    "lock_device": 2096,
+    "lock_inode": 172709,
+    "mode": "mapping",
+    "simulation": {
+      "version": 1,
+      "scenario": "l_shape",
+      "spawn_index": 1,
+      "scenario_sha256": "55206c1bbba36e948be81802e2b17fe9d2e6199ad0d173fe9140753bd6ef31ca"
+    }
+  },
+  "capture_run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261024-093428-129155_l_shape_spawn1",
+  "world_sha256_before": "b8424a16267f5c82144d74ab8c0737d34d6d10fd2a3eb586f480a84ddf76c54f",
+  "world_spawn": [
+    1.8,
+    -1.5,
+    0.0,
+    0.0,
+    0.0,
+    1.57
+  ],
+  "stationary_before_manual_save": true,
+  "normal_explorer_terminal_before_stop": {
+    "state": "completed",
+    "map_output": "/home/wheeltec/wheeltec_sim_ws/data/maps/20261024-093428-129155_l_shape_spawn1/room",
+    "goals": [
+      {
+        "target": [
+          1.6119189019742604,
+          0.8464438509096155
+        ],
+        "success": false,
+        "result": "rejected"
+      },
+      {
+        "target": [
+          1.2119188960137957,
+          3.5964438918878088
+        ],
+        "success": true,
+        "result": "4"
+      },
+      {
+        "target": [
+          2.0660591447469505,
+          1.7889954872447584
+        ],
+        "success": true,
+        "result": "4"
+      },
+      {
+        "target": [
+          3.5660591670986923,
+          3.8889955185371967
+        ],
+        "success": true,
+        "result": "4"
+      },
+      {
+        "target": [
+          3.1694654759194454,
+          3.7032645891793115
+        ],
+        "success": true,
+        "result": "4"
+      }
+    ],
+    "reference_yaw_rad": 0.0,
+    "reason": "no_reachable_frontiers",
+    "elapsed_wall_seconds": 104.51,
+    "start_pose": [
+      -3.463069972572273e-17,
+      1.1736560111108126e-38,
+      3.464731684527737e-19
+    ],
+    "known_free_area_m2": 23.638,
+    "frontier_clusters": 0,
+    "unreachable_clusters": 0,
+    "ignored_small_clusters": 3,
+    "target": [
+      3.1694654759194454,
+      3.7032645891793115
+    ],
+    "map_saved": true,
+    "returned": true,
+    "completion_criteria": {
+      "stable_empty_maps": 3,
+      "minimum_free_area_m2": 8.0,
+      "no_unreachable_clusters": true
+    },
+    "history": [
+      {
+        "state": "starting",
+        "reason": "Waiting for SLAM map, robot transform and Nav2",
+        "elapsed_wall_seconds": 0.0
+      },
+      {
+        "state": "exploring",
+        "reason": "Selecting reachable frontiers",
+        "elapsed_wall_seconds": 4.46
+      },
+      {
+        "state": "exploring",
+        "reason": "Navigating to a frontier approach",
+        "elapsed_wall_seconds": 4.64
+      },
+      {
+        "state": "exploring",
+        "reason": "Navigating to a frontier approach",
+        "elapsed_wall_seconds": 5.56
+      },
+      {
+        "state": "exploring",
+        "reason": "Navigating to a frontier approach",
+        "elapsed_wall_seconds": 29.64
+      },
+      {
+        "state": "exploring",
+        "reason": "Navigating to a frontier approach",
+        "elapsed_wall_seconds": 44.62
+      },
+      {
+        "state": "exploring",
+        "reason": "Navigating to a frontier approach",
+        "elapsed_wall_seconds": 63.62
+      },
+      {
+        "state": "saving",
+        "reason": "Saving occupancy grid and SLAM pose graph",
+        "elapsed_wall_seconds": 72.62
+      },
+      {
+        "state": "returning",
+        "reason": "Returning to the exploration start position",
+        "elapsed_wall_seconds": 72.99
+      }
+    ]
+  },
+  "initial_truth_world": [
+    [
+      1.8,
+      -1.5,
+      1.57
+    ]
+  ],
+  "manual_saved_identity": {
+    "version": 1,
+    "scenario": "l_shape",
+    "spawn_index": 1,
+    "scenario_sha256": "55206c1bbba36e948be81802e2b17fe9d2e6199ad0d173fe9140753bd6ef31ca"
+  },
+  "manual_artifact_bytes": {
+    ".yaml": 122,
+    ".pgm": 12561,
+    ".posegraph": 39400760,
+    ".data": 29574746,
+    ".metadata.json": 400,
+    ".simulation.json": 153
+  },
+  "exploration_shutdown": {
+    "returncode": 0,
+    "forced_kill": false,
+    "process_group_id": 22148,
+    "remaining_live_group_members": [],
+    "forced": false
+  },
+  "recording": {
+    "frames": 196,
+    "maps": 97,
+    "terminal": {
+      "state": "completed",
+      "map_output": "/home/wheeltec/wheeltec_sim_ws/data/maps/20261024-093428-129155_l_shape_spawn1/room",
+      "goals": [
+        {
+          "target": [
+            1.6119189019742604,
+            0.8464438509096155
+          ],
+          "success": false,
+          "result": "rejected"
+        },
+        {
+          "target": [
+            1.2119188960137957,
+            3.5964438918878088
+          ],
+          "success": true,
+          "result": "4"
+        },
+        {
+          "target": [
+            2.0660591447469505,
+            1.7889954872447584
+          ],
+          "success": true,
+          "result": "4"
+        },
+        {
+          "target": [
+            3.5660591670986923,
+            3.8889955185371967
+          ],
+          "success": true,
+          "result": "4"
+        },
+        {
+          "target": [
+            3.1694654759194454,
+            3.7032645891793115
+          ],
+          "success": true,
+          "result": "4"
+        }
+      ],
+      "reference_yaw_rad": 0.0,
+      "reason": "no_reachable_frontiers",
+      "elapsed_wall_seconds": 104.51,
+      "start_pose": [
+        -3.463069972572273e-17,
+        1.1736560111108126e-38,
+        3.464731684527737e-19
+      ],
+      "known_free_area_m2": 23.638,
+      "frontier_clusters": 0,
+      "unreachable_clusters": 0,
+      "ignored_small_clusters": 3,
+      "target": [
+        3.1694654759194454,
+        3.7032645891793115
+      ],
+      "map_saved": true,
+      "returned": true,
+      "completion_criteria": {
+        "stable_empty_maps": 3,
+        "minimum_free_area_m2": 8.0,
+        "no_unreachable_clusters": true
+      },
+      "history": [
+        {
+          "state": "starting",
+          "reason": "Waiting for SLAM map, robot transform and Nav2",
+          "elapsed_wall_seconds": 0.0
+        },
+        {
+          "state": "exploring",
+          "reason": "Selecting reachable frontiers",
+          "elapsed_wall_seconds": 4.46
+        },
+        {
+          "state": "exploring",
+          "reason": "Navigating to a frontier approach",
+          "elapsed_wall_seconds": 4.64
+        },
+        {
+          "state": "exploring",
+          "reason": "Navigating to a frontier approach",
+          "elapsed_wall_seconds": 5.56
+        },
+        {
+          "state": "exploring",
+          "reason": "Navigating to a frontier approach",
+          "elapsed_wall_seconds": 29.64
+        },
+        {
+          "state": "exploring",
+          "reason": "Navigating to a frontier approach",
+          "elapsed_wall_seconds": 44.62
+        },
+        {
+          "state": "exploring",
+          "reason": "Navigating to a frontier approach",
+          "elapsed_wall_seconds": 63.62
+        },
+        {
+          "state": "saving",
+          "reason": "Saving occupancy grid and SLAM pose graph",
+          "elapsed_wall_seconds": 72.62
+        },
+        {
+          "state": "returning",
+          "reason": "Returning to the exploration start position",
+          "elapsed_wall_seconds": 72.99
+        }
+      ]
+    },
+    "replay_bytes": 9206120,
+    "recorder_exit_code": 0
+  },
+  "world_sha256_after": "b8424a16267f5c82144d74ab8c0737d34d6d10fd2a3eb586f480a84ddf76c54f",
+  "localization_session": {
+    "version": 1,
+    "ros_domain_id": 82,
+    "owner_pid": 22725,
+    "owner_start_ticks": "4246172",
+    "lock_device": 2096,
+    "lock_inode": 172709,
+    "mode": "localization",
+    "simulation": {
+      "version": 1,
+      "scenario": "l_shape",
+      "spawn_index": 1,
+      "scenario_sha256": "55206c1bbba36e948be81802e2b17fe9d2e6199ad0d173fe9140753bd6ef31ca"
+    }
+  },
+  "amcl_active": true,
+  "localized_map_pose": [
+    0.023190881958285108,
+    0.023435245802786418,
+    -0.0010714355217513892
+  ],
+  "localized_truth_world": [
+    1.8,
+    -1.5,
+    1.57
+  ],
+  "localization_shutdown": {
+    "returncode": 0,
+    "forced_kill": false,
+    "process_group_id": 22725,
+    "remaining_live_group_members": [],
+    "forced": false
+  },
+  "cleanup": {
+    "localization": {
+      "returncode": 0,
+      "forced_kill": false,
+      "process_group_id": 22725,
+      "remaining_live_group_members": [],
+      "forced": false
+    },
+    "save": {
+      "returncode": 0,
+      "forced_kill": false,
+      "process_group_id": 22695,
+      "remaining_live_group_members": [],
+      "forced": false
+    },
+    "explore": {
+      "returncode": 0,
+      "forced_kill": false,
+      "process_group_id": 22148,
+      "remaining_live_group_members": [],
+      "forced": false
+    }
+  },
+  "latest_sha256_after": "46fe655145eceeb53d0882f7c56cc22714553eea0e9c563c475055409c9ca1c6",
+  "latest_restored_exactly": true
+}

@@ -1,0 +1,162 @@
+{
+  "started_at": "2026-10-24T09:24:55+0800",
+  "reason": "Independent truth-worker isolation and terminal clock callback ordering fix; original attempts are retained. No algorithm or threshold change.",
+  "original_suite": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-validation-suite-final",
+  "latest_before": "46fe655145eceeb53d0882f7c56cc22714553eea0e9c563c475055409c9ca1c6",
+  "finished": true,
+  "cases": [
+    {
+      "case": "clutter-spawn0",
+      "command": [
+        "python3",
+        "/mnt/d/虚拟c盘/WHEELTEC/simulation/check_exploration.py",
+        "--output",
+        "/home/wheeltec/wheeltec_sim_ws/data/runs/20261024-validation-truth-reruns/clutter-spawn0",
+        "--task-timeout",
+        "300",
+        "--timeout",
+        "460",
+        "--record",
+        "--scenario",
+        "clutter",
+        "--spawn",
+        "0"
+      ],
+      "exit_code": 1,
+      "result": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261024-validation-truth-reruns/clutter-spawn0/result.json",
+      "previous_result": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-validation-suite-final/clutter-spawn0/result.json",
+      "retry_reason": [
+        "terminal_measurement_in_future"
+      ],
+      "state": "incomplete",
+      "success": false,
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": true,
+        "observable_contour_p95": true,
+        "observable_contour_coverage": true
+      },
+      "truth_quality": {
+        "valid": true,
+        "issues": [],
+        "limits": {
+          "minimum_distinct_measurement_stamps": 3,
+          "maximum_sim_gap_s": 0.2,
+          "maximum_wall_gap_s": 0.5,
+          "maximum_terminal_sim_age_s": 0.2,
+          "maximum_terminal_wall_age_s": 0.5,
+          "future_tolerance_s": 0.1
+        },
+        "task_start_wall_t": 7.353095664002467,
+        "decision_wall_t": 232.68392621800012,
+        "decision_sim_t": 220.095,
+        "task_samples": 6565,
+        "distinct_measurement_stamps": 6565,
+        "maximum_sim_gap_s": 0.036000000000001364,
+        "maximum_wall_gap_s": 0.21270989600452594,
+        "last_truth_wall_age_s": 0.02497714899800485,
+        "last_truth_sim_age_s": 0.025000000000005684,
+        "terminal_clock_sync": {
+          "attempted": false,
+          "maximum_wait_wall_s": 2.0,
+          "elapsed_wall_s": 5.725996743422002e-06,
+          "initial_issues": [],
+          "required_new_measurement_stamps": 3,
+          "new_distinct_measurement_stamps": 0
+        }
+      },
+      "return_error_m": 0.17204011607373831,
+      "reachable_coverage": 1.0,
+      "contour_p95_m": 0.07472616676907769,
+      "contour_coverage": 0.9858044164037855,
+      "geometric_overlap": 0,
+      "failures": [
+        "abnormal shutdown explorer: {'returncode': 2, 'forced_kill': False, 'process_group_id': 20923, 'remaining_live_group_members': []}"
+      ],
+      "elapsed_wall_seconds": 236.8005115709966
+    },
+    {
+      "case": "clutter-spawn1",
+      "command": [
+        "python3",
+        "/mnt/d/虚拟c盘/WHEELTEC/simulation/check_exploration.py",
+        "--output",
+        "/home/wheeltec/wheeltec_sim_ws/data/runs/20261024-validation-truth-reruns/clutter-spawn1",
+        "--task-timeout",
+        "300",
+        "--timeout",
+        "460",
+        "--record",
+        "--scenario",
+        "clutter",
+        "--spawn",
+        "1"
+      ],
+      "exit_code": 1,
+      "result": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261024-validation-truth-reruns/clutter-spawn1/result.json",
+      "previous_result": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-validation-suite-final/clutter-spawn1/result.json",
+      "retry_reason": [
+        "arrival_gap_exceeded"
+      ],
+      "state": "incomplete",
+      "success": false,
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": true,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false
+      },
+      "truth_quality": {
+        "valid": true,
+        "issues": [],
+        "limits": {
+          "minimum_distinct_measurement_stamps": 3,
+          "maximum_sim_gap_s": 0.2,
+          "maximum_wall_gap_s": 0.5,
+          "maximum_terminal_sim_age_s": 0.2,
+          "maximum_terminal_wall_age_s": 0.5,
+          "future_tolerance_s": 0.1
+        },
+        "task_start_wall_t": 6.776091893996636,
+        "decision_wall_t": 202.29635869999765,
+        "decision_sim_t": 191.838,
+        "task_samples": 5707,
+        "distinct_measurement_stamps": 5707,
+        "maximum_sim_gap_s": 0.036000000000001364,
+        "maximum_wall_gap_s": 0.10627860900422093,
+        "last_truth_wall_age_s": 0.02505764499801444,
+        "last_truth_sim_age_s": 0.025000000000005684,
+        "terminal_clock_sync": {
+          "attempted": false,
+          "maximum_wait_wall_s": 2.0,
+          "elapsed_wall_s": 5.93299773754552e-06,
+          "initial_issues": [],
+          "required_new_measurement_stamps": 3,
+          "new_distinct_measurement_stamps": 0
+        }
+      },
+      "return_error_m": 0.16048823502067236,
+      "reachable_coverage": 1.0,
+      "contour_p95_m": 0.1186389295042185,
+      "contour_coverage": 0.9337539432176656,
+      "geometric_overlap": 0,
+      "failures": [
+        "abnormal shutdown explorer: {'returncode': 2, 'forced_kill': False, 'process_group_id': 21704, 'remaining_live_group_members': []}"
+      ],
+      "elapsed_wall_seconds": 207.1119462639981
+    }
+  ],
+  "latest_after": "46fe655145eceeb53d0882f7c56cc22714553eea0e9c563c475055409c9ca1c6",
+  "finished_at": "2026-10-24T09:32:23+0800",
+  "latest_preserved": true
+}

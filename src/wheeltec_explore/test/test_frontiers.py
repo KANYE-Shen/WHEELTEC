@@ -102,6 +102,20 @@ class FrontierTests(unittest.TestCase):
         self.assertGreaterEqual(math.dist((result.goals[0].x,result.goals[0].y),visited[0]),0.30)
         self.assertEqual(grid.value(*grid.world_to_cell(result.goals[0].x,result.goals[0].y)),0)
 
+    def test_diagonal_unknown_boundary_is_one_frontier_not_tiny_fragments(self):
+        # A diagonal visible edge is a single exploration boundary even though
+        # consecutive frontier cells only touch at raster corners. Travel still
+        # uses four neighbours; clustering must not lose the whole unseen area.
+        cells = [0 if x+y <= 22 else -1 for y in range(20) for x in range(20)]
+        grid = Grid(20, 20, 0.1, 0., 0., 0., cells)
+        result = select_frontiers(grid, (0.65, 0.65), robot_radius=0.2,
+                                  min_frontier_size=0.5)
+        self.assertTrue(result.goals)
+        self.assertEqual(result.frontier_clusters, 1)
+        self.assertGreater(result.goals[0].frontier_size, 10)
+        for goal in result.goals:
+            self.assertEqual(grid.value(*grid.world_to_cell(goal.x, goal.y)), 0)
+
     def test_malformed_grid_is_rejected(self):
         with self.assertRaises(ValueError):
             Grid(10, 10, 0.1, 0., 0., 0., [0])

@@ -37,3 +37,6 @@ python3 -m unittest discover -s /mnt/d/虚拟c盘/WHEELTEC/src/wheeltec_explore/
 纯算法测试覆盖已知空地目标、障碍间隙、不可达前沿、完整封闭房间、地图旋转原点、失败冷却及完成判据。仿真整体结果由根目录的阶段记录提供。
 
 接口来源：[Nav2 Humble Map Server](https://api.nav2.org/nav2-humble/html/md_nav2_map_server_README.html)、[SLAM Toolbox](https://github.com/SteveMacenski/slam_toolbox)。候选 [m-explore-ros2](https://github.com/robo-friends/m-explore-ros2) 可作为后续对比。
+验证运行可设置 `update_latest:=false`，只在指定 `map_output` 保存地图及元数据，不更新用户 `latest.json`；默认仍为 `true`。Humble trinary PGM 保存统一采用空地阈值 0.19、占据阈值 0.65，使灰度 205 的未知格在重新加载后保持未知。
+
+前沿格采用八邻域聚类，使倾斜墙边的前沿不会碎成短簇；车体安全膨胀与可达路径仍按四邻域搜索，禁止从障碍角斜穿。该区别由45度边界和障碍角回归测试覆盖。

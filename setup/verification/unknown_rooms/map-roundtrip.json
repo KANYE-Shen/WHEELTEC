@@ -1,0 +1,15 @@
+{
+  "free_thresh": 0.19,
+  "expected": [
+    -1,
+    0,
+    100
+  ],
+  "run_dir": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-170123_map_roundtrip",
+  "success": true,
+  "received": [
+    -1,
+    0,
+    100
+  ]
+}

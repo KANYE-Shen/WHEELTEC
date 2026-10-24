@@ -1,0 +1,71 @@
+{
+  "id": "bent_passage",
+  "name": "Traversable bent narrow passage",
+  "units": "m",
+  "room": [
+    [
+      -2.5,
+      -2.5
+    ],
+    [
+      2.5,
+      -2.5
+    ],
+    [
+      2.5,
+      2.5
+    ],
+    [
+      -2.5,
+      2.5
+    ]
+  ],
+  "obstacles": [
+    {
+      "name": "lower_divider",
+      "rect": [
+        -2.5,
+        -0.4,
+        0.8,
+        0.1
+      ],
+      "height": 0.7
+    },
+    {
+      "name": "upper_divider",
+      "rect": [
+        -0.8,
+        1.2,
+        2.5,
+        1.7
+      ],
+      "height": 0.7
+    }
+  ],
+  "spawns": [
+    {
+      "name": "start_0",
+      "pose": [
+        -1.7,
+        -1.5,
+        0
+      ]
+    },
+    {
+      "name": "start_1",
+      "pose": [
+        1.6,
+        -1.4,
+        1.57
+      ]
+    },
+    {
+      "name": "start_2",
+      "pose": [
+        -1.6,
+        1.95,
+        0
+      ]
+    }
+  ]
+}

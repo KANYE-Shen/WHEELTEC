@@ -6,7 +6,21 @@ import math
 import os
 from pathlib import Path
 import time
+from room_session import active_session, atomic_json
 
+
+def write_record(output, record, data_root, domain, expected_session, *, update_latest=True, lock_path=None, proc_root=Path('/proc')):
+    """Publish metadata only if the same live simulation owned the whole save."""
+    current = active_session(data_root,domain,lock_path,proc_root)
+    if current != expected_session:
+        raise RuntimeError('Simulation session changed during map save; latest was not updated')
+    if current is not None:
+        if current.get('simulation') is None:
+            raise RuntimeError('Current custom world has no recoverable scenario identity')
+        atomic_json(Path(str(output)+'.simulation.json'),current['simulation'])
+    atomic_json(Path(str(output)+'.metadata.json'),record)
+    if update_latest:
+        atomic_json(Path(data_root)/'maps/latest.json',record)
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
@@ -20,6 +34,11 @@ def main():
     output.parent.mkdir(parents=True, exist_ok=True)
     os.environ.setdefault('ROS_DOMAIN_ID','77')
     os.environ['ROS_LOCALHOST_ONLY'] = '1'
+    data_root = Path.home()/'wheeltec_sim_ws/data'
+    domain = os.environ['ROS_DOMAIN_ID']
+    current_session = active_session(data_root,domain)
+    if current_session is not None and current_session.get('simulation') is None:
+        raise RuntimeError('Current custom world has no recoverable scenario identity')
     import rclpy
     from nav2_msgs.srv import SaveMap
     from slam_toolbox.srv import SerializePoseGraph
@@ -40,7 +59,8 @@ def main():
         request.map_url = str(output)
         request.image_format = 'pgm'
         request.map_mode = 'trinary'
-        request.free_thresh = .25
+        # Humble writes unknown as 205/255; its occupancy (0.196) must stay above free threshold.
+        request.free_thresh = .19
         request.occupied_thresh = .65
         if not call(SaveMap, '/map_saver/save_map', request).result:
             raise RuntimeError('Occupancy map could not be saved')
@@ -52,13 +72,7 @@ def main():
                   'reference_yaw_rad':args.reference_yaw, 'reference_frame':'map',
                   'reference_definition':'User reference; zero is initial robot forward direction',
                   'saved_at':time.strftime('%Y-%m-%dT%H:%M:%S%z')}
-        Path(str(output)+'.metadata.json').write_text(json.dumps(record,indent=2))
-        if not args.no_latest:
-            latest = Path.home()/'wheeltec_sim_ws/data/maps/latest.json'
-            latest.parent.mkdir(parents=True,exist_ok=True)
-            temporary = latest.with_suffix('.json.tmp')
-            temporary.write_text(json.dumps(record,indent=2))
-            temporary.replace(latest)
+        write_record(output,record,data_root,domain,current_session,update_latest=not args.no_latest)
         print(json.dumps(record,indent=2),flush=True)
     finally:
         node.destroy_node()

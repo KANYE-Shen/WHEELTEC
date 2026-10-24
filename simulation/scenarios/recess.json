@@ -1,0 +1,81 @@
+{
+  "id": "recess",
+  "name": "Occluded recessed corner",
+  "units": "m",
+  "room": [
+    [
+      -2.5,
+      -2.5
+    ],
+    [
+      2.5,
+      -2.5
+    ],
+    [
+      2.5,
+      2.5
+    ],
+    [
+      -2.5,
+      2.5
+    ]
+  ],
+  "obstacles": [
+    {
+      "name": "long_cabinet",
+      "rect": [
+        -0.3,
+        -0.8,
+        0.3,
+        1.9
+      ],
+      "height": 0.7
+    },
+    {
+      "name": "recess_lip",
+      "rect": [
+        0.3,
+        1.3,
+        1.7,
+        1.9
+      ],
+      "height": 0.7
+    },
+    {
+      "name": "small_box",
+      "rect": [
+        -1.6,
+        0.7,
+        -1.1,
+        1.2
+      ],
+      "height": 0.7
+    }
+  ],
+  "spawns": [
+    {
+      "name": "start_0",
+      "pose": [
+        -1.7,
+        -1.5,
+        0
+      ]
+    },
+    {
+      "name": "start_1",
+      "pose": [
+        1.5,
+        -1.4,
+        1.57
+      ]
+    },
+    {
+      "name": "start_2",
+      "pose": [
+        -1.1,
+        1.8,
+        -1.57
+      ]
+    }
+  ]
+}

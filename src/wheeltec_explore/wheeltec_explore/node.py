@@ -43,7 +43,7 @@ class Explorer(Node):
         maps = Path.home()/'wheeltec_sim_ws/data/maps'
         default_output = maps/time.strftime('%Y%m%d-%H%M%S_explore')/'room'
         parameters = {'map_frame': 'map', 'base_frame': 'base_link',
-                      'map_output': str(default_output), 'reference_yaw_rad': 0.0,
+                      'map_output': str(default_output), 'reference_yaw_rad': 0.0, 'update_latest': True,
                       'robot_radius': 0.35, 'min_frontier_size': 0.25,
                       'minimum_free_area': 8.0, 'goal_timeout': 120.0,
                       'task_timeout': 900.0, 'max_goals': 60,
@@ -161,7 +161,8 @@ class Explorer(Node):
         request.map_url = str(self.output)
         request.image_format = 'pgm'
         request.map_mode = 'trinary'
-        request.free_thresh = 0.25
+        # 205/255 is the Humble trinary unknown shade; .25 would reload it as free.
+        request.free_thresh = 0.19
         request.occupied_thresh = 0.65
         future = self.save.call_async(request)
         if not self.wait(future.done,30) or future.result() is None or not future.result().result:
@@ -178,7 +179,8 @@ class Explorer(Node):
                     'map_frame':self.config['map_frame'],'saved_at':time.strftime('%Y-%m-%dT%H:%M:%S%z'),
                     'source':'wheeltec_explore','start_pose':self.report['start_pose']}
         atomic_json(self.output.with_suffix('.metadata.json'),metadata)
-        atomic_json(self.maps_root/'latest.json',metadata)
+        if self.config['update_latest']:
+            atomic_json(self.maps_root/'latest.json',metadata)
         return True
 
     def run(self):

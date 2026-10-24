@@ -1,0 +1,51 @@
+{
+  "success": true,
+  "method": "Rescore real raw-Gazebo trajectory, truncating truth after five task seconds while retaining the real final clock/decision time. This is recorded-data replay, not a second live dropout run.",
+  "source": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-baseline-truth-quality",
+  "fresh": {
+    "valid": true,
+    "issues": [],
+    "limits": {
+      "minimum_distinct_measurement_stamps": 3,
+      "maximum_sim_gap_s": 0.2,
+      "maximum_wall_gap_s": 0.5,
+      "maximum_terminal_sim_age_s": 0.2,
+      "maximum_terminal_wall_age_s": 0.5,
+      "future_tolerance_s": 0.1
+    },
+    "task_start_wall_t": 6.808457989000004,
+    "decision_wall_t": 119.98682141900001,
+    "decision_sim_t": 114.793,
+    "task_samples": 3327,
+    "distinct_measurement_stamps": 3327,
+    "maximum_sim_gap_s": 0.036000000000001364,
+    "maximum_wall_gap_s": 0.4508933070000012,
+    "last_truth_wall_age_s": 0.008365689000015664,
+    "last_truth_sim_age_s": 0.009000000000000341
+  },
+  "stopped": {
+    "valid": false,
+    "issues": [
+      "arrival_gap_exceeded",
+      "terminal_measurement_stale_wall",
+      "terminal_measurement_stale_sim"
+    ],
+    "limits": {
+      "minimum_distinct_measurement_stamps": 3,
+      "maximum_sim_gap_s": 0.2,
+      "maximum_wall_gap_s": 0.5,
+      "maximum_terminal_sim_age_s": 0.2,
+      "maximum_terminal_wall_age_s": 0.5,
+      "future_tolerance_s": 0.1
+    },
+    "task_start_wall_t": 6.808457989000004,
+    "decision_wall_t": 119.98682141900001,
+    "decision_sim_t": 114.793,
+    "task_samples": 147,
+    "distinct_measurement_stamps": 147,
+    "maximum_sim_gap_s": 0.0349999999999997,
+    "maximum_wall_gap_s": 108.21144856800001,
+    "last_truth_wall_age_s": 108.21144856800001,
+    "last_truth_sim_age_s": 108.09
+  }
+}

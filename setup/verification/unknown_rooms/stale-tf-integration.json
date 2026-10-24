@@ -1,0 +1,29 @@
+{
+  "success": true,
+  "valid_frames_before_dropout": 3,
+  "last_frame": {
+    "t": 1792763382.0950944,
+    "wall_t": 4.00546212499998,
+    "pose": null,
+    "pose_stamp_s": 1792763379.093521,
+    "pose_age_s": 3.001573324203491,
+    "pose_transform_wall_age_s": 2.5005314169999906,
+    "scan": null,
+    "scan_age_s": null,
+    "plan": null,
+    "plan_age_wall_s": null,
+    "status": {},
+    "map": null,
+    "issues": [
+      "stale_pose_transform",
+      "missing_scan"
+    ]
+  },
+  "path": [
+    [
+      1.0,
+      2.0
+    ]
+  ],
+  "no_motion_publishers": true
+}

@@ -26,7 +26,7 @@ def algorithms(context, simulation):
             IncludeLaunchDescription(PythonLaunchDescriptionSource(str(Path(get_package_share_directory('slam_toolbox')) / 'launch/online_async_launch.py')),
                                      launch_arguments={'use_sim_time': 'true', 'slam_params_file': str(simulation/'config/slam.yaml')}.items()),
             Node(package='nav2_map_server', executable='map_saver_server', name='map_saver',
-                 parameters=[{'use_sim_time': True, 'save_map_timeout': 10.0, 'free_thresh_default': .25,
+                 parameters=[{'use_sim_time': True, 'save_map_timeout': 10.0, 'free_thresh_default': .19,
                               'occupied_thresh_default': .65, 'map_subscribe_transient_local': True}], output='screen'),
             Node(package='nav2_lifecycle_manager', executable='lifecycle_manager', name='lifecycle_manager_map_saver',
                  parameters=[{'use_sim_time': True, 'autostart': True, 'node_names': ['map_saver']}], output='screen'),
@@ -37,14 +37,20 @@ def algorithms(context, simulation):
             launch_arguments={'mode': mode, 'map': LaunchConfiguration('map').perform(context)}.items()))
     if explore:
         actions.append(Node(package='wheeltec_explore', executable='explore', name='wheeltec_explore',
-                            parameters=[{'use_sim_time': True}], output='screen'))
+                            parameters=[{'use_sim_time': True, **({'map_output': LaunchConfiguration('map_output').perform(context)} if LaunchConfiguration('map_output').perform(context) else {})}], output='screen'))
+    capture_run = LaunchConfiguration('capture_run').perform(context)
+    if explore and capture_run:
+        actions.append(ExecuteProcess(cmd=['python3', str(simulation/'capture_process.py'),
+                                           '--run', capture_run, '--metadata', LaunchConfiguration('capture_metadata').perform(context),
+                                           '--open-browser', LaunchConfiguration('capture_browser').perform(context)],
+                                      output='screen', sigterm_timeout='15', sigkill_timeout='20'))
     return actions
 
 
 def generate_launch_description():
     simulation = Path(__file__).resolve().parents[1]
     common = ['ign', 'gazebo', '-r', '-v', '3', '--render-engine', 'ogre']
-    world = str(simulation/'worlds/room_25m2.sdf')
+    world = LaunchConfiguration('world')
     gui = ExecuteProcess(cmd=common+[world], output='screen', condition=IfCondition(LaunchConfiguration('gui')))
     server = ExecuteProcess(cmd=common+['-s',world], output='screen', condition=UnlessCondition(LaunchConfiguration('gui')))
     bridge = Node(package='ros_gz_bridge', executable='parameter_bridge', name='room_bridge',
@@ -65,6 +71,11 @@ def generate_launch_description():
         DeclareLaunchArgument('navigation', default_value='true'),
         DeclareLaunchArgument('explore', default_value='false'),
         DeclareLaunchArgument('map', default_value=''),
+        DeclareLaunchArgument('world', default_value=str(simulation/'worlds/room_25m2.sdf')),
+        DeclareLaunchArgument('map_output', default_value=''),
+        DeclareLaunchArgument('capture_run', default_value=''),
+        DeclareLaunchArgument('capture_metadata', default_value='{}'),
+        DeclareLaunchArgument('capture_browser', default_value='true'),
         DeclareLaunchArgument('ros_domain_id', default_value='77'),
         DeclareLaunchArgument('partition', default_value='wheeltec-room'),
         SetEnvironmentVariable('ROS_LOCALHOST_ONLY','1'),

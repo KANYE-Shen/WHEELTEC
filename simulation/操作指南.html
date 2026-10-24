@@ -26,7 +26,7 @@
 <tr><td><code>帮助_操作指南.cmd</code></td><td>在浏览器打开本指南</td></tr>
 </tbody></table>
 </section>
-<section class="screens" aria-label="两个窗口怎么使用">
+<section class="screens" aria-label="Gazebo与RViz怎么使用">
 <article>
 <h2>Gazebo：看虚拟现场</h2>
 <figure><img src="../setup/verification/room/gazebo-windows.png" alt="Gazebo 中的封闭房间、三处障碍和蓝色小车"><figcaption>这里是预先搭建的三维房间。观察小车实际走到了哪里、有没有碰撞。</figcaption></figure>
@@ -87,9 +87,9 @@
 <details>
 <summary>体验三 · 保存地图，重启后继续导航</summary>
 <ol>
-<li>建图运行时，让小车停稳，双击 <code>地图_保存当前成果.cmd</code>。</li>
+<li>建图运行时，让小车停稳，双击 <code>地图_保存当前成果.cmd</code>。手动保存也会记住当前房间布局和起点，之后恢复同一场景。</li>
 <li>在原仿真启动终端按 <kbd>Ctrl+C</kbd> 结束。</li>
-<li>双击 <code>启动_已有地图导航.cmd</code>，加载最近一次保存的地图。</li>
+<li>双击 <code>启动_已有地图导航.cmd</code>，加载最近一次保存的地图。自主探索保存的地图会恢复所记录的房间布局和起点；没有场景记录的历史地图沿用原房间。</li>
 <li><strong>每次加载后都先给初始姿态：</strong>点 <code>2D Pose Estimate</code>，在估计的小车位置按住左键，朝实际车头方向拖动再松开。本房间重启后在地图 <code>(0, 0)</code>，车头朝 <code>+X</code>，即默认画面的右侧。</li>
 <li>等红色雷达点贴合地图中的墙，再用 <code>Nav2 Goal</code> 指定目标。</li>
 </ol>
@@ -99,15 +99,28 @@
 <p class="muted">还没保存过地图时，先完成一次建图和保存，再用已存地图入口。</p>
 </details>
 <details>
-<summary>体验四 · 自主探索整个房间</summary>
+<summary>体验四 · 选择陌生房间，自主探索并回放</summary>
 <ol>
-<li>关闭已有仿真。</li>
-<li>双击 <code>启动_自主探索建图.cmd</code>。</li>
-<li>观察地图逐渐展开，以及任务终端输出的结束状态、地图保存位置和返回起点结果。</li>
+<li>关闭已有仿真，双击 <code>启动_自主探索建图.cmd</code>。</li>
+<li>选择布局：<strong>1 原房间、2 L形房间、3 家具房间、4 弯通道、5 凹角房间</strong>；回车选原房间。</li>
+<li>选择起点 <strong>0、1、2</strong>，终端会列出位置和车头；回车选0。</li>
+<li>等 Gazebo、RViz 和<strong>浏览器过程页</strong>打开。不要同时使用遥控或点击其他导航目标。</li>
 </ol>
-<p>探索时不要打开键盘遥控，也不要同时点击其他导航目标。探索模块会自己选目标。</p>
-<p><code>completed</code> 表示地图已保存并已返回；<code>incomplete</code> 表示还有未解决区域或触发任务限制；<code>failed</code> 表示保存、定位、返回等步骤失败。结束后场景继续显示，用启动终端 <kbd>Ctrl+C</kbd> 退出。</p>
-</details>
+<h3>浏览器过程页怎么看</h3>
+<p>页面约每5秒读取一份记录。地图来自 SLAM，绿色箭头是估计车头，橙线是已走轨迹，蓝线是规划路线。右侧显示位置、相对起点车头的角度、数据年龄及缺失项。角度以首次有效车头为0°，逆时针为正。</p>
+<ul>
+<li><strong>播放 / 暂停</strong>、底部时间滑块、倍速：回看已记录的过程；地图和已走轨迹只显示到所选时刻。</li>
+<li><strong>回到实时</strong>：重新跟随新数据；图层复选框切换地图、激光、车头、轨迹和路线。</li>
+<li>暂停仿真或连接中断后保留最后数据，并显示最后记录时刻；页面暂停播放不会暂停小车。</li>
+<li>路线超过5秒未更新时显示虚线，并保留更新年龄。</li>
+</ul>
+<p><code>completed</code> 表示地图已保存并已返回；<code>incomplete</code> 表示仍有未解决区域或触发限制；<code>failed</code> 表示保存、定位、返回等步骤失败。<strong>独立地图验收</strong> 是基于真值的本次最终评分；普通探索明确显示<strong>未评分</strong>。任务完成不等于覆盖率和精度验收通过。</p>
+<h3>完成、退出与离线回放</h3>
+<p>任务到达终态后立即生成 <code>replay.html</code>，场景与网页仍保留。完整结束请在启动终端按 <kbd>Ctrl+C</kbd>；中途 Ctrl+C 会保存已有过程，记录为人工中止。<strong>关闭网页不会停止探索。</strong></p>
+<p>终端会打印本次过程目录。Windows资源管理器打开下列位置，在本次时间目录内双击 <code>replay.html</code> 即可回放，无需服务器：</p>
+<code class="path">\\wsl.localhost\WHEELTEC-Ubuntu-22.04\home\wheeltec\wheeltec_sim_ws\data\runs</code>
+<p>地图仍保存到 <code>data/maps/</code> 并更新最近地图。旁边的 <code>.simulation.json</code> 保存布局、起点与场景校验，“已有地图导航”据此恢复同一个房间。场景源文件改动后会明确报出不匹配。</p>
+<p>直接重复某个场景：在项目根目录的PowerShell运行 <code>.\simulation\Start-Room.ps1 -Explore -Scenario l_shape -Spawn 2</code>。场景参数为 <code>baseline</code>、<code>l_shape</code>、<code>clutter</code>、<code>bent_passage</code>、<code>recess</code>；省略起点时用0。</p></details>
 <section class="panel">
 <h2>遇到这些情况</h2>
 <ul>

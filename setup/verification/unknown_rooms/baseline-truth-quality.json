@@ -1,0 +1,878 @@
+{
+  "success": true,
+  "run_dir": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-baseline-truth-quality",
+  "ros_domain_id": 80,
+  "scenario": "baseline",
+  "spawn_index": 0,
+  "spawn": {
+    "name": "start_0",
+    "pose": [
+      -1.7,
+      -1.5,
+      0
+    ]
+  },
+  "task_timeout_wall_seconds": 240.0,
+  "record_requested": true,
+  "ground_truth_used_only_for_evaluation": true,
+  "status_history": [
+    {
+      "t": 3.711,
+      "wall_t": 8.359663555000012,
+      "state": "starting",
+      "map_output": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-baseline-truth-quality/map",
+      "goals": [],
+      "reference_yaw_rad": 0.0,
+      "reason": "Waiting for SLAM map, robot transform and Nav2",
+      "elapsed_wall_seconds": 0.0
+    },
+    {
+      "t": 3.78,
+      "wall_t": 8.429159954,
+      "state": "exploring",
+      "map_output": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-baseline-truth-quality/map",
+      "goals": [],
+      "reference_yaw_rad": 0.0,
+      "reason": "Selecting reachable frontiers",
+      "elapsed_wall_seconds": 0.99,
+      "start_pose": [
+        -1.9949397792756851e-16,
+        1.9949319973733282e-16,
+        -3.823872524914125e-21
+      ]
+    },
+    {
+      "t": 3.902,
+      "wall_t": 8.550669221000007,
+      "state": "exploring",
+      "map_output": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-baseline-truth-quality/map",
+      "goals": [],
+      "reference_yaw_rad": 0.0,
+      "reason": "Navigating to a frontier approach",
+      "elapsed_wall_seconds": 1.11,
+      "start_pose": [
+        -1.9949397792756851e-16,
+        1.9949319973733282e-16,
+        -3.823872524914125e-21
+      ],
+      "known_free_area_m2": 19.09,
+      "frontier_clusters": 8,
+      "unreachable_clusters": 5,
+      "ignored_small_clusters": 144,
+      "target": [
+        1.2134364988574493,
+        2.422234776286544
+      ]
+    },
+    {
+      "t": 20.806,
+      "wall_t": 25.454717818000006,
+      "state": "exploring",
+      "map_output": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-baseline-truth-quality/map",
+      "goals": [
+        {
+          "target": [
+            1.2134364988574493,
+            2.422234776286544
+          ],
+          "success": true,
+          "result": "4"
+        }
+      ],
+      "reference_yaw_rad": 0.0,
+      "reason": "Navigating to a frontier approach",
+      "elapsed_wall_seconds": 18.01,
+      "start_pose": [
+        -1.9949397792756851e-16,
+        1.9949319973733282e-16,
+        -3.823872524914125e-21
+      ],
+      "known_free_area_m2": 22.323,
+      "frontier_clusters": 4,
+      "unreachable_clusters": 1,
+      "ignored_small_clusters": 32,
+      "target": [
+        1.2297590343924862,
+        2.0116505433987335
+      ]
+    },
+    {
+      "t": 26.878,
+      "wall_t": 31.52787556300001,
+      "state": "exploring",
+      "map_output": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-baseline-truth-quality/map",
+      "goals": [
+        {
+          "target": [
+            1.2134364988574493,
+            2.422234776286544
+          ],
+          "success": true,
+          "result": "4"
+        },
+        {
+          "target": [
+            1.2297590343924862,
+            2.0116505433987335
+          ],
+          "success": true,
+          "result": "4"
+        }
+      ],
+      "reference_yaw_rad": 0.0,
+      "reason": "Navigating to a frontier approach",
+      "elapsed_wall_seconds": 24.09,
+      "start_pose": [
+        -1.9949397792756851e-16,
+        1.9949319973733282e-16,
+        -3.823872524914125e-21
+      ],
+      "known_free_area_m2": 22.355,
+      "frontier_clusters": 6,
+      "unreachable_clusters": 5,
+      "ignored_small_clusters": 24,
+      "target": [
+        3.7964286300015297,
+        0.011650513596410894
+      ]
+    },
+    {
+      "t": 48.848,
+      "wall_t": 53.510521141,
+      "state": "exploring",
+      "map_output": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-baseline-truth-quality/map",
+      "goals": [
+        {
+          "target": [
+            1.2134364988574493,
+            2.422234776286544
+          ],
+          "success": true,
+          "result": "4"
+        },
+        {
+          "target": [
+            1.2297590343924862,
+            2.0116505433987335
+          ],
+          "success": true,
+          "result": "4"
+        },
+        {
+          "target": [
+            3.7964286300015297,
+            0.011650513596410894
+          ],
+          "success": true,
+          "result": "4"
+        }
+      ],
+      "reference_yaw_rad": 0.0,
+      "reason": "Navigating to a frontier approach",
+      "elapsed_wall_seconds": 46.07,
+      "start_pose": [
+        -1.9949397792756851e-16,
+        1.9949319973733282e-16,
+        -3.823872524914125e-21
+      ],
+      "known_free_area_m2": 22.595,
+      "frontier_clusters": 5,
+      "unreachable_clusters": 0,
+      "ignored_small_clusters": 18,
+      "target": [
+        3.333125612081362,
+        0.061650514341468954
+      ]
+    },
+    {
+      "t": 55.865,
+      "wall_t": 60.530637927000015,
+      "state": "exploring",
+      "map_output": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-baseline-truth-quality/map",
+      "goals": [
+        {
+          "target": [
+            1.2134364988574493,
+            2.422234776286544
+          ],
+          "success": true,
+          "result": "4"
+        },
+        {
+          "target": [
+            1.2297590343924862,
+            2.0116505433987335
+          ],
+          "success": true,
+          "result": "4"
+        },
+        {
+          "target": [
+            3.7964286300015297,
+            0.011650513596410894
+          ],
+          "success": true,
+          "result": "4"
+        },
+        {
+          "target": [
+            3.333125612081362,
+            0.061650514341468954
+          ],
+          "success": true,
+          "result": "4"
+        }
+      ],
+      "reference_yaw_rad": 0.0,
+      "reason": "Navigating to a frontier approach",
+      "elapsed_wall_seconds": 53.09,
+      "start_pose": [
+        -1.9949397792756851e-16,
+        1.9949319973733282e-16,
+        -3.823872524914125e-21
+      ],
+      "known_free_area_m2": 22.723,
+      "frontier_clusters": 4,
+      "unreachable_clusters": 0,
+      "ignored_small_clusters": 19,
+      "target": [
+        2.1331255941999685,
+        2.6945319813696997
+      ]
+    },
+    {
+      "t": 80.883,
+      "wall_t": 85.55246044,
+      "state": "saving",
+      "map_output": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-baseline-truth-quality/map",
+      "goals": [
+        {
+          "target": [
+            1.2134364988574493,
+            2.422234776286544
+          ],
+          "success": true,
+          "result": "4"
+        },
+        {
+          "target": [
+            1.2297590343924862,
+            2.0116505433987335
+          ],
+          "success": true,
+          "result": "4"
+        },
+        {
+          "target": [
+            3.7964286300015297,
+            0.011650513596410894
+          ],
+          "success": true,
+          "result": "4"
+        },
+        {
+          "target": [
+            3.333125612081362,
+            0.061650514341468954
+          ],
+          "success": true,
+          "result": "4"
+        },
+        {
+          "target": [
+            2.1331255941999685,
+            2.6945319813696997
+          ],
+          "success": true,
+          "result": "4"
+        }
+      ],
+      "reference_yaw_rad": 0.0,
+      "reason": "Saving occupancy grid and SLAM pose graph",
+      "elapsed_wall_seconds": 78.11,
+      "start_pose": [
+        -1.9949397792756851e-16,
+        1.9949319973733282e-16,
+        -3.823872524914125e-21
+      ],
+      "known_free_area_m2": 22.678,
+      "frontier_clusters": 0,
+      "unreachable_clusters": 0,
+      "ignored_small_clusters": 19,
+      "target": [
+        2.1331255941999685,
+        2.6945319813696997
+      ]
+    },
+    {
+      "t": 81.223,
+      "wall_t": 85.90831981299999,
+      "state": "returning",
+      "map_output": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-baseline-truth-quality/map",
+      "goals": [
+        {
+          "target": [
+            1.2134364988574493,
+            2.422234776286544
+          ],
+          "success": true,
+          "result": "4"
+        },
+        {
+          "target": [
+            1.2297590343924862,
+            2.0116505433987335
+          ],
+          "success": true,
+          "result": "4"
+        },
+        {
+          "target": [
+            3.7964286300015297,
+            0.011650513596410894
+          ],
+          "success": true,
+          "result": "4"
+        },
+        {
+          "target": [
+            3.333125612081362,
+            0.061650514341468954
+          ],
+          "success": true,
+          "result": "4"
+        },
+        {
+          "target": [
+            2.1331255941999685,
+            2.6945319813696997
+          ],
+          "success": true,
+          "result": "4"
+        }
+      ],
+      "reference_yaw_rad": 0.0,
+      "reason": "Returning to the exploration start position",
+      "elapsed_wall_seconds": 78.47,
+      "start_pose": [
+        -1.9949397792756851e-16,
+        1.9949319973733282e-16,
+        -3.823872524914125e-21
+      ],
+      "known_free_area_m2": 22.678,
+      "frontier_clusters": 0,
+      "unreachable_clusters": 0,
+      "ignored_small_clusters": 19,
+      "target": [
+        2.1331255941999685,
+        2.6945319813696997
+      ]
+    },
+    {
+      "t": 113.792,
+      "wall_t": 118.56281767600001,
+      "state": "completed",
+      "map_output": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-baseline-truth-quality/map",
+      "goals": [
+        {
+          "target": [
+            1.2134364988574493,
+            2.422234776286544
+          ],
+          "success": true,
+          "result": "4"
+        },
+        {
+          "target": [
+            1.2297590343924862,
+            2.0116505433987335
+          ],
+          "success": true,
+          "result": "4"
+        },
+        {
+          "target": [
+            3.7964286300015297,
+            0.011650513596410894
+          ],
+          "success": true,
+          "result": "4"
+        },
+        {
+          "target": [
+            3.333125612081362,
+            0.061650514341468954
+          ],
+          "success": true,
+          "result": "4"
+        },
+        {
+          "target": [
+            2.1331255941999685,
+            2.6945319813696997
+          ],
+          "success": true,
+          "result": "4"
+        }
+      ],
+      "reference_yaw_rad": 0.0,
+      "reason": "no_reachable_frontiers",
+      "elapsed_wall_seconds": 111.12,
+      "start_pose": [
+        -1.9949397792756851e-16,
+        1.9949319973733282e-16,
+        -3.823872524914125e-21
+      ],
+      "known_free_area_m2": 22.678,
+      "frontier_clusters": 0,
+      "unreachable_clusters": 0,
+      "ignored_small_clusters": 19,
+      "target": [
+        2.1331255941999685,
+        2.6945319813696997
+      ],
+      "map_saved": true,
+      "returned": true,
+      "completion_criteria": {
+        "stable_empty_maps": 3,
+        "minimum_free_area_m2": 8.0,
+        "no_unreachable_clusters": true
+      },
+      "history": [
+        {
+          "state": "starting",
+          "reason": "Waiting for SLAM map, robot transform and Nav2",
+          "elapsed_wall_seconds": 0.0
+        },
+        {
+          "state": "exploring",
+          "reason": "Selecting reachable frontiers",
+          "elapsed_wall_seconds": 0.99
+        },
+        {
+          "state": "exploring",
+          "reason": "Navigating to a frontier approach",
+          "elapsed_wall_seconds": 1.11
+        },
+        {
+          "state": "exploring",
+          "reason": "Navigating to a frontier approach",
+          "elapsed_wall_seconds": 18.01
+        },
+        {
+          "state": "exploring",
+          "reason": "Navigating to a frontier approach",
+          "elapsed_wall_seconds": 24.09
+        },
+        {
+          "state": "exploring",
+          "reason": "Navigating to a frontier approach",
+          "elapsed_wall_seconds": 46.07
+        },
+        {
+          "state": "exploring",
+          "reason": "Navigating to a frontier approach",
+          "elapsed_wall_seconds": 53.09
+        },
+        {
+          "state": "saving",
+          "reason": "Saving occupancy grid and SLAM pose graph",
+          "elapsed_wall_seconds": 78.11
+        },
+        {
+          "state": "returning",
+          "reason": "Returning to the exploration start position",
+          "elapsed_wall_seconds": 78.47
+        }
+      ]
+    }
+  ],
+  "failures": [],
+  "source": {
+    "git_revision": "eae87b6feac404596a0d8e8f14b5d340d17b5ab1",
+    "sha256": {
+      "simulation/build_gui_sync.py": "5d3f248ef40693fad21d7ddce3c90dc6018fe7c09f50291459980753b0c8c9b4",
+      "simulation/check_exploration.py": "d887d3405b3b44aa2d9f1711bcb71fd3690a51b8ab2df883f202c40de8ee6fc0",
+      "simulation/check_navigation.py": "30182ef9477657d425b009093a53288403118a0219342efef0ed14551e88fe90",
+      "simulation/check_obstacles.py": "9a0328c32edbd58b8347b8633cacec709a43367ca9ed08874ca7e430f5b435a0",
+      "simulation/check_room.py": "fc77e1144994f0b983ba7c1d24c5603c08ce52cc15d9012f14f47fb937439c60",
+      "simulation/config/bridge.yaml": "8c03ed14072c12defb80d1471a511e9cf2f786c81df86a6a79d1fb3e50ada2d9",
+      "simulation/config/nav2.yaml": "737906ff0689a329684e16b8d1020e9e2e5ef94c244950c547325626629093e3",
+      "simulation/config/navigate_wait.xml": "72d6d3ad72e82fb295233b26a4c31e36972ccdc431e7288b98f8b3cdd061292e",
+      "simulation/config/slam.yaml": "3c10f823f1a51b16e01cd5b12843eef1502d696e2a83c4f856420bba020a7942",
+      "simulation/gui_sync/RenderSync.cc": "9c7ed35cbd1af3a2d26b46e5a05e65a6e9eddc1a0211f54e9e0cdadbf4f75bde",
+      "simulation/gui_sync/RenderSync.hh": "5b4e8b403780a0ee634e8fa9b0dbfdf6228d4abeb82a3c07c29f8610fa71ae18",
+      "simulation/gui_sync/WheeltecRenderSync.qml": "bd1759d4dc05979988925d17ec9ed3b4d82467474d820f2b951098ef7c93a8fa",
+      "simulation/launch/navigation.launch.py": "fe059f29e1afe891ab0b8829572a3c5954bd646bd2d462a98c2014c6ac945ea2",
+      "simulation/launch/room.launch.py": "2bad7522b320d61c0f3a3aeb6f315139051ecab7d6cee8e3a4a20814c7ca780a",
+      "simulation/map_metrics.py": "282f784fe91ec9137e00d041eca995eae0eaf5d49e439efa30696a241ab32709",
+      "simulation/models/wheeltec_reference/model.sdf": "790ee948429671ee19d81eed8ab71c02e1106212344ee7ec15856fe833654033",
+      "simulation/process_capture.py": "962b85fe5313e387cb39c5413ed26ee6ee0e51c031f93833d8e9e8a22c609f07",
+      "simulation/run_room.py": "ff59c28c5647f3251a526e1dd40894331ca0c36c1da672bc16b9c6ab18895829",
+      "simulation/save_map.py": "cb3b95b288e6ed14b5625ed17fdd16dc7328d9c5fa6fc961f25ce5c4d4b23cf5",
+      "simulation/scenarios/baseline.json": "9c524db887a9a8f88e248c4765ac5b5b3dacc372da37d3fff434faab796c2793",
+      "simulation/scenarios/bent_passage.json": "3c89d5d99a5817c01353cf63de8f84e9d2f2a7fcd925a396979e7e99dae35e0e",
+      "simulation/scenarios/clutter.json": "de8d08656df0c7f5e138c057e979261006360f724a191578d6f9d608b6b22955",
+      "simulation/scenarios/l_shape.json": "55206c1bbba36e948be81802e2b17fe9d2e6199ad0d173fe9140753bd6ef31ca",
+      "simulation/scenarios/recess.json": "27e04d116086318eec6ff8c6c8bea25e34e301f6aba58e002da7c353da40fb40",
+      "simulation/scenarios.py": "a1f82de4c3c69ae18f5b4fedf3a282d16e373d878ae2b71ea46e893300711cff",
+      "simulation/teleop.py": "edd8624eea0bec098f2e45dcc46038c9871f2c83ba38a9d5192706f6cb6aa1b6",
+      "simulation/test_map_roundtrip_ros.py": "3438171b6003c21349bf070b7f35c9b281fac75455ee5e1888999ec43d00653a",
+      "simulation/test_process_capture_ros.py": "474b5bda2a228f10b9214261f0ea0f9eaa173f0aaa5fa7f07d07f8da8cac6319",
+      "simulation/test_teleop.py": "0f5db5dccc91042696c541c74def6eb5cfb114de86a85aa7f643dd1777ac2887",
+      "simulation/test_teleop_ros.py": "7caa45cde5aa871f22282eb1c384b2a3ab1ce001752670d476e96b6121be1a53",
+      "simulation/test_validation.py": "8c98bac26eccfcc3cd8a1053c4bf75268d80de4662897c647811d05b8af18786",
+      "simulation/truth_capture.py": "b93138b971889bebcff2302e3a1515849920ece1ce2793882434b92818af5448",
+      "simulation/worlds/room_25m2.sdf": "a7b89c66bf89aef325e2416134078b1d898d8549a718ad0a74e7e58682859c05",
+      "src/wheeltec_explore/package.xml": "21e95e8a3f0f84f08b5c592902b4857848f1c17e66b78c860ae18bc24ceddb1c",
+      "src/wheeltec_explore/setup.py": "32a55a22f13c62de762478d1b4059c7f6c27535e6de11083f1017cbcaa64484c",
+      "src/wheeltec_explore/test/test_frontiers.py": "22c60ea9a7869dc1af75c1fa046c36886d9caefbf5747202a59791595467e6bc",
+      "src/wheeltec_explore/test/test_policy.py": "dcc71fe7189dce2509df05d9d14719ac57fe4c891815c7e1511e78d836bd5983",
+      "src/wheeltec_explore/wheeltec_explore/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/wheeltec_explore/wheeltec_explore/frontiers.py": "9be16eefdfddee3c9954d4f747aadaaaee6a0e601ba038ef2451453518a4ffda",
+      "src/wheeltec_explore/wheeltec_explore/node.py": "f1c67354a930aa27f21b1e2599e4e9e593df5761f8770ab81c5ef7d5696bc1f0",
+      "src/wheeltec_explore/wheeltec_explore/policy.py": "b4bab9d6fe8985f9bb8e8ddfed1f70a29c8db9c2172df4331f72a8fb1ce74e8f"
+    }
+  },
+  "latest_selector_sha256_before": "46fe655145eceeb53d0882f7c56cc22714553eea0e9c563c475055409c9ca1c6",
+  "initial_truth_world_m": [
+    -1.7,
+    -1.5
+  ],
+  "maximum_distance_from_start_m": 3.9168148387991013,
+  "initial_map_pose": [
+    1.0431102531127038e-20,
+    -3.5715468916735313e-40,
+    -7.996753820674664e-20
+  ],
+  "map_from_world": [
+    1.7,
+    1.5,
+    -7.996753820674664e-20
+  ],
+  "truth_quality": {
+    "valid": true,
+    "issues": [],
+    "limits": {
+      "minimum_distinct_measurement_stamps": 3,
+      "maximum_sim_gap_s": 0.2,
+      "maximum_wall_gap_s": 0.5,
+      "maximum_terminal_sim_age_s": 0.2,
+      "maximum_terminal_wall_age_s": 0.5,
+      "future_tolerance_s": 0.1
+    },
+    "task_start_wall_t": 6.808457989000004,
+    "decision_wall_t": 119.98682141900001,
+    "decision_sim_t": 114.793,
+    "task_samples": 3327,
+    "distinct_measurement_stamps": 3327,
+    "maximum_sim_gap_s": 0.036000000000001364,
+    "maximum_wall_gap_s": 0.4508933070000012,
+    "last_truth_wall_age_s": 0.008365689000015664,
+    "last_truth_sim_age_s": 0.009000000000000341
+  },
+  "explorer": {
+    "state": "completed",
+    "map_output": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-baseline-truth-quality/map",
+    "goals": [
+      {
+        "target": [
+          1.2134364988574493,
+          2.422234776286544
+        ],
+        "success": true,
+        "result": "4"
+      },
+      {
+        "target": [
+          1.2297590343924862,
+          2.0116505433987335
+        ],
+        "success": true,
+        "result": "4"
+      },
+      {
+        "target": [
+          3.7964286300015297,
+          0.011650513596410894
+        ],
+        "success": true,
+        "result": "4"
+      },
+      {
+        "target": [
+          3.333125612081362,
+          0.061650514341468954
+        ],
+        "success": true,
+        "result": "4"
+      },
+      {
+        "target": [
+          2.1331255941999685,
+          2.6945319813696997
+        ],
+        "success": true,
+        "result": "4"
+      }
+    ],
+    "reference_yaw_rad": 0.0,
+    "reason": "no_reachable_frontiers",
+    "elapsed_wall_seconds": 111.12,
+    "start_pose": [
+      -1.9949397792756851e-16,
+      1.9949319973733282e-16,
+      -3.823872524914125e-21
+    ],
+    "known_free_area_m2": 22.678,
+    "frontier_clusters": 0,
+    "unreachable_clusters": 0,
+    "ignored_small_clusters": 19,
+    "target": [
+      2.1331255941999685,
+      2.6945319813696997
+    ],
+    "map_saved": true,
+    "returned": true,
+    "completion_criteria": {
+      "stable_empty_maps": 3,
+      "minimum_free_area_m2": 8.0,
+      "no_unreachable_clusters": true
+    },
+    "history": [
+      {
+        "state": "starting",
+        "reason": "Waiting for SLAM map, robot transform and Nav2",
+        "elapsed_wall_seconds": 0.0
+      },
+      {
+        "state": "exploring",
+        "reason": "Selecting reachable frontiers",
+        "elapsed_wall_seconds": 0.99
+      },
+      {
+        "state": "exploring",
+        "reason": "Navigating to a frontier approach",
+        "elapsed_wall_seconds": 1.11
+      },
+      {
+        "state": "exploring",
+        "reason": "Navigating to a frontier approach",
+        "elapsed_wall_seconds": 18.01
+      },
+      {
+        "state": "exploring",
+        "reason": "Navigating to a frontier approach",
+        "elapsed_wall_seconds": 24.09
+      },
+      {
+        "state": "exploring",
+        "reason": "Navigating to a frontier approach",
+        "elapsed_wall_seconds": 46.07
+      },
+      {
+        "state": "exploring",
+        "reason": "Navigating to a frontier approach",
+        "elapsed_wall_seconds": 53.09
+      },
+      {
+        "state": "saving",
+        "reason": "Saving occupancy grid and SLAM pose graph",
+        "elapsed_wall_seconds": 78.11
+      },
+      {
+        "state": "returning",
+        "reason": "Returning to the exploration start position",
+        "elapsed_wall_seconds": 78.47
+      }
+    ]
+  },
+  "process_capture": {
+    "path": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-baseline-truth-quality/process.json",
+    "frames": 230,
+    "maps": 103,
+    "issues": {
+      "missing_scan_transform": 4
+    }
+  },
+  "truth_source": {
+    "time_source": "Gazebo Pose_V.header.stamp",
+    "arrival_time_source": "reader monotonic wall clock",
+    "topic": "/world/wheeltec_room/dynamic_pose/info",
+    "sample_period_sim_s": 0.02,
+    "sampling": "retain first, then source stamp >= period or regressed stamp",
+    "queue_capacity": 2000,
+    "raw_messages": 6779,
+    "retained_samples": 3389,
+    "parse_errors": 0,
+    "missing_reference_messages": 0,
+    "queue_dropped_samples": 0,
+    "reader_error": null
+  },
+  "shutdown": {
+    "recorder": {
+      "returncode": 0,
+      "forced_kill": false
+    },
+    "explorer": {
+      "returncode": 0,
+      "forced_kill": false
+    },
+    "launch": {
+      "returncode": 0,
+      "forced_kill": false
+    },
+    "truth_reader": {
+      "returncode": 0,
+      "forced_kill": false
+    }
+  },
+  "latest_selector_sha256_after": "46fe655145eceeb53d0882f7c56cc22714553eea0e9c563c475055409c9ca1c6",
+  "gazebo_return_error_m": 0.14713086911749093,
+  "truth_traveled_distance_m": 15.65463613170727,
+  "final_truth_world_m": [
+    -1.5780824306579448,
+    -1.417637393600048
+  ],
+  "trajectory_safety": {
+    "contact_measurement": "geometric_projection_only",
+    "minimum_clearance_m": 0.14117398165861328,
+    "geometric_overlap_samples": 0,
+    "geometric_overlap_events": 0,
+    "samples": 3378,
+    "interpolation_step_m": 0.02,
+    "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+    "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+  },
+  "map_metrics": {
+    "alignment_map_from_world": [
+      1.7,
+      1.5,
+      -7.996753820674664e-20
+    ],
+    "alignment_method": "fixed_initial_pose_rigid_no_scale",
+    "resolution_m": 0.05,
+    "robot_center_clearance_radius_m": 0.35,
+    "reachable_safe_cells": 5712,
+    "reachable_safe_area_m2": 14.280000000000003,
+    "correct_reachable_free_cells": 5712,
+    "reachable_coverage": 1.0,
+    "reachable_unknown_area_m2": 0.0,
+    "physical_free_area_m2": 23.900000000000006,
+    "physical_free_unknown_area_m2": 0.08750000000000002,
+    "other_physical_free_area_m2": 9.620000000000001,
+    "other_physical_free_unknown_area_m2": 0.08750000000000002,
+    "disconnected_safe_area_m2": 0.0,
+    "false_free_obstacle_cells": 5,
+    "false_free_obstacle_area_m2": 0.012500000000000002,
+    "false_free_solid_cells": 5,
+    "false_free_solid_area_m2": 0.012500000000000002,
+    "observable_contour_points": 532,
+    "mapped_observable_contour_points": 525,
+    "contour_observability": "ground_truth_LOS_from_reachable_safe_centers_sampled_every_third_cell",
+    "contour_sample_spacing_m": 0.05,
+    "contour_match_tolerance_m": 0.1,
+    "observable_contour_symmetric_p95_m": 0.050109780225530046,
+    "observable_contour_truth_to_map_p95_m": 0.050109780225530046,
+    "observable_contour_map_to_truth_p95_m": 0.03896332497886867,
+    "contour_symmetric_definition": "max_of_directional_p95",
+    "observable_contour_coverage": 0.9924812030075187,
+    "observable_contour_missing_fraction": 0.007518796992481258,
+    "excluded_contour_points": 20,
+    "limitations": [
+      "Geometric contour accuracy is evaluated only on ground-truth observable faces; interiors and occluded faces excluded.",
+      "Grid quantization is 0.05m; viewpoints are sampled at every third reachable raster cell.",
+      "Final map accuracy does not measure localization drift at every trajectory time."
+    ]
+  },
+  "saved_map_metrics": {
+    "alignment_map_from_world": [
+      1.7,
+      1.5,
+      -7.996753820674664e-20
+    ],
+    "alignment_method": "fixed_initial_pose_rigid_no_scale",
+    "resolution_m": 0.05,
+    "robot_center_clearance_radius_m": 0.35,
+    "reachable_safe_cells": 5712,
+    "reachable_safe_area_m2": 14.280000000000003,
+    "correct_reachable_free_cells": 5712,
+    "reachable_coverage": 1.0,
+    "reachable_unknown_area_m2": 0.0,
+    "physical_free_area_m2": 23.900000000000006,
+    "physical_free_unknown_area_m2": 0.09750000000000002,
+    "other_physical_free_area_m2": 9.620000000000001,
+    "other_physical_free_unknown_area_m2": 0.09750000000000002,
+    "disconnected_safe_area_m2": 0.0,
+    "false_free_obstacle_cells": 10,
+    "false_free_obstacle_area_m2": 0.025000000000000005,
+    "false_free_solid_cells": 10,
+    "false_free_solid_area_m2": 0.025000000000000005,
+    "observable_contour_points": 532,
+    "mapped_observable_contour_points": 524,
+    "contour_observability": "ground_truth_LOS_from_reachable_safe_centers_sampled_every_third_cell",
+    "contour_sample_spacing_m": 0.05,
+    "contour_match_tolerance_m": 0.1,
+    "observable_contour_symmetric_p95_m": 0.051444610964856044,
+    "observable_contour_truth_to_map_p95_m": 0.051444610964856044,
+    "observable_contour_map_to_truth_p95_m": 0.03933813716062597,
+    "contour_symmetric_definition": "max_of_directional_p95",
+    "observable_contour_coverage": 0.9906015037593985,
+    "observable_contour_missing_fraction": 0.009398496240601517,
+    "excluded_contour_points": 20,
+    "limitations": [
+      "Geometric contour accuracy is evaluated only on ground-truth observable faces; interiors and occluded faces excluded.",
+      "Grid quantization is 0.05m; viewpoints are sampled at every third reachable raster cell.",
+      "Final map accuracy does not measure localization drift at every trajectory time."
+    ]
+  },
+  "artifact_bytes": {
+    ".yaml": 122,
+    ".pgm": 10624,
+    ".posegraph": 28705963,
+    ".data": 23439077,
+    ".metadata.json": 428
+  },
+  "map_metadata": {
+    "map_yaml": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-baseline-truth-quality/map.yaml",
+    "posegraph": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-baseline-truth-quality/map",
+    "reference_yaw_rad": 0.0,
+    "map_frame": "map",
+    "saved_at": "2026-10-23T21:49:12+0800",
+    "source": "wheeltec_explore",
+    "start_pose": [
+      -1.9949397792756851e-16,
+      1.9949319973733282e-16,
+      -3.823872524914125e-21
+    ]
+  },
+  "rosbag": {
+    "info_returncode": 0,
+    "info": "\nFiles:             bag_0.db3\nBag size:          17.5 MiB\nStorage id:        sqlite3\nDuration:          115.021000000s\nStart:             Jan  1 1970 08:00:00.002000000 (0.002000000)\nEnd:               Jan  1 1970 08:01:55.023000000 (115.023000000)\nMessages:          128922\nTopic information: Topic: /exploration/status | Type: std_msgs/msg/String | Count: 10 | Serialization Format: cdr\n                   Topic: /tf_static | Type: tf2_msgs/msg/TFMessage | Count: 1 | Serialization Format: cdr\n                   Topic: /scan | Type: sensor_msgs/msg/LaserScan | Count: 1151 | Serialization Format: cdr\n                   Topic: /plan | Type: nav_msgs/msg/Path | Count: 105 | Serialization Format: cdr\n                   Topic: /odom | Type: nav_msgs/msg/Odometry | Count: 3383 | Serialization Format: cdr\n                   Topic: /map | Type: nav_msgs/msg/OccupancyGrid | Count: 115 | Serialization Format: cdr\n                   Topic: /tf | Type: tf2_msgs/msg/TFMessage | Count: 9135 | Serialization Format: cdr\n                   Topic: /clock | Type: rosgraph_msgs/msg/Clock | Count: 115022 | Serialization Format: cdr\n\n",
+    "error": "",
+    "readable": true,
+    "topic_message_counts": {
+      "/exploration/status": 10,
+      "/tf_static": 1,
+      "/scan": 1151,
+      "/plan": 105,
+      "/odom": 3383,
+      "/map": 115,
+      "/tf": 9135,
+      "/clock": 115022
+    },
+    "missing_or_empty_topics": []
+  },
+  "acceptance": {
+    "truth_quality": true,
+    "completed": true,
+    "map_saved": true,
+    "returned": true,
+    "return_error": true,
+    "no_geometric_overlap": true,
+    "reachable_coverage": true,
+    "observable_contour_p95": true,
+    "observable_contour_coverage": true
+  },
+  "elapsed_wall_seconds": 122.525985731
+}

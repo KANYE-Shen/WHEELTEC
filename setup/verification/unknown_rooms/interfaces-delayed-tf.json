@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "read_only": true,
+  "simulation": false,
+  "interface_check_passed": true,
+  "deployment_ready": false,
+  "physical_motion_tests": "not_run",
+  "output": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-interface-delayed-tf/interface.json",
+  "manual_checks_required": [
+    "measured chassis kinematics and dimensions",
+    "laser extrinsics",
+    "wheel/steering calibration",
+    "odometry accuracy",
+    "braking distance",
+    "low-speed supervised navigation and actual RDK load"
+  ],
+  "started_at": "2026-10-23T21:52:38+0800",
+  "resources_before": {
+    "architecture": "x86_64",
+    "ros_distro": "humble",
+    "memory_total_mib": 7824,
+    "memory_available_mib": 6612
+  },
+  "duration_wall_seconds": 3.170780356000023,
+  "streams": {
+    "scan": {
+      "messages": 61,
+      "wall_hz": 19.998995557114498,
+      "measurement_wall_hz": 19.998995557114498,
+      "duplicate_stamps": 0,
+      "distinct_measurements": 61,
+      "minimum_hz": 5,
+      "receive_age_seconds": 0.1510456149999868,
+      "measurement_age_seconds": 0.1510456149999868,
+      "stamp_age_seconds": 0.15147638320922852,
+      "backwards_stamps": 0,
+      "zero_stamps": 0,
+      "passed": true,
+      "topic": "/scan",
+      "publishers": 1
+    },
+    "odom": {
+      "messages": 60,
+      "wall_hz": 19.99954328500573,
+      "measurement_wall_hz": 19.99954328500573,
+      "duplicate_stamps": 0,
+      "distinct_measurements": 60,
+      "minimum_hz": 10,
+      "receive_age_seconds": 0.20064776599997458,
+      "measurement_age_seconds": 0.20064776599997458,
+      "stamp_age_seconds": 0.30156803131103516,
+      "backwards_stamps": 0,
+      "zero_stamps": 0,
+      "passed": true,
+      "topic": "/odom",
+      "publishers": 1
+    }
+  },
+  "scan": {
+    "frame_id": "laser",
+    "beams": 3,
+    "valid_beams": 3,
+    "range_min_m": 0.07999999821186066,
+    "range_max_m": 10.0,
+    "angle_min_rad": -1.0,
+    "angle_max_rad": 1.0
+  },
+  "tf_at_last_scan_stamp": [
+    {
+      "parent": "odom",
+      "child": "base_link",
+      "translation_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "quaternion_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "parent": "base_link",
+      "child": "laser",
+      "translation_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "quaternion_xyzw": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    }
+  ],
+  "tf_lookup_failed_attempts_at_sample_end": 23,
+  "odom_frames": {
+    "parent": "odom",
+    "child": "base_link"
+  },
+  "resources_after": {
+    "architecture": "x86_64",
+    "ros_distro": "humble",
+    "memory_total_mib": 7824,
+    "memory_available_mib": 6589
+  },
+  "host_cpu_busy_percent_during_check": 12.7
+}

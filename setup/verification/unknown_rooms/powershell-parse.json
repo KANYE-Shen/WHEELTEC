@@ -1,0 +1,22 @@
+[
+  {
+    "path": "D:\\虚拟c盘\\WHEELTEC\\setup\\Capture-SimulationWindows.ps1",
+    "errors": 0
+  },
+  {
+    "path": "D:\\虚拟c盘\\WHEELTEC\\setup\\Install-WslFoundation.ps1",
+    "errors": 0
+  },
+  {
+    "path": "D:\\虚拟c盘\\WHEELTEC\\simulation\\Save-Map.ps1",
+    "errors": 0
+  },
+  {
+    "path": "D:\\虚拟c盘\\WHEELTEC\\simulation\\Start-Room.ps1",
+    "errors": 0
+  },
+  {
+    "path": "D:\\虚拟c盘\\WHEELTEC\\simulation\\Start-Teleop.ps1",
+    "errors": 0
+  }
+]

@@ -1,0 +1,40 @@
+{
+  "success": true,
+  "method": "Chrome on a prefix of a real recording. Repeated file mtime changes without frame progress must remain stalled; owned HTTP server then stopped.",
+  "before": {
+    "index": 59,
+    "frameCount": 60,
+    "follow": true,
+    "playing": false,
+    "selectedTime": 30,
+    "mission": "exploring",
+    "mapIndex": 27,
+    "trajectoryPoints": 60,
+    "freshness": "receiving",
+    "label": "读取中 · 约每 5 秒刷新 · 最后记录：模拟 30.0 s / 录制 34.5 s"
+  },
+  "stalled": {
+    "index": 59,
+    "frameCount": 60,
+    "follow": true,
+    "playing": false,
+    "selectedTime": 30,
+    "mission": "exploring",
+    "mapIndex": 27,
+    "trajectoryPoints": 60,
+    "freshness": "stalled",
+    "label": "数据未继续，仿真可能已暂停或停止 · 最后记录：模拟 30.0 s / 录制 34.5 s"
+  },
+  "disconnected": {
+    "index": 59,
+    "frameCount": 60,
+    "follow": true,
+    "playing": false,
+    "selectedTime": 30,
+    "mission": "exploring",
+    "mapIndex": 27,
+    "trajectoryPoints": 60,
+    "freshness": "disconnected",
+    "label": "连接已中断，保留最后数据 · 最后记录：模拟 30.0 s / 录制 34.5 s"
+  }
+}

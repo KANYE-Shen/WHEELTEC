@@ -1,0 +1,171 @@
+{
+  "started_at": "2026-10-24T09:23:58+0800",
+  "checks": [
+    {
+      "name": "validation",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/simulation",
+        "-p",
+        "test_validation.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "elapsed_wall_seconds": 7.237776321002457,
+      "log": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261024-final-regressions/validation.log",
+      "tests": 27
+    },
+    {
+      "name": "truth-runtime",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/simulation",
+        "-p",
+        "test_truth_runtime.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "elapsed_wall_seconds": 2.3774246240063803,
+      "log": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261024-final-regressions/truth-runtime.log",
+      "tests": 8
+    },
+    {
+      "name": "exploration",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/src/wheeltec_explore/test",
+        "-v"
+      ],
+      "returncode": 0,
+      "elapsed_wall_seconds": 0.7090389500008314,
+      "log": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261024-final-regressions/exploration.log",
+      "tests": 13
+    },
+    {
+      "name": "viewer",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/simulation",
+        "-p",
+        "test_view_process.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "elapsed_wall_seconds": 1.2078642780033988,
+      "log": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261024-final-regressions/viewer.log",
+      "tests": 5
+    },
+    {
+      "name": "room-session",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "simulation",
+        "-p",
+        "test_room_session.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "elapsed_wall_seconds": 1.0091110569992452,
+      "log": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261024-final-regressions/room-session-fixed.log",
+      "initial_failure": {
+        "returncode": 1,
+        "log": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261024-final-regressions/room-session.log",
+        "reason": "Test child imported room_session using caller cwd; fixture now explicitly supplies simulation cwd."
+      },
+      "tests": 11
+    },
+    {
+      "name": "robot-interfaces",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/robot",
+        "-p",
+        "test_inspect_interfaces.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "elapsed_wall_seconds": 0.36995016699802363,
+      "log": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261024-final-regressions/robot-interfaces.log",
+      "tests": 7
+    },
+    {
+      "name": "teleop",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/simulation",
+        "-p",
+        "test_teleop.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "elapsed_wall_seconds": 0.6064724290044978,
+      "log": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261024-final-regressions/teleop.log",
+      "tests": 5
+    },
+    {
+      "name": "ros-truth-clock",
+      "command": [
+        "python3",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/simulation/test_truth_clock_ros.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "elapsed_wall_seconds": 0.7509533219999867,
+      "log": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261024-final-regressions/ros-truth-clock.log",
+      "tests": 1
+    },
+    {
+      "name": "ros-paused-clock",
+      "command": [
+        "python3",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/simulation/test_process_capture_ros.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "elapsed_wall_seconds": 6.583934490001411,
+      "log": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261024-final-regressions/ros-paused-clock.log",
+      "tests": 1
+    },
+    {
+      "name": "viewer-selection-node",
+      "command": [
+        "/mnt/c/Program Files/nodejs/node.exe",
+        "D:\\\u865a\u62dfc\u76d8\\WHEELTEC\\simulation\\test_process_viewer.cjs"
+      ],
+      "returncode": 0,
+      "elapsed_wall_seconds": 0.11343371600378305,
+      "log": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261024-final-regressions/viewer-selection-node.log"
+    }
+  ],
+  "success": true,
+  "finished_at": "2026-10-24T09:24:24+0800",
+  "python_test_count": 78
+}

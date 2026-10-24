@@ -1,0 +1,144 @@
+{
+  "success": true,
+  "results": {
+    "live": {
+      "initial": {
+        "index": 233,
+        "frameCount": 234,
+        "follow": true,
+        "playing": false,
+        "selectedTime": 116.582,
+        "mission": "completed",
+        "mapIndex": 108,
+        "trajectoryPoints": 234,
+        "freshness": "receiving",
+        "assessment": "通过",
+        "body": "WHEELTEC · 建图过程\nL 形房间 · 起点 1 · 算法估计 / map 坐标\n实时监看\n任务已结束，显示最终记录 · 最后记录：模拟 116.6 s / 录制 121.6 s\n播放\n回到开始\n0.5 倍\n1 倍\n2 倍\n4 倍\n8 倍\n回到实时\n模拟 116.6 s · 234 / 234 帧\n地图\n激光\n车头\n已走轨迹\n规划路线\n适应地图\n所选时刻 · 任务状态\n任务完成\n未再发现可达前沿\n地图保存\n已保存\n返回起点\n已返回\n所选时刻 · 小车与数据\n估计位置 x / y\n0.06 / 0.13 m\n相对起点车头\n-112.9°\n已走距离（估计）\n15.72 m\n地图版本\n第 1"
+      },
+      "first": {
+        "index": 0,
+        "frameCount": 234,
+        "follow": false,
+        "playing": false,
+        "selectedTime": 0.5,
+        "mission": null,
+        "mapIndex": 0,
+        "trajectoryPoints": 1,
+        "freshness": "receiving",
+        "missionLabel": "等待任务状态",
+        "distance": "0.00 m"
+      },
+      "mid": {
+        "index": 117,
+        "frameCount": 234,
+        "follow": false,
+        "playing": false,
+        "selectedTime": 59,
+        "mission": "exploring",
+        "mapIndex": 55,
+        "trajectoryPoints": 118,
+        "freshness": "receiving",
+        "heading": "-91.2°"
+      },
+      "playing": {
+        "index": 124,
+        "frameCount": 234,
+        "follow": false,
+        "playing": true,
+        "selectedTime": 62.5,
+        "mission": "exploring",
+        "mapIndex": 59,
+        "trajectoryPoints": 125,
+        "freshness": "receiving"
+      },
+      "final": {
+        "index": 233,
+        "frameCount": 234,
+        "follow": false,
+        "playing": false,
+        "selectedTime": 116.582,
+        "mission": "completed",
+        "mapIndex": 108,
+        "trajectoryPoints": 234,
+        "freshness": "receiving",
+        "missionLabel": "任务完成",
+        "heading": "-112.9°",
+        "position": "0.06 / 0.13 m"
+      },
+      "stalled": {
+        "freshness": "stalled",
+        "label": "任务已结束，显示最终记录 · 最后记录：模拟 116.6 s / 录制 121.6 s"
+      },
+      "layer_changes_canvas": true
+    },
+    "offline": {
+      "initial": {
+        "index": 0,
+        "frameCount": 234,
+        "follow": false,
+        "playing": false,
+        "selectedTime": 0.5,
+        "mission": null,
+        "mapIndex": 0,
+        "trajectoryPoints": 1,
+        "freshness": "receiving",
+        "assessment": "通过",
+        "body": "WHEELTEC · 建图过程\nL 形房间 · 起点 1 · 算法估计 / map 坐标\n离线回放\n离线回放 · 页面已包含全部记录，无需服务器\n播放\n回到开始\n0.5 倍\n1 倍\n2 倍\n4 倍\n8 倍\n模拟 0.5 s · 1 / 234 帧\n地图\n激光\n车头\n已走轨迹\n规划路线\n适应地图\n所选时刻 · 任务状态\n等待任务状态\n等待探索任务发布状态\n地图保存\n尚无结果\n返回起点\n尚无结果\n所选时刻 · 小车与数据\n估计位置 x / y\n0.00 / 0.00 m\n相对起点车头\n0.0°\n已走距离（估计）\n0.00 m\n地图版本\n第 1 版\n激光数据年龄\n0.10 s\n路线更新年龄\n尚无路线"
+      },
+      "first": {
+        "index": 0,
+        "frameCount": 234,
+        "follow": false,
+        "playing": false,
+        "selectedTime": 0.5,
+        "mission": null,
+        "mapIndex": 0,
+        "trajectoryPoints": 1,
+        "freshness": "receiving",
+        "missionLabel": "等待任务状态",
+        "distance": "0.00 m"
+      },
+      "mid": {
+        "index": 117,
+        "frameCount": 234,
+        "follow": false,
+        "playing": false,
+        "selectedTime": 59,
+        "mission": "exploring",
+        "mapIndex": 55,
+        "trajectoryPoints": 118,
+        "freshness": "receiving",
+        "heading": "-91.2°"
+      },
+      "playing": {
+        "index": 123,
+        "frameCount": 234,
+        "follow": false,
+        "playing": true,
+        "selectedTime": 62,
+        "mission": "exploring",
+        "mapIndex": 58,
+        "trajectoryPoints": 124,
+        "freshness": "receiving"
+      },
+      "final": {
+        "index": 233,
+        "frameCount": 234,
+        "follow": false,
+        "playing": false,
+        "selectedTime": 116.582,
+        "mission": "completed",
+        "mapIndex": 108,
+        "trajectoryPoints": 234,
+        "freshness": "receiving",
+        "missionLabel": "任务完成",
+        "heading": "-112.9°",
+        "position": "0.06 / 0.13 m"
+      },
+      "stalled": null,
+      "layer_changes_canvas": true
+    }
+  },
+  "source_run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-validation-suite-final/l_shape-spawn1",
+  "offline_opened_as_file": true
+}
