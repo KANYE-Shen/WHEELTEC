@@ -5,3 +5,12 @@ install/
 log/
 *.db3
 *.mcap
+
+# Local console dependencies, build output and secrets
+console/frontend/node_modules/
+console/frontend/dist/
+console/frontend/test-results/
+console/frontend/playwright-report/
+.venv/
+.env
+*.token
