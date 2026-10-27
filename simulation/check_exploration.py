@@ -111,6 +111,11 @@ def shutdown_abnormal(name, state, terminal):
                 or state['returncode'] not in expected_codes)
 
 
+def launch_shutdown_abnormal(text):
+    """ROS launch can hide a killed child behind a successful wrapper exit."""
+    return "sending signal 'SIGKILL'" in text or 'exit code -9' in text
+
+
 def source_manifest():
     files=[]
     for directory in (ROOT/'simulation',ROOT/'src/wheeltec_explore'):
@@ -319,6 +324,9 @@ def main(argv=None):
             result['failures'].append('User latest map selection changed during validation')
         for log in logs:
             log.close()
+        launch_log=run/'launch.log'
+        if launch_log.is_file() and launch_shutdown_abnormal(launch_log.read_text(errors='replace')):
+            result['failures'].append('abnormal shutdown: launch reported nested SIGKILL')
         if node is not None:
             node.destroy_node()
             if rclpy.ok():

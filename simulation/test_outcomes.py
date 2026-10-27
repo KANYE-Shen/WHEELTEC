@@ -5,6 +5,11 @@ sys.path.insert(0,str(Path(__file__).resolve().parent))
 import check_exploration as runner
 
 class OutcomeTests(unittest.TestCase):
+    def test_launch_child_sigkill_is_not_a_clean_shutdown(self):
+        self.assertFalse(runner.launch_shutdown_abnormal('[INFO] process has finished cleanly'))
+        self.assertTrue(runner.launch_shutdown_abnormal("sending signal 'SIGKILL' to process[lifecycle_manager-14]"))
+        self.assertTrue(runner.launch_shutdown_abnormal('process has died [pid 3, exit code -9, cmd lifecycle_manager]'))
+
     def test_viewpoint_strategy_is_explicit_and_recordable(self):
         self.assertEqual(runner.parse_arguments([]).viewpoint_strategy,'centroid')
         self.assertEqual(runner.parse_arguments(['--viewpoint-strategy','visibility']).viewpoint_strategy,'visibility')
