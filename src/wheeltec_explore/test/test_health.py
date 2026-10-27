@@ -15,6 +15,14 @@ class HealthTests(unittest.TestCase):
         self.h.map(10,10); self.h.scan(10,10)
         self.h.transform(10,10,(0,0,0)); self.h.slam(True)
 
+    def test_latched_map_before_first_clock_does_not_create_a_permanent_future_fault(self):
+        h=MapHealth()
+        h.map(2.7,0.)
+        self.assertFalse(h.faults)
+        self.assertNotIn('map',h.streams)
+        h.map(3.,3.1)
+        self.assertIn('map',h.streams)
+
     def test_fresh_inputs_are_healthy(self):
         self.assertTrue(self.h.snapshot(10.1)['healthy'])
 

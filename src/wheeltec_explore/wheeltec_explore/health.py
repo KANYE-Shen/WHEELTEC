@@ -28,6 +28,10 @@ class MapHealth:
         self.max_rotation_jump=0.
 
     def _stream(self, name, stamp, received):
+        # Zero ROS time means /clock is not initialized. Durable /map or TF may
+        # arrive before /clock; do not compare their epoch with an unknown clock.
+        if received <= 0:
+            return
         previous=self.streams.get(name)
         allowance=self.limits['future_tolerance']+(self.limits['tf_future_offset'] if name=='tf' else 0.)
         if not math.isfinite(stamp) or stamp <= 0 or stamp > received+allowance:
@@ -43,6 +47,8 @@ class MapHealth:
     def slam(self, alive): self.slam_alive=alive
 
     def transform(self, stamp, received, pose):
+        if received <= 0:
+            return
         if not all(math.isfinite(v) for v in pose):
             self.faults['nonfinite_transform']={'stamp':stamp}
             return
