@@ -1,9 +1,10 @@
 """Task outcome and retry bookkeeping independent of ROS and scene geometry."""
 import math
+from .defaults import DEFAULTS
 
 
 class RetryBook:
-    def __init__(self, cooldown=20.0, max_attempts=3, radius=0.35):
+    def __init__(self, cooldown=DEFAULTS['retry_cooldown'],max_attempts=DEFAULTS['max_attempts'],radius=DEFAULTS['retry_radius']):
         self.cooldown, self.max_attempts, self.radius = cooldown, max_attempts, radius
         self.entries = []
 
@@ -28,7 +29,7 @@ class RetryBook:
 
 
 def completion_state(known_free_area, unreachable_clusters, unresolved_failures,
-                     map_saved, returned, minimum_area=8.0, residual_clusters=0):
+                     map_saved, returned, minimum_area=DEFAULTS['minimum_free_area'], residual_clusters=0):
     if not map_saved or not returned:
         return 'failed'
     if known_free_area < minimum_area or unreachable_clusters or unresolved_failures:

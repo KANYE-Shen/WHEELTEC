@@ -22,6 +22,7 @@ from std_msgs.msg import String
 from sensor_msgs.msg import LaserScan
 from tf2_ros import Buffer, TransformListener, TransformException
 
+from .defaults import DEFAULTS
 from .health import MapHealth, MapUnstableError
 from .frontiers import Grid, select_frontiers
 from .policy import RetryBook, completion_state, observation_fresh
@@ -43,23 +44,24 @@ class Explorer(Node):
         super().__init__('wheeltec_explore')
         maps = Path.home()/'wheeltec_sim_ws/data/maps'
         default_output = maps/time.strftime('%Y%m%d-%H%M%S_explore')/'room'
-        parameters = {'map_frame': 'map', 'odom_frame': 'odom', 'base_frame': 'base_link',
-                      'map_output': str(default_output), 'reference_yaw_rad': 0.0, 'update_latest': True,
-                      'robot_radius': 0.35, 'min_frontier_size': 0.25,
-                      'minimum_free_area': 8.0, 'goal_timeout': 120.0,
-                      'task_timeout': 900.0, 'max_goals': 60,
-                      'retry_cooldown': 20.0, 'max_attempts': 3}
+        parameters = {**DEFAULTS, 'map_output':str(default_output),
+                      'reference_yaw_rad':0.0, 'update_latest':True}
         for name,value in parameters.items():
             self.declare_parameter(name,value)
         self.config = {name:self.get_parameter(name).value for name in parameters}
         self.output = Path(self.config['map_output']).expanduser().resolve()
         self.maps_root = maps
-        self.health = MapHealth()
+        self.health = MapHealth(
+            jump_translation=self.config['map_jump_translation'],
+            jump_rotation=self.config['map_jump_rotation'],
+            map_timeout=self.config['map_update_timeout'],scan_timeout=self.config['scan_max_age'],
+            tf_timeout=self.config['tf_max_age'],future_tolerance=self.config['future_tolerance'],
+            tf_future_offset=self.config['slam_transform_timeout'])
         self.health_active = False
         self.health_latched = {}
         self.latest_map = None
         self.map_updates = 0
-        self.last_scan_wall = None
+        self.last_scan_ros = None
         self.scan_subscription = self.create_subscription(LaserScan, '/scan', self.receive_scan, qos_profile_sensor_data)
         self.subscription = self.create_subscription(
             OccupancyGrid,'/map',self.receive_map,
@@ -68,7 +70,7 @@ class Explorer(Node):
         self.status_publisher = self.create_publisher(
             String,'/exploration/status',
             QoSProfile(depth=1,durability=DurabilityPolicy.TRANSIENT_LOCAL))
-        self.tf = Buffer(cache_time=Duration(seconds=30))
+        self.tf = Buffer(cache_time=Duration(seconds=30),node=self)
         self.listener = TransformListener(self.tf,self)
         self.health_timer = self.create_timer(.2,self.health_tick)
         self.nav = ActionClient(self,NavigateToPose,'/navigate_to_pose')
@@ -77,15 +79,17 @@ class Explorer(Node):
         self.history = []
         self.active_goal = None
         self.active_result = None
-        self.retry = RetryBook(self.config['retry_cooldown'],self.config['max_attempts'])
+        self.retry = RetryBook(self.config['retry_cooldown'],self.config['max_attempts'],self.config['retry_radius'])
         self.report = {'state':'starting','map_output':str(self.output),'goals':[],
                        'reference_yaw_rad':self.config['reference_yaw_rad']}
         self.started = time.monotonic()
+        self.started_ros = None
+        self.wait_reason = None
         self.visited = []
         self.observations = []
 
     def receive_scan(self,message):
-        self.last_scan_wall = time.monotonic()
+        self.last_scan_ros = self.ros_seconds()
         self.health.scan(message.header.stamp.sec+message.header.stamp.nanosec/1e9,self.ros_seconds())
 
     def ros_seconds(self):
@@ -122,6 +126,10 @@ class Explorer(Node):
         self.report.update(state=state,reason=reason,**values)
         self.report['map_health'] = self.health.snapshot(self.ros_seconds())
         self.report['map_health']['latched_issues'] = self.health_latched.copy()
+        self.report['elapsed_ros_seconds'] = (round(self.ros_seconds()-self.started_ros,2)
+                                               if self.started_ros is not None else 0.)
+        self.report['timeout_clock'] = 'ROS'
+        self.report['parameters'] = self.config.copy()
         self.report['elapsed_wall_seconds'] = round(time.monotonic()-self.started,2)
         message = String(data=json.dumps(self.report,ensure_ascii=False))
         self.status_publisher.publish(message)
@@ -131,22 +139,39 @@ class Explorer(Node):
         self.get_logger().info(json.dumps(entry,ensure_ascii=False))
 
     def wait(self,predicate,timeout,check_task=False,check_sensors=False):
-        deadline = time.monotonic()+timeout
-        while rclpy.ok() and time.monotonic()<deadline:
-            if check_task and time.monotonic()-self.started > self.config['task_timeout']:
-                return False
-            if check_sensors:
-                self.require_health()
+        start = None
+        self.wait_reason = None
+        while rclpy.ok():
+            now = self.ros_seconds()
+            if now > 0:
+                if start is None:
+                    start = now
+                if self.started_ros is None:
+                    self.started_ros = now
+                if check_task and now-self.started_ros >= self.config['task_timeout']:
+                    self.wait_reason = 'task_timeout'
+                    return False
+                if now-start >= timeout:
+                    self.wait_reason = 'wait_timeout'
+                    return False
+                if check_sensors:
+                    self.require_health()
             rclpy.spin_once(self,timeout_sec=0.1)
             if predicate():
                 return True
+        self.wait_reason = 'shutdown'
         return False
 
     def position(self):
         try:
             transform = self.tf.lookup_transform(self.config['map_frame'],self.config['base_frame'],Time())
+            stamp = transform.header.stamp.sec+transform.header.stamp.nanosec/1e9
+            age = self.ros_seconds()-stamp
+            if stamp <= 0 or not -self.config['future_tolerance'] <= age <= self.config['tf_max_age']:
+                return None
             t = transform.transform
-            return t.translation.x,t.translation.y,yaw(t.rotation)
+            pose = (t.translation.x,t.translation.y,yaw(t.rotation))
+            return pose if all(math.isfinite(v) for v in pose) else None
         except TransformException:
             return None
 
@@ -165,7 +190,7 @@ class Explorer(Node):
         goal.pose.pose.orientation.z = math.sin(heading/2)
         goal.pose.pose.orientation.w = math.cos(heading/2)
         accepted = self.nav.send_goal_async(goal)
-        if not self.wait(accepted.done,10):
+        if not self.wait(accepted.done,self.config['goal_response_timeout']):
             raise RuntimeError('Nav2 did not respond to the goal request')
         handle = accepted.result()
         if handle is None or not handle.accepted:
@@ -174,12 +199,13 @@ class Explorer(Node):
         result = handle.get_result_async()
         self.active_result = result
         if not self.wait(result.done,self.config['goal_timeout'],check_task=not returning,check_sensors=True):
+            timeout_reason = self.wait_reason
             cancel = handle.cancel_goal_async()
-            self.wait(cancel.done,5)
-            if not self.wait(result.done,15):
+            self.wait(cancel.done,self.config['cancel_response_timeout'])
+            if not self.wait(result.done,self.config['cancel_result_timeout']):
                 raise RuntimeError('Nav2 goal timed out and did not confirm cancellation')
             self.active_goal = None
-            return False,'timeout'
+            return False,timeout_reason
         self.active_goal = None
         response = result.result()
         if response is None:
@@ -188,7 +214,8 @@ class Explorer(Node):
 
     def save_map(self):
         self.status('saving','Saving occupancy grid and SLAM pose graph')
-        if not self.save.wait_for_service(timeout_sec=10) or not self.serialize.wait_for_service(timeout_sec=10):
+        if not self.wait(lambda:self.save.service_is_ready() and self.serialize.service_is_ready(),
+                         self.config['goal_response_timeout'],check_sensors=True):
             raise RuntimeError('Map saver or SLAM serialization service is not active')
         self.output.parent.mkdir(parents=True,exist_ok=True)
         request = SaveMap.Request()
@@ -200,11 +227,11 @@ class Explorer(Node):
         request.free_thresh = 0.19
         request.occupied_thresh = 0.65
         future = self.save.call_async(request)
-        if not self.wait(future.done,30) or future.result() is None or not future.result().result:
+        if not self.wait(future.done,self.config['map_save_timeout'],check_sensors=True) or future.result() is None or not future.result().result:
             raise RuntimeError('Map saver could not write the occupancy map')
         request = SerializePoseGraph.Request(filename=str(self.output))
         future = self.serialize.call_async(request)
-        if not self.wait(future.done,30) or future.result() is None or future.result().result!=0:
+        if not self.wait(future.done,self.config['map_save_timeout'],check_sensors=True) or future.result() is None or future.result().result!=0:
             raise RuntimeError('SLAM Toolbox could not serialize the pose graph')
         for suffix in ('.yaml','.pgm','.posegraph','.data'):
             if not self.output.with_suffix(suffix).is_file():
@@ -221,10 +248,10 @@ class Explorer(Node):
     def run(self):
         self.status('starting','Waiting for SLAM map, robot transform and Nav2')
         if not self.wait(lambda:self.latest_map is not None and self.position() is not None
-                         and observation_fresh(self.last_scan_wall,time.monotonic())
-                         and self.health_tick()['healthy'],90):
+                         and observation_fresh(self.last_scan_ros,self.ros_seconds(),self.config['scan_max_age'])
+                         and self.health_tick()['healthy'],self.config['initialization_timeout']):
             raise RuntimeError('Timed out waiting for SLAM map and map-to-base transform')
-        if not self.nav.wait_for_server(timeout_sec=60):
+        if not self.wait(self.nav.server_is_ready,self.config['nav_server_timeout']):
             raise RuntimeError('Nav2 NavigateToPose action server is unavailable')
         self.health_active = True
         self.require_health()
@@ -235,7 +262,7 @@ class Explorer(Node):
         forced_reason = ''
         while rclpy.ok():
             self.require_health()
-            if time.monotonic()-self.started>self.config['task_timeout']:
+            if self.started_ros is not None and self.ros_seconds()-self.started_ros>=self.config['task_timeout']:
                 forced_reason = 'task_timeout'
                 break
             if attempts>=self.config['max_goals']:
@@ -243,11 +270,15 @@ class Explorer(Node):
                 break
             pose = self.position()
             if pose is None:
-                if not self.wait(lambda:self.position() is not None,15):
+                if not self.wait(lambda:self.position() is not None,self.config['map_update_timeout'],check_sensors=True):
                     raise RuntimeError('Robot localization transform was lost')
                 continue
             latest_result = select_frontiers(self.grid(),pose[:2],self.config['robot_radius'],
-                                              self.config['min_frontier_size'],visited=self.visited,observations=self.observations)
+                                              self.config['min_frontier_size'],visited=self.visited,observations=self.observations,
+                                              **{key:self.config[key] for key in (
+                                                  'min_goal_distance','visited_radius','observation_min_separation',
+                                                  'frontier_approach_radius','start_snap_distance',
+                                                  'distance_score_bias','score_distance_offset')})
             self.report.update(known_free_area_m2=round(latest_result.known_free_area,3),
                                frontier_clusters=latest_result.frontier_clusters,
                                unreachable_clusters=latest_result.unreachable_clusters,
@@ -255,7 +286,7 @@ class Explorer(Node):
                                residual_counts=latest_result.residual_counts,
                                residual_frontiers=latest_result.residual_frontiers)
             candidates = [g for g in latest_result.goals
-                          if self.retry.available((g.x,g.y),time.monotonic())]
+                          if self.retry.available((g.x,g.y),self.ros_seconds())]
             if not candidates:
                 if latest_result.goals:
                     if all(self.retry.exhausted((g.x,g.y)) for g in latest_result.goals):
@@ -263,15 +294,18 @@ class Explorer(Node):
                         break
                     self.status('exploring','Waiting before retrying blocked frontiers')
                     old_revision = self.map_updates
-                    self.wait(lambda:self.map_updates>old_revision,3,check_task=True)
+                    self.wait(lambda:self.map_updates>old_revision,self.config['retry_map_wait'],check_task=True,check_sensors=True)
                     continue
                 stable_empty += 1
-                if stable_empty>=3:
+                if stable_empty>=self.config['stable_empty_maps']:
                     break
                 old_revision = self.map_updates
                 # Require fresh observations before concluding there is no target.
-                if not self.wait(lambda:self.map_updates>old_revision,15,check_task=True):
-                    raise RuntimeError('SLAM map stopped updating during completion check')
+                if not self.wait(lambda:self.map_updates>old_revision,self.config['map_update_timeout'],check_task=True,check_sensors=True):
+                    if self.wait_reason == 'task_timeout':
+                        forced_reason = 'task_timeout'
+                        break
+                    raise MapUnstableError('map_update_timeout')
                 continue
             stable_empty = 0
             target = candidates[0]
@@ -284,21 +318,23 @@ class Explorer(Node):
                 observed = self.position()
                 if observed is not None:
                     self.visited.append(observed[:2])
-                    if observation_fresh(self.last_scan_wall,time.monotonic()):
+                    if observation_fresh(self.last_scan_ros,self.ros_seconds(),self.config['scan_max_age']):
                         self.observations.append((*observed[:2],self.map_updates))
             else:
-                self.retry.failed((target.x,target.y),time.monotonic())
+                self.retry.failed((target.x,target.y),self.ros_seconds())
             old_revision = self.map_updates
-            if not self.wait(lambda:self.map_updates>old_revision,15,check_task=True):
-                forced_reason = 'map_update_timeout'
-                break
+            if not self.wait(lambda:self.map_updates>old_revision,self.config['map_update_timeout'],check_task=True,check_sensors=True):
+                if self.wait_reason == 'task_timeout':
+                    forced_reason = 'task_timeout'
+                    break
+                raise MapUnstableError('map_update_timeout')
         if latest_result is None:
             raise RuntimeError('No valid occupancy grid was processed')
         self.require_health()
         saved = self.save_map()
         self.status('returning','Returning to the exploration start position')
         current = self.position()
-        if current is not None and math.dist(current[:2],start[:2])<=0.15:
+        if current is not None and math.dist(current[:2],start[:2])<=self.config['return_tolerance']:
             returned = True
         else:
             returned,_ = self.navigate(*start,returning=True)
@@ -322,8 +358,8 @@ class Explorer(Node):
     def cancel_active(self):
         if self.active_goal is not None:
             future = self.active_goal.cancel_goal_async()
-            acknowledged = self.wait(future.done,5)
-            terminal = self.active_result is not None and self.wait(self.active_result.done,15)
+            acknowledged = self.wait(future.done,self.config['cancel_response_timeout'])
+            terminal = self.active_result is not None and self.wait(self.active_result.done,self.config['cancel_result_timeout'])
             self.active_goal = None
             if not acknowledged or not terminal:
                 self.get_logger().error('Nav2 did not confirm cancellation of the exploration goal')

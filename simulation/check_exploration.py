@@ -21,7 +21,7 @@ from truth_capture import GazeboTruthCapture,truth_quality,synchronize_terminal_
 
 def parse_arguments(argv=None):
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--task-timeout',type=float,default=300.0,help='Explorer wall-clock budget before saving and returning')
+    parser.add_argument('--task-timeout',type=float,default=300.0,help='Explorer ROS-time budget before saving and returning')
     parser.add_argument('--timeout',type=float,default=460.0,help='Evaluator deadline after explorer start, including saving and return')
     parser.add_argument('--scenario',help='Source scenario ID; omitted keeps the existing baseline world')
     parser.add_argument('--spawn',type=int,default=0,help='Zero-based named spawn index')
@@ -144,7 +144,7 @@ def main(argv=None):
     os.environ.update(ROS_LOCALHOST_ONLY='1',ROS_DOMAIN_ID=str(domain))
     result={'success':False,'run_dir':str(run),'ros_domain_id':domain,
             'scenario':scene['id'],'spawn_index':args.spawn,'spawn':spawn,
-            'task_timeout_wall_seconds':args.task_timeout,'record_requested':args.record,
+            'task_timeout_ros_seconds':args.task_timeout,'record_requested':args.record,
             'ground_truth_used_only_for_evaluation':True,'status_history':[],
             'failures':[],'source':source_manifest()}
     latest_selector=Path.home()/'wheeltec_sim_ws/data/maps/latest.json'

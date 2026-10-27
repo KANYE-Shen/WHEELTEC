@@ -1,4 +1,5 @@
 """Occupancy-grid frontiers and safe approach goals, independent of ROS."""
+from .defaults import DEFAULTS
 from collections import deque
 from dataclasses import dataclass, field
 import math
@@ -66,8 +67,15 @@ class FrontierResult:
     residual_frontiers: list = field(default_factory=list)
 
 
-def select_frontiers(grid: Grid, robot: Tuple[float, float], robot_radius=0.35,
-                     min_frontier_size=0.25, min_goal_distance=0.2, visited=(), observations=()) -> FrontierResult:
+def select_frontiers(grid: Grid, robot: Tuple[float, float], robot_radius=DEFAULTS['robot_radius'],
+                     min_frontier_size=DEFAULTS['min_frontier_size'],
+                     min_goal_distance=DEFAULTS['min_goal_distance'],visited=(),observations=(),
+                     visited_radius=DEFAULTS['visited_radius'],
+                     observation_min_separation=DEFAULTS['observation_min_separation'],
+                     frontier_approach_radius=DEFAULTS['frontier_approach_radius'],
+                     start_snap_distance=DEFAULTS['start_snap_distance'],
+                     distance_score_bias=DEFAULTS['distance_score_bias'],
+                     score_distance_offset=DEFAULTS['score_distance_offset']) -> FrontierResult:
     """Return frontier approach cells reachable through inflated known-free space.
 
     A frontier is a known-free cell beside unknown space. Unknown cells are never
@@ -101,14 +109,14 @@ def select_frontiers(grid: Grid, robot: Tuple[float, float], robot_radius=0.35,
 
     def multiview(cluster, approaches):
         # Old proximity bookkeeping, or two messages from one map/view, is insufficient.
-        if not approaches or not all(any(math.dist(grid.cell_to_world(*p),v) < .30
+        if not approaches or not all(any(math.dist(grid.cell_to_world(*p),v) < visited_radius
                                         for v in visited) for p in approaches):
             return False
         views = [o for o in observations if len(o) == 3
                  and grid.world_to_cell(o[0],o[1]) in free]
         for a in views:
             for b in views:
-                if a[2] != b[2] and math.dist(a[:2], b[:2]) >= .30:
+                if a[2] != b[2] and math.dist(a[:2], b[:2]) >= observation_min_separation:
                     if all(visible(a,p) and visible(b,p) for p in cluster):
                         return True
         return False
@@ -128,7 +136,7 @@ def select_frontiers(grid: Grid, robot: Tuple[float, float], robot_radius=0.35,
     start = grid.world_to_cell(*robot)
     if start not in safe:
         # Quantization can put a valid footprint center one cell into inflation.
-        nearby = [p for p in safe if math.hypot(p[0]-start[0], p[1]-start[1])*grid.resolution <= 0.15]
+        nearby = [p for p in safe if math.hypot(p[0]-start[0], p[1]-start[1])*grid.resolution <= start_snap_distance]
         start = min(nearby, key=lambda p: math.hypot(p[0]-start[0],p[1]-start[1])) if nearby else None
     distances = {}
     if start is not None:
@@ -142,7 +150,7 @@ def select_frontiers(grid: Grid, robot: Tuple[float, float], robot_radius=0.35,
                     queue.append(nxt)
     frontiers = {p for p in free if any(grid.value(*n) < 0 for n in grid.neighbors(p))}
     goals, total, unreachable, small = [], 0, 0, 0
-    approach_radius = max(0.6, robot_radius+2*grid.resolution)
+    approach_radius = max(frontier_approach_radius, robot_radius+2*grid.resolution)
     approach_cells = math.ceil(approach_radius/grid.resolution)
     approach_offsets = [(dx,dy) for dy in range(-approach_cells,approach_cells+1)
                         for dx in range(-approach_cells,approach_cells+1)
@@ -177,17 +185,17 @@ def select_frontiers(grid: Grid, robot: Tuple[float, float], robot_radius=0.35,
         cx = sum(p[0] for p in cluster)/len(cluster)
         cy = sum(p[1] for p in cluster)/len(cluster)
         candidates = [p for p in candidates if math.dist(grid.cell_to_world(*p),robot) >= min_goal_distance
-                      and all(math.dist(grid.cell_to_world(*p),v) >= 0.30 for v in visited)]
+                      and all(math.dist(grid.cell_to_world(*p),v) >= visited_radius for v in visited)]
         if not candidates:
             kind = 'multiview_observed' if multiview(cluster, approaches) else 'reachable_unexplored'
             residual(cluster,kind,approaches)
             unreachable += int(kind == 'reachable_unexplored')
             continue
-        goal = min(candidates, key=lambda p: math.hypot(p[0]-cx,p[1]-cy) + 0.1*distances[p])
+        goal = min(candidates, key=lambda p: math.hypot(p[0]-cx,p[1]-cy) + distance_score_bias*distances[p])
         x, y = grid.cell_to_world(*goal)
         fx, fy = grid.cell_to_world(cx,cy)
         distance = distances[goal]*grid.resolution
-        score = len(cluster)*grid.resolution / (0.5+distance)
+        score = len(cluster)*grid.resolution / (score_distance_offset+distance)
         goals.append(FrontierGoal(x, y, math.atan2(fy-y,fx-x), distance, len(cluster), score))
     goals.sort(key=lambda g: (-g.score,g.distance,g.x,g.y))
     return FrontierResult(goals, len(free)*grid.resolution**2, total, unreachable, small, residual_counts, residual_frontiers)

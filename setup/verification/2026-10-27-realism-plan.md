@@ -4,7 +4,7 @@
 
 - [x] T1（实现与单次名义A/B完成，多种子待T5）：frontiers.py 增加有证据的残余分类；policy.py 新终态；node.py 输出分类；check_exploration.py 区分 rc=2；0.6/0.8 m 凹袋与静态阴影红绿测试。导航 safe 区不变，不能凭接近点被访问直接算完成。
 - [x] T2（实现、13项bag审计与ROS注入通过，慢漂移仍未解决）：纯 Python 地图健康状态机与 ROS 订阅适配；监控 map→odom 突跳、map 间隙、scan/TF 年龄及 SLAM 存活；历史 bag 离线复现。异常终态 map_unstable，禁止完成。
-- [ ] T3：集中参数与 ROS 时间任务预算，TF 过期拒绝与 map/TF/scan 检查；回归暂停时钟、倒退与过期数据。
+- [x] T3（红绿/ROS测试通过，批次统计待T5）：集中参数与 ROS 时间任务预算，TF 过期拒绝与 map/TF/scan 检查；回归暂停时钟、倒退与过期数据。
 - [ ] T4：先核对型号资料、板上接口和 Fortress 实现；来源明确的 realism 配置与生成器；独立 lidar/odom/执行器处理；off 对照；无实车数据一律 assumed。
 - [ ] T5：每布局/起点默认至少5种子、起点扰动、原始结果及 Wilson 区间；0/0.5/1/2 强度扫描。正式准入只认 on。
 - [ ] T6：仅在 T2/T5 证据支持后按同批种子单参数 A/B；不预先调回环。

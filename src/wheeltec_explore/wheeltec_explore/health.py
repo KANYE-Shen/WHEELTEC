@@ -1,5 +1,6 @@
 """ROS-independent, estimate-only map/stream health; faults are never truth-driven."""
 import math
+from .defaults import DEFAULTS
 
 
 class MapUnstableError(RuntimeError):
@@ -7,9 +8,11 @@ class MapUnstableError(RuntimeError):
 
 
 class MapHealth:
-    def __init__(self, jump_translation=.5, jump_rotation=.35, map_timeout=15.,
-                 scan_timeout=1., tf_timeout=1., future_tolerance=.1,
-                 require_slam_alive=True, tf_future_offset=.2):
+    def __init__(self, jump_translation=DEFAULTS['map_jump_translation'],
+                 jump_rotation=DEFAULTS['map_jump_rotation'],map_timeout=DEFAULTS['map_update_timeout'],
+                 scan_timeout=DEFAULTS['scan_max_age'],tf_timeout=DEFAULTS['tf_max_age'],
+                 future_tolerance=DEFAULTS['future_tolerance'],require_slam_alive=True,
+                 tf_future_offset=DEFAULTS['slam_transform_timeout']):
         self.limits=dict(jump_translation=jump_translation,jump_rotation=jump_rotation,
                          map_timeout=map_timeout,scan_timeout=scan_timeout,
                          tf_timeout=tf_timeout,future_tolerance=future_tolerance,tf_future_offset=tf_future_offset)
