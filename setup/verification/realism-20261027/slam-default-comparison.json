@@ -1,0 +1,17 @@
+{
+  "loop_search_space_dimension": {
+    "project": 8.0,
+    "installed_default": 8.0,
+    "equal": true
+  },
+  "loop_search_maximum_distance": {
+    "project": 3.0,
+    "installed_default": 3.0,
+    "equal": true
+  },
+  "loop_match_minimum_response_fine": {
+    "project": 0.45,
+    "installed_default": 0.45,
+    "equal": true
+  }
+}
