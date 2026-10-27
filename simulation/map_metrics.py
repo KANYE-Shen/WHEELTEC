@@ -174,13 +174,13 @@ def load_saved_grid(yaml_path):
             'origin':settings['origin'],'data':values.ravel().tolist()}
 
 
-def reference_footprint():
+def reference_footprint(model_path=None):
     """Actual top-down collision projection union from the reference SDF.
 
 Casters lie fully inside the body projection. Wheel cylinders rotate about their
 axis; their top-down projection is a rectangle, independent of wheel spin.
 """
-    path=Path(__file__).resolve().parent/'models/wheeltec_reference/model.sdf'
+    path=Path(model_path) if model_path else Path(__file__).resolve().parent/'models/wheeltec_reference/model.sdf'
     model=ET.parse(path).getroot().find('model')
     rectangles=[]
     for link in model.findall('link'):
@@ -218,7 +218,7 @@ def segment_distance(a,b,c,d):
     return min(point_distance(a,c,d),point_distance(b,c,d),point_distance(c,a,b),point_distance(d,a,b))
 
 
-def trajectory_safety(scene, poses):
+def trajectory_safety(scene, poses, model_path=None):
     if not poses:
         return {'contact_measurement':'geometric_projection_only','minimum_clearance_m':None,
                 'geometric_overlap_samples':None,'geometric_overlap_events':None,'samples':0}
@@ -230,7 +230,7 @@ def trajectory_safety(scene, poses):
         delta[2]=math.atan2(math.sin(delta[2]),math.cos(delta[2]))
         steps=max(1,int(math.ceil(max(np.linalg.norm(delta[:2]),abs(delta[2])*.27)/.02)))
         expanded.extend(previous+delta*(i/steps) for i in range(1,steps+1))
-    footprint=reference_footprint()
+    footprint=reference_footprint(model_path)
     edges=np.asarray(segments(scene))
     edge_start=edges[:,0][None,None,:,:]
     edge_end=edges[:,1][None,None,:,:]

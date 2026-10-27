@@ -1,0 +1,295 @@
+schema_version: 1
+date: '2026-10-27'
+kind: assumptions_only
+calibration_complete: false
+physical_data_collected: false
+gate_approvals: []
+parameters:
+  laser:
+    model:
+      value: null
+      source: assumed
+      unit: ''
+      basis: Physical model not verified; do not infer from model-family notes
+    beams:
+      value: 540
+      source: assumed
+      unit: count
+      basis: Engineering assumption pending G0-G2 measurements
+      interval:
+      - 360
+      - 1440
+    fov_deg:
+      value: 270
+      source: assumed
+      unit: deg
+      basis: Engineering assumption pending G0-G2 measurements
+      interval:
+      - 240
+      - 360
+    frequency_hz:
+      value: 10
+      source: assumed
+      unit: Hz
+      basis: Engineering assumption pending G0-G2 measurements
+      interval:
+      - 5
+      - 15
+    range_min_m:
+      value: 0.08
+      source: assumed
+      unit: m
+      basis: Engineering assumption pending G0-G2 measurements
+      interval:
+      - 0.05
+      - 0.15
+    range_max_m:
+      value: 8
+      source: assumed
+      unit: m
+      basis: Engineering assumption pending G0-G2 measurements
+      interval:
+      - 5
+      - 12
+    noise_sigma_m:
+      value: 0.01
+      source: assumed
+      unit: m
+      basis: Engineering assumption pending G0-G2 measurements
+      interval:
+      - 0.002
+      - 0.03
+    dropout_probability:
+      value: 0.01
+      source: assumed
+      unit: ''
+      basis: Engineering assumption pending G0-G2 measurements
+      interval:
+      - 0
+      - 0.05
+    timestamp_jitter_s:
+      value: 0.002
+      source: assumed
+      unit: s
+      basis: Engineering assumption pending G0-G2 measurements
+      interval:
+      - 0
+      - 0.01
+  geometry:
+    length_m:
+      value: 0.4
+      source: assumed
+      unit: m
+      basis: Conservative existing Nav2 envelope, not measured chassis
+      interval:
+      - 0.36
+      - 0.5
+    width_m:
+      value: 0.43
+      source: assumed
+      unit: m
+      basis: Conservative existing Nav2 envelope, not measured chassis
+      interval:
+      - 0.39
+      - 0.5
+    wheel_radius_m:
+      value: 0.075
+      source: assumed
+      unit: m
+      basis: Engineering assumption pending G0-G2 measurements
+      interval:
+      - 0.05
+      - 0.1
+    wheel_separation_m:
+      value: 0.35
+      source: assumed
+      unit: m
+      basis: Engineering assumption pending G0-G2 measurements
+      interval:
+      - 0.25
+      - 0.45
+    safety_margin_m:
+      value: 0.0563590627994795
+      source: assumed
+      unit: m
+      basis: Preserve existing 0.35m explorer radius with shared envelope
+      interval:
+      - 0
+      - 0.12
+  odom:
+    wheel_radius_scale_error:
+      value: 0.01
+      source: assumed
+      unit: ''
+      basis: Engineering assumption pending G0-G2 measurements
+      interval:
+      - -0.03
+      - 0.03
+    wheel_separation_scale_error:
+      value: 0.01
+      source: assumed
+      unit: ''
+      basis: Engineering assumption pending G0-G2 measurements
+      interval:
+      - -0.03
+      - 0.03
+    left_right_scale_error:
+      value: 0.002
+      source: assumed
+      unit: ''
+      basis: Engineering assumption pending G0-G2 measurements
+      interval:
+      - -0.01
+      - 0.01
+    linear_white_sigma_m_s:
+      value: 0.005
+      source: assumed
+      unit: m/s
+      basis: Engineering assumption pending G0-G2 measurements
+      interval:
+      - 0
+      - 0.02
+    yaw_white_sigma_rad_s:
+      value: 0.01
+      source: assumed
+      unit: rad/s
+      basis: Engineering assumption pending G0-G2 measurements
+      interval:
+      - 0
+      - 0.04
+    linear_walk_sigma:
+      value: 0.0005
+      source: assumed
+      unit: m/s/sqrt(s)
+      basis: Engineering assumption pending G0-G2 measurements
+      interval:
+      - 0
+      - 0.003
+    yaw_walk_sigma:
+      value: 0.001
+      source: assumed
+      unit: rad/s/sqrt(s)
+      basis: Engineering assumption pending G0-G2 measurements
+      interval:
+      - 0
+      - 0.006
+    turn_slip_sigma_m_rad:
+      value: 0.015
+      source: assumed
+      unit: m/rad
+      basis: Engineering assumption pending G0-G2 measurements
+      interval:
+      - 0
+      - 0.05
+  actuator:
+    delay_min_s:
+      value: 0.05
+      source: assumed
+      unit: s
+      basis: User-authorized 50-150ms assumption range
+      interval:
+      - 0.05
+      - 0.15
+    delay_max_s:
+      value: 0.15
+      source: assumed
+      unit: s
+      basis: User-authorized 50-150ms assumption range
+      interval:
+      - 0.05
+      - 0.15
+    linear_deadzone_m_s:
+      value: 0.015
+      source: assumed
+      unit: m/s
+      basis: Engineering assumption pending G0-G2 measurements
+      interval:
+      - 0
+      - 0.03
+    yaw_deadzone_rad_s:
+      value: 0.03
+      source: assumed
+      unit: rad/s
+      basis: Engineering assumption pending G0-G2 measurements
+      interval:
+      - 0
+      - 0.08
+    max_linear_m_s:
+      value: 0.2
+      source: assumed
+      unit: m/s
+      basis: Engineering assumption pending G0-G2 measurements
+      interval:
+      - 0.1
+      - 0.3
+    max_yaw_rad_s:
+      value: 0.7
+      source: assumed
+      unit: rad/s
+      basis: Engineering assumption pending G0-G2 measurements
+      interval:
+      - 0.3
+      - 1
+    linear_accel_m_s2:
+      value: 0.4
+      source: assumed
+      unit: m/s2
+      basis: Engineering assumption pending G0-G2 measurements
+      interval:
+      - 0.2
+      - 0.8
+    linear_decel_m_s2:
+      value: 0.4
+      source: assumed
+      unit: m/s2
+      basis: Engineering assumption pending G0-G2 measurements
+      interval:
+      - 0.2
+      - 0.8
+    yaw_accel_rad_s2:
+      value: 1.2
+      source: assumed
+      unit: rad/s2
+      basis: Engineering assumption pending G0-G2 measurements
+      interval:
+      - 0.5
+      - 2
+    yaw_decel_rad_s2:
+      value: 1.2
+      source: assumed
+      unit: rad/s2
+      basis: Engineering assumption pending G0-G2 measurements
+      interval:
+      - 0.5
+      - 2
+    command_timeout_s:
+      value: 0.5
+      source: assumed
+      unit: s
+      basis: Engineering assumption pending G0-G2 measurements
+      interval:
+      - 0.2
+      - 1
+  compute:
+    cores:
+      value: 4
+      source: assumed
+      unit: cores
+      basis: Optional taskset host approximation; does not reproduce RDK X5 architecture/clock
+      interval:
+      - 2
+      - 8
+    apply_limit:
+      value: true
+      source: assumed
+      unit: ''
+      basis: Limit stack for exploratory realism profile; report board equivalence
+        unverified
+  imu:
+    present:
+      value: null
+      source: assumed
+      unit: ''
+      basis: Unverified on this robot; no IMU/EKF fabricated or enabled
+calibration_source: /mnt/d/虚拟c盘/WHEELTEC/robot/calibration/2026-10-27.json
+calibration_sha256: 0cbe897d2649ef1731ec250a7bf08b5ba7728aa2187a0b32b43b77f07346e556

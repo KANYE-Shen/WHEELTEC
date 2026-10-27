@@ -16,11 +16,15 @@ import sys
 import time
 
 ROOT=Path(__file__).resolve().parents[1]
+from resource_monitor import ProcessResources
 from truth_capture import GazeboTruthCapture,truth_quality,synchronize_terminal_truth
 
 
 def parse_arguments(argv=None):
     parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--realism',choices=['on','off'],default='on')
+    parser.add_argument('--seed',type=int,default=0)
+    parser.add_argument('--noise-scale',type=float,default=1.)
     parser.add_argument('--task-timeout',type=float,default=300.0,help='Explorer ROS-time budget before saving and returning')
     parser.add_argument('--timeout',type=float,default=460.0,help='Evaluator deadline after explorer start, including saving and return')
     parser.add_argument('--scenario',help='Source scenario ID; omitted keeps the existing baseline world')
@@ -34,6 +38,8 @@ def parse_arguments(argv=None):
     args=parser.parse_args(argv)
     if not all(math.isfinite(value) for value in (args.task_timeout,args.timeout)):
         parser.error('timeouts must be finite')
+    if args.seed<0 or not math.isfinite(args.noise_scale) or args.noise_scale<0:
+        parser.error('seed and noise scale must be nonnegative and finite')
     if args.domain is not None and not 0<=args.domain<=232:
         parser.error('--domain must be between 0 and 232')
     if args.task_timeout<=0 or args.timeout<=args.task_timeout:
@@ -144,6 +150,8 @@ def main(argv=None):
     os.environ.update(ROS_LOCALHOST_ONLY='1',ROS_DOMAIN_ID=str(domain))
     result={'success':False,'run_dir':str(run),'ros_domain_id':domain,
             'scenario':scene['id'],'spawn_index':args.spawn,'spawn':spawn,
+            'realism_mode':args.realism,'seed':args.seed,'noise_scale':args.noise_scale,
+            'real_robot_admission_ready':False,
             'task_timeout_ros_seconds':args.task_timeout,'record_requested':args.record,
             'ground_truth_used_only_for_evaluation':True,'status_history':[],
             'failures':[],'source':source_manifest()}
@@ -151,6 +159,7 @@ def main(argv=None):
     result['latest_selector_sha256_before']=hashlib.sha256(latest_selector.read_bytes()).hexdigest() if latest_selector.is_file() else None
     launch_process=explorer_process=recorder_process=node=capture=truth_capture=None
     logs=[]
+    resources=ProcessResources(run/'resources.jsonl')
     latest={}
     truth=[]
     started=time.monotonic()
@@ -185,6 +194,7 @@ def main(argv=None):
             while time.monotonic()<deadline:
                 rclpy.spin_once(node,timeout_sec=.05)
                 drain_truth()
+                resources.tick({p.pid for p in (launch_process,explorer_process) if p is not None})
                 if truth_capture.process.poll() is not None:
                     raise RuntimeError('Evaluation truth reader exited; see truth-reader.log')
                 if launch_process is not None and launch_process.poll() is not None:
@@ -211,7 +221,8 @@ def main(argv=None):
                                      '-o',str(run/'bag'),'/scan','/odom','/tf','/tf_static','/map','/exploration/status','/clock','/plan'],'bag.log')
         command=[sys.executable,str(ROOT/'simulation/run_room.py'),'gui:=false','rviz:=false',
                  'mode:=mapping','navigation:=true','explore:=false','ros_domain_id:='+str(domain),
-                 'partition:='+partition]
+                 'partition:='+partition,'realism:='+args.realism,'seed:='+str(args.seed),
+                 'noise_scale:='+str(args.noise_scale),'realism_assets:='+str(run/'realism')]
         if args.scenario:
             command+=['scenario:='+args.scenario,'spawn:='+str(args.spawn)]
         launch_process=launch(command,'launch.log')
@@ -232,13 +243,19 @@ def main(argv=None):
             raise RuntimeError('Simulator spawn differs from selected scenario')
         result['initial_map_pose']=capture.initial_pose
         result['map_from_world']=initial_alignment(spawn['pose'],capture.initial_pose)
+        if args.realism=='on':
+            result['realism']=json.loads((run/'realism/manifest.json').read_text())
         setup=Path.home()/'wheeltec_sim_ws/install/setup.bash'
         command='source /opt/ros/humble/setup.bash && source "$1" && shift && exec ros2 run wheeltec_explore explore "$@"'
         task_start_wall_t=time.monotonic()-started
-        explorer_process=launch(['bash','-lc',command,'wheeltec-exploration-check',str(setup),
+        explorer_command=['bash','-lc',command,'wheeltec-exploration-check',str(setup),
                                 '--ros-args','-p','use_sim_time:=true','-p','map_output:='+str(run/'map'),
                                 '-p','update_latest:=false','-p','task_timeout:='+str(args.task_timeout),
-                                '-p','goal_timeout:=75.0','-p','reference_yaw_rad:=0.0','-p','max_goals:=60'],'explore.log')
+                                '-p','goal_timeout:=75.0','-p','reference_yaw_rad:=0.0','-p','max_goals:=60',
+                                '-p','robot_radius:='+str(result.get('realism',{}).get('robot_radius',.35))]
+        affinity=result.get('realism',{}).get('cpu_affinity')
+        if affinity: explorer_command=['taskset','-c',','.join(map(str,affinity)),*explorer_command]
+        explorer_process=launch(explorer_command,'explore.log')
         wait(lambda:capture.status.get('state') in ('completed','completed_with_residual_frontiers','incomplete','failed','map_unstable'),args.timeout,'exploration terminal status',True)
         until=time.monotonic()+1
         wait(lambda:time.monotonic()>=until,3,'final truth settling')
@@ -282,6 +299,8 @@ def main(argv=None):
             result['truth_source']=truth_capture.diagnostics()
             if result['truth_source']['parse_errors'] or result['truth_source']['queue_dropped_samples'] or result['truth_source']['reader_error']:
                 result['failures'].append('Evaluation truth reader lost or rejected data')
+        result['resource_summary']=resources.summary
+        result['cpu_measurement_scope']='WSL host reference; not RDK X5 measured performance'
         result['shutdown']=shutdown
         for name,state in shutdown.items():
             if shutdown_abnormal(name,state,result.get('explorer',{})):
@@ -304,7 +323,8 @@ def main(argv=None):
             result['final_truth_world_m']=truth[-1]['pose'][:2]
             result['gazebo_return_error_m']=math.dist(truth[-1]['pose'][:2],result['initial_truth_world_m'])
             result['truth_traveled_distance_m']=sum(math.dist(a['pose'][:2],b['pose'][:2]) for a,b in zip(truth,truth[1:]))
-            result['trajectory_safety']=trajectory_safety(scene,[entry['pose'] for entry in truth])
+            result['trajectory_safety']=trajectory_safety(scene,[entry['pose'] for entry in truth],
+                 model_path=run/'realism/model.sdf' if args.realism=='on' and (run/'realism/model.sdf').is_file() else None)
         else:
             result['final_truth_world_m']=None
             result['trajectory_safety']={'contact_measurement':'unavailable_invalid_truth',
@@ -347,7 +367,9 @@ def main(argv=None):
             'reachable_coverage':metrics.get('reachable_coverage',0)>=.95,
             'observable_contour_p95':metrics.get('observable_contour_symmetric_p95_m') is not None and metrics['observable_contour_symmetric_p95_m']<=.10,
             'observable_contour_coverage':metrics.get('observable_contour_coverage',0)>=.95}
-        result['success']=all(result['acceptance'].values()) and not result['failures']
+        result['functional_success']=all(result['acceptance'].values()) and not result['failures']
+        result['acceptance']['realism_enabled']=args.realism=='on'
+        result['success']=result['functional_success'] and args.realism=='on'
         result['elapsed_wall_seconds']=time.monotonic()-started
         if result['failures']:
             result['error']=result['failures'][0]

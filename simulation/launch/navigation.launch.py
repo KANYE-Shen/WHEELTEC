@@ -29,7 +29,7 @@ def generate_launch_description():
         temporary.write((config/'navigate_wait.xml').read_bytes())
         behavior_tree = temporary.name
     params = RewrittenYaml(
-        source_file=str(config/'nav2.yaml'), root_key='',
+        source_file=LaunchConfiguration('params_file'), root_key='',
         param_rewrites={'default_nav_to_pose_bt_xml': behavior_tree},
         convert_types=True)
     common = {
@@ -50,6 +50,7 @@ def generate_launch_description():
     return LaunchDescription([
         RegisterEventHandler(OnShutdown(on_shutdown=[
             OpaqueFunction(function=remove_generated, kwargs={'filename': behavior_tree})])),
+        DeclareLaunchArgument('params_file',default_value=str(config/'nav2.yaml')),
         DeclareLaunchArgument('mode', default_value='mapping',
                               choices=['mapping', 'localization']),
         DeclareLaunchArgument('map', default_value='',

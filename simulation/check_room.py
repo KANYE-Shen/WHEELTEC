@@ -10,7 +10,7 @@ import time
 ROOT = Path(__file__).resolve().parents[1]
 run_dir = Path.home() / 'wheeltec_sim_ws/data/runs' / (time.strftime('%Y%m%d-%H%M%S') + '_room_interfaces')
 run_dir.mkdir(parents=True, exist_ok=False)
-result = {'run_dir': str(run_dir), 'success': False}
+result = {'run_dir': str(run_dir), 'success': False, 'realism_mode':'off', 'purpose':'legacy interface control'}
 process = None
 node = None
 log = None
@@ -22,7 +22,7 @@ try:
     os.environ.update(ROS_LOCALHOST_ONLY='1', ROS_DOMAIN_ID='79')
     log = (run_dir / 'launch.log').open('w')
     process = subprocess.Popen(
-        ['python3', str(ROOT / 'simulation/run_room.py'), 'gui:=false', 'rviz:=false', 'mode:=interfaces', 'ros_domain_id:=79',
+        ['python3', str(ROOT / 'simulation/run_room.py'), 'gui:=false', 'rviz:=false', 'mode:=interfaces', 'realism:=off', 'ros_domain_id:=79',
          f'partition:=wheeltec-room-check-{os.getpid()}'],
         stdout=log, stderr=subprocess.STDOUT, start_new_session=True)
     import rclpy
