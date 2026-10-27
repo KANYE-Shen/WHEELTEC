@@ -1,0 +1,24 @@
+[Unit]
+Description=WHEELTEC stack (requires human gate approval)
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=60
+StartLimitBurst=3
+
+[Service]
+Type=simple
+User=wheeltec
+WorkingDirectory=/opt/wheeltec
+Environment=ROS_LOCALHOST_ONLY=1
+Environment=ROS_DOMAIN_ID=77
+EnvironmentFile=/etc/wheeltec/stack.env
+ExecStart=/bin/bash /opt/wheeltec/robot/start_stack.sh
+Restart=on-failure
+RestartSec=5
+KillMode=control-group
+TimeoutStopSec=20
+NoNewPrivileges=true
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

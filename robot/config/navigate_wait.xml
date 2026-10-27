@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!-- Keep observations when blocked. Wait and replan; cancellation remains active.
+     60 five-second waits bound an ordinary navigation task to about five minutes.
+     Exploration applies its shorter per-goal timeout through the same action. -->
+<root main_tree_to_execute="NavigateAndWait">
+  <BehaviorTree ID="NavigateAndWait">
+    <RecoveryNode number_of_retries="60">
+      <PipelineSequence>
+        <RateController hz="1.0">
+          <ComputePathToPose goal="{goal}" path="{path}" planner_id="GridBased"/>
+        </RateController>
+        <RecoveryNode number_of_retries="1">
+          <FollowPath path="{path}" controller_id="FollowPath"/>
+          <Sequence>
+            <ClearEntireCostmap service_name="local_costmap/clear_entirely_local_costmap"/>
+            <!-- At 5 Hz, allow fresh local laser observations before retrying. -->
+            <Wait wait_duration="0.5"/>
+          </Sequence>
+        </RecoveryNode>
+      </PipelineSequence>
+      <ReactiveFallback>
+        <GoalUpdated/>
+        <Wait wait_duration="5"/>
+      </ReactiveFallback>
+    </RecoveryNode>
+  </BehaviorTree>
+</root>

@@ -153,6 +153,10 @@ def main():
                              for kind,minimum in [('scan',args.scan_min_hz),('odom',args.odom_min_hz)]}
         for kind,topic in [('scan',args.scan_topic),('odom',args.odom_topic)]:
             report['streams'][kind].update(topic=topic,publishers=node.count_publishers(topic))
+        report['ros_topics_and_types'] = dict(node.get_topic_names_and_types())
+        report['ros_node_names'] = node.get_node_names()
+        report['imu_topic_candidates'] = [name for name,types in node.get_topic_names_and_types() if 'sensor_msgs/msg/Imu' in types]
+        report['imu_hardware_confirmed'] = False
         report['scan'] = scan_details
         report['tf_at_last_scan_stamp'] = last_tf
         report['tf_lookup_failed_attempts_at_sample_end'] = tf_failures

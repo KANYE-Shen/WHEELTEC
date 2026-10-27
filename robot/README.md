@@ -33,3 +33,18 @@ python3 inspect_interfaces.py --scan-topic /实际雷达话题 --odom-topic /实
 测量完成后配置真实 footprint、运动约束、速度和传感器噪声，关闭仿真时钟，将 Gazebo 接口替换为真实驱动。按短距离运动、手动建图、自主探索、保存与重定位的顺序进行有人监督的低速验证。
 
 同时运行雷达、视频、SLAM和Nav2后再采集资源与频率，比较驱动初查与完整系统的负载。由此决定地瓜派运行参数。
+
+
+## 本轮车端静态准备
+
+已编写 launch/robot.launch.py、systemd 服务模板、watchdog.py、velocity_smoother/collision_monitor 配置和 operator_bridge.py，未部署、未启动。车端footprint与探索半径也从同一校准JSON生成，车体长宽必须有measured证据，不再另填一套尺寸。config/robot.json 默认硬件未验证、控制话题和心跳N为空，preflight 拒绝运行。完整导航入口要求G4书面记录，探索要求G5；单独watchdog以--gate明确当前关卡（默认G1，须车轮离地）；G1/G2不要求尚未完成的地面制动实测，完整导航/探索则必须有G0–G2校准完成与制动数据。单独安全链路关卡按G1执行，agent不得创建批准记录。
+
+速度链为 Nav2 → /safety/nav_cmd_vel → velocity_smoother → /safety/smoothed_cmd_vel → collision_monitor → /safety/collision_cmd_vel → watchdog → 实测驱动话题。驱动话题必须只有最终看门狗控制；底盘自身的失联超时必须验证，才能覆盖进程被强杀或断电时软件无法发零的问题。二维雷达不能替代硬件急停，盲区、悬空物及地面障碍仍需现场监督。
+
+看门狗使用本地单调时钟，50Hz输出；启动保持零速，明确解除保持须心跳新鲜、当前命令为零且急停释放。心跳/命令超时锁定停车，连接恢复不自动续行。急停信号解除也不会自动行驶。心跳N仍待G1前明确配置，0.5s命令超时及0.1m/s上限是模板限制，尚无实车停止距离证据。
+
+systemd 模板由系统管理器驻留，独立于SSH；Restart只重启为停车保持，不恢复任务执行。模板没有安装脚本，不得直接enable/start。安装时需确认账户、驱动超时、ROS域、文件属主和0600环境凭据；Windows挂载文件权限不代表Linux部署权限。本轮仅语法及systemd配置静态检查。
+
+网页桥只绑定127.0.0.1:8765，必须提供至少32字符私密Bearer token和明确HTTPS Origin；仅开放状态、人工心跳及停车，不开放速度、解除保持或导航目标。由现场配置的HTTPS反向代理同源转发，token保存在服务环境文件，不进入URL/日志/源码。不能把周期性后台服务当作操作者心跳；页面失联或无人监督必须停止发送。现有过程查看器仍只读。ROS图本身未实现SROS2安全隔离，不得开放到不可信网络。
+
+关卡步骤与边界见[实车准入清单](准入关卡.md)。实车运行、停止距离、网页端到端认证和板上负载全部未验证。

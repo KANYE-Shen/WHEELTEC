@@ -1,0 +1,25 @@
+{
+  "schema": 1,
+  "hardware_verified": false,
+  "measured_kinematics": null,
+  "scan_frame": null,
+  "base_frame": null,
+  "odom_frame": null,
+  "scan_topic": null,
+  "driver_command_topic": null,
+  "driver_command_type": null,
+  "driver_timeout_verified_s": null,
+  "approval_record": null,
+  "required_approval": "通过关卡1",
+  "safety": {
+    "operator_timeout_s": null,
+    "command_timeout_s": 0.5,
+    "max_linear_m_s": 0.1,
+    "max_yaw_rad_s": 0.3,
+    "obstacle_margin_m": 0.1
+  },
+  "status": "unconfigured; no launch authorization",
+  "measured_braking_distance_m": null,
+  "calibration_file": null,
+  "odom_topic": null
+}

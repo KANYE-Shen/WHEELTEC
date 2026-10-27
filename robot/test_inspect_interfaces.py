@@ -52,6 +52,8 @@ class StreamAssessmentTests(unittest.TestCase):
         node = Mock()
         node.create_subscription.side_effect = lambda typ, topic, cb, qos: callbacks.setdefault(topic, cb)
         node.count_publishers.return_value = 1
+        node.get_topic_names_and_types.return_value = [("/imu",["sensor_msgs/msg/Imu"])]
+        node.get_node_names.return_value = ["driver"]
         node.get_clock.return_value.now.return_value.nanoseconds = 100_200_000_000
         header = lambda frame: NS(stamp=NS(sec=100,nanosec=200_000_000),frame_id=frame)
         scan = NS(header=header('laser'),range_min=.1,range_max=10.,
@@ -79,6 +81,8 @@ class StreamAssessmentTests(unittest.TestCase):
         self.assertFalse(result['interface_check_passed'])
         self.assertIsNone(result['scan']['angle_max_rad'])
         self.assertTrue(result['invalid_numeric_fields'])
+        self.assertEqual(result['imu_topic_candidates'],['/imu'])
+        self.assertFalse(result['imu_hardware_confirmed'])
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,0 +1,27 @@
+collision_monitor:
+  ros__parameters:
+    use_sim_time: false
+    base_frame_id: base_link
+    odom_frame_id: odom
+    cmd_vel_in_topic: /safety/smoothed_cmd_vel
+    cmd_vel_out_topic: /safety/collision_cmd_vel
+    transform_tolerance: 0.2
+    source_timeout: 0.5
+    base_shift_correction: true
+    stop_pub_timeout: 1.0
+    polygons:
+    - StopZone
+    StopZone:
+      type: polygon
+      points: []
+      action_type: stop
+      max_points: 1
+      visualize: true
+      polygon_pub_topic: /safety/stop_zone
+      enabled: true
+    observation_sources:
+    - scan
+    scan:
+      type: scan
+      topic: /scan
+      enabled: true
