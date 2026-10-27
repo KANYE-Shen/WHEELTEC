@@ -1,5 +1,7 @@
 """Single source for explorer engineering defaults; runtime ROS parameters override them."""
 DEFAULTS = {
+    'frontier_viewpoint_strategy':'centroid',
+    'viewpoint_candidate_budget':48, 'viewpoint_frontier_budget':96,
     'map_frame':'map', 'odom_frame':'odom', 'base_frame':'base_link',
     'robot_radius':.35, 'min_frontier_size':.25, 'min_goal_distance':.2,
     'visited_radius':.30, 'observation_min_separation':.30,

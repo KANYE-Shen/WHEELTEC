@@ -1,5 +1,6 @@
 """Occupancy-grid frontiers and safe approach goals, independent of ROS."""
 from .defaults import DEFAULTS
+from .viewpoints import choose_viewpoint
 from collections import deque
 from dataclasses import dataclass, field
 import math
@@ -65,6 +66,7 @@ class FrontierResult:
     ignored_small_clusters: int
     residual_counts: dict = field(default_factory=dict)
     residual_frontiers: list = field(default_factory=list)
+    viewpoint_diagnostics: list = field(default_factory=list)
 
 
 def select_frontiers(grid: Grid, robot: Tuple[float, float], robot_radius=DEFAULTS['robot_radius'],
@@ -75,7 +77,10 @@ def select_frontiers(grid: Grid, robot: Tuple[float, float], robot_radius=DEFAUL
                      frontier_approach_radius=DEFAULTS['frontier_approach_radius'],
                      start_snap_distance=DEFAULTS['start_snap_distance'],
                      distance_score_bias=DEFAULTS['distance_score_bias'],
-                     score_distance_offset=DEFAULTS['score_distance_offset']) -> FrontierResult:
+                     score_distance_offset=DEFAULTS['score_distance_offset'],
+                     frontier_viewpoint_strategy=DEFAULTS['frontier_viewpoint_strategy'],
+                     viewpoint_candidate_budget=DEFAULTS['viewpoint_candidate_budget'],
+                     viewpoint_frontier_budget=DEFAULTS['viewpoint_frontier_budget']) -> FrontierResult:
     """Return frontier approach cells reachable through inflated known-free space.
 
     A frontier is a known-free cell beside unknown space. Unknown cells are never
@@ -84,6 +89,11 @@ def select_frontiers(grid: Grid, robot: Tuple[float, float], robot_radius=DEFAUL
     travel deliberately refuses diagonal shortcuts through occupied corners.
     Frontier clustering uses eight neighbours to retain slanted visible edges.
     """
+    if frontier_viewpoint_strategy not in ('centroid','visibility'):
+        raise ValueError('unknown frontier viewpoint strategy')
+    if viewpoint_candidate_budget<1 or viewpoint_frontier_budget<1:
+        raise ValueError('positive viewpoint budgets required')
+    viewpoint_diagnostics = []
     free = {(i % grid.width, i // grid.width) for i, v in enumerate(grid.data) if 0 <= v <= 25}
     unsafe = [(i % grid.width, i // grid.width) for i, v in enumerate(grid.data) if not 0 <= v <= 25]
     occupied = [(i % grid.width, i // grid.width) for i, v in enumerate(grid.data) if v > 25]
@@ -192,10 +202,23 @@ def select_frontiers(grid: Grid, robot: Tuple[float, float], robot_radius=DEFAUL
             unreachable += int(kind == 'reachable_unexplored')
             continue
         goal = min(candidates, key=lambda p: math.hypot(p[0]-cx,p[1]-cy) + distance_score_bias*distances[p])
+        visible_size = len(cluster)
+        if frontier_viewpoint_strategy == 'visibility':
+            selected,diagnostics = choose_viewpoint(candidates,cluster,free,distances,
+                grid.resolution,score_distance_offset,distance_score_bias,
+                viewpoint_candidate_budget,viewpoint_frontier_budget)
+            viewpoint_diagnostics.append(diagnostics)
+            if selected is None:
+                residual(cluster,'reachable_unexplored',approaches)
+                unreachable += 1
+                continue
+            goal,aim,visible_size = selected
+            fx,fy = grid.cell_to_world(*aim)
+        else:
+            fx,fy = grid.cell_to_world(cx,cy)
         x, y = grid.cell_to_world(*goal)
-        fx, fy = grid.cell_to_world(cx,cy)
         distance = distances[goal]*grid.resolution
-        score = len(cluster)*grid.resolution / (score_distance_offset+distance)
+        score = visible_size*grid.resolution / (score_distance_offset+distance)
         goals.append(FrontierGoal(x, y, math.atan2(fy-y,fx-x), distance, len(cluster), score))
     goals.sort(key=lambda g: (-g.score,g.distance,g.x,g.y))
-    return FrontierResult(goals, len(free)*grid.resolution**2, total, unreachable, small, residual_counts, residual_frontiers)
+    return FrontierResult(goals, len(free)*grid.resolution**2, total, unreachable, small, residual_counts, residual_frontiers, viewpoint_diagnostics)

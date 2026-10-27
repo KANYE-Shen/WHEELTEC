@@ -278,13 +278,15 @@ class Explorer(Node):
                                               **{key:self.config[key] for key in (
                                                   'min_goal_distance','visited_radius','observation_min_separation',
                                                   'frontier_approach_radius','start_snap_distance',
-                                                  'distance_score_bias','score_distance_offset')})
+                                                  'distance_score_bias','score_distance_offset','frontier_viewpoint_strategy',
+                                                  'viewpoint_candidate_budget','viewpoint_frontier_budget')})
             self.report.update(known_free_area_m2=round(latest_result.known_free_area,3),
                                frontier_clusters=latest_result.frontier_clusters,
                                unreachable_clusters=latest_result.unreachable_clusters,
                                ignored_small_clusters=latest_result.ignored_small_clusters,
                                residual_counts=latest_result.residual_counts,
-                               residual_frontiers=latest_result.residual_frontiers)
+                               residual_frontiers=latest_result.residual_frontiers,
+                               viewpoint_diagnostics=latest_result.viewpoint_diagnostics)
             candidates = [g for g in latest_result.goals
                           if self.retry.available((g.x,g.y),self.ros_seconds())]
             if not candidates:
