@@ -146,3 +146,12 @@ Linux 原始日志目录：
 78项Python/ROS回归与Node回放逻辑通过；五份PowerShell语法解析无误，根目录仍为六个入口。独立复审覆盖真值/TF时效、半行读取、终态同步和自有进程组异常退出清理，已报告问题复验通过。完整表格和小型证据见 [最终验证索引](verification/unknown_rooms/README.md)。后续先改善复杂布局的算法表现，再推进现场只读核查与车端配置。
 
 普通入口串行检查也通过：L形起点1探索结束停车、手动存图、导出196帧过程，再仅凭latest恢复相同现场并启动AMCL。原地图选择精确还原，自有进程无强杀或存活残留。结果见 [普通入口实测](verification/unknown_rooms/normal-session.json)。
+
+
+## 2026-10-27 网页终端验证环境
+
+电脑新增 Python/FastAPI/Paramiko 与 React/TypeScript/xterm.js 网页终端，固定依赖在 console/requirements.txt、console/frontend/package-lock.json。实际开发机 Python3.12.5、Node24.18.0、npm11.16.0；前端构建通过，npm audit 无已知漏洞。未在 macOS/Linux 电脑或 RDK X5 实机做端到端验证。
+
+仅仿真 WSL 安装可选 openssh-server 8.9p1-3ubuntu0.18、Xvfb 21.1.4-2ubuntu1.7~22.04.16、x11vnc0.9.16-8、noVNC1.0.0-5、websockify0.10.0+dfsg1-2build1。测试使用仅127.0.0.1:2222的临时SSH密钥服务及独立域87、partition wheeltec-console-test、私有X显示:88；未改现有 Ogre、GPU 或三垂直扫描兼容方案。系统SSH服务在安装后停止，验证结束禁用，未保留面向局域网的SSH监听。测试进程与临时连接均结束，原始日志保留在 Linux data/runs 下。
+
+最终网页测试9/12，运动因激光近点保护未达标；相机为独立Gazebo观察相机。全部批次、回归与限制见 [终端验证报告](verification/2026-10-27-console-results.md)。未连接、部署或控制真实小车。

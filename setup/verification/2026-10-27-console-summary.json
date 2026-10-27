@@ -1,0 +1,42 @@
+{
+  "date": "2026-10-27",
+  "baseline_commit": "0047bb3",
+  "kind": "real_simulation_not_robot",
+  "layout": "room",
+  "start": 0,
+  "seed": 0,
+  "realism": "on",
+  "domain": 87,
+  "backend": {
+    "passed": 25,
+    "total": 25
+  },
+  "frontend_logic": {
+    "passed": 6,
+    "total": 6
+  },
+  "existing_robot_safety": {
+    "passed": 5,
+    "total": 5
+  },
+  "browser_release": {
+    "passed": 9,
+    "total": 12,
+    "rate": 0.75,
+    "failures": [
+      "W_nonzero_target_laser_obstacle_hold",
+      "A_nonzero_target_laser_obstacle_hold",
+      "multi_client_original_owner_operator_timeout"
+    ],
+    "scope": "latest full run before read-only stop hardening; physical watchdog branch not validated"
+  },
+  "development_counts": {
+    "passed": 54,
+    "total": 96,
+    "comparable": false
+  },
+  "robot_connected": false,
+  "physical_motion_validated": false,
+  "sim_to_real_gap": "unverified",
+  "evidence": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-console-release-on"
+}
