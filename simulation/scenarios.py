@@ -138,7 +138,7 @@ def validate_scenario(scene):
     return {'room_area_m2':area,'reachable_safe_area_m2':float(reachable.sum()*.05**2)}
 
 
-def generate_world(scene, spawn_index, output):
+def generate_world(scene, spawn_index, output, pose_override=None):
     """Generate only into caller-selected runtime data; retain GUI/plugins/robot."""
     validate_scenario(scene)
     if not 0<=spawn_index<len(scene['spawns']):
@@ -176,7 +176,10 @@ def generate_world(scene, spawn_index, output):
     for obstacle in scene['obstacles']:
         x0,y0,x1,y1=obstacle['rect']
         box(obstacle['name'],(x0+x1)/2,(y0+y1)/2,x1-x0,y1-y0,0,obstacle.get('height',.7),'0.55 0.3 0.15 1')
-    x,y,yaw = scene['spawns'][spawn_index]['pose']
+    pose=scene['spawns'][spawn_index]['pose'] if pose_override is None else pose_override
+    if len(pose)!=3 or not np.isfinite(pose).all() or geometry_at(scene,[pose[:2]])[1][0]<.35:
+        raise ValueError('unsafe spawn override')
+    x,y,yaw = pose
     world.find('include/pose').text=f'{x} {y} 0 0 0 {yaw}'
     output=Path(output)
     output.parent.mkdir(parents=True,exist_ok=True)

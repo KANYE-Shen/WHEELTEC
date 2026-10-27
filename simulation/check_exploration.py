@@ -29,6 +29,7 @@ def parse_arguments(argv=None):
     parser.add_argument('--timeout',type=float,default=460.0,help='Evaluator deadline after explorer start, including saving and return')
     parser.add_argument('--scenario',help='Source scenario ID; omitted keeps the existing baseline world')
     parser.add_argument('--spawn',type=int,default=0,help='Zero-based named spawn index')
+    parser.add_argument('--spawn-pose',type=float,nargs=3,help='Evaluator/runtime seeded x y yaw; never supplied to algorithms')
     parser.add_argument('--output',type=Path,help='New run directory, normally under ~/wheeltec_sim_ws/data/runs')
     parser.add_argument('--domain',type=int,help='ROS domain override; default 83 for scenarios, otherwise 80')
     recording=parser.add_mutually_exclusive_group()
@@ -144,6 +145,10 @@ def main(argv=None):
     if args.spawn>=len(scene['spawns']):
         raise SystemExit('spawn index out of range')
     spawn=scene['spawns'][args.spawn]
+    if args.spawn_pose is not None:
+        if args.scenario is None or not all(math.isfinite(x) for x in args.spawn_pose):
+            raise SystemExit('finite --spawn-pose requires --scenario')
+        spawn={**spawn,'pose':args.spawn_pose,'named_pose':spawn['pose']}
     domain=args.domain if args.domain is not None else (83 if args.scenario else 80)
     run=args.output.expanduser().resolve() if args.output else Path.home()/'wheeltec_sim_ws/data/runs'/(time.strftime('%Y%m%d-%H%M%S')+'_'+scene['id']+'_spawn'+str(args.spawn))
     run.mkdir(parents=True,exist_ok=False)
@@ -225,6 +230,7 @@ def main(argv=None):
                  'noise_scale:='+str(args.noise_scale),'realism_assets:='+str(run/'realism')]
         if args.scenario:
             command+=['scenario:='+args.scenario,'spawn:='+str(args.spawn)]
+        if args.spawn_pose is not None: command+=['spawn_pose:='+json.dumps(args.spawn_pose,separators=(',',':'))]
         launch_process=launch(command,'launch.log')
         wait(lambda:capture.timeline.map_index is not None and 'truth' in latest and lifecycle.service_is_ready(),
              100,'SLAM map, truth and Nav2 lifecycle')

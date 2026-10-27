@@ -30,8 +30,8 @@ def main(argv=None):
     if session['scenario']:
         scene = load_scenario(session['scenario'])
         output = data_root/'worlds'/('room-'+str(os.getpid())+'.sdf')
-        generate_world(scene,session['spawn'],output)
-        arguments = [arg for arg in arguments if not arg.startswith(('scenario:=','spawn:=','world:='))]
+        generate_world(scene,session['spawn'],output,pose_override=json.loads(options['spawn_pose']) if 'spawn_pose' in options else None)
+        arguments = [arg for arg in arguments if not arg.startswith(('scenario:=','spawn:=','world:=','spawn_pose:='))]
         arguments.append('world:='+str(output))
         print('仿真场景 '+session['scenario']+' / 起点 '+str(session['spawn']),flush=True)
     if realism_mode=='on':
