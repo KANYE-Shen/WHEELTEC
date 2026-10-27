@@ -1,4 +1,5 @@
 """Occlusion-aware goals must respect the same safety and completion rules."""
+import json
 import math
 from pathlib import Path
 import random
@@ -46,6 +47,21 @@ class ViewpointTests(unittest.TestCase):
                 self.assertGreaterEqual(min(math.dist(cell,p)*grid.resolution for p in unsafe),.35)
             self.assertEqual(after.frontier_clusters,before.frontier_clusters)
             self.assertIn('viewpoint_diagnostics',vars(after))
+
+    def test_recorded_blind_frontier_has_no_visible_candidate(self):
+        data=json.loads((Path(__file__).parent/'fixtures/recorded_occluded_frontier.json').read_text())
+        grid=Grid(data['width'],data['height'],data['resolution'],*data['origin'],data['data'])
+        candidates=[tuple(p[:2]) for p in data['candidates']]
+        distances={tuple(p[:2]):p[2] for p in data['candidates']}
+        cluster=[tuple(p) for p in data['cluster']]
+        self.assertEqual((len(candidates),len(cluster)),(17,23))
+        self.assertTrue(all(not ray_clear_oracle(grid,a,b) for a in candidates for b in cluster))
+        free={(x,y) for y in range(grid.height) for x in range(grid.width) if 0<=grid.value(x,y)<=25}
+        selected,diag=choose_viewpoint(candidates,cluster,free,distances,grid.resolution,.5,.1,48,96)
+        self.assertIsNone(selected)
+        self.assertFalse(diag['candidate_budget_exhausted'])
+        self.assertFalse(diag['frontier_sampled'])
+        self.assertFalse(diag['visibility_is_completion_evidence'])
 
     def test_no_visible_sample_is_unexplored_not_completed(self):
         free={(1,1),(3,1)}

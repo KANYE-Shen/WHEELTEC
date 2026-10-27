@@ -1,4 +1,10 @@
+import json
+from pathlib import Path
+import subprocess
+import tempfile
+from unittest.mock import patch
 import unittest
+import paired_viewpoint_batch as batch
 from paired_viewpoint_batch import paired_plan,summarize
 
 class PairedTests(unittest.TestCase):
@@ -10,6 +16,34 @@ class PairedTests(unittest.TestCase):
             self.assertNotEqual(a.pop('strategy'),b.pop('strategy'))
             self.assertEqual(a,b)
         with self.assertRaises(ValueError): paired_plan(['irregular_arc'],4)
+
+    def test_resume_preserves_log_only_failure_and_executes_next_trial(self):
+        plan=paired_plan(['irregular_arc'],5)[:2]
+        source={'sha256':{}}
+        settings=dict(realism='on',task_timeout=300.,timeout=460.)
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory)
+            (root/'plan.json').write_text(json.dumps(dict(plan=plan,source=source,settings=settings)))
+            original=root/'000_irregular_arc_seed0_centroid-console.log'
+            original.write_text('original interrupted launch evidence')
+            def finish(command,**kwargs):
+                run=Path(command[-1]);run.mkdir()
+                (run/'result.json').write_text(json.dumps(dict(success=False,explorer={'state':'incomplete','goals':[]})))
+                return subprocess.CompletedProcess(command,1)
+            with patch('sys.argv',['paired_viewpoint_batch','--output',str(root),'--resume']), \
+                 patch.object(batch,'paired_plan',return_value=plan), \
+                 patch.object(batch,'source_manifest',return_value=source), \
+                 patch.object(batch.subprocess,'run',side_effect=finish) as launch:
+                batch.main()
+            self.assertEqual(launch.call_count,1)
+            self.assertTrue(launch.call_args.args[0][-1].endswith('001_irregular_arc_seed0_visibility'))
+            self.assertEqual(original.read_text(),'original interrupted launch evidence')
+            summary=json.loads((root/'summary.json').read_text())
+            self.assertEqual(summary['executed_trials'],2)
+            self.assertTrue(summary['complete'])
+            self.assertFalse(summary['rows'][0]['success'])
+            self.assertTrue(summary['rows'][0]['failures'])
+            self.assertFalse((root/'000_irregular_arc_seed0_centroid').exists())
 
     def test_off_control_keeps_mode_equal_in_every_pair(self):
         plan=paired_plan(['irregular_arc','irregular_frame'],5,realism='off')

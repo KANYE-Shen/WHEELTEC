@@ -53,13 +53,15 @@ def main():
         if source_manifest()['sha256']!=source['sha256']: raise RuntimeError('source changed; retain batch and start another')
         run=root/f'{i:03d}_{trial["scenario"]}_seed{trial["seed"]}_{trial["strategy"]}'
         rc=None
-        if not (args.resume and run.exists()):
+        console_log=root/(run.name+'-console.log')
+        # A log is evidence of an attempt even if the child never made its run dir.
+        if not (args.resume and (run.exists() or console_log.exists())):
             command=[sys.executable,str(Path(__file__).with_name('check_exploration.py')),
                      '--scenario',trial['scenario'],'--spawn','0','--spawn-pose',*map(str,trial['pose']),
                      '--seed',str(trial['seed']),'--noise-scale','1','--realism',trial['realism'],
                      '--task-timeout',str(args.task_timeout),'--timeout',str(args.timeout),
                      '--viewpoint-strategy',trial['strategy'],'--domain','88','--record','--output',str(run)]
-            with (root/(run.name+'-console.log')).open('x') as log:
+            with console_log.open('x') as log:
                 rc=subprocess.run(command,stdout=log,stderr=subprocess.STDOUT).returncode
         row=dict(**trial,run_dir=str(run),returncode=rc,success=False)
         try:
