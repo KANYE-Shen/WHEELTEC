@@ -1,0 +1,19 @@
+[Unit]
+Description=WHEELTEC read-only console adapter (motion requires separate gate preflight)
+After=network.target
+
+[Service]
+Type=simple
+User=wheeltec
+WorkingDirectory=/opt/wheeltec/repo
+EnvironmentFile=/etc/wheeltec/console.env
+ExecStart=/bin/bash /opt/wheeltec/repo/robot/start_console.sh
+Restart=on-failure
+RestartSec=3
+KillSignal=SIGINT
+TimeoutStopSec=10
+UMask=0077
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
