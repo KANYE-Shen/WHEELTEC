@@ -11,3 +11,16 @@ python3 simulation/calibrate_realism.py --input robot/calibration/2026-10-27.jso
 ```
 
 噪声 σ 需用静止同一有效光束的时间序列估计；丢点统计须区分无回波与驱动无效值。直行需卷尺位移和五次 bag，旋转需独立角度基准，速度阶跃需命令、轮速/里程计及制动实测。无这些数据时校准完成标志必须为 false。
+
+
+离线评估只读取已有文件，不连接机器人：
+
+```bash
+python3 robot/calibration/bag_statistics.py --bag /实际静止bag --kind real --stationary --output /新目录/real-static.json
+python3 robot/calibration/bag_statistics.py --bag /仿真静止bag --kind simulation --stationary --output /新目录/sim-static.json
+python3 robot/calibration/bag_statistics.py --real-stats /新目录/real-static.json --sim-stats /新目录/sim-static.json --output /新目录/gap.json
+```
+
+移动bag使用 --motion-annotations 指定独立卷尺/量角记录，字段见motion-annotations.example.json。评估保留每段前向/横向/yaw误差及分布，完整转圈用角度增量累加，不能只减首尾四元数。不同运动类型各自需五次，工具不把五个不同片段自动当作五次重复。没有物理注释就不计算移动漂移结论。移动扫描不估计静止噪声；无回波比例也不能直接当作传输丢包率。
+
+本轮仿真静止bag只有约6s，工具冒烟检查可用，不能替代现场60s采集。实车gap当前未验证。

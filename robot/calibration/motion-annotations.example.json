@@ -1,0 +1,15 @@
+{
+  "status": "template only; no measurements",
+  "segments": [],
+  "required_fields": [
+    "start_s",
+    "end_s",
+    "expected_forward_m",
+    "expected_lateral_m",
+    "expected_yaw_rad",
+    "uncertainty_m",
+    "uncertainty_rad",
+    "evidence"
+  ],
+  "protocol": "2m straight x5 and 360deg x5 only after relevant human gate approval; do not invent timestamps or evidence"
+}
