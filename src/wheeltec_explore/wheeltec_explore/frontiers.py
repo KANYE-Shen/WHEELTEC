@@ -1,6 +1,6 @@
 """Occupancy-grid frontiers and safe approach goals, independent of ROS."""
 from collections import deque
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 import math
 from typing import List, Sequence, Tuple
 
@@ -62,10 +62,12 @@ class FrontierResult:
     frontier_clusters: int
     unreachable_clusters: int
     ignored_small_clusters: int
+    residual_counts: dict = field(default_factory=dict)
+    residual_frontiers: list = field(default_factory=list)
 
 
 def select_frontiers(grid: Grid, robot: Tuple[float, float], robot_radius=0.35,
-                     min_frontier_size=0.25, min_goal_distance=0.2, visited=()) -> FrontierResult:
+                     min_frontier_size=0.25, min_goal_distance=0.2, visited=(), observations=()) -> FrontierResult:
     """Return frontier approach cells reachable through inflated known-free space.
 
     A frontier is a known-free cell beside unknown space. Unknown cells are never
@@ -76,10 +78,48 @@ def select_frontiers(grid: Grid, robot: Tuple[float, float], robot_radius=0.35,
     """
     free = {(i % grid.width, i // grid.width) for i, v in enumerate(grid.data) if 0 <= v <= 25}
     unsafe = [(i % grid.width, i // grid.width) for i, v in enumerate(grid.data) if not 0 <= v <= 25]
+    occupied = [(i % grid.width, i // grid.width) for i, v in enumerate(grid.data) if v > 25]
+    residual_counts = {'reachable_unexplored': 0, 'footprint_excluded': 0,
+                       'multiview_observed': 0}
+    residual_frontiers = []
     radius = math.ceil(robot_radius / grid.resolution)
     offsets = [(dx,dy) for dy in range(-radius,radius+1) for dx in range(-radius,radius+1)
                if math.hypot(dx,dy)*grid.resolution <= robot_radius+grid.resolution*0.5]
     blocked = {(x+dx,y+dy) for x,y in unsafe for dx,dy in offsets}
+    # Diagnostics only: optimistic clearance ignores unknown, never used as a goal.
+    solid_blocked = {(x+dx,y+dy) for x,y in occupied for dx,dy in offsets}
+
+    def visible(a, b):
+        # Sample at half-cell spacing. Unknown cannot support a visibility claim.
+        ax, ay = grid.world_to_cell(a[0], a[1])
+        steps = max(1, math.ceil(math.hypot(b[0]-ax,b[1]-ay)*2))
+        for i in range(steps+1):
+            x, y = round(ax+(b[0]-ax)*i/steps), round(ay+(b[1]-ay)*i/steps)
+            if (x,y) not in free:
+                return False
+        return True
+
+    def multiview(cluster, approaches):
+        # Old proximity bookkeeping, or two messages from one map/view, is insufficient.
+        if not approaches or not all(any(math.dist(grid.cell_to_world(*p),v) < .30
+                                        for v in visited) for p in approaches):
+            return False
+        views = [o for o in observations if len(o) == 3
+                 and grid.world_to_cell(o[0],o[1]) in free]
+        for a in views:
+            for b in views:
+                if a[2] != b[2] and math.dist(a[:2], b[:2]) >= .30:
+                    if all(visible(a,p) and visible(b,p) for p in cluster):
+                        return True
+        return False
+
+    def residual(cluster, kind, approaches):
+        residual_counts[kind] += 1
+        residual_frontiers.append({'classification':kind, 'frontier_cells':len(cluster),
+                                   'centroid':list(grid.cell_to_world(
+                                       sum(p[0] for p in cluster)/len(cluster),
+                                       sum(p[1] for p in cluster)/len(cluster))),
+                                   'reachable_approach_cells':len(approaches)})
     # A center is safe only when the full reference footprint is observed free.
     # Treat the map extent as unknown even if its last raster cell says free.
     safe = {p for p in free-blocked if min((p[0]+0.5)*grid.resolution,
@@ -121,19 +161,27 @@ def select_frontiers(grid: Grid, robot: Tuple[float, float], robot_radius=0.35,
             small += 1
             continue
         total += 1
-        candidates = {(x+dx,y+dy) for x,y in cluster for dx,dy in approach_offsets}
-        candidates.intersection_update(distances)
+        neighborhood = {(x+dx,y+dy) for x,y in cluster for dx,dy in approach_offsets}
+        candidates = neighborhood.intersection(distances)
         if not candidates:
-            unreachable += 1
+            # Exclusion requires measured solids to block EVERY possible center
+            # nearby, even if unknown cells are optimistically allowed as centers.
+            optimistic = {p for p in neighborhood if 0 <= p[0] < grid.width
+                          and 0 <= p[1] < grid.height and p not in solid_blocked}
+            kind = 'reachable_unexplored' if optimistic else 'footprint_excluded'
+            residual(cluster,kind,candidates)
+            unreachable += int(kind == 'reachable_unexplored')
             continue
+        approaches = candidates.copy()
         # Prefer an interior approach near the frontier center, then short travel.
         cx = sum(p[0] for p in cluster)/len(cluster)
         cy = sum(p[1] for p in cluster)/len(cluster)
         candidates = [p for p in candidates if math.dist(grid.cell_to_world(*p),robot) >= min_goal_distance
                       and all(math.dist(grid.cell_to_world(*p),v) >= 0.30 for v in visited)]
         if not candidates:
-            # No unvisited approach remains; retain it as unresolved instead of looping.
-            unreachable += 1
+            kind = 'multiview_observed' if multiview(cluster, approaches) else 'reachable_unexplored'
+            residual(cluster,kind,approaches)
+            unreachable += int(kind == 'reachable_unexplored')
             continue
         goal = min(candidates, key=lambda p: math.hypot(p[0]-cx,p[1]-cy) + 0.1*distances[p])
         x, y = grid.cell_to_world(*goal)
@@ -142,4 +190,4 @@ def select_frontiers(grid: Grid, robot: Tuple[float, float], robot_radius=0.35,
         score = len(cluster)*grid.resolution / (0.5+distance)
         goals.append(FrontierGoal(x, y, math.atan2(fy-y,fx-x), distance, len(cluster), score))
     goals.sort(key=lambda g: (-g.score,g.distance,g.x,g.y))
-    return FrontierResult(goals, len(free)*grid.resolution**2, total, unreachable, small)
+    return FrontierResult(goals, len(free)*grid.resolution**2, total, unreachable, small, residual_counts, residual_frontiers)

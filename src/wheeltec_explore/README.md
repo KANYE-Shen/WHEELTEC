@@ -2,7 +2,7 @@
 
 从 SLAM Toolbox 的 `/map` 和 TF `map → base_link` 选探索目标，交给 Nav2 `/navigate_to_pose` 行驶。模块不读取 Gazebo 场景或真实位置。源码是本项目独立实现，没有复制 explore_lite 的代码。
 
-默认安全半径 0.35 米，覆盖参考小车足迹外接圆和一格地图误差。算法对障碍、未知区和地图外边界按足迹收缩空地，再在整车可落入的已知可通行区域内做四连通可达搜索；将已知区域与未知区域之间的边界聚类，从前沿向已知区域内退让，选择 0.6 米搜索范围内可达、整车落在已知空地内的接近点。目标按前沿长度和行驶距离评分。到达后的目标及实际观察位置进入访问记录，后续接近点与已访问位置至少相隔0.30米，避免在相邻点之间来回循环；没有新视角的前沿保留为未解决。失败目标暂停 20 秒后再试，同一区域最多尝试 3 次；单目标 120 秒、整任务 900 秒，最多 60 个目标。
+默认安全半径 0.35 米，覆盖参考小车足迹外接圆和一格地图误差。算法对障碍、未知区和地图外边界按足迹收缩空地，再在整车可落入的已知可通行区域内做四连通可达搜索；将已知区域与未知区域之间的边界聚类，从前沿向已知区域内退让，选择 0.6 米搜索范围内可达、整车落在已知空地内的接近点。目标按前沿长度和行驶距离评分。到达后的目标及实际观察位置进入访问记录，后续接近点与已访问位置至少相隔0.30米，避免在相邻点之间来回循环；接近点都已访问仍不足以认定完成：只有至少两个相距0.30米、地图版本不同且对整簇有已知空地视线的实际观察位置，才计为 multiview_observed；只被未知格阻挡的前沿不能据此算足迹不可进入。失败目标暂停 20 秒后再试，同一区域最多尝试 3 次；单目标 120 秒、整任务 900 秒，最多 60 个目标。
 
 ## 使用
 
@@ -20,7 +20,7 @@ ros2 run wheeltec_explore explore --ros-args -p use_sim_time:=true
 
 ## 任务结果
 
-`/exploration/status` 发布 JSON，当前状态包括 `starting`、`exploring`、`saving`、`returning`、`completed`、`incomplete`、`failed`。同一内容同步写入 `<map_output>.exploration.json`。
+`/exploration/status` 发布 JSON，当前状态包括 `starting`、`exploring`、`saving`、`returning`、`completed`、`completed_with_residual_frontiers`、`incomplete`、`failed`。同一内容同步写入 `<map_output>.exploration.json`。
 
 连续三次新地图都没有可选目标后，保存 `.yaml`、`.pgm`、`.posegraph`、`.data`，返回起点，再判断结果。只有已观察空地至少 8 平方米、没有剩余不可达前沿、没有因超时或重试耗尽而中断、保存和返回都成功，才报告 `completed`。完成表示按当前分辨率与前沿阈值完成了可达区域探索；小于 `min_frontier_size`（默认 0.25 米）的碎片另外计数。
 
@@ -40,3 +40,5 @@ python3 -m unittest discover -s /mnt/d/虚拟c盘/WHEELTEC/src/wheeltec_explore/
 验证运行可设置 `update_latest:=false`，只在指定 `map_output` 保存地图及元数据，不更新用户 `latest.json`；默认仍为 `true`。Humble trinary PGM 保存统一采用空地阈值 0.19、占据阈值 0.65，使灰度 205 的未知格在重新加载后保持未知。
 
 前沿格采用八邻域聚类，使倾斜墙边的前沿不会碎成短簇；车体安全膨胀与可达路径仍按四邻域搜索，禁止从障碍角斜穿。该区别由45度边界和障碍角回归测试覆盖。
+
+2026-10-27：状态 JSON 增加 residual_counts 与 residual_frontiers。分类为 reachable_unexplored、footprint_excluded、multiview_observed；footprint_excluded 要求已测障碍阻挡附近全部可能中心，未知格本身不构成证明。后两类可产生 completed_with_residual_frontiers，保存、返回、最小面积和独立几何评分仍需分别通过。rc=2 且有终态、无强杀和残留进程时属于任务未通过，不再附加异常退出。新增0.6/0.8米凹袋与静态阴影回归；本轮 baseline0 的单次名义 A/B 两边均未通过，不是多种子准入数据。

@@ -28,12 +28,12 @@ class RetryBook:
 
 
 def completion_state(known_free_area, unreachable_clusters, unresolved_failures,
-                     map_saved, returned, minimum_area=8.0):
+                     map_saved, returned, minimum_area=8.0, residual_clusters=0):
     if not map_saved or not returned:
         return 'failed'
     if known_free_area < minimum_area or unreachable_clusters or unresolved_failures:
         return 'incomplete'
-    return 'completed'
+    return 'completed_with_residual_frontiers' if residual_clusters else 'completed'
 
 def observation_fresh(last_received, now, max_age=5.0):
     return last_received is not None and 0 <= now-last_received <= max_age

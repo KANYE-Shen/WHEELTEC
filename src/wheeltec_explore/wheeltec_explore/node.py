@@ -77,6 +77,7 @@ class Explorer(Node):
                        'reference_yaw_rad':self.config['reference_yaw_rad']}
         self.started = time.monotonic()
         self.visited = []
+        self.observations = []
 
     def receive_scan(self,message):
         self.last_scan_wall = time.monotonic()
@@ -208,11 +209,13 @@ class Explorer(Node):
                     raise RuntimeError('Robot localization transform was lost')
                 continue
             latest_result = select_frontiers(self.grid(),pose[:2],self.config['robot_radius'],
-                                              self.config['min_frontier_size'],visited=self.visited)
+                                              self.config['min_frontier_size'],visited=self.visited,observations=self.observations)
             self.report.update(known_free_area_m2=round(latest_result.known_free_area,3),
                                frontier_clusters=latest_result.frontier_clusters,
                                unreachable_clusters=latest_result.unreachable_clusters,
-                               ignored_small_clusters=latest_result.ignored_small_clusters)
+                               ignored_small_clusters=latest_result.ignored_small_clusters,
+                               residual_counts=latest_result.residual_counts,
+                               residual_frontiers=latest_result.residual_frontiers)
             candidates = [g for g in latest_result.goals
                           if self.retry.available((g.x,g.y),time.monotonic())]
             if not candidates:
@@ -243,6 +246,8 @@ class Explorer(Node):
                 observed = self.position()
                 if observed is not None:
                     self.visited.append(observed[:2])
+                    if observation_fresh(self.last_scan_wall,time.monotonic()):
+                        self.observations.append((*observed[:2],self.map_updates))
             else:
                 self.retry.failed((target.x,target.y),time.monotonic())
             old_revision = self.map_updates
@@ -260,8 +265,10 @@ class Explorer(Node):
             returned,_ = self.navigate(*start,returning=True)
         unresolved = 1 if forced_reason else 0
         final = completion_state(latest_result.known_free_area,latest_result.unreachable_clusters,
-                                 unresolved,saved,returned,self.config['minimum_free_area'])
-        reason = (forced_reason or ('no_reachable_frontiers' if final=='completed' else
+                                 unresolved,saved,returned,self.config['minimum_free_area'],
+                                 residual_clusters=sum(latest_result.residual_counts[k] for k in
+                                                       ('footprint_excluded','multiview_observed')))
+        reason = (forced_reason or ('no_reachable_frontiers' if final in ('completed','completed_with_residual_frontiers') else
                                    'remaining_unreachable_frontiers_or_insufficient_observed_area'))
         if not returned:
             reason = 'return_to_start_failed'
@@ -270,7 +277,7 @@ class Explorer(Node):
                     'minimum_free_area_m2':self.config['minimum_free_area'],
                     'no_unreachable_clusters':latest_result.unreachable_clusters==0},history=self.history[:])
         self.wait(lambda:False,0.5)
-        return 0 if final=='completed' else 2
+        return 0 if final in ('completed','completed_with_residual_frontiers') else 2
 
     def cancel_active(self):
         if self.active_goal is not None:

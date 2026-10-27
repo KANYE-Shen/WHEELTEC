@@ -90,3 +90,5 @@
 - 阶段完成或方案改变后更新 README 的进度与日期；目标改变同步 PLAN.md 和本文件；安装变化同步 setup/STATUS.md。
 - 区分已完成、下一步和待决定事项，用具体事实表达。对尚未取得的硬件参数留待测量，不编造结果。
 - 后续用户继续做方案讨论时，遵循已调用 grilling skill 的逐题讨论方式；能从项目或环境查到的事实自行核查。
+
+2026-10-27 T1已实现残余分类及completed_with_residual_frontiers；导航safe集合不变，未知格不能单独证明足迹不可进入，多视角须使用实际观察位置及不同地图版本。单次baseline0 A/B均未完成，不能声称成功率改善；完整记录见setup/verification/2026-10-27-debug-residual-frontiers.md，多种子闭环待T5。

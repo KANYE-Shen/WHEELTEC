@@ -93,6 +93,16 @@ def stop_owned(process,timeout=25.0):
     return {'returncode':process.returncode,'forced_kill':forced,
             'process_group_id':pgid,'remaining_live_group_members':members}
 
+def shutdown_abnormal(name, state, terminal):
+    if state is None:
+        return False
+    expected_codes = (0, -signal.SIGINT, 130)
+    if name == 'explorer' and terminal.get('state') in ('incomplete','failed','map_unstable'):
+        expected_codes += (2,)
+    return bool(state['forced_kill'] or state.get('remaining_live_group_members')
+                or state['returncode'] not in expected_codes)
+
+
 def source_manifest():
     files=[]
     for directory in (ROOT/'simulation',ROOT/'src/wheeltec_explore'):
@@ -229,7 +239,7 @@ def main(argv=None):
                                 '--ros-args','-p','use_sim_time:=true','-p','map_output:='+str(run/'map'),
                                 '-p','update_latest:=false','-p','task_timeout:='+str(args.task_timeout),
                                 '-p','goal_timeout:=75.0','-p','reference_yaw_rad:=0.0','-p','max_goals:=60'],'explore.log')
-        wait(lambda:capture.status.get('state') in ('completed','incomplete','failed'),args.timeout,'exploration terminal status',True)
+        wait(lambda:capture.status.get('state') in ('completed','completed_with_residual_frontiers','incomplete','failed','map_unstable'),args.timeout,'exploration terminal status',True)
         until=time.monotonic()+1
         wait(lambda:time.monotonic()>=until,3,'final truth settling')
     except KeyboardInterrupt:
@@ -274,7 +284,7 @@ def main(argv=None):
                 result['failures'].append('Evaluation truth reader lost or rejected data')
         result['shutdown']=shutdown
         for name,state in shutdown.items():
-            if state is not None and (state['forced_kill'] or state.get('remaining_live_group_members') or state['returncode'] not in (0,-signal.SIGINT,130)):
+            if shutdown_abnormal(name,state,result.get('explorer',{})):
                 result['failures'].append('abnormal shutdown '+name+': '+repr(state))
         result['latest_selector_sha256_after']=hashlib.sha256(latest_selector.read_bytes()).hexdigest() if latest_selector.is_file() else None
         if result['latest_selector_sha256_after']!=result['latest_selector_sha256_before']:
@@ -329,7 +339,7 @@ def main(argv=None):
         metrics=result.get('saved_map_metrics',{})
         result['acceptance']={
             'truth_quality':result['truth_quality']['valid'],
-            'completed':terminal.get('state')=='completed',
+            'completed':terminal.get('state') in ('completed','completed_with_residual_frontiers'),
             'map_saved':terminal.get('map_saved') is True,
             'returned':terminal.get('returned') is True,
             'return_error':result['gazebo_return_error_m'] is not None and result['gazebo_return_error_m']<(.20 if args.scenario else .22),

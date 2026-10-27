@@ -50,7 +50,7 @@
   const canvas = $('map'), ctx = canvas.getContext('2d');
   const layers = {grid:true,scan:true,pose:true,trail:true,plan:true};
   const states = {starting:'准备中', exploring:'正在探索', saving:'正在保存地图', returning:'正在返回起点',
-    completed:'任务完成', incomplete:'任务未完成', failed:'任务失败', interrupted:'人工中止'};
+    completed:'任务完成', completed_with_residual_frontiers:'完成（有已分类残余）', map_unstable:'地图不稳定', incomplete:'任务未完成', failed:'任务失败', interrupted:'人工中止'};
   const reasons = {no_reachable_frontiers:'未再发现可达前沿', operator_interrupted:'操作员在终端中止',
     unresolved_frontiers:'还有未解决的探索区域', return_to_start_failed:'返回起点失败',
     task_timeout:'达到本次任务时限', max_goals:'达到目标数量限制'};
@@ -80,7 +80,7 @@
     const state = freshness(performance.now(), lastAdvance, lastFetchError);
     const last = data.frames[data.frames.length-1];
     const stamp = last ? '最后记录：模拟 '+number(last.t,1,' s')+' / 录制 '+number(last.wall_t,1,' s') : '等待第一帧';
-    const ended = last && last.status && ['completed','incomplete','failed','interrupted'].includes(last.status.state);
+    const ended = last && last.status && ['completed','completed_with_residual_frontiers','map_unstable','incomplete','failed','interrupted'].includes(last.status.state);
     const label = state==='disconnected' ? '连接已中断，保留最后数据' : ended ? '任务已结束，显示最终记录' :
       state==='stalled' ? '数据未继续，仿真可能已暂停或停止' : '读取中 · 约每 5 秒刷新';
     text('source-status',label+' · '+stamp);
@@ -174,7 +174,7 @@
     text('scenario',(sceneNames[scene.id] || scene.name || '等待场景信息')+
       (Number.isInteger(scene.spawn_index) ? ' · 起点 '+scene.spawn_index : '')+' · 算法估计 / map 坐标');
     text('mission',states[status.state] || (status.state ? String(status.state) : '等待任务状态'));
-    $('mission').className='state '+(status.state==='completed' ? 'good' : ['failed','incomplete','interrupted'].includes(status.state) ? 'warning' : '');
+    $('mission').className='state '+(['completed','completed_with_residual_frontiers'].includes(status.state) ? 'good' : ['failed','map_unstable','incomplete','interrupted'].includes(status.state) ? 'warning' : '');
     text('reason',reasons[status.reason] || status.reason || '等待探索任务发布状态');
     text('saved',status.map_saved===true ? '已保存' : status.map_saved===false ? '未保存' : '尚无结果');
     text('returned',status.returned===true ? '已返回' : status.returned===false ? '未返回' : '尚无结果');

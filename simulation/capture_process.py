@@ -15,7 +15,7 @@ import time
 
 from view_process import atomic_text, export_replay, make_server
 
-TERMINAL = ('completed','incomplete','failed','interrupted')
+TERMINAL = ('completed','completed_with_residual_frontiers','map_unstable','incomplete','failed','interrupted')
 
 
 def main(argv=None):
