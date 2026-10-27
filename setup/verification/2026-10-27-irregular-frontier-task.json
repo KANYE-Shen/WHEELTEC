@@ -1,0 +1,39 @@
+{
+  "task_id": "irregular-frontiers-20261027",
+  "status": "completed",
+  "phase": "completed_candidate_not_promoted",
+  "heartbeat_epoch": 1793117372.4725528,
+  "resume_at": "2026-10-28T04:00:00+08:00",
+  "timezone": "Asia/Hong_Kong",
+  "session_id": "01a17bf2-e4a2-7283-9e65-2ec9169ff665",
+  "baseline_commit": "b4a1d37",
+  "no_push": true,
+  "robot_motion_authorized": false,
+  "completed_steps": [
+    "read_current_AGENTS",
+    "inspect_frontier_selector",
+    "start_primary_source_research",
+    "freeze_single_variable_design",
+    "write_failing_regressions",
+    "implement_opt_in_visibility_strategy",
+    "60_paired_synthetic_inputs_all_safe",
+    "preserve_gazebo_v1_summary_failure",
+    "realism_on_20_trials_complete_0_passes",
+    "recorded_ros_65_snapshots_complete_3_regressions",
+    "off_20_trials_strict_original_10_candidate_5_raw_6_retained",
+    "four_runtime_reproductions_none_reproduced_stop_diagnoses",
+    "84_checks_all_passed",
+    "independent_review_fixes_verified",
+    "all_45_trials_audited_and_retained",
+    "documentation_and_local_commits_complete_no_push"
+  ],
+  "next_steps": [],
+  "active_batches": [],
+  "review_findings": {
+    "collector_shutdown": "fixed_three_tests_including_nested_sigkill",
+    "resume_log_only_attempt": "fixed_red_green_test",
+    "nested_sigkill_harness": "fixed_red_green_and_strict_offline_scoring_all_arms"
+  },
+  "completed_at": "2026-10-27T16:09:32.472552+00:00",
+  "outcome": "Experimental visibility strategy retained opt-in; overall success not improved, original centroid default preserved; no push or robot motion."
+}

@@ -116,3 +116,5 @@ python3 setup/verification/irregular-20261027/run_checks.py --output ~/wheeltec_
 ```
 
 结论：本轮完成了候选方法实现与可复核的负结果，尚未实现整体成功率提高。正式on的起始安全域阻塞先于选点；名义off候选更差。下一轮应在实测校准和可复现的运行时证据基础上分开处理，不能通过放宽安全域或验收来宣布优化成功。
+
+完成状态的续作守卫已在本机实际调用：返回0、stdout/stderr均空，dry-run显示eligible=false，没有调用模型。见[静默守卫证据](irregular-20261027/completed-guard-proof.json)。这验证条件跳过，不代替04:00实际唤醒验证。

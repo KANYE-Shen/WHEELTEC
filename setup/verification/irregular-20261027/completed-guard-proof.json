@@ -1,0 +1,14 @@
+{
+  "task_status": "completed",
+  "dry_run": {
+    "eligible_now": false,
+    "session": "01a17bf2-e4a2-7283-9e65-2ec9169ff665",
+    "task_status": "completed",
+    "mode": "dry_run_no_model_invocation"
+  },
+  "actual_guard_returncode": 0,
+  "actual_guard_stdout_empty": true,
+  "actual_guard_stderr_empty": true,
+  "model_invocation": false,
+  "scheduled_0400_execution_verified": false
+}
