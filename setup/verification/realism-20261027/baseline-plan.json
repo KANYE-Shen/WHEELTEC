@@ -1,0 +1,909 @@
+{
+  "schema": 1,
+  "plan": [
+    {
+      "scenario": "baseline",
+      "spawn": 0,
+      "seed": 0,
+      "scale": 1.0,
+      "pose": [
+        -1.7245852560034227,
+        -1.5019534749000454,
+        -0.005153325441293682
+      ]
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 0,
+      "seed": 1,
+      "scale": 1.0,
+      "pose": [
+        -1.7106080929426184,
+        -1.5194476483762172,
+        -0.05130232001854726
+      ]
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 0,
+      "seed": 2,
+      "scale": 1.0,
+      "pose": [
+        -1.7232453796866622,
+        -1.4752834674895967,
+        0.022447964013426733
+      ]
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 0,
+      "seed": 3,
+      "scale": 1.0,
+      "pose": [
+        -1.6796804378893848,
+        -1.5153017267837774,
+        -0.04323483442462246
+      ]
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 0,
+      "seed": 4,
+      "scale": 1.0,
+      "pose": [
+        -1.67047429075712,
+        -1.4892756026979155,
+        -0.04539797917148143
+      ]
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 1,
+      "seed": 0,
+      "scale": 1.0,
+      "pose": [
+        -1.4992394673840614,
+        -1.50239667427461,
+        1.5481761715279392
+      ]
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 1,
+      "seed": 1,
+      "scale": 1.0,
+      "pose": [
+        -1.5276356133809623,
+        -1.4710895303291005,
+        1.5381695708715206
+      ]
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 1,
+      "seed": 2,
+      "scale": 1.0,
+      "pose": [
+        -1.5162795165988847,
+        -1.484835937353602,
+        1.5949354610552389
+      ]
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 1,
+      "seed": 3,
+      "scale": 1.0,
+      "pose": [
+        -1.4714864542956962,
+        -1.5271698569364993,
+        1.5208704245209566
+      ]
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 1,
+      "seed": 4,
+      "scale": 1.0,
+      "pose": [
+        -1.473273030169502,
+        -1.5210345966189625,
+        1.5346613779902962
+      ]
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 2,
+      "seed": 0,
+      "scale": 1.0,
+      "pose": [
+        -1.707603619249508,
+        0.2900422614379852,
+        -1.5536759939407332
+      ]
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 2,
+      "seed": 1,
+      "scale": 1.0,
+      "pose": [
+        -1.6750716619848283,
+        0.3279348276742532,
+        -1.5977421326380914
+      ]
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 2,
+      "seed": 2,
+      "scale": 1.0,
+      "pose": [
+        -1.691786618597513,
+        0.29620545913788626,
+        -1.5220986209494596
+      ]
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 2,
+      "seed": 3,
+      "scale": 1.0,
+      "pose": [
+        -1.690104667746141,
+        0.321509300069612,
+        -1.5143203954976423
+      ]
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 2,
+      "seed": 4,
+      "scale": 1.0,
+      "pose": [
+        -1.6868006916811986,
+        0.32378071536460096,
+        -1.6232671787892659
+      ]
+    },
+    {
+      "scenario": "bent_passage",
+      "spawn": 0,
+      "seed": 0,
+      "scale": 1.0,
+      "pose": [
+        -1.7114316346435152,
+        -1.5115961483511688,
+        -0.046502302020277685
+      ]
+    },
+    {
+      "scenario": "bent_passage",
+      "spawn": 0,
+      "seed": 1,
+      "scale": 1.0,
+      "pose": [
+        -1.720611499725039,
+        -1.5141234153586332,
+        -0.02486559228817388
+      ]
+    },
+    {
+      "scenario": "bent_passage",
+      "spawn": 0,
+      "seed": 2,
+      "scale": 1.0,
+      "pose": [
+        -1.728365186959903,
+        -1.5239423239134033,
+        0.016676192525161795
+      ]
+    },
+    {
+      "scenario": "bent_passage",
+      "spawn": 0,
+      "seed": 3,
+      "scale": 1.0,
+      "pose": [
+        -1.7145080476065744,
+        -1.4921752046283498,
+        0.03523868404485267
+      ]
+    },
+    {
+      "scenario": "bent_passage",
+      "spawn": 0,
+      "seed": 4,
+      "scale": 1.0,
+      "pose": [
+        -1.6952537785308313,
+        -1.484950916863602,
+        -0.05978899380258736
+      ]
+    },
+    {
+      "scenario": "bent_passage",
+      "spawn": 1,
+      "seed": 0,
+      "scale": 1.0,
+      "pose": [
+        1.6275621027224907,
+        -1.3752395519873442,
+        1.613546009932118
+      ]
+    },
+    {
+      "scenario": "bent_passage",
+      "spawn": 1,
+      "seed": 1,
+      "scale": 1.0,
+      "pose": [
+        1.5951195318833724,
+        -1.3830843444589402,
+        1.6275224661362184
+      ]
+    },
+    {
+      "scenario": "bent_passage",
+      "spawn": 1,
+      "seed": 2,
+      "scale": 1.0,
+      "pose": [
+        1.6009687154839978,
+        -1.380311923475672,
+        1.5735962384934787
+      ]
+    },
+    {
+      "scenario": "bent_passage",
+      "spawn": 1,
+      "seed": 3,
+      "scale": 1.0,
+      "pose": [
+        1.5745927738240866,
+        -1.3735691959711245,
+        1.6157669267347174
+      ]
+    },
+    {
+      "scenario": "bent_passage",
+      "spawn": 1,
+      "seed": 4,
+      "scale": 1.0,
+      "pose": [
+        1.5758351254952012,
+        -1.4294665512501616,
+        1.5305435506833398
+      ]
+    },
+    {
+      "scenario": "bent_passage",
+      "spawn": 2,
+      "seed": 0,
+      "scale": 1.0,
+      "pose": [
+        -1.5742285976589396,
+        1.9338443836090644,
+        -0.04243611737519835
+      ]
+    },
+    {
+      "scenario": "bent_passage",
+      "spawn": 2,
+      "seed": 1,
+      "scale": 1.0,
+      "pose": [
+        -1.593148891138899,
+        1.9315657139959992,
+        0.03542616423970878
+      ]
+    },
+    {
+      "scenario": "bent_passage",
+      "spawn": 2,
+      "seed": 2,
+      "scale": 1.0,
+      "pose": [
+        -1.5994866572725404,
+        1.9234009375602905,
+        0.0015935620351695406
+      ]
+    },
+    {
+      "scenario": "bent_passage",
+      "spawn": 2,
+      "seed": 3,
+      "scale": 1.0,
+      "pose": [
+        -1.598961018003523,
+        1.9746747943478806,
+        0.037780048752673406
+      ]
+    },
+    {
+      "scenario": "bent_passage",
+      "spawn": 2,
+      "seed": 4,
+      "scale": 1.0,
+      "pose": [
+        -1.6070462750423133,
+        1.921926837247866,
+        0.05853767654276354
+      ]
+    },
+    {
+      "scenario": "clutter",
+      "spawn": 0,
+      "seed": 0,
+      "scale": 1.0,
+      "pose": [
+        -1.7063736080261387,
+        -1.804239062216596,
+        -0.012891968060020333
+      ]
+    },
+    {
+      "scenario": "clutter",
+      "spawn": 0,
+      "seed": 1,
+      "scale": 1.0,
+      "pose": [
+        -1.7254159213421356,
+        -1.7953299747309108,
+        0.005041502522233524
+      ]
+    },
+    {
+      "scenario": "clutter",
+      "spawn": 0,
+      "seed": 2,
+      "scale": 1.0,
+      "pose": [
+        -1.681798835909913,
+        -1.8105463163045514,
+        0.04124025567312668
+      ]
+    },
+    {
+      "scenario": "clutter",
+      "spawn": 0,
+      "seed": 3,
+      "scale": 1.0,
+      "pose": [
+        -1.7127373079425403,
+        -1.7783923220843958,
+        -0.05761328343775921
+      ]
+    },
+    {
+      "scenario": "clutter",
+      "spawn": 0,
+      "seed": 4,
+      "scale": 1.0,
+      "pose": [
+        -1.7132033212968936,
+        -1.8218447209624855,
+        -0.047985600389890186
+      ]
+    },
+    {
+      "scenario": "clutter",
+      "spawn": 1,
+      "seed": 0,
+      "scale": 1.0,
+      "pose": [
+        0.7138698782928473,
+        -1.7023574004859459,
+        1.5872721668460255
+      ]
+    },
+    {
+      "scenario": "clutter",
+      "spawn": 1,
+      "seed": 1,
+      "scale": 1.0,
+      "pose": [
+        0.6723954330567324,
+        -1.6815555483720206,
+        1.5601385030534565
+      ]
+    },
+    {
+      "scenario": "clutter",
+      "spawn": 1,
+      "seed": 2,
+      "scale": 1.0,
+      "pose": [
+        0.6796713467485466,
+        -1.683601228641292,
+        1.5119781303698556
+      ]
+    },
+    {
+      "scenario": "clutter",
+      "spawn": 1,
+      "seed": 3,
+      "scale": 1.0,
+      "pose": [
+        0.7027746135351106,
+        -1.6778526175179513,
+        1.5231289833582562
+      ]
+    },
+    {
+      "scenario": "clutter",
+      "spawn": 1,
+      "seed": 4,
+      "scale": 1.0,
+      "pose": [
+        0.6989896347781119,
+        -1.7071450170600666,
+        1.5335030949341606
+      ]
+    },
+    {
+      "scenario": "clutter",
+      "spawn": 2,
+      "seed": 0,
+      "scale": 1.0,
+      "pose": [
+        1.4067945224205738,
+        1.411885840378669,
+        3.1257233092761227
+      ]
+    },
+    {
+      "scenario": "clutter",
+      "spawn": 2,
+      "seed": 1,
+      "scale": 1.0,
+      "pose": [
+        1.4294371823476322,
+        1.377027890464595,
+        3.113821225492987
+      ]
+    },
+    {
+      "scenario": "clutter",
+      "spawn": 2,
+      "seed": 2,
+      "scale": 1.0,
+      "pose": [
+        1.3776217506910142,
+        1.4297930130567753,
+        3.1643483232291745
+      ]
+    },
+    {
+      "scenario": "clutter",
+      "spawn": 2,
+      "seed": 3,
+      "scale": 1.0,
+      "pose": [
+        1.4258213074224668,
+        1.37510269304906,
+        3.1934526660841094
+      ]
+    },
+    {
+      "scenario": "clutter",
+      "spawn": 2,
+      "seed": 4,
+      "scale": 1.0,
+      "pose": [
+        1.397431855556437,
+        1.392644027836833,
+        3.1724919813268913
+      ]
+    },
+    {
+      "scenario": "l_shape",
+      "spawn": 0,
+      "seed": 0,
+      "scale": 1.0,
+      "pose": [
+        -1.680548909015291,
+        -1.5200082231222638,
+        -0.018905755975503827
+      ]
+    },
+    {
+      "scenario": "l_shape",
+      "spawn": 0,
+      "seed": 1,
+      "scale": 1.0,
+      "pose": [
+        -1.6867678912187851,
+        -1.5041048553163143,
+        -0.049457172363123726
+      ]
+    },
+    {
+      "scenario": "l_shape",
+      "spawn": 0,
+      "seed": 2,
+      "scale": 1.0,
+      "pose": [
+        -1.710876624018217,
+        -1.4884770612397125,
+        -0.05962340435328261
+      ]
+    },
+    {
+      "scenario": "l_shape",
+      "spawn": 0,
+      "seed": 3,
+      "scale": 1.0,
+      "pose": [
+        -1.6915499528903106,
+        -1.52319332053351,
+        -0.04321671798371725
+      ]
+    },
+    {
+      "scenario": "l_shape",
+      "spawn": 0,
+      "seed": 4,
+      "scale": 1.0,
+      "pose": [
+        -1.6906471308290996,
+        -1.5227116082080887,
+        0.015509568291012868
+      ]
+    },
+    {
+      "scenario": "l_shape",
+      "spawn": 1,
+      "seed": 0,
+      "scale": 1.0,
+      "pose": [
+        1.801801852032892,
+        -1.476233651210695,
+        1.565093188817649
+      ]
+    },
+    {
+      "scenario": "l_shape",
+      "spawn": 1,
+      "seed": 1,
+      "scale": 1.0,
+      "pose": [
+        1.7732832388743165,
+        -1.5277359334400784,
+        1.6184189050711164
+      ]
+    },
+    {
+      "scenario": "l_shape",
+      "spawn": 1,
+      "seed": 2,
+      "scale": 1.0,
+      "pose": [
+        1.8169217783648366,
+        -1.4911570884646355,
+        1.5738327872827869
+      ]
+    },
+    {
+      "scenario": "l_shape",
+      "spawn": 1,
+      "seed": 3,
+      "scale": 1.0,
+      "pose": [
+        1.776453893260533,
+        -1.4797303974719616,
+        1.6279253888827296
+      ]
+    },
+    {
+      "scenario": "l_shape",
+      "spawn": 1,
+      "seed": 4,
+      "scale": 1.0,
+      "pose": [
+        1.7921154459683484,
+        -1.4797209374920024,
+        1.6022610752278772
+      ]
+    },
+    {
+      "scenario": "l_shape",
+      "spawn": 2,
+      "seed": 0,
+      "scale": 1.0,
+      "pose": [
+        -1.2756629469537315,
+        1.4708384916119546,
+        3.166270819291008
+      ]
+    },
+    {
+      "scenario": "l_shape",
+      "spawn": 2,
+      "seed": 1,
+      "scale": 1.0,
+      "pose": [
+        -1.279171048290605,
+        1.49153335257183,
+        3.155036626126113
+      ]
+    },
+    {
+      "scenario": "l_shape",
+      "spawn": 2,
+      "seed": 2,
+      "scale": 1.0,
+      "pose": [
+        -1.2706237393977744,
+        1.4707532805070695,
+        3.1867195990780597
+      ]
+    },
+    {
+      "scenario": "l_shape",
+      "spawn": 2,
+      "seed": 3,
+      "scale": 1.0,
+      "pose": [
+        -1.2980328455113737,
+        1.5239044690452008,
+        3.1616946615083132
+      ]
+    },
+    {
+      "scenario": "l_shape",
+      "spawn": 2,
+      "seed": 4,
+      "scale": 1.0,
+      "pose": [
+        -1.3251973615657293,
+        1.492009582841757,
+        3.118769306629225
+      ]
+    },
+    {
+      "scenario": "recess",
+      "spawn": 0,
+      "seed": 0,
+      "scale": 1.0,
+      "pose": [
+        -1.6754729677975078,
+        -1.4888334652972717,
+        -0.005247680407370954
+      ]
+    },
+    {
+      "scenario": "recess",
+      "spawn": 0,
+      "seed": 1,
+      "scale": 1.0,
+      "pose": [
+        -1.7102018448533585,
+        -1.4774020338436704,
+        0.011079867711033503
+      ]
+    },
+    {
+      "scenario": "recess",
+      "spawn": 0,
+      "seed": 2,
+      "scale": 1.0,
+      "pose": [
+        -1.7033223690006063,
+        -1.5153735390897682,
+        -0.05857978590879181
+      ]
+    },
+    {
+      "scenario": "recess",
+      "spawn": 0,
+      "seed": 3,
+      "scale": 1.0,
+      "pose": [
+        -1.6753553476986587,
+        -1.5116529544428403,
+        -0.010998113502579614
+      ]
+    },
+    {
+      "scenario": "recess",
+      "spawn": 0,
+      "seed": 4,
+      "scale": 1.0,
+      "pose": [
+        -1.6749659181954455,
+        -1.4851119872430034,
+        0.010794439121834198
+      ]
+    },
+    {
+      "scenario": "recess",
+      "spawn": 1,
+      "seed": 0,
+      "scale": 1.0,
+      "pose": [
+        1.4884481879282865,
+        -1.387099368042391,
+        1.5905120866134819
+      ]
+    },
+    {
+      "scenario": "recess",
+      "spawn": 1,
+      "seed": 1,
+      "scale": 1.0,
+      "pose": [
+        1.4996791579953062,
+        -1.4170948657805789,
+        1.5568972948764794
+      ]
+    },
+    {
+      "scenario": "recess",
+      "spawn": 1,
+      "seed": 2,
+      "scale": 1.0,
+      "pose": [
+        1.5032230181115571,
+        -1.392975544889419,
+        1.5450213424028236
+      ]
+    },
+    {
+      "scenario": "recess",
+      "spawn": 1,
+      "seed": 3,
+      "scale": 1.0,
+      "pose": [
+        1.4745475596036381,
+        -1.3954875847959984,
+        1.5683887898181286
+      ]
+    },
+    {
+      "scenario": "recess",
+      "spawn": 1,
+      "seed": 4,
+      "scale": 1.0,
+      "pose": [
+        1.5116667463727762,
+        -1.4008203960249797,
+        1.5766705829198722
+      ]
+    },
+    {
+      "scenario": "recess",
+      "spawn": 2,
+      "seed": 0,
+      "scale": 1.0,
+      "pose": [
+        -1.1292836193576468,
+        1.8143809691494115,
+        -1.5716330364008622
+      ]
+    },
+    {
+      "scenario": "recess",
+      "spawn": 2,
+      "seed": 1,
+      "scale": 1.0,
+      "pose": [
+        -1.1136894547769336,
+        1.8256196955321697,
+        -1.6180732373753264
+      ]
+    },
+    {
+      "scenario": "recess",
+      "spawn": 2,
+      "seed": 2,
+      "scale": 1.0,
+      "pose": [
+        -1.122122581304353,
+        1.8237576381812457,
+        -1.580371095746004
+      ]
+    },
+    {
+      "scenario": "recess",
+      "spawn": 2,
+      "seed": 3,
+      "scale": 1.0,
+      "pose": [
+        -1.1083062361961946,
+        1.82912394583604,
+        -1.5293643555501315
+      ]
+    },
+    {
+      "scenario": "recess",
+      "spawn": 2,
+      "seed": 4,
+      "scale": 1.0,
+      "pose": [
+        -1.092802070448704,
+        1.8151291261907194,
+        -1.5693244336262326
+      ]
+    }
+  ],
+  "source": {
+    "git_revision": "c7cc8cf1ac77203e02bf9d7d4db98066ac1d7e60",
+    "sha256": {
+      "simulation/build_gui_sync.py": "5d3f248ef40693fad21d7ddce3c90dc6018fe7c09f50291459980753b0c8c9b4",
+      "simulation/calibrate_realism.py": "944bff1c36ceb008b5cf4ef507858e7b2b8f639068a00a4beacc63fc66026fa4",
+      "simulation/capture_process.py": "ae16a529be27718a382e29054ca162a6577bc939e334234a60beb706f56f000d",
+      "simulation/check_exploration.py": "7cd0a28c67549c29abed75790dc02d0aa172d0251860efee47b8f327ff895836",
+      "simulation/check_health_bags.py": "0a8e9f92e513bc6c63dd75a39c08ca8c61e9cdc029ffa2435669fbd755687465",
+      "simulation/check_native_lidar_noise.py": "c2a1216d7e53338e3c6da88cf9e4f77b9cd9ed5e9255453ec6bba21d0d8172b1",
+      "simulation/check_navigation.py": "30182ef9477657d425b009093a53288403118a0219342efef0ed14551e88fe90",
+      "simulation/check_normal_session.py": "0c6c27c1eacfb4a5929b5b963f3aa2fb5e6c8e12b7db28764c671bf463c09a1f",
+      "simulation/check_obstacles.py": "9a0328c32edbd58b8347b8633cacec709a43367ca9ed08874ca7e430f5b435a0",
+      "simulation/check_room.py": "ea84f095bc26eeed7c687a3af15e4620642be4bfe19c00e0bbe1554d58c743ac",
+      "simulation/config/bridge.yaml": "8c03ed14072c12defb80d1471a511e9cf2f786c81df86a6a79d1fb3e50ada2d9",
+      "simulation/config/nav2.yaml": "737906ff0689a329684e16b8d1020e9e2e5ef94c244950c547325626629093e3",
+      "simulation/config/navigate_wait.xml": "72d6d3ad72e82fb295233b26a4c31e36972ccdc431e7288b98f8b3cdd061292e",
+      "simulation/config/realism.yaml": "3d22a829a514993fc7f60cb4b810a9ad22613d7e0319b42f21966f04dd452303",
+      "simulation/config/slam.yaml": "3c10f823f1a51b16e01cd5b12843eef1502d696e2a83c4f856420bba020a7942",
+      "simulation/gui_sync/RenderSync.cc": "9c7ed35cbd1af3a2d26b46e5a05e65a6e9eddc1a0211f54e9e0cdadbf4f75bde",
+      "simulation/gui_sync/RenderSync.hh": "5b4e8b403780a0ee634e8fa9b0dbfdf6228d4abeb82a3c07c29f8610fa71ae18",
+      "simulation/gui_sync/WheeltecRenderSync.qml": "bd1759d4dc05979988925d17ec9ed3b4d82467474d820f2b951098ef7c93a8fa",
+      "simulation/launch/navigation.launch.py": "ec0f2ee4feca285d84ead19b97f836aba39bf2b0f6cb48d10c8001a9da0795a7",
+      "simulation/launch/room.launch.py": "130971c3a275b3b5d9d128fc8560114d47f0a9a38c24028cb63874a29c054665",
+      "simulation/map_metrics.py": "3b24eb354c5c1002340400f3adb88ff05abc5b3f9f843f2a7299574ab85c1385",
+      "simulation/models/wheeltec_reference/model.sdf": "790ee948429671ee19d81eed8ab71c02e1106212344ee7ec15856fe833654033",
+      "simulation/process_capture.py": "962b85fe5313e387cb39c5413ed26ee6ee0e51c031f93833d8e9e8a22c609f07",
+      "simulation/realism.py": "a715a45aeb80438b0d33d703215d5125d5713fed97f18c54d0ede8a2fd6a748d",
+      "simulation/realism_node.py": "5d4d2846ef6176400a1dad2a906ee5cc32dfc4336183f8ed4450dfb94c7b90ee",
+      "simulation/regression_batch.py": "d4f851b78a21369f9796b2e75d54d2d11c37a2779eadf1ce7b641fa4166d3f64",
+      "simulation/replay_health.py": "03d0d668be7e4f896fb0e087152fbc8dc26bb0d80bb1f69bd794f0d2648ce17a",
+      "simulation/resource_monitor.py": "9d392961ebc1354a4ed681a9335ca94cbe1cb0998478a5e9cb668ade9f8772c1",
+      "simulation/room_session.py": "7a9ef9f457e7800d8d2c875d6adc030870b02195e46b48ff60fdf33ad9d4b15d",
+      "simulation/run_room.py": "9910e81e6eba9d90701ca3fe255525fa32145d390afd3a5ec05500e4cde925af",
+      "simulation/save_map.py": "5d34317f1553d5a5878b5ffeaa56e83a72f1f5ae4cb88ddfbfdfec1072e6fbbb",
+      "simulation/scenarios/baseline.json": "9c524db887a9a8f88e248c4765ac5b5b3dacc372da37d3fff434faab796c2793",
+      "simulation/scenarios/bent_passage.json": "3c89d5d99a5817c01353cf63de8f84e9d2f2a7fcd925a396979e7e99dae35e0e",
+      "simulation/scenarios/clutter.json": "de8d08656df0c7f5e138c057e979261006360f724a191578d6f9d608b6b22955",
+      "simulation/scenarios/l_shape.json": "55206c1bbba36e948be81802e2b17fe9d2e6199ad0d173fe9140753bd6ef31ca",
+      "simulation/scenarios/recess.json": "27e04d116086318eec6ff8c6c8bea25e34e301f6aba58e002da7c353da40fb40",
+      "simulation/scenarios.py": "a407fc306715620231f74674111c88deae570854d2f5ba2c41bcd5214b6fe610",
+      "simulation/teleop.py": "edd8624eea0bec098f2e45dcc46038c9871f2c83ba38a9d5192706f6cb6aa1b6",
+      "simulation/test_explorer_time_ros.py": "4c990f6cdae0f731700f3c115d15cd17899f9259a5913efff73cb8db13f25801",
+      "simulation/test_health_ros.py": "6826555592e7f1fbda97a207e888619cbdc14e1426316543ac036fe57b767ef5",
+      "simulation/test_map_roundtrip_ros.py": "3438171b6003c21349bf070b7f35c9b281fac75455ee5e1888999ec43d00653a",
+      "simulation/test_outcomes.py": "bde9443ba830d973e2be0223cf7f279c106656c745d82895af455a7d3afaec17",
+      "simulation/test_process_capture_ros.py": "474b5bda2a228f10b9214261f0ea0f9eaa173f0aaa5fa7f07d07f8da8cac6319",
+      "simulation/test_realism.py": "8cf08c994e7786dd8de371284860b597d49eea347f8f818148b3bea31618e84d",
+      "simulation/test_realism_ros.py": "17c6c8f6fd7b396ef8b032f60f7c73b1977a07cfc799bccb99d7dc2a38f7369a",
+      "simulation/test_regression_batch.py": "4ec03a918458ee4d886475a20624fa370cf33406095cfff9473f874c7fde4942",
+      "simulation/test_room_session.py": "c435c29882c9fa871f05c8d3c78c4b98dadfbe0c62b17dfb2d41194bdbb24f7f",
+      "simulation/test_teleop.py": "0f5db5dccc91042696c541c74def6eb5cfb114de86a85aa7f643dd1777ac2887",
+      "simulation/test_teleop_ros.py": "7caa45cde5aa871f22282eb1c384b2a3ab1ce001752670d476e96b6121be1a53",
+      "simulation/test_truth_clock_ros.py": "f334c0145e6a99e68ffed6e45bcb3c66315dcfbd0dc9644e758dd31946d2a8f0",
+      "simulation/test_truth_runtime.py": "780b3889e1d82402394bb3c57394deb954288d81ae52665ae965d6ae7cf94ac4",
+      "simulation/test_validation.py": "d1ad00d8025dd590dc0511b78e5bdc2c055fbfa6dad5c54f67fde96ddcdc79c3",
+      "simulation/test_view_process.py": "5db5cd745ef2b4b4c663cdf174c13cb1d60b33cb70bd2c9baf5c465d682b43a4",
+      "simulation/truth_capture.py": "0d1eeb62e98a8115fb73548e0c64a9f427c98838211878842ea45c19e2f229c4",
+      "simulation/truth_capture_worker.py": "9c0ee995575ad45d4014346cdf94209ee4b3c82482be8e702cfc743b7ffd4a97",
+      "simulation/view_process.py": "6e5de64ebb2ce338eb1d05467b9218f43f645bd503e20a60a6d45eb8576c2b39",
+      "simulation/worlds/room_25m2.sdf": "a7b89c66bf89aef325e2416134078b1d898d8549a718ad0a74e7e58682859c05",
+      "src/wheeltec_explore/package.xml": "21e95e8a3f0f84f08b5c592902b4857848f1c17e66b78c860ae18bc24ceddb1c",
+      "src/wheeltec_explore/setup.py": "32a55a22f13c62de762478d1b4059c7f6c27535e6de11083f1017cbcaa64484c",
+      "src/wheeltec_explore/test/test_frontiers.py": "e607b50d67ba87daf5e047bb082b5786631e2dca55031a4fdff020b8a7214d06",
+      "src/wheeltec_explore/test/test_health.py": "8ffd06991184502e2089968d1b8392aae75a7aa6ca5c6a31385b53b878120a48",
+      "src/wheeltec_explore/test/test_policy.py": "dcc71fe7189dce2509df05d9d14719ac57fe4c891815c7e1511e78d836bd5983",
+      "src/wheeltec_explore/test/test_residuals.py": "e2e59c0bf8aa023e3f0bb6c93070ebf65e6d23c1a8165810bf2ca4f515ed4efa",
+      "src/wheeltec_explore/wheeltec_explore/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/wheeltec_explore/wheeltec_explore/defaults.py": "2e373484f3355db299147bb948414d3598e28429c98e46dd60f56a6b72f0b207",
+      "src/wheeltec_explore/wheeltec_explore/frontiers.py": "f04a45e45dcf08a481150c72352bb81dd4ab37a8a3bd40536b9b4c8dd544682a",
+      "src/wheeltec_explore/wheeltec_explore/health.py": "d42d972259cfc77608bc256bf42ca5033d6b3e3ecc14e0e93e768f513af1766d",
+      "src/wheeltec_explore/wheeltec_explore/node.py": "77213bf29c3175338e369a3eed42f5f822a14c5d850e7d31890e605a4ecfa2b8",
+      "src/wheeltec_explore/wheeltec_explore/policy.py": "7833dd62da3d90b78ab750860a8a5cb7a87fe49dec483953f083496a09dc9f4d"
+    }
+  },
+  "realism": "on",
+  "seed_count": 5,
+  "position_jitter_m": 0.03,
+  "yaw_jitter_rad": 0.06,
+  "all_failures_retained": true
+}

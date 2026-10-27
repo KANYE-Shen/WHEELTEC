@@ -1,0 +1,205 @@
+{
+  "all_passed": true,
+  "unique_unittest_cases": 116,
+  "standalone_map_roundtrip_checks": 1,
+  "groups": [
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/src/wheeltec_explore/test"
+      ],
+      "returncode": 0,
+      "wall_seconds": 1.5217628809999724,
+      "unittest_cases": 27,
+      "log_sha256": "1556bba6158b2b88a29f111aa4bc2fcd922c9dbf4bdaf65dd62b44a57f352788"
+    },
+    {
+      "command": [
+        "python3",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/simulation/test_explorer_time_ros.py"
+      ],
+      "returncode": 0,
+      "wall_seconds": 1.2263039209999533,
+      "unittest_cases": 3,
+      "log_sha256": "921b60a7fd52e978fbb551cacd29df2d6708879400278e1fcc70fceeb0c6f8e0"
+    },
+    {
+      "command": [
+        "python3",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/simulation/test_health_ros.py"
+      ],
+      "returncode": 0,
+      "wall_seconds": 6.58353833000001,
+      "unittest_cases": 1,
+      "log_sha256": "5ac5fbe606e9d0d687e5e142634845ac5f478d659cc405d0e4e0bf3071178f17"
+    },
+    {
+      "command": [
+        "python3",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/simulation/test_map_roundtrip_ros.py"
+      ],
+      "returncode": 0,
+      "wall_seconds": 1.4724428360000275,
+      "unittest_cases": 0,
+      "log_sha256": "0cfb4a9a10ce9fd250cabf0f4319cbb5356478b6e7e7431b39672ab599c4e16d",
+      "standalone_map_roundtrip_check": true
+    },
+    {
+      "command": [
+        "python3",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/simulation/test_outcomes.py"
+      ],
+      "returncode": 0,
+      "wall_seconds": 0.4675975139999764,
+      "unittest_cases": 1,
+      "log_sha256": "fb184ea57734512b1f088f9181209901b9cd46df3eb7eaa2500ea9e48dde20b5"
+    },
+    {
+      "command": [
+        "python3",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/simulation/test_process_capture_ros.py"
+      ],
+      "returncode": 0,
+      "wall_seconds": 6.532636327999967,
+      "unittest_cases": 1,
+      "log_sha256": "010471fcf5f0b1368d8e402bd4d24754e582727401e570628bc0395c88d9d87e"
+    },
+    {
+      "command": [
+        "python3",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/simulation/test_realism.py"
+      ],
+      "returncode": 0,
+      "wall_seconds": 0.6679371459999857,
+      "unittest_cases": 5,
+      "log_sha256": "6e59c5d29c2c30c239f35b3332df60a366306a6b90d3ae5afcd965490e0f2ece"
+    },
+    {
+      "command": [
+        "python3",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/simulation/test_realism_ros.py"
+      ],
+      "returncode": 0,
+      "wall_seconds": 5.130152111000029,
+      "unittest_cases": 1,
+      "log_sha256": "47d2140ae9c2f7c3dc0bbb70d44b028c60691116a5423c96fb76328dba4e7f96"
+    },
+    {
+      "command": [
+        "python3",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/simulation/test_regression_batch.py"
+      ],
+      "returncode": 0,
+      "wall_seconds": 0.7156567910000149,
+      "unittest_cases": 3,
+      "log_sha256": "ca1b488a8bc498129e254228ea5bdf957e77d4a3fd7e50c0c6fc99015a7bd67f"
+    },
+    {
+      "command": [
+        "python3",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/simulation/test_room_session.py"
+      ],
+      "returncode": 0,
+      "wall_seconds": 0.768990805000044,
+      "unittest_cases": 11,
+      "log_sha256": "9d08bd25a2c0394d1c0cddcbfed0e8bda37e7e0bc0a04538b565cdeab63d7cda"
+    },
+    {
+      "command": [
+        "python3",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/simulation/test_teleop.py"
+      ],
+      "returncode": 0,
+      "wall_seconds": 0.4151675760000444,
+      "unittest_cases": 5,
+      "log_sha256": "38e41805034d6b93dd1a3454e522324e5439f27dc9e7a212174f5169eb774254"
+    },
+    {
+      "command": [
+        "python3",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/simulation/test_teleop_ros.py"
+      ],
+      "returncode": 0,
+      "wall_seconds": 1.2307688590000225,
+      "unittest_cases": 1,
+      "log_sha256": "f489c8226095c8768123b62682e5cb695262d3493efb2098ba542f5f0839e968"
+    },
+    {
+      "command": [
+        "python3",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/simulation/test_truth_clock_ros.py"
+      ],
+      "returncode": 0,
+      "wall_seconds": 0.6246649830000024,
+      "unittest_cases": 1,
+      "log_sha256": "b84b900402a9edc9fb128796273f79a05836240c75e0e9ea6d780e53d050ee81"
+    },
+    {
+      "command": [
+        "python3",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/simulation/test_truth_runtime.py"
+      ],
+      "returncode": 0,
+      "wall_seconds": 2.169547341999987,
+      "unittest_cases": 8,
+      "log_sha256": "2fcb0164a2d1e729180c99b233536898500ed5162836508867b06cdce4c4528f"
+    },
+    {
+      "command": [
+        "python3",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/simulation/test_validation.py"
+      ],
+      "returncode": 0,
+      "wall_seconds": 8.243358772999954,
+      "unittest_cases": 27,
+      "log_sha256": "2eaa0754d2a88618b94f1a86171a951e598ef6e4ecbadd2a41a5f65820a04574"
+    },
+    {
+      "command": [
+        "python3",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/simulation/test_view_process.py"
+      ],
+      "returncode": 0,
+      "wall_seconds": 1.1203752090000307,
+      "unittest_cases": 5,
+      "log_sha256": "a539ee0c76b3a48adc357f7750a2d7e874c854af3ab0e914a5e009d0cf58f1c1"
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/robot",
+        "-p",
+        "test_*.py"
+      ],
+      "returncode": 0,
+      "log": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-regression-final/updated-16.log",
+      "unittest_cases": 12,
+      "log_sha256": "4aa9685a86d577d53ff49c2115698b4c5844a88db196c1632a3f29f18e96c709"
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "/mnt/d/\u865a\u62dfc\u76d8/WHEELTEC/robot/calibration",
+        "-p",
+        "test_*.py"
+      ],
+      "returncode": 0,
+      "log": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-regression-final/updated-17.log",
+      "unittest_cases": 4,
+      "log_sha256": "25bf088f3bdab31f7799a114bf452d53fa384a8b14c0a064dd8a6d036c5ee49e"
+    }
+  ],
+  "historical_logs_retained": true
+}

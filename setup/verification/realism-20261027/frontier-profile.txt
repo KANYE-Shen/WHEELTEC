@@ -1,0 +1,23 @@
+Input: /home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/069_recess_spawn1_seed4_scale1
+process.json SHA256: a1d816e947e877c66e45ddabe10875478087a372bdc30073df25bd3ab516b708
+         86970 function calls in 0.080 seconds
+
+   Ordered by: cumulative time
+   List reduced from 39 to 15 due to restriction <15>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.080    0.080 /mnt/d/虚拟c盘/WHEELTEC/src/wheeltec_explore/wheeltec_explore/frontiers.py:70(select_frontiers)
+        1    0.053    0.053    0.053    0.053 /mnt/d/虚拟c盘/WHEELTEC/src/wheeltec_explore/wheeltec_explore/frontiers.py:96(<setcomp>)
+        1    0.001    0.001    0.013    0.013 /mnt/d/虚拟c盘/WHEELTEC/src/wheeltec_explore/wheeltec_explore/frontiers.py:151(<setcomp>)
+     5332    0.002    0.000    0.012    0.000 {built-in method builtins.any}
+    26400    0.005    0.000    0.011    0.000 /mnt/d/虚拟c盘/WHEELTEC/src/wheeltec_explore/wheeltec_explore/frontiers.py:151(<genexpr>)
+        1    0.005    0.005    0.005    0.005 /mnt/d/虚拟c盘/WHEELTEC/src/wheeltec_explore/wheeltec_explore/frontiers.py:98(<setcomp>)
+    27427    0.004    0.000    0.004    0.000 /mnt/d/虚拟c盘/WHEELTEC/src/wheeltec_explore/wheeltec_explore/frontiers.py:38(neighbors)
+        3    0.003    0.001    0.003    0.001 /mnt/d/虚拟c盘/WHEELTEC/src/wheeltec_explore/wheeltec_explore/frontiers.py:172(<setcomp>)
+    21068    0.002    0.000    0.002    0.000 /mnt/d/虚拟c盘/WHEELTEC/src/wheeltec_explore/wheeltec_explore/frontiers.py:24(value)
+        1    0.001    0.001    0.001    0.001 /mnt/d/虚拟c盘/WHEELTEC/src/wheeltec_explore/wheeltec_explore/frontiers.py:133(<setcomp>)
+        1    0.001    0.001    0.001    0.001 /mnt/d/虚拟c盘/WHEELTEC/src/wheeltec_explore/wheeltec_explore/frontiers.py:88(<listcomp>)
+        1    0.001    0.001    0.001    0.001 /mnt/d/虚拟c盘/WHEELTEC/src/wheeltec_explore/wheeltec_explore/frontiers.py:87(<setcomp>)
+        3    0.001    0.000    0.001    0.000 /mnt/d/虚拟c盘/WHEELTEC/src/wheeltec_explore/wheeltec_explore/frontiers.py:177(<setcomp>)
+        1    0.000    0.000    0.001    0.001 /mnt/d/虚拟c盘/WHEELTEC/src/wheeltec_explore/wheeltec_explore/frontiers.py:139(<listcomp>)
+        1    0.000    0.000    0.000    0.000 /mnt/d/虚拟c盘/WHEELTEC/src/wheeltec_explore/wheeltec_explore/frontiers.py:89(<listcomp>)

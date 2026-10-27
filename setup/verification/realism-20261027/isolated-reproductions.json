@@ -1,0 +1,82 @@
+[
+  {
+    "original_index": 41,
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-repro-041",
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "original_symptom_reproduced": false,
+    "success": false,
+    "raw_topic_counts": {
+      "/simulation/realism_status": 6,
+      "/simulation/raw_odom": 185,
+      "/simulation/actuator_cmd_vel": 317,
+      "/scan": 64,
+      "/odom": 185,
+      "/tf": 500,
+      "/simulation/raw_scan": 64,
+      "/clock": 6320
+    },
+    "recorder": {
+      "original_index": 41,
+      "same_seed_and_pose": {
+        "scenario": "clutter",
+        "spawn": 2,
+        "seed": 1,
+        "scale": 1.0,
+        "pose": [
+          1.4294371823476322,
+          1.377027890464595,
+          3.113821225492987
+        ]
+      },
+      "extra_instrumentation": "raw-only ROS bag subscriber; no algorithm parameters changed",
+      "returncode": 1,
+      "recorder_shutdown": {
+        "returncode": 0,
+        "forced_kill": false,
+        "process_group_id": 37618,
+        "remaining_live_group_members": []
+      }
+    }
+  },
+  {
+    "original_index": 69,
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-repro-069",
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "original_symptom_reproduced": false,
+    "success": false,
+    "raw_topic_counts": {
+      "/simulation/realism_status": 7,
+      "/simulation/raw_odom": 221,
+      "/simulation/actuator_cmd_vel": 378,
+      "/scan": 76,
+      "/odom": 221,
+      "/tf": 596,
+      "/simulation/raw_scan": 76,
+      "/clock": 7544
+    },
+    "recorder": {
+      "original_index": 69,
+      "same_seed_and_pose": {
+        "scenario": "recess",
+        "spawn": 1,
+        "seed": 4,
+        "scale": 1.0,
+        "pose": [
+          1.5116667463727762,
+          -1.4008203960249797,
+          1.5766705829198722
+        ]
+      },
+      "extra_instrumentation": "raw-only ROS bag subscriber; no algorithm parameters changed",
+      "returncode": 1,
+      "recorder_shutdown": {
+        "returncode": 0,
+        "forced_kill": false,
+        "process_group_id": 38022,
+        "remaining_live_group_members": []
+      }
+    }
+  }
+]

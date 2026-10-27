@@ -1,0 +1,12 @@
+[
+  {
+    "file": "robot/start_bridge.sh",
+    "bash_n_returncode": 0,
+    "lf_only": true
+  },
+  {
+    "file": "robot/start_stack.sh",
+    "bash_n_returncode": 0,
+    "lf_only": true
+  }
+]

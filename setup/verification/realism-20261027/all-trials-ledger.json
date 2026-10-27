@@ -1,0 +1,1406 @@
+[
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/000_baseline_spawn0_seed0_scale1",
+    "result_sha256": "7f3f2bd192fa70dc80da2bb0e4a6da73d1f824f1cd80c5f6201ad5cb9f164c75",
+    "success": false,
+    "realism": "on",
+    "seed": 0,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/001_baseline_spawn0_seed1_scale1",
+    "result_sha256": "a6be608da77cca29f20860b47c4784dc5fe71cd220457d43927fdf544803f935",
+    "success": false,
+    "realism": "on",
+    "seed": 1,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/002_baseline_spawn0_seed2_scale1",
+    "result_sha256": "0b07f854b89872cfb553934a5a894165eca213674c93163bd0b0bdaf1e1d0352",
+    "success": false,
+    "realism": "on",
+    "seed": 2,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/003_baseline_spawn0_seed3_scale1",
+    "result_sha256": "ce0d0b3346d460b1a101151afebb936aa4988d4855a229929f484d33573c0f2f",
+    "success": false,
+    "realism": "on",
+    "seed": 3,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/004_baseline_spawn0_seed4_scale1",
+    "result_sha256": "ee0a536ce05175ab935f34aa654cb4cdab7c3d1922cf3cf6902fa268429adf22",
+    "success": false,
+    "realism": "on",
+    "seed": 4,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/005_baseline_spawn1_seed0_scale1",
+    "result_sha256": "9ce1061b528075b1526bf9d80804e04fad34fa66550f47a16547fe8d36cbead9",
+    "success": false,
+    "realism": "on",
+    "seed": 0,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/006_baseline_spawn1_seed1_scale1",
+    "result_sha256": "466143c35b2d100e99949a0f93bb60364dbeef4c1251d179f7b8c195b3f964ae",
+    "success": false,
+    "realism": "on",
+    "seed": 1,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/007_baseline_spawn1_seed2_scale1",
+    "result_sha256": "28ff05f46efa54717071ff93192b1b1ea0abfcb63bce6fb2c66147713a905c0d",
+    "success": false,
+    "realism": "on",
+    "seed": 2,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/008_baseline_spawn1_seed3_scale1",
+    "result_sha256": "6aee72950842f0c3fd070a48ab1ce51b6c56147da265395a9868b7cb0e876205",
+    "success": false,
+    "realism": "on",
+    "seed": 3,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/009_baseline_spawn1_seed4_scale1",
+    "result_sha256": "63cfc9e78f8400f149a34661e49733a1bd0bb3294653d74a7f052fe524283401",
+    "success": false,
+    "realism": "on",
+    "seed": 4,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/010_baseline_spawn2_seed0_scale1",
+    "result_sha256": "681ccb1e4da325832391cc5dce6a88c805654b7248f8f156d5a8cd36ac7b8d91",
+    "success": false,
+    "realism": "on",
+    "seed": 0,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/011_baseline_spawn2_seed1_scale1",
+    "result_sha256": "5ab7443a365fa0d3fedd223bdbc61c44f34cd46c546c34ed522e855664b67ed0",
+    "success": false,
+    "realism": "on",
+    "seed": 1,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/012_baseline_spawn2_seed2_scale1",
+    "result_sha256": "906a3e73debc344c84132ea36ecbc7f6e8998d2428d2120bc808886e9d146e6d",
+    "success": false,
+    "realism": "on",
+    "seed": 2,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/013_baseline_spawn2_seed3_scale1",
+    "result_sha256": "a6611ecfb1ec836c3c03851aa715a089886e05562213ae3d6e209dcb8a2a1105",
+    "success": false,
+    "realism": "on",
+    "seed": 3,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/014_baseline_spawn2_seed4_scale1",
+    "result_sha256": "04666c5820c682a69df3c30e4921a3e72f35b31725e99f74f280d55385c8c3c1",
+    "success": false,
+    "realism": "on",
+    "seed": 4,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/015_bent_passage_spawn0_seed0_scale1",
+    "result_sha256": "8302577def3850bae5e408e5befe993ad29d63ac02b690b55007ab42b8195080",
+    "success": false,
+    "realism": "on",
+    "seed": 0,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/016_bent_passage_spawn0_seed1_scale1",
+    "result_sha256": "afef3802757ca589f8e00cf896b4cdf3525114fd8e1f4da90b78a2f29f2e8213",
+    "success": false,
+    "realism": "on",
+    "seed": 1,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/017_bent_passage_spawn0_seed2_scale1",
+    "result_sha256": "474f080efa4db003171e3227c3e9c7bc838378136eab3b863cb1f3fd31d5e3ae",
+    "success": false,
+    "realism": "on",
+    "seed": 2,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/018_bent_passage_spawn0_seed3_scale1",
+    "result_sha256": "118804870252841c02575c6c1140a528d6f05cf450e4845f4b50587ec9b02f51",
+    "success": false,
+    "realism": "on",
+    "seed": 3,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/019_bent_passage_spawn0_seed4_scale1",
+    "result_sha256": "e2c8a434b0b821ded22cdc570573995c3982050f9aad13e3678f4705c25959d3",
+    "success": false,
+    "realism": "on",
+    "seed": 4,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/020_bent_passage_spawn1_seed0_scale1",
+    "result_sha256": "73aec52ec0fbbac474d95517152ad4826b1fbc5c579b65cc8f7b883365e7ef76",
+    "success": false,
+    "realism": "on",
+    "seed": 0,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/021_bent_passage_spawn1_seed1_scale1",
+    "result_sha256": "1527d08266bef01918829ba15664d5532c870d1e8e4e016c891d36b9a5ebc857",
+    "success": false,
+    "realism": "on",
+    "seed": 1,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/022_bent_passage_spawn1_seed2_scale1",
+    "result_sha256": "2b6783eb388334a11213072a66e9de629c1390fac903c4c934d475586895c4fb",
+    "success": false,
+    "realism": "on",
+    "seed": 2,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/023_bent_passage_spawn1_seed3_scale1",
+    "result_sha256": "3cf2bfb344d0442d60d1eca413f58f3595d6df8bb8e9f0a66d7771d71473bb3c",
+    "success": false,
+    "realism": "on",
+    "seed": 3,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/024_bent_passage_spawn1_seed4_scale1",
+    "result_sha256": "ced54186e999567635a2a3e40b948691e944d808476de8217ae8450ec22b0aa5",
+    "success": false,
+    "realism": "on",
+    "seed": 4,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/025_bent_passage_spawn2_seed0_scale1",
+    "result_sha256": "1d9ccbb91dfc3972da9e8e8777fff6bc31aff3a75ec729bcb6f8e2f7ddf9f10d",
+    "success": false,
+    "realism": "on",
+    "seed": 0,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/026_bent_passage_spawn2_seed1_scale1",
+    "result_sha256": "462d7239c00094632c193e5a27b4a373e526c1ab71f567d0aed96240d4f6ea43",
+    "success": false,
+    "realism": "on",
+    "seed": 1,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/027_bent_passage_spawn2_seed2_scale1",
+    "result_sha256": "df341abbcb95f47d262bd3a4c0f261399cb51ebeb86099fdf9535e1bdf68ebff",
+    "success": false,
+    "realism": "on",
+    "seed": 2,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/028_bent_passage_spawn2_seed3_scale1",
+    "result_sha256": "fc91832b21ffe4c9b30c4a00cb667e61c721b8ca7a4832c1b7053d82aed48454",
+    "success": false,
+    "realism": "on",
+    "seed": 3,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/029_bent_passage_spawn2_seed4_scale1",
+    "result_sha256": "7e30b7d435b4ed4ee3bb9a13a159db1b2e7472d0ec73c2595d6c6dcb417139bc",
+    "success": false,
+    "realism": "on",
+    "seed": 4,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/030_clutter_spawn0_seed0_scale1",
+    "result_sha256": "5e589527ba8caacf702e5ba76410de9fc74904f798f4166e4e32d085d5671961",
+    "success": false,
+    "realism": "on",
+    "seed": 0,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/031_clutter_spawn0_seed1_scale1",
+    "result_sha256": "2b075f2955c0f5404d7a85a1cf7b6921cdebe9c6ae71b9d36ece2b5119bacdd7",
+    "success": false,
+    "realism": "on",
+    "seed": 1,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/032_clutter_spawn0_seed2_scale1",
+    "result_sha256": "bc325e2eaa5a1032cc78b6799f7bd8f331d5004e79cb3bdaef7c277f7b8d3cf6",
+    "success": false,
+    "realism": "on",
+    "seed": 2,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/033_clutter_spawn0_seed3_scale1",
+    "result_sha256": "b18b24610001f3ccabe88916b89e27a23a8c62f5510233876e1447e973b8a85c",
+    "success": false,
+    "realism": "on",
+    "seed": 3,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/034_clutter_spawn0_seed4_scale1",
+    "result_sha256": "bc8a6a96c8afd0edf94c377da575fdd775416ad7aefe67fe035d6f0211e6f364",
+    "success": false,
+    "realism": "on",
+    "seed": 4,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/035_clutter_spawn1_seed0_scale1",
+    "result_sha256": "07e6432a2ce78db23cddb17ca652938a2ef8651d06cce105e0e9e9f2c0a51aba",
+    "success": false,
+    "realism": "on",
+    "seed": 0,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/036_clutter_spawn1_seed1_scale1",
+    "result_sha256": "f0354029f831565a78e95c755258ef8fdc991f84d01a2fec2ac1f1c0294ea05f",
+    "success": false,
+    "realism": "on",
+    "seed": 1,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/037_clutter_spawn1_seed2_scale1",
+    "result_sha256": "37606069195fa232a3da1380751ab8dad573d6afe7cc2a7d0bd77e61db69e845",
+    "success": false,
+    "realism": "on",
+    "seed": 2,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/038_clutter_spawn1_seed3_scale1",
+    "result_sha256": "0fbe32ac641d6d9f4225d359bf856ef9ba8e73e217021f15507328d3a3a82076",
+    "success": false,
+    "realism": "on",
+    "seed": 3,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/039_clutter_spawn1_seed4_scale1",
+    "result_sha256": "de2c6939821cc6aa3ede4b9ebc4f06cacab53f0a97b1f1d5021ddac2077c3908",
+    "success": false,
+    "realism": "on",
+    "seed": 4,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/040_clutter_spawn2_seed0_scale1",
+    "result_sha256": "bee35c72a785eb71fca446f5c1bc088446987c6569f7e8dca9e4fb3411753912",
+    "success": false,
+    "realism": "on",
+    "seed": 0,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/041_clutter_spawn2_seed1_scale1",
+    "result_sha256": "69b18d4c5f3e1c2b880adaf19bd446e824a519db8a5c3c63e74ad1617aebfec4",
+    "success": false,
+    "realism": "on",
+    "seed": 1,
+    "state": null,
+    "reason": null,
+    "goals": 0,
+    "failures": [
+      "RuntimeError('Timeout: SLAM map, truth and Nav2 lifecycle')",
+      "Invalid evaluation truth: arrival_gap_exceeded",
+      "Missing map artifact .yaml",
+      "Missing map artifact .pgm",
+      "Missing map artifact .posegraph",
+      "Missing map artifact .data",
+      "Missing map artifact .metadata.json",
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/042_clutter_spawn2_seed2_scale1",
+    "result_sha256": "6392acfbe1c0a42c4acf58d9d255f5aeafc2f32b098782f303e2776bcbc9fcec",
+    "success": false,
+    "realism": "on",
+    "seed": 2,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/043_clutter_spawn2_seed3_scale1",
+    "result_sha256": "6001761f7ef47f914a677d1b2fec9c0d964e9af88590cb0dce8f2c059c8c4cb0",
+    "success": false,
+    "realism": "on",
+    "seed": 3,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/044_clutter_spawn2_seed4_scale1",
+    "result_sha256": "1d6d037fe8eb148d06ea65663abf4f2dde55cce891119e7cec2f0cc05593116c",
+    "success": false,
+    "realism": "on",
+    "seed": 4,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/045_l_shape_spawn0_seed0_scale1",
+    "result_sha256": "37c2e1f52422871fb41a5e7042c36b25ba4551f80c72057d2845f5ededb8dffa",
+    "success": false,
+    "realism": "on",
+    "seed": 0,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/046_l_shape_spawn0_seed1_scale1",
+    "result_sha256": "a03c7475a1502f4291ff316997bb3f7cbc8ca0252e2ba83b80a012c82f8a13c5",
+    "success": false,
+    "realism": "on",
+    "seed": 1,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/047_l_shape_spawn0_seed2_scale1",
+    "result_sha256": "1aeb275a89562e86758bd93b11ae842144daad16833d097513be26cd6207e777",
+    "success": false,
+    "realism": "on",
+    "seed": 2,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/048_l_shape_spawn0_seed3_scale1",
+    "result_sha256": "aa79596df8bd31d320618cf31369cadda3e6286f7a0cb14d70447705d3ec90f4",
+    "success": false,
+    "realism": "on",
+    "seed": 3,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/049_l_shape_spawn0_seed4_scale1",
+    "result_sha256": "7f1da370d354556d218391cac822aca1feeb09ea4d70f5d71d9d6f5146fc433b",
+    "success": false,
+    "realism": "on",
+    "seed": 4,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/050_l_shape_spawn1_seed0_scale1",
+    "result_sha256": "0db1103b4f80fbc487cf5a72f718e246d172ee3ceb5a9eb456103a60c8227849",
+    "success": false,
+    "realism": "on",
+    "seed": 0,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/051_l_shape_spawn1_seed1_scale1",
+    "result_sha256": "8995a45bce81b947c92e98942598e63df849bbfb01b1d5ec0d615e53542fc8ae",
+    "success": false,
+    "realism": "on",
+    "seed": 1,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/052_l_shape_spawn1_seed2_scale1",
+    "result_sha256": "4a0d7cc1361ad4f51731f7e8d88f027b359dbbd159ece8bb218731e9a3989d06",
+    "success": false,
+    "realism": "on",
+    "seed": 2,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/053_l_shape_spawn1_seed3_scale1",
+    "result_sha256": "f21adfdbf68c6c82b0a596a9926a6a0b4e61936495c12abf6108291100352e64",
+    "success": false,
+    "realism": "on",
+    "seed": 3,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/054_l_shape_spawn1_seed4_scale1",
+    "result_sha256": "3748bc7fea39fd3d3b81721d299767766c5c636e33be7b398289bf8a8d73db19",
+    "success": false,
+    "realism": "on",
+    "seed": 4,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/055_l_shape_spawn2_seed0_scale1",
+    "result_sha256": "58638bbb2b9b46499ac6411fa3b3c6e2f0cc30a12f3ee9f889019dab78d685a4",
+    "success": false,
+    "realism": "on",
+    "seed": 0,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/056_l_shape_spawn2_seed1_scale1",
+    "result_sha256": "c8ed1ae2a8a128e6d0a3603dc33418f4d6d4c559d2beebc56b4255876b81f345",
+    "success": false,
+    "realism": "on",
+    "seed": 1,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/057_l_shape_spawn2_seed2_scale1",
+    "result_sha256": "0ada4a0fde6d6660336e5a43bbf9746a00945d4b1a8be7839bb171b758838963",
+    "success": false,
+    "realism": "on",
+    "seed": 2,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/058_l_shape_spawn2_seed3_scale1",
+    "result_sha256": "c71b62f2baf5f70f72d2e5ecf5c6469a0ca323bce419c12f519eacc998f03f2f",
+    "success": false,
+    "realism": "on",
+    "seed": 3,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/059_l_shape_spawn2_seed4_scale1",
+    "result_sha256": "c83074f46974cb8ff8183e8401917ad9f66421f606df87233803634c910f57be",
+    "success": false,
+    "realism": "on",
+    "seed": 4,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/060_recess_spawn0_seed0_scale1",
+    "result_sha256": "7472c04bb2a8375dc0797c804779bc4f60878580ee61c22b763228638ab1edb3",
+    "success": false,
+    "realism": "on",
+    "seed": 0,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/061_recess_spawn0_seed1_scale1",
+    "result_sha256": "041a235c74165d2949c7b1d51e07aec59271d5099d62c1a1a39ec7c9900f6b87",
+    "success": false,
+    "realism": "on",
+    "seed": 1,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/062_recess_spawn0_seed2_scale1",
+    "result_sha256": "9fb1de1cad149a209cee1c1b391a7ffb692a2f7c636d4b6a2177b9279447b0dc",
+    "success": false,
+    "realism": "on",
+    "seed": 2,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/063_recess_spawn0_seed3_scale1",
+    "result_sha256": "7108b2ac8ed029584184c805a983db8aa62bb4fb27bd370c1a1bb85a75028c13",
+    "success": false,
+    "realism": "on",
+    "seed": 3,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/064_recess_spawn0_seed4_scale1",
+    "result_sha256": "25ca1e5b6870adb79b00e526f8611ded17775de47d849503d5f13cb9d96d4b6e",
+    "success": false,
+    "realism": "on",
+    "seed": 4,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/065_recess_spawn1_seed0_scale1",
+    "result_sha256": "d6769525d1ad54ce007bf5951f174fcbdcb15e0c543b9273260f47530f6e2006",
+    "success": false,
+    "realism": "on",
+    "seed": 0,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/066_recess_spawn1_seed1_scale1",
+    "result_sha256": "4ae1ff6d6d9ddd4e80063c424368c9c281d2b6127bc4c24054e3f1e41e17fdb5",
+    "success": false,
+    "realism": "on",
+    "seed": 1,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/067_recess_spawn1_seed2_scale1",
+    "result_sha256": "43a54dd47ebe42921f8b2e6837c09321f067330debab2ed8246f24b224625474",
+    "success": false,
+    "realism": "on",
+    "seed": 2,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/068_recess_spawn1_seed3_scale1",
+    "result_sha256": "3b0cabb8011e4f6637b06b494cdf561104763be64e9f16198f53845875f35408",
+    "success": false,
+    "realism": "on",
+    "seed": 3,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/069_recess_spawn1_seed4_scale1",
+    "result_sha256": "695279832954e2eb97f037ddc213c3c141a664d0ada001ccfb8ebdfbd5c367a6",
+    "success": false,
+    "realism": "on",
+    "seed": 4,
+    "state": "map_unstable",
+    "reason": "tf_stale",
+    "goals": 0,
+    "failures": [
+      "Missing map artifact .yaml",
+      "Missing map artifact .pgm",
+      "Missing map artifact .posegraph",
+      "Missing map artifact .data",
+      "Missing map artifact .metadata.json",
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/070_recess_spawn2_seed0_scale1",
+    "result_sha256": "9c6d085973e658041c7aefaf40b40c108591b027a1f885acb7b027f1897833bd",
+    "success": false,
+    "realism": "on",
+    "seed": 0,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/071_recess_spawn2_seed1_scale1",
+    "result_sha256": "2a20f67a4d27e03cabaafc3ef272c0d5170bd17b48397238313b5737e262225d",
+    "success": false,
+    "realism": "on",
+    "seed": 1,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/072_recess_spawn2_seed2_scale1",
+    "result_sha256": "b8a8d7b1cc7836b79f4f251ff48226c676abcff0b743e77978edff9a19e14b92",
+    "success": false,
+    "realism": "on",
+    "seed": 2,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/073_recess_spawn2_seed3_scale1",
+    "result_sha256": "0e103789de599eac3656a399d65e35e7cffe63b437254f4919cc2aac1fd445a4",
+    "success": false,
+    "realism": "on",
+    "seed": 3,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-before/074_recess_spawn2_seed4_scale1",
+    "result_sha256": "b25893c7534ee6e7c9b0a366557be3c2b593c733d180893af71b2e076cff5bbd",
+    "success": false,
+    "realism": "on",
+    "seed": 4,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/000_baseline_spawn0_seed0_scale0",
+    "result_sha256": "8be6a83b603c4a023dd67a985aa79940e35b7cc2dc1978597c46bea7243e280c",
+    "success": false,
+    "realism": "on",
+    "seed": 0,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/001_baseline_spawn0_seed0_scale0.5",
+    "result_sha256": "88875b05de5a0cc3a9a54301fc133ee0b8d17d09fbe85f8e057be434a68f5f0e",
+    "success": false,
+    "realism": "on",
+    "seed": 0,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/002_baseline_spawn0_seed0_scale1",
+    "result_sha256": "39a233ede0f058574dd6e05004eff3d70ca19222e4bb78c4f4d07413462cc68a",
+    "success": false,
+    "realism": "on",
+    "seed": 0,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/003_baseline_spawn0_seed0_scale2",
+    "result_sha256": "44f84fec954308500f953cb9c5dc108d32a5f856026def299f416901044c95dc",
+    "success": false,
+    "realism": "on",
+    "seed": 0,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/004_baseline_spawn0_seed1_scale0",
+    "result_sha256": "e07272c15ac74fafb9448ab6f7f81b0e3f4507229bd3cfd5f1d1c7f28a0fc7ec",
+    "success": false,
+    "realism": "on",
+    "seed": 1,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/005_baseline_spawn0_seed1_scale0.5",
+    "result_sha256": "16cfdac9d7b8518933e32dbb2f9f0acdf30f8146d43ec444c6c7f87c4bdcecda",
+    "success": false,
+    "realism": "on",
+    "seed": 1,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/006_baseline_spawn0_seed1_scale1",
+    "result_sha256": "01f3407fdbe2f948bb4ef67d18c4eb7347649d3127dc37bc2f6375c4c184dfdc",
+    "success": false,
+    "realism": "on",
+    "seed": 1,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/007_baseline_spawn0_seed1_scale2",
+    "result_sha256": "02e1d6a04a9cc14b6b5e4fdc3b9fd828b4349ae73fb55088033be06c32455145",
+    "success": false,
+    "realism": "on",
+    "seed": 1,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/008_baseline_spawn0_seed2_scale0",
+    "result_sha256": "c9fc0bc21bed94c6efcd7b1555de9d72835639cf66f367a54bef41e761404989",
+    "success": false,
+    "realism": "on",
+    "seed": 2,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/009_baseline_spawn0_seed2_scale0.5",
+    "result_sha256": "3b9cc00b4f1692a934a44197e8195a6967805617c848585417c15c0a8208c115",
+    "success": false,
+    "realism": "on",
+    "seed": 2,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/010_baseline_spawn0_seed2_scale1",
+    "result_sha256": "b634bef53373a7b71ac6b016411b1d29c62c18c10ca3e1b017eda9607a0fc443",
+    "success": false,
+    "realism": "on",
+    "seed": 2,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/011_baseline_spawn0_seed2_scale2",
+    "result_sha256": "b7381fc2566075408d8421fa20c411197f58bc2c7f82887dacb88a3f70a64812",
+    "success": false,
+    "realism": "on",
+    "seed": 2,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/012_baseline_spawn0_seed3_scale0",
+    "result_sha256": "905fd21c6ae7e52c62e754382ac5592e9f8bec9ca895277ea203a363d4fff0ee",
+    "success": false,
+    "realism": "on",
+    "seed": 3,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/013_baseline_spawn0_seed3_scale0.5",
+    "result_sha256": "f8f6ef7ae96167d4e9ed5499973ae9302c7751679439ffc730e470477d8d0a63",
+    "success": false,
+    "realism": "on",
+    "seed": 3,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/014_baseline_spawn0_seed3_scale1",
+    "result_sha256": "23f91bdbd2ffd073c52ac060348c68245e95885174e8bdf6014327347d1cb600",
+    "success": false,
+    "realism": "on",
+    "seed": 3,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/015_baseline_spawn0_seed3_scale2",
+    "result_sha256": "dc5b3cdecb7c67fc26ab31cd9de392d1d9638f32b8abe4447183f803e438b270",
+    "success": false,
+    "realism": "on",
+    "seed": 3,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/016_baseline_spawn0_seed4_scale0",
+    "result_sha256": "1d68f56aec745460a3ff1eb74171d53f2d269b81088fae6ec09afd33d84a0450",
+    "success": false,
+    "realism": "on",
+    "seed": 4,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/017_baseline_spawn0_seed4_scale0.5",
+    "result_sha256": "64b9d36799c1b18265715b563c9a878ad3cc574648b885a5639007f69c4aef54",
+    "success": false,
+    "realism": "on",
+    "seed": 4,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/018_baseline_spawn0_seed4_scale1",
+    "result_sha256": "f251fea7dd7e8a897eb892b53a0f1e937c96b130964c42c0ada68801b07026aa",
+    "success": false,
+    "realism": "on",
+    "seed": 4,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/019_baseline_spawn0_seed4_scale2",
+    "result_sha256": "f5a008f8e3eecebcf7833a60a5a45264e8ce292fd30cd58738746e0b891702f1",
+    "success": false,
+    "realism": "on",
+    "seed": 4,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t1-A-baseline0",
+    "result_sha256": "0c714b985513ef23dfcb90f5b107f86a27e404072727cf30021e1b53da8f2337",
+    "success": false,
+    "realism": "legacy nominal",
+    "seed": null,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 5,
+    "failures": [
+      "abnormal shutdown explorer: {'returncode': 2, 'forced_kill': False, 'process_group_id': 767, 'remaining_live_group_members': []}"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t1-B-baseline0",
+    "result_sha256": "ecd51f20177aac93bc05b931982f53373bf2806bf0791bd6fe9d2751c3385442",
+    "success": false,
+    "realism": "legacy nominal",
+    "seed": null,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 6,
+    "failures": []
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t2-C-baseline0",
+    "result_sha256": "332192613eb0f11a23cf03abd1fedd787d4aa01bd0eb3c138cc417a860752da1",
+    "success": false,
+    "realism": "legacy nominal",
+    "seed": null,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 9,
+    "failures": []
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t3-D-recess1",
+    "result_sha256": "9e7458c2ab5367cc75c61bd8fbd491765445940c7d399d6c4f453209ae87d91b",
+    "success": false,
+    "realism": "legacy nominal",
+    "seed": null,
+    "state": "failed",
+    "reason": "Timed out waiting for SLAM map and map-to-base transform",
+    "goals": 0,
+    "failures": [
+      "abnormal shutdown explorer: {'returncode': 1, 'forced_kill': False, 'process_group_id': 781, 'remaining_live_group_members': []}",
+      "Missing map artifact .yaml",
+      "Missing map artifact .pgm",
+      "Missing map artifact .posegraph",
+      "Missing map artifact .data",
+      "Missing map artifact .metadata.json",
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t3-D2-recess1",
+    "result_sha256": "bd164491976121cb97a0d8fc9760d57c9d511bf9dbeddd91f7bac2c86ad2c653",
+    "success": false,
+    "realism": "legacy nominal",
+    "seed": null,
+    "state": "incomplete",
+    "reason": "task_timeout",
+    "goals": 7,
+    "failures": []
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t4-A-scale0-baseline0",
+    "result_sha256": "d6d6a1bf20e3c0450cd6f6212c3040a07b9c0cd48bbdcbca744ebcff24bc8513",
+    "success": false,
+    "realism": "on",
+    "seed": 0,
+    "state": null,
+    "reason": null,
+    "goals": 0,
+    "failures": [
+      "RuntimeError('Timeout: SLAM map, truth and Nav2 lifecycle')",
+      "Invalid evaluation truth: arrival_gap_exceeded",
+      "Missing map artifact .yaml",
+      "Missing map artifact .pgm",
+      "Missing map artifact .posegraph",
+      "Missing map artifact .data",
+      "Missing map artifact .metadata.json",
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t4-A2-scale0-baseline0",
+    "result_sha256": "b8b32ce5a8f64b37cae934ccf4042608e1eed92f00cae57939410794fadf6386",
+    "success": false,
+    "realism": "on",
+    "seed": 0,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t4-B-scale1-baseline0",
+    "result_sha256": "27c881e2918972bed510734efebf5b8d1f4668f2412036c8ab20082ec7a0add4",
+    "success": false,
+    "realism": "on",
+    "seed": 0,
+    "state": null,
+    "reason": null,
+    "goals": 0,
+    "failures": [
+      "RuntimeError('Timeout: SLAM map, truth and Nav2 lifecycle')",
+      "Invalid evaluation truth: arrival_gap_exceeded",
+      "Missing map artifact .yaml",
+      "Missing map artifact .pgm",
+      "Missing map artifact .posegraph",
+      "Missing map artifact .data",
+      "Missing map artifact .metadata.json",
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t4-B2-scale1-baseline0",
+    "result_sha256": "1181626231c0d5fef906841c5baddde1976d7d5b5a108209eaccda7d9ee0d3bc",
+    "success": false,
+    "realism": "on",
+    "seed": 0,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-repro-041",
+    "result_sha256": "c2ee073f1d38761f237f65b4523b224a0fbcc6f6e9b30dc5abffc7d065c631d9",
+    "success": false,
+    "realism": "on",
+    "seed": 1,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  },
+  {
+    "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-repro-069",
+    "result_sha256": "cf479267aeb7cd8490a2bd83fd2cb83a3e5554dbfb5ae2131cea5b52494076d8",
+    "success": false,
+    "realism": "on",
+    "seed": 4,
+    "state": "incomplete",
+    "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+    "goals": 0,
+    "failures": [
+      "rosbag missing required messages or unreadable"
+    ]
+  }
+]

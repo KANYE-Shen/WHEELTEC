@@ -1,0 +1,106 @@
+{
+  "full_baseline": {
+    "successes": 0,
+    "trials": 75,
+    "wilson_95": [
+      3.469446951953614e-18,
+      0.04872384248280587
+    ],
+    "states": {
+      "incomplete": 73,
+      "null": 1,
+      "map_unstable": 1
+    },
+    "valid_truth_trials": 74
+  },
+  "noise_sweep": {
+    "successes": 0,
+    "trials": 20,
+    "cells": [
+      {
+        "scenario": "baseline",
+        "spawn": 0,
+        "scale": 0.0,
+        "successes": 0,
+        "trials": 5,
+        "success_rate": 0.0,
+        "wilson_95": [
+          0.0,
+          0.43448246478317476
+        ],
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "scenario": "baseline",
+        "spawn": 0,
+        "scale": 0.5,
+        "successes": 0,
+        "trials": 5,
+        "success_rate": 0.0,
+        "wilson_95": [
+          0.0,
+          0.43448246478317476
+        ],
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "scenario": "baseline",
+        "spawn": 0,
+        "scale": 1.0,
+        "successes": 0,
+        "trials": 5,
+        "success_rate": 0.0,
+        "wilson_95": [
+          0.0,
+          0.43448246478317476
+        ],
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "scenario": "baseline",
+        "spawn": 0,
+        "scale": 2.0,
+        "successes": 0,
+        "trials": 5,
+        "success_rate": 0.0,
+        "wilson_95": [
+          0.0,
+          0.43448246478317476
+        ],
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      }
+    ]
+  },
+  "retained_exploration_trial_count": 106,
+  "all_retained_success_count": 0,
+  "all_attempts_retained": true,
+  "source_hashes_match_frozen_plan": true,
+  "shutdown_issues": [],
+  "latest_selector_sha256": "46fe655145eceeb53d0882f7c56cc22714553eea0e9c563c475055409c9ca1c6",
+  "real_robot_tests": "not_run",
+  "calibration_complete": false
+}

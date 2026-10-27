@@ -1,0 +1,2966 @@
+{
+  "planned_trials": 20,
+  "executed_trials": 20,
+  "complete": true,
+  "successes": 0,
+  "cells": [
+    {
+      "scenario": "baseline",
+      "spawn": 0,
+      "scale": 0.0,
+      "successes": 0,
+      "trials": 5,
+      "success_rate": 0.0,
+      "wilson_95": [
+        0.0,
+        0.43448246478317476
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 0,
+      "scale": 0.5,
+      "successes": 0,
+      "trials": 5,
+      "success_rate": 0.0,
+      "wilson_95": [
+        0.0,
+        0.43448246478317476
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 0,
+      "scale": 1.0,
+      "successes": 0,
+      "trials": 5,
+      "success_rate": 0.0,
+      "wilson_95": [
+        0.0,
+        0.43448246478317476
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 0,
+      "scale": 2.0,
+      "successes": 0,
+      "trials": 5,
+      "success_rate": 0.0,
+      "wilson_95": [
+        0.0,
+        0.43448246478317476
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "scenario": "baseline",
+      "spawn": 0,
+      "seed": 0,
+      "scale": 0.0,
+      "pose": [
+        -1.7245852560034227,
+        -1.5019534749000454,
+        -0.005153325441293682
+      ],
+      "run_dir": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/000_baseline_spawn0_seed0_scale0",
+      "returncode": 1,
+      "success": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      },
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "map_metrics": {
+        "alignment_map_from_world": [
+          1.716822335557634,
+          1.510820841171826,
+          0.005153325441293683
+        ],
+        "alignment_method": "fixed_initial_pose_rigid_no_scale",
+        "resolution_m": 0.05,
+        "robot_center_clearance_radius_m": 0.35,
+        "reachable_safe_cells": 5712,
+        "reachable_safe_area_m2": 14.280000000000003,
+        "correct_reachable_free_cells": 4792,
+        "reachable_coverage": 0.8389355742296919,
+        "reachable_unknown_area_m2": 2.3000000000000003,
+        "physical_free_area_m2": 23.900000000000006,
+        "physical_free_unknown_area_m2": 5.045000000000001,
+        "other_physical_free_area_m2": 9.620000000000001,
+        "other_physical_free_unknown_area_m2": 2.7450000000000006,
+        "disconnected_safe_area_m2": 0.0,
+        "false_free_obstacle_cells": 4,
+        "false_free_obstacle_area_m2": 0.010000000000000002,
+        "false_free_solid_cells": 18,
+        "false_free_solid_area_m2": 0.04500000000000001,
+        "observable_contour_points": 532,
+        "mapped_observable_contour_points": 210,
+        "contour_observability": "ground_truth_LOS_from_reachable_safe_centers_sampled_every_third_cell",
+        "contour_sample_spacing_m": 0.05,
+        "contour_match_tolerance_m": 0.1,
+        "observable_contour_symmetric_p95_m": 1.4068127114168745,
+        "observable_contour_truth_to_map_p95_m": 1.4068127114168745,
+        "observable_contour_map_to_truth_p95_m": 0.048241954807760695,
+        "contour_symmetric_definition": "max_of_directional_p95",
+        "observable_contour_coverage": 0.5338345864661654,
+        "observable_contour_missing_fraction": 0.46616541353383456,
+        "excluded_contour_points": 20,
+        "limitations": [
+          "Geometric contour accuracy is evaluated only on ground-truth observable faces; interiors and occluded faces excluded.",
+          "Grid quantization is 0.05m; viewpoints are sampled at every third reachable raster cell.",
+          "Final map accuracy does not measure localization drift at every trajectory time."
+        ]
+      },
+      "return_error_m": 0.0,
+      "truth_quality": {
+        "valid": true,
+        "issues": [],
+        "limits": {
+          "minimum_distinct_measurement_stamps": 3,
+          "maximum_sim_gap_s": 0.2,
+          "maximum_wall_gap_s": 0.5,
+          "maximum_terminal_sim_age_s": 0.2,
+          "maximum_terminal_wall_age_s": 0.5,
+          "future_tolerance_s": 0.1
+        },
+        "task_start_wall_t": 7.812478786999918,
+        "decision_wall_t": 12.695877272999951,
+        "decision_sim_t": 7.206,
+        "task_samples": 143,
+        "distinct_measurement_stamps": 143,
+        "maximum_sim_gap_s": 0.036000000000000476,
+        "maximum_wall_gap_s": 0.036136746000011044,
+        "last_truth_wall_age_s": 0.020905036999920412,
+        "last_truth_sim_age_s": 0.021000000000000796,
+        "terminal_clock_sync": {
+          "attempted": false,
+          "maximum_wait_wall_s": 2.0,
+          "elapsed_wall_s": 1.3500000477506546e-06,
+          "initial_issues": [],
+          "required_new_measurement_stamps": 3,
+          "new_distinct_measurement_stamps": 0
+        }
+      },
+      "resources": {
+        "async_slam_toolbox_node": {
+          "peak_rss_kib": 48716.0,
+          "peak_cpu_percent_one_core_basis": 14.98889507238548,
+          "samples": 11
+        },
+        "controller_server": {
+          "peak_rss_kib": 40956.0,
+          "peak_cpu_percent_one_core_basis": 10.995102242699403,
+          "samples": 11
+        },
+        "smoother_server": {
+          "peak_rss_kib": 34372.0,
+          "peak_cpu_percent_one_core_basis": 5.997328496017857,
+          "samples": 11
+        },
+        "planner_server": {
+          "peak_rss_kib": 39976.0,
+          "peak_cpu_percent_one_core_basis": 8.995992744026784,
+          "samples": 11
+        },
+        "behavior_server": {
+          "peak_rss_kib": 39484.0,
+          "peak_cpu_percent_one_core_basis": 5.997328496017857,
+          "samples": 11
+        },
+        "bt_navigator": {
+          "peak_rss_kib": 48848.0,
+          "peak_cpu_percent_one_core_basis": 12.991885865717078,
+          "samples": 11
+        },
+        "velocity_smoother": {
+          "peak_rss_kib": 29628.0,
+          "peak_cpu_percent_one_core_basis": 5.997328496017857,
+          "samples": 11
+        },
+        "wheeltec_explore": {
+          "peak_rss_kib": 74848.0,
+          "peak_cpu_percent_one_core_basis": 38.97112718820225,
+          "samples": 4
+        }
+      }
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 0,
+      "seed": 0,
+      "scale": 0.5,
+      "pose": [
+        -1.7245852560034227,
+        -1.5019534749000454,
+        -0.005153325441293682
+      ],
+      "run_dir": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/001_baseline_spawn0_seed0_scale0.5",
+      "returncode": 1,
+      "success": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      },
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "map_metrics": {
+        "alignment_map_from_world": [
+          1.7169819292089938,
+          1.5103250248458606,
+          0.004864583831057626
+        ],
+        "alignment_method": "fixed_initial_pose_rigid_no_scale",
+        "resolution_m": 0.05,
+        "robot_center_clearance_radius_m": 0.35,
+        "reachable_safe_cells": 5712,
+        "reachable_safe_area_m2": 14.280000000000003,
+        "correct_reachable_free_cells": 4807,
+        "reachable_coverage": 0.84156162464986,
+        "reachable_unknown_area_m2": 2.2600000000000002,
+        "physical_free_area_m2": 23.900000000000006,
+        "physical_free_unknown_area_m2": 4.957500000000001,
+        "other_physical_free_area_m2": 9.620000000000001,
+        "other_physical_free_unknown_area_m2": 2.6975000000000007,
+        "disconnected_safe_area_m2": 0.0,
+        "false_free_obstacle_cells": 5,
+        "false_free_obstacle_area_m2": 0.012500000000000002,
+        "false_free_solid_cells": 13,
+        "false_free_solid_area_m2": 0.03250000000000001,
+        "observable_contour_points": 532,
+        "mapped_observable_contour_points": 283,
+        "contour_observability": "ground_truth_LOS_from_reachable_safe_centers_sampled_every_third_cell",
+        "contour_sample_spacing_m": 0.05,
+        "contour_match_tolerance_m": 0.1,
+        "observable_contour_symmetric_p95_m": 0.7476763354445147,
+        "observable_contour_truth_to_map_p95_m": 0.7476763354445147,
+        "observable_contour_map_to_truth_p95_m": 0.07738893444740158,
+        "contour_symmetric_definition": "max_of_directional_p95",
+        "observable_contour_coverage": 0.6447368421052632,
+        "observable_contour_missing_fraction": 0.35526315789473684,
+        "excluded_contour_points": 20,
+        "limitations": [
+          "Geometric contour accuracy is evaluated only on ground-truth observable faces; interiors and occluded faces excluded.",
+          "Grid quantization is 0.05m; viewpoints are sampled at every third reachable raster cell.",
+          "Final map accuracy does not measure localization drift at every trajectory time."
+        ]
+      },
+      "return_error_m": 0.0,
+      "truth_quality": {
+        "valid": true,
+        "issues": [],
+        "limits": {
+          "minimum_distinct_measurement_stamps": 3,
+          "maximum_sim_gap_s": 0.2,
+          "maximum_wall_gap_s": 0.5,
+          "maximum_terminal_sim_age_s": 0.2,
+          "maximum_terminal_wall_age_s": 0.5,
+          "future_tolerance_s": 0.1
+        },
+        "task_start_wall_t": 7.119266928999878,
+        "decision_wall_t": 12.459831829999985,
+        "decision_sim_t": 7.217,
+        "task_samples": 156,
+        "distinct_measurement_stamps": 156,
+        "maximum_sim_gap_s": 0.03500000000000014,
+        "maximum_wall_gap_s": 0.036717093000106615,
+        "last_truth_wall_age_s": 0.01749228300013783,
+        "last_truth_sim_age_s": 0.016000000000000014,
+        "terminal_clock_sync": {
+          "attempted": false,
+          "maximum_wait_wall_s": 2.0,
+          "elapsed_wall_s": 1.1920001270482317e-06,
+          "initial_issues": [],
+          "required_new_measurement_stamps": 3,
+          "new_distinct_measurement_stamps": 0
+        }
+      },
+      "resources": {
+        "async_slam_toolbox_node": {
+          "peak_rss_kib": 47752.0,
+          "peak_cpu_percent_one_core_basis": 12.991334935495072,
+          "samples": 10
+        },
+        "controller_server": {
+          "peak_rss_kib": 40736.0,
+          "peak_cpu_percent_one_core_basis": 8.991900294037304,
+          "samples": 10
+        },
+        "smoother_server": {
+          "peak_rss_kib": 34492.0,
+          "peak_cpu_percent_one_core_basis": 5.994600196024869,
+          "samples": 10
+        },
+        "planner_server": {
+          "peak_rss_kib": 40608.0,
+          "peak_cpu_percent_one_core_basis": 8.991900294037304,
+          "samples": 10
+        },
+        "behavior_server": {
+          "peak_rss_kib": 39336.0,
+          "peak_cpu_percent_one_core_basis": 6.993700228695681,
+          "samples": 10
+        },
+        "bt_navigator": {
+          "peak_rss_kib": 49864.0,
+          "peak_cpu_percent_one_core_basis": 12.988762226831547,
+          "samples": 10
+        },
+        "velocity_smoother": {
+          "peak_rss_kib": 29668.0,
+          "peak_cpu_percent_one_core_basis": 4.99666728288272,
+          "samples": 10
+        },
+        "wheeltec_explore": {
+          "peak_rss_kib": 74988.0,
+          "peak_cpu_percent_one_core_basis": 43.951662840241376,
+          "samples": 5
+        }
+      }
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 0,
+      "seed": 0,
+      "scale": 1.0,
+      "pose": [
+        -1.7245852560034227,
+        -1.5019534749000454,
+        -0.005153325441293682
+      ],
+      "run_dir": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/002_baseline_spawn0_seed0_scale1",
+      "returncode": 1,
+      "success": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      },
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "map_metrics": {
+        "alignment_map_from_world": [
+          1.7171413796703625,
+          1.5098290119868452,
+          0.004575842220821569
+        ],
+        "alignment_method": "fixed_initial_pose_rigid_no_scale",
+        "resolution_m": 0.05,
+        "robot_center_clearance_radius_m": 0.35,
+        "reachable_safe_cells": 5712,
+        "reachable_safe_area_m2": 14.280000000000003,
+        "correct_reachable_free_cells": 4832,
+        "reachable_coverage": 0.84593837535014,
+        "reachable_unknown_area_m2": 2.2000000000000006,
+        "physical_free_area_m2": 23.900000000000006,
+        "physical_free_unknown_area_m2": 4.885000000000001,
+        "other_physical_free_area_m2": 9.620000000000001,
+        "other_physical_free_unknown_area_m2": 2.6850000000000005,
+        "disconnected_safe_area_m2": 0.0,
+        "false_free_obstacle_cells": 13,
+        "false_free_obstacle_area_m2": 0.03250000000000001,
+        "false_free_solid_cells": 22,
+        "false_free_solid_area_m2": 0.05500000000000001,
+        "observable_contour_points": 532,
+        "mapped_observable_contour_points": 325,
+        "contour_observability": "ground_truth_LOS_from_reachable_safe_centers_sampled_every_third_cell",
+        "contour_sample_spacing_m": 0.05,
+        "contour_match_tolerance_m": 0.1,
+        "observable_contour_symmetric_p95_m": 0.699532281767413,
+        "observable_contour_truth_to_map_p95_m": 0.699532281767413,
+        "observable_contour_map_to_truth_p95_m": 0.06355274003668386,
+        "contour_symmetric_definition": "max_of_directional_p95",
+        "observable_contour_coverage": 0.7124060150375939,
+        "observable_contour_missing_fraction": 0.28759398496240607,
+        "excluded_contour_points": 20,
+        "limitations": [
+          "Geometric contour accuracy is evaluated only on ground-truth observable faces; interiors and occluded faces excluded.",
+          "Grid quantization is 0.05m; viewpoints are sampled at every third reachable raster cell.",
+          "Final map accuracy does not measure localization drift at every trajectory time."
+        ]
+      },
+      "return_error_m": 0.0,
+      "truth_quality": {
+        "valid": true,
+        "issues": [],
+        "limits": {
+          "minimum_distinct_measurement_stamps": 3,
+          "maximum_sim_gap_s": 0.2,
+          "maximum_wall_gap_s": 0.5,
+          "maximum_terminal_sim_age_s": 0.2,
+          "maximum_terminal_wall_age_s": 0.5,
+          "future_tolerance_s": 0.1
+        },
+        "task_start_wall_t": 7.400028792000057,
+        "decision_wall_t": 12.745387630000096,
+        "decision_sim_t": 7.232,
+        "task_samples": 156,
+        "distinct_measurement_stamps": 156,
+        "maximum_sim_gap_s": 0.03500000000000014,
+        "maximum_wall_gap_s": 0.035955976999957784,
+        "last_truth_wall_age_s": 0.033970267000086096,
+        "last_truth_sim_age_s": 0.03200000000000003,
+        "terminal_clock_sync": {
+          "attempted": false,
+          "maximum_wait_wall_s": 2.0,
+          "elapsed_wall_s": 1.390000079481979e-06,
+          "initial_issues": [],
+          "required_new_measurement_stamps": 3,
+          "new_distinct_measurement_stamps": 0
+        }
+      },
+      "resources": {
+        "async_slam_toolbox_node": {
+          "peak_rss_kib": 48512.0,
+          "peak_cpu_percent_one_core_basis": 13.991133287175568,
+          "samples": 11
+        },
+        "controller_server": {
+          "peak_rss_kib": 40728.0,
+          "peak_cpu_percent_one_core_basis": 8.998001939681425,
+          "samples": 11
+        },
+        "smoother_server": {
+          "peak_rss_kib": 34560.0,
+          "peak_cpu_percent_one_core_basis": 6.995674658307274,
+          "samples": 11
+        },
+        "planner_server": {
+          "peak_rss_kib": 40772.0,
+          "peak_cpu_percent_one_core_basis": 8.994299970327152,
+          "samples": 11
+        },
+        "behavior_server": {
+          "peak_rss_kib": 39016.0,
+          "peak_cpu_percent_one_core_basis": 5.9997023427667004,
+          "samples": 11
+        },
+        "bt_navigator": {
+          "peak_rss_kib": 49084.0,
+          "peak_cpu_percent_one_core_basis": 10.993203034482859,
+          "samples": 11
+        },
+        "velocity_smoother": {
+          "peak_rss_kib": 29536.0,
+          "peak_cpu_percent_one_core_basis": 4.999751952305584,
+          "samples": 11
+        },
+        "wheeltec_explore": {
+          "peak_rss_kib": 75264.0,
+          "peak_cpu_percent_one_core_basis": 41.99791639936691,
+          "samples": 4
+        }
+      }
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 0,
+      "seed": 0,
+      "scale": 2.0,
+      "pose": [
+        -1.7245852560034227,
+        -1.5019534749000454,
+        -0.005153325441293682
+      ],
+      "run_dir": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/003_baseline_spawn0_seed0_scale2",
+      "returncode": 1,
+      "success": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      },
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "map_metrics": {
+        "alignment_map_from_world": [
+          1.717459850800921,
+          1.5088363968351393,
+          0.003998359000349455
+        ],
+        "alignment_method": "fixed_initial_pose_rigid_no_scale",
+        "resolution_m": 0.05,
+        "robot_center_clearance_radius_m": 0.35,
+        "reachable_safe_cells": 5712,
+        "reachable_safe_area_m2": 14.280000000000003,
+        "correct_reachable_free_cells": 4845,
+        "reachable_coverage": 0.8482142857142857,
+        "reachable_unknown_area_m2": 2.1675000000000004,
+        "physical_free_area_m2": 23.900000000000006,
+        "physical_free_unknown_area_m2": 4.705000000000001,
+        "other_physical_free_area_m2": 9.620000000000001,
+        "other_physical_free_unknown_area_m2": 2.5375000000000005,
+        "disconnected_safe_area_m2": 0.0,
+        "false_free_obstacle_cells": 0,
+        "false_free_obstacle_area_m2": 0.0,
+        "false_free_solid_cells": 7,
+        "false_free_solid_area_m2": 0.0175,
+        "observable_contour_points": 532,
+        "mapped_observable_contour_points": 343,
+        "contour_observability": "ground_truth_LOS_from_reachable_safe_centers_sampled_every_third_cell",
+        "contour_sample_spacing_m": 0.05,
+        "contour_match_tolerance_m": 0.1,
+        "observable_contour_symmetric_p95_m": 0.7000488415691184,
+        "observable_contour_truth_to_map_p95_m": 0.7000488415691184,
+        "observable_contour_map_to_truth_p95_m": 0.0562286509535078,
+        "contour_symmetric_definition": "max_of_directional_p95",
+        "observable_contour_coverage": 0.7180451127819549,
+        "observable_contour_missing_fraction": 0.28195488721804507,
+        "excluded_contour_points": 20,
+        "limitations": [
+          "Geometric contour accuracy is evaluated only on ground-truth observable faces; interiors and occluded faces excluded.",
+          "Grid quantization is 0.05m; viewpoints are sampled at every third reachable raster cell.",
+          "Final map accuracy does not measure localization drift at every trajectory time."
+        ]
+      },
+      "return_error_m": 0.0,
+      "truth_quality": {
+        "valid": true,
+        "issues": [],
+        "limits": {
+          "minimum_distinct_measurement_stamps": 3,
+          "maximum_sim_gap_s": 0.2,
+          "maximum_wall_gap_s": 0.5,
+          "maximum_terminal_sim_age_s": 0.2,
+          "maximum_terminal_wall_age_s": 0.5,
+          "future_tolerance_s": 0.1
+        },
+        "task_start_wall_t": 6.596873596000023,
+        "decision_wall_t": 11.41904482699988,
+        "decision_sim_t": 6.23,
+        "task_samples": 141,
+        "distinct_measurement_stamps": 141,
+        "maximum_sim_gap_s": 0.03599999999999959,
+        "maximum_wall_gap_s": 0.03893812100000105,
+        "last_truth_wall_age_s": 0.00586598499990032,
+        "last_truth_sim_age_s": 0.006000000000000227,
+        "terminal_clock_sync": {
+          "attempted": false,
+          "maximum_wait_wall_s": 2.0,
+          "elapsed_wall_s": 1.1140000424347818e-06,
+          "initial_issues": [],
+          "required_new_measurement_stamps": 3,
+          "new_distinct_measurement_stamps": 0
+        }
+      },
+      "resources": {
+        "async_slam_toolbox_node": {
+          "peak_rss_kib": 47316.0,
+          "peak_cpu_percent_one_core_basis": 13.98782670215518,
+          "samples": 9
+        },
+        "controller_server": {
+          "peak_rss_kib": 40708.0,
+          "peak_cpu_percent_one_core_basis": 7.99699636015581,
+          "samples": 9
+        },
+        "smoother_server": {
+          "peak_rss_kib": 34956.0,
+          "peak_cpu_percent_one_core_basis": 5.9931494346473295,
+          "samples": 9
+        },
+        "planner_server": {
+          "peak_rss_kib": 40364.0,
+          "peak_cpu_percent_one_core_basis": 9.988582391078882,
+          "samples": 9
+        },
+        "behavior_server": {
+          "peak_rss_kib": 39740.0,
+          "peak_cpu_percent_one_core_basis": 6.993351148322469,
+          "samples": 9
+        },
+        "bt_navigator": {
+          "peak_rss_kib": 49752.0,
+          "peak_cpu_percent_one_core_basis": 10.98744063018677,
+          "samples": 9
+        },
+        "velocity_smoother": {
+          "peak_rss_kib": 29572.0,
+          "peak_cpu_percent_one_core_basis": 5.9931494346473295,
+          "samples": 9
+        },
+        "wheeltec_explore": {
+          "peak_rss_kib": 75452.0,
+          "peak_cpu_percent_one_core_basis": 34.96956675538795,
+          "samples": 4
+        }
+      }
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 0,
+      "seed": 1,
+      "scale": 0.0,
+      "pose": [
+        -1.7106080929426184,
+        -1.5194476483762172,
+        -0.05130232001854726
+      ],
+      "run_dir": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/004_baseline_spawn0_seed1_scale0",
+      "returncode": 1,
+      "success": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      },
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "map_metrics": {
+        "alignment_map_from_world": [
+          1.6304404875704208,
+          1.6051682218035361,
+          0.05130232001854726
+        ],
+        "alignment_method": "fixed_initial_pose_rigid_no_scale",
+        "resolution_m": 0.05,
+        "robot_center_clearance_radius_m": 0.35,
+        "reachable_safe_cells": 5712,
+        "reachable_safe_area_m2": 14.280000000000003,
+        "correct_reachable_free_cells": 4804,
+        "reachable_coverage": 0.8410364145658263,
+        "reachable_unknown_area_m2": 2.2700000000000005,
+        "physical_free_area_m2": 23.900000000000006,
+        "physical_free_unknown_area_m2": 5.060000000000001,
+        "other_physical_free_area_m2": 9.620000000000001,
+        "other_physical_free_unknown_area_m2": 2.7900000000000005,
+        "disconnected_safe_area_m2": 0.0,
+        "false_free_obstacle_cells": 9,
+        "false_free_obstacle_area_m2": 0.022500000000000006,
+        "false_free_solid_cells": 30,
+        "false_free_solid_area_m2": 0.07500000000000001,
+        "observable_contour_points": 532,
+        "mapped_observable_contour_points": 282,
+        "contour_observability": "ground_truth_LOS_from_reachable_safe_centers_sampled_every_third_cell",
+        "contour_sample_spacing_m": 0.05,
+        "contour_match_tolerance_m": 0.1,
+        "observable_contour_symmetric_p95_m": 0.9691310209307655,
+        "observable_contour_truth_to_map_p95_m": 0.9691310209307655,
+        "observable_contour_map_to_truth_p95_m": 0.06307479216741145,
+        "contour_symmetric_definition": "max_of_directional_p95",
+        "observable_contour_coverage": 0.6691729323308271,
+        "observable_contour_missing_fraction": 0.3308270676691729,
+        "excluded_contour_points": 20,
+        "limitations": [
+          "Geometric contour accuracy is evaluated only on ground-truth observable faces; interiors and occluded faces excluded.",
+          "Grid quantization is 0.05m; viewpoints are sampled at every third reachable raster cell.",
+          "Final map accuracy does not measure localization drift at every trajectory time."
+        ]
+      },
+      "return_error_m": 0.0,
+      "truth_quality": {
+        "valid": true,
+        "issues": [],
+        "limits": {
+          "minimum_distinct_measurement_stamps": 3,
+          "maximum_sim_gap_s": 0.2,
+          "maximum_wall_gap_s": 0.5,
+          "maximum_terminal_sim_age_s": 0.2,
+          "maximum_terminal_wall_age_s": 0.5,
+          "future_tolerance_s": 0.1
+        },
+        "task_start_wall_t": 7.221209565000208,
+        "decision_wall_t": 13.048619733000123,
+        "decision_sim_t": 7.595,
+        "task_samples": 171,
+        "distinct_measurement_stamps": 171,
+        "maximum_sim_gap_s": 0.03600000000000003,
+        "maximum_wall_gap_s": 0.037632963999840285,
+        "last_truth_wall_age_s": 0.006981337000070198,
+        "last_truth_sim_age_s": 0.006999999999999673,
+        "terminal_clock_sync": {
+          "attempted": false,
+          "maximum_wait_wall_s": 2.0,
+          "elapsed_wall_s": 1.249999968422344e-06,
+          "initial_issues": [],
+          "required_new_measurement_stamps": 3,
+          "new_distinct_measurement_stamps": 0
+        }
+      },
+      "resources": {
+        "async_slam_toolbox_node": {
+          "peak_rss_kib": 49432.0,
+          "peak_cpu_percent_one_core_basis": 13.992837807945145,
+          "samples": 11
+        },
+        "controller_server": {
+          "peak_rss_kib": 40868.0,
+          "peak_cpu_percent_one_core_basis": 7.995907318825798,
+          "samples": 11
+        },
+        "smoother_server": {
+          "peak_rss_kib": 34920.0,
+          "peak_cpu_percent_one_core_basis": 5.9969304891193485,
+          "samples": 11
+        },
+        "planner_server": {
+          "peak_rss_kib": 40440.0,
+          "peak_cpu_percent_one_core_basis": 8.995395733679022,
+          "samples": 11
+        },
+        "behavior_server": {
+          "peak_rss_kib": 39496.0,
+          "peak_cpu_percent_one_core_basis": 5.999875772572146,
+          "samples": 11
+        },
+        "bt_navigator": {
+          "peak_rss_kib": 49032.0,
+          "peak_cpu_percent_one_core_basis": 10.994372563385472,
+          "samples": 11
+        },
+        "velocity_smoother": {
+          "peak_rss_kib": 29544.0,
+          "peak_cpu_percent_one_core_basis": 5.9952519163595905,
+          "samples": 11
+        },
+        "wheeltec_explore": {
+          "peak_rss_kib": 75264.0,
+          "peak_cpu_percent_one_core_basis": 39.99110565817679,
+          "samples": 5
+        }
+      }
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 0,
+      "seed": 1,
+      "scale": 0.5,
+      "pose": [
+        -1.7106080929426184,
+        -1.5194476483762172,
+        -0.05130232001854726
+      ],
+      "run_dir": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/005_baseline_spawn0_seed1_scale0.5",
+      "returncode": 1,
+      "success": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      },
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "map_metrics": {
+        "alignment_map_from_world": [
+          1.6298953310194035,
+          1.6060292992077692,
+          0.05183042363087955
+        ],
+        "alignment_method": "fixed_initial_pose_rigid_no_scale",
+        "resolution_m": 0.05,
+        "robot_center_clearance_radius_m": 0.35,
+        "reachable_safe_cells": 5712,
+        "reachable_safe_area_m2": 14.280000000000003,
+        "correct_reachable_free_cells": 4832,
+        "reachable_coverage": 0.84593837535014,
+        "reachable_unknown_area_m2": 2.2000000000000006,
+        "physical_free_area_m2": 23.900000000000006,
+        "physical_free_unknown_area_m2": 4.890000000000001,
+        "other_physical_free_area_m2": 9.620000000000001,
+        "other_physical_free_unknown_area_m2": 2.6900000000000004,
+        "disconnected_safe_area_m2": 0.0,
+        "false_free_obstacle_cells": 14,
+        "false_free_obstacle_area_m2": 0.035,
+        "false_free_solid_cells": 28,
+        "false_free_solid_area_m2": 0.07,
+        "observable_contour_points": 532,
+        "mapped_observable_contour_points": 310,
+        "contour_observability": "ground_truth_LOS_from_reachable_safe_centers_sampled_every_third_cell",
+        "contour_sample_spacing_m": 0.05,
+        "contour_match_tolerance_m": 0.1,
+        "observable_contour_symmetric_p95_m": 0.7067313177198294,
+        "observable_contour_truth_to_map_p95_m": 0.7067313177198294,
+        "observable_contour_map_to_truth_p95_m": 0.06471801351015266,
+        "contour_symmetric_definition": "max_of_directional_p95",
+        "observable_contour_coverage": 0.6973684210526315,
+        "observable_contour_missing_fraction": 0.3026315789473685,
+        "excluded_contour_points": 20,
+        "limitations": [
+          "Geometric contour accuracy is evaluated only on ground-truth observable faces; interiors and occluded faces excluded.",
+          "Grid quantization is 0.05m; viewpoints are sampled at every third reachable raster cell.",
+          "Final map accuracy does not measure localization drift at every trajectory time."
+        ]
+      },
+      "return_error_m": 0.0,
+      "truth_quality": {
+        "valid": true,
+        "issues": [],
+        "limits": {
+          "minimum_distinct_measurement_stamps": 3,
+          "maximum_sim_gap_s": 0.2,
+          "maximum_wall_gap_s": 0.5,
+          "maximum_terminal_sim_age_s": 0.2,
+          "maximum_terminal_wall_age_s": 0.5,
+          "future_tolerance_s": 0.1
+        },
+        "task_start_wall_t": 7.230796117999944,
+        "decision_wall_t": 12.540266345999953,
+        "decision_sim_t": 7.228,
+        "task_samples": 155,
+        "distinct_measurement_stamps": 155,
+        "maximum_sim_gap_s": 0.03500000000000014,
+        "maximum_wall_gap_s": 0.0359954140001264,
+        "last_truth_wall_age_s": 0.012080331999868577,
+        "last_truth_sim_age_s": 0.01100000000000012,
+        "terminal_clock_sync": {
+          "attempted": false,
+          "maximum_wait_wall_s": 2.0,
+          "elapsed_wall_s": 1.204999989568023e-06,
+          "initial_issues": [],
+          "required_new_measurement_stamps": 3,
+          "new_distinct_measurement_stamps": 0
+        }
+      },
+      "resources": {
+        "async_slam_toolbox_node": {
+          "peak_rss_kib": 48412.0,
+          "peak_cpu_percent_one_core_basis": 11.998239210402073,
+          "samples": 11
+        },
+        "controller_server": {
+          "peak_rss_kib": 40676.0,
+          "peak_cpu_percent_one_core_basis": 8.995456188183505,
+          "samples": 11
+        },
+        "smoother_server": {
+          "peak_rss_kib": 34200.0,
+          "peak_cpu_percent_one_core_basis": 5.999119605201036,
+          "samples": 11
+        },
+        "planner_server": {
+          "peak_rss_kib": 40744.0,
+          "peak_cpu_percent_one_core_basis": 8.995456188183505,
+          "samples": 11
+        },
+        "behavior_server": {
+          "peak_rss_kib": 39720.0,
+          "peak_cpu_percent_one_core_basis": 5.999119605201036,
+          "samples": 11
+        },
+        "bt_navigator": {
+          "peak_rss_kib": 49368.0,
+          "peak_cpu_percent_one_core_basis": 10.998385942868566,
+          "samples": 11
+        },
+        "velocity_smoother": {
+          "peak_rss_kib": 29876.0,
+          "peak_cpu_percent_one_core_basis": 5.999119605201036,
+          "samples": 11
+        },
+        "wheeltec_explore": {
+          "peak_rss_kib": 75280.0,
+          "peak_cpu_percent_one_core_basis": 41.97351941028912,
+          "samples": 4
+        }
+      }
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 0,
+      "seed": 1,
+      "scale": 1.0,
+      "pose": [
+        -1.7106080929426184,
+        -1.5194476483762172,
+        -0.05130232001854726
+      ],
+      "run_dir": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/006_baseline_spawn0_seed1_scale1",
+      "returncode": 1,
+      "success": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      },
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "map_metrics": {
+        "alignment_map_from_world": [
+          1.6315691684979277,
+          1.6044251519002592,
+          0.050846268582399365
+        ],
+        "alignment_method": "fixed_initial_pose_rigid_no_scale",
+        "resolution_m": 0.05,
+        "robot_center_clearance_radius_m": 0.35,
+        "reachable_safe_cells": 5712,
+        "reachable_safe_area_m2": 14.280000000000003,
+        "correct_reachable_free_cells": 4829,
+        "reachable_coverage": 0.8454131652661064,
+        "reachable_unknown_area_m2": 2.2075000000000005,
+        "physical_free_area_m2": 23.900000000000006,
+        "physical_free_unknown_area_m2": 4.882500000000001,
+        "other_physical_free_area_m2": 9.620000000000001,
+        "other_physical_free_unknown_area_m2": 2.6750000000000007,
+        "disconnected_safe_area_m2": 0.0,
+        "false_free_obstacle_cells": 16,
+        "false_free_obstacle_area_m2": 0.04000000000000001,
+        "false_free_solid_cells": 23,
+        "false_free_solid_area_m2": 0.05750000000000001,
+        "observable_contour_points": 532,
+        "mapped_observable_contour_points": 326,
+        "contour_observability": "ground_truth_LOS_from_reachable_safe_centers_sampled_every_third_cell",
+        "contour_sample_spacing_m": 0.05,
+        "contour_match_tolerance_m": 0.1,
+        "observable_contour_symmetric_p95_m": 0.7119820232566937,
+        "observable_contour_truth_to_map_p95_m": 0.7119820232566937,
+        "observable_contour_map_to_truth_p95_m": 0.0625335983188755,
+        "contour_symmetric_definition": "max_of_directional_p95",
+        "observable_contour_coverage": 0.7105263157894737,
+        "observable_contour_missing_fraction": 0.2894736842105263,
+        "excluded_contour_points": 20,
+        "limitations": [
+          "Geometric contour accuracy is evaluated only on ground-truth observable faces; interiors and occluded faces excluded.",
+          "Grid quantization is 0.05m; viewpoints are sampled at every third reachable raster cell.",
+          "Final map accuracy does not measure localization drift at every trajectory time."
+        ]
+      },
+      "return_error_m": 0.0,
+      "truth_quality": {
+        "valid": true,
+        "issues": [],
+        "limits": {
+          "minimum_distinct_measurement_stamps": 3,
+          "maximum_sim_gap_s": 0.2,
+          "maximum_wall_gap_s": 0.5,
+          "maximum_terminal_sim_age_s": 0.2,
+          "maximum_terminal_wall_age_s": 0.5,
+          "future_tolerance_s": 0.1
+        },
+        "task_start_wall_t": 7.215397356000267,
+        "decision_wall_t": 12.521444622000217,
+        "decision_sim_t": 7.152,
+        "task_samples": 155,
+        "distinct_measurement_stamps": 155,
+        "maximum_sim_gap_s": 0.03599999999999959,
+        "maximum_wall_gap_s": 0.0378379550002137,
+        "last_truth_wall_age_s": 0.020647890999953233,
+        "last_truth_sim_age_s": 0.020999999999999908,
+        "terminal_clock_sync": {
+          "attempted": false,
+          "maximum_wait_wall_s": 2.0,
+          "elapsed_wall_s": 1.044999862642726e-06,
+          "initial_issues": [],
+          "required_new_measurement_stamps": 3,
+          "new_distinct_measurement_stamps": 0
+        }
+      },
+      "resources": {
+        "async_slam_toolbox_node": {
+          "peak_rss_kib": 47848.0,
+          "peak_cpu_percent_one_core_basis": 12.997953407250415,
+          "samples": 11
+        },
+        "controller_server": {
+          "peak_rss_kib": 40860.0,
+          "peak_cpu_percent_one_core_basis": 8.998583128096442,
+          "samples": 11
+        },
+        "smoother_server": {
+          "peak_rss_kib": 34636.0,
+          "peak_cpu_percent_one_core_basis": 6.998897988519455,
+          "samples": 11
+        },
+        "planner_server": {
+          "peak_rss_kib": 40604.0,
+          "peak_cpu_percent_one_core_basis": 7.998740558307949,
+          "samples": 11
+        },
+        "behavior_server": {
+          "peak_rss_kib": 39352.0,
+          "peak_cpu_percent_one_core_basis": 6.998897988519455,
+          "samples": 11
+        },
+        "bt_navigator": {
+          "peak_rss_kib": 49500.0,
+          "peak_cpu_percent_one_core_basis": 12.996535799374099,
+          "samples": 11
+        },
+        "velocity_smoother": {
+          "peak_rss_kib": 29616.0,
+          "peak_cpu_percent_one_core_basis": 5.999055418730961,
+          "samples": 11
+        },
+        "wheeltec_explore": {
+          "peak_rss_kib": 75764.0,
+          "peak_cpu_percent_one_core_basis": 39.96771276268855,
+          "samples": 4
+        }
+      }
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 0,
+      "seed": 1,
+      "scale": 2.0,
+      "pose": [
+        -1.7106080929426184,
+        -1.5194476483762172,
+        -0.05130232001854726
+      ],
+      "run_dir": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/007_baseline_spawn0_seed1_scale2",
+      "returncode": 1,
+      "success": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      },
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "map_metrics": {
+        "alignment_map_from_world": [
+          1.6299129443490479,
+          1.6067355466033109,
+          0.05226172217721552
+        ],
+        "alignment_method": "fixed_initial_pose_rigid_no_scale",
+        "resolution_m": 0.05,
+        "robot_center_clearance_radius_m": 0.35,
+        "reachable_safe_cells": 5712,
+        "reachable_safe_area_m2": 14.280000000000003,
+        "correct_reachable_free_cells": 4827,
+        "reachable_coverage": 0.845063025210084,
+        "reachable_unknown_area_m2": 2.2125000000000004,
+        "physical_free_area_m2": 23.900000000000006,
+        "physical_free_unknown_area_m2": 4.8500000000000005,
+        "other_physical_free_area_m2": 9.620000000000001,
+        "other_physical_free_unknown_area_m2": 2.6375000000000006,
+        "disconnected_safe_area_m2": 0.0,
+        "false_free_obstacle_cells": 8,
+        "false_free_obstacle_area_m2": 0.020000000000000004,
+        "false_free_solid_cells": 16,
+        "false_free_solid_area_m2": 0.04000000000000001,
+        "observable_contour_points": 532,
+        "mapped_observable_contour_points": 341,
+        "contour_observability": "ground_truth_LOS_from_reachable_safe_centers_sampled_every_third_cell",
+        "contour_sample_spacing_m": 0.05,
+        "contour_match_tolerance_m": 0.1,
+        "observable_contour_symmetric_p95_m": 0.7001447582840743,
+        "observable_contour_truth_to_map_p95_m": 0.7001447582840743,
+        "observable_contour_map_to_truth_p95_m": 0.07178798387029914,
+        "contour_symmetric_definition": "max_of_directional_p95",
+        "observable_contour_coverage": 0.7142857142857143,
+        "observable_contour_missing_fraction": 0.2857142857142857,
+        "excluded_contour_points": 20,
+        "limitations": [
+          "Geometric contour accuracy is evaluated only on ground-truth observable faces; interiors and occluded faces excluded.",
+          "Grid quantization is 0.05m; viewpoints are sampled at every third reachable raster cell.",
+          "Final map accuracy does not measure localization drift at every trajectory time."
+        ]
+      },
+      "return_error_m": 0.0,
+      "truth_quality": {
+        "valid": true,
+        "issues": [],
+        "limits": {
+          "minimum_distinct_measurement_stamps": 3,
+          "maximum_sim_gap_s": 0.2,
+          "maximum_wall_gap_s": 0.5,
+          "maximum_terminal_sim_age_s": 0.2,
+          "maximum_terminal_wall_age_s": 0.5,
+          "future_tolerance_s": 0.1
+        },
+        "task_start_wall_t": 6.8822551289999865,
+        "decision_wall_t": 11.683355050000046,
+        "decision_sim_t": 6.174,
+        "task_samples": 141,
+        "distinct_measurement_stamps": 141,
+        "maximum_sim_gap_s": 0.03500000000000014,
+        "maximum_wall_gap_s": 0.0383651919996737,
+        "last_truth_wall_age_s": 0.00281066399975316,
+        "last_truth_sim_age_s": 0.002000000000000668,
+        "terminal_clock_sync": {
+          "attempted": false,
+          "maximum_wait_wall_s": 2.0,
+          "elapsed_wall_s": 1.2160003279859666e-06,
+          "initial_issues": [],
+          "required_new_measurement_stamps": 3,
+          "new_distinct_measurement_stamps": 0
+        }
+      },
+      "resources": {
+        "async_slam_toolbox_node": {
+          "peak_rss_kib": 47888.0,
+          "peak_cpu_percent_one_core_basis": 14.994352092389295,
+          "samples": 10
+        },
+        "controller_server": {
+          "peak_rss_kib": 40776.0,
+          "peak_cpu_percent_one_core_basis": 9.99623472825953,
+          "samples": 10
+        },
+        "smoother_server": {
+          "peak_rss_kib": 34480.0,
+          "peak_cpu_percent_one_core_basis": 5.9977408369557175,
+          "samples": 10
+        },
+        "planner_server": {
+          "peak_rss_kib": 40200.0,
+          "peak_cpu_percent_one_core_basis": 8.997781524986209,
+          "samples": 10
+        },
+        "behavior_server": {
+          "peak_rss_kib": 39196.0,
+          "peak_cpu_percent_one_core_basis": 6.997364309781671,
+          "samples": 10
+        },
+        "bt_navigator": {
+          "peak_rss_kib": 49312.0,
+          "peak_cpu_percent_one_core_basis": 11.997042033314946,
+          "samples": 10
+        },
+        "velocity_smoother": {
+          "peak_rss_kib": 29508.0,
+          "peak_cpu_percent_one_core_basis": 5.996083663951902,
+          "samples": 10
+        },
+        "wheeltec_explore": {
+          "peak_rss_kib": 75708.0,
+          "peak_cpu_percent_one_core_basis": 36.97584926103673,
+          "samples": 4
+        }
+      }
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 0,
+      "seed": 2,
+      "scale": 0.0,
+      "pose": [
+        -1.7232453796866622,
+        -1.4752834674895967,
+        0.022447964013426733
+      ],
+      "run_dir": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/008_baseline_spawn0_seed2_scale0",
+      "returncode": 1,
+      "success": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      },
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "map_metrics": {
+        "alignment_map_from_world": [
+          1.7559255456027463,
+          1.4362316757261877,
+          -0.022447964013426733
+        ],
+        "alignment_method": "fixed_initial_pose_rigid_no_scale",
+        "resolution_m": 0.05,
+        "robot_center_clearance_radius_m": 0.35,
+        "reachable_safe_cells": 5712,
+        "reachable_safe_area_m2": 14.280000000000003,
+        "correct_reachable_free_cells": 4826,
+        "reachable_coverage": 0.8448879551820728,
+        "reachable_unknown_area_m2": 2.2150000000000003,
+        "physical_free_area_m2": 23.900000000000006,
+        "physical_free_unknown_area_m2": 4.990000000000001,
+        "other_physical_free_area_m2": 9.620000000000001,
+        "other_physical_free_unknown_area_m2": 2.7750000000000004,
+        "disconnected_safe_area_m2": 0.0,
+        "false_free_obstacle_cells": 17,
+        "false_free_obstacle_area_m2": 0.04250000000000001,
+        "false_free_solid_cells": 35,
+        "false_free_solid_area_m2": 0.08750000000000002,
+        "observable_contour_points": 532,
+        "mapped_observable_contour_points": 257,
+        "contour_observability": "ground_truth_LOS_from_reachable_safe_centers_sampled_every_third_cell",
+        "contour_sample_spacing_m": 0.05,
+        "contour_match_tolerance_m": 0.1,
+        "observable_contour_symmetric_p95_m": 1.1079554822162574,
+        "observable_contour_truth_to_map_p95_m": 1.1079554822162574,
+        "observable_contour_map_to_truth_p95_m": 0.06218164211431386,
+        "contour_symmetric_definition": "max_of_directional_p95",
+        "observable_contour_coverage": 0.6240601503759399,
+        "observable_contour_missing_fraction": 0.37593984962406013,
+        "excluded_contour_points": 20,
+        "limitations": [
+          "Geometric contour accuracy is evaluated only on ground-truth observable faces; interiors and occluded faces excluded.",
+          "Grid quantization is 0.05m; viewpoints are sampled at every third reachable raster cell.",
+          "Final map accuracy does not measure localization drift at every trajectory time."
+        ]
+      },
+      "return_error_m": 0.0,
+      "truth_quality": {
+        "valid": true,
+        "issues": [],
+        "limits": {
+          "minimum_distinct_measurement_stamps": 3,
+          "maximum_sim_gap_s": 0.2,
+          "maximum_wall_gap_s": 0.5,
+          "maximum_terminal_sim_age_s": 0.2,
+          "maximum_terminal_wall_age_s": 0.5,
+          "future_tolerance_s": 0.1
+        },
+        "task_start_wall_t": 6.6825197159996605,
+        "decision_wall_t": 12.508327121999628,
+        "decision_sim_t": 7.072,
+        "task_samples": 171,
+        "distinct_measurement_stamps": 171,
+        "maximum_sim_gap_s": 0.03600000000000003,
+        "maximum_wall_gap_s": 0.035832464000122854,
+        "last_truth_wall_age_s": 0.014914356999724987,
+        "last_truth_sim_age_s": 0.014000000000000234,
+        "terminal_clock_sync": {
+          "attempted": false,
+          "maximum_wait_wall_s": 2.0,
+          "elapsed_wall_s": 1.1010001799149904e-06,
+          "initial_issues": [],
+          "required_new_measurement_stamps": 3,
+          "new_distinct_measurement_stamps": 0
+        }
+      },
+      "resources": {
+        "async_slam_toolbox_node": {
+          "peak_rss_kib": 48564.0,
+          "peak_cpu_percent_one_core_basis": 14.999193133404644,
+          "samples": 10
+        },
+        "controller_server": {
+          "peak_rss_kib": 40640.0,
+          "peak_cpu_percent_one_core_basis": 8.999515880042786,
+          "samples": 10
+        },
+        "smoother_server": {
+          "peak_rss_kib": 34680.0,
+          "peak_cpu_percent_one_core_basis": 5.999677253361858,
+          "samples": 10
+        },
+        "planner_server": {
+          "peak_rss_kib": 40496.0,
+          "peak_cpu_percent_one_core_basis": 9.996087891055813,
+          "samples": 10
+        },
+        "behavior_server": {
+          "peak_rss_kib": 39908.0,
+          "peak_cpu_percent_one_core_basis": 6.997261523739069,
+          "samples": 10
+        },
+        "bt_navigator": {
+          "peak_rss_kib": 49624.0,
+          "peak_cpu_percent_one_core_basis": 10.999408297830072,
+          "samples": 10
+        },
+        "velocity_smoother": {
+          "peak_rss_kib": 29784.0,
+          "peak_cpu_percent_one_core_basis": 5.997652734633488,
+          "samples": 10
+        },
+        "wheeltec_explore": {
+          "peak_rss_kib": 75124.0,
+          "peak_cpu_percent_one_core_basis": 41.997740773533,
+          "samples": 5
+        }
+      }
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 0,
+      "seed": 2,
+      "scale": 0.5,
+      "pose": [
+        -1.7232453796866622,
+        -1.4752834674895967,
+        0.022447964013426733
+      ],
+      "run_dir": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/009_baseline_spawn0_seed2_scale0.5",
+      "returncode": 1,
+      "success": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      },
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "map_metrics": {
+        "alignment_map_from_world": [
+          1.755527275537923,
+          1.4366279061811542,
+          -0.022222316791234268
+        ],
+        "alignment_method": "fixed_initial_pose_rigid_no_scale",
+        "resolution_m": 0.05,
+        "robot_center_clearance_radius_m": 0.35,
+        "reachable_safe_cells": 5712,
+        "reachable_safe_area_m2": 14.280000000000003,
+        "correct_reachable_free_cells": 4835,
+        "reachable_coverage": 0.8464635854341737,
+        "reachable_unknown_area_m2": 2.1925000000000003,
+        "physical_free_area_m2": 23.900000000000006,
+        "physical_free_unknown_area_m2": 4.855000000000001,
+        "other_physical_free_area_m2": 9.620000000000001,
+        "other_physical_free_unknown_area_m2": 2.6625000000000005,
+        "disconnected_safe_area_m2": 0.0,
+        "false_free_obstacle_cells": 13,
+        "false_free_obstacle_area_m2": 0.03250000000000001,
+        "false_free_solid_cells": 22,
+        "false_free_solid_area_m2": 0.05500000000000001,
+        "observable_contour_points": 532,
+        "mapped_observable_contour_points": 305,
+        "contour_observability": "ground_truth_LOS_from_reachable_safe_centers_sampled_every_third_cell",
+        "contour_sample_spacing_m": 0.05,
+        "contour_match_tolerance_m": 0.1,
+        "observable_contour_symmetric_p95_m": 1.353566015851186,
+        "observable_contour_truth_to_map_p95_m": 1.353566015851186,
+        "observable_contour_map_to_truth_p95_m": 0.06537945894629398,
+        "contour_symmetric_definition": "max_of_directional_p95",
+        "observable_contour_coverage": 0.6635338345864662,
+        "observable_contour_missing_fraction": 0.3364661654135338,
+        "excluded_contour_points": 20,
+        "limitations": [
+          "Geometric contour accuracy is evaluated only on ground-truth observable faces; interiors and occluded faces excluded.",
+          "Grid quantization is 0.05m; viewpoints are sampled at every third reachable raster cell.",
+          "Final map accuracy does not measure localization drift at every trajectory time."
+        ]
+      },
+      "return_error_m": 0.0,
+      "truth_quality": {
+        "valid": true,
+        "issues": [],
+        "limits": {
+          "minimum_distinct_measurement_stamps": 3,
+          "maximum_sim_gap_s": 0.2,
+          "maximum_wall_gap_s": 0.5,
+          "maximum_terminal_sim_age_s": 0.2,
+          "maximum_terminal_wall_age_s": 0.5,
+          "future_tolerance_s": 0.1
+        },
+        "task_start_wall_t": 6.939218137999887,
+        "decision_wall_t": 13.214191223999933,
+        "decision_sim_t": 7.564,
+        "task_samples": 184,
+        "distinct_measurement_stamps": 184,
+        "maximum_sim_gap_s": 0.03599999999999959,
+        "maximum_wall_gap_s": 0.039146001000062824,
+        "last_truth_wall_age_s": 0.008932244999868999,
+        "last_truth_sim_age_s": 0.009000000000000341,
+        "terminal_clock_sync": {
+          "attempted": false,
+          "maximum_wait_wall_s": 2.0,
+          "elapsed_wall_s": 1.4029997146280948e-06,
+          "initial_issues": [],
+          "required_new_measurement_stamps": 3,
+          "new_distinct_measurement_stamps": 0
+        }
+      },
+      "resources": {
+        "async_slam_toolbox_node": {
+          "peak_rss_kib": 48428.0,
+          "peak_cpu_percent_one_core_basis": 11.999144065061254,
+          "samples": 11
+        },
+        "controller_server": {
+          "peak_rss_kib": 41216.0,
+          "peak_cpu_percent_one_core_basis": 7.999429376707503,
+          "samples": 11
+        },
+        "smoother_server": {
+          "peak_rss_kib": 34488.0,
+          "peak_cpu_percent_one_core_basis": 5.995066707566353,
+          "samples": 11
+        },
+        "planner_server": {
+          "peak_rss_kib": 41204.0,
+          "peak_cpu_percent_one_core_basis": 8.99935804879594,
+          "samples": 11
+        },
+        "behavior_server": {
+          "peak_rss_kib": 39024.0,
+          "peak_cpu_percent_one_core_basis": 6.999500704619065,
+          "samples": 11
+        },
+        "bt_navigator": {
+          "peak_rss_kib": 49292.0,
+          "peak_cpu_percent_one_core_basis": 12.99335936688473,
+          "samples": 11
+        },
+        "velocity_smoother": {
+          "peak_rss_kib": 29868.0,
+          "peak_cpu_percent_one_core_basis": 5.999572032530627,
+          "samples": 11
+        },
+        "wheeltec_explore": {
+          "peak_rss_kib": 75440.0,
+          "peak_cpu_percent_one_core_basis": 39.97786129984236,
+          "samples": 6
+        }
+      }
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 0,
+      "seed": 2,
+      "scale": 1.0,
+      "pose": [
+        -1.7232453796866622,
+        -1.4752834674895967,
+        0.022447964013426733
+      ],
+      "run_dir": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/010_baseline_spawn0_seed2_scale1",
+      "returncode": 1,
+      "success": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      },
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "map_metrics": {
+        "alignment_map_from_world": [
+          1.755128916003844,
+          1.4370241580890977,
+          -0.0219966695690418
+        ],
+        "alignment_method": "fixed_initial_pose_rigid_no_scale",
+        "resolution_m": 0.05,
+        "robot_center_clearance_radius_m": 0.35,
+        "reachable_safe_cells": 5712,
+        "reachable_safe_area_m2": 14.280000000000003,
+        "correct_reachable_free_cells": 4852,
+        "reachable_coverage": 0.8494397759103641,
+        "reachable_unknown_area_m2": 2.1500000000000004,
+        "physical_free_area_m2": 23.900000000000006,
+        "physical_free_unknown_area_m2": 4.752500000000001,
+        "other_physical_free_area_m2": 9.620000000000001,
+        "other_physical_free_unknown_area_m2": 2.6025000000000005,
+        "disconnected_safe_area_m2": 0.0,
+        "false_free_obstacle_cells": 13,
+        "false_free_obstacle_area_m2": 0.03250000000000001,
+        "false_free_solid_cells": 21,
+        "false_free_solid_area_m2": 0.05250000000000001,
+        "observable_contour_points": 532,
+        "mapped_observable_contour_points": 339,
+        "contour_observability": "ground_truth_LOS_from_reachable_safe_centers_sampled_every_third_cell",
+        "contour_sample_spacing_m": 0.05,
+        "contour_match_tolerance_m": 0.1,
+        "observable_contour_symmetric_p95_m": 0.6975853666516085,
+        "observable_contour_truth_to_map_p95_m": 0.6975853666516085,
+        "observable_contour_map_to_truth_p95_m": 0.07004389236638717,
+        "contour_symmetric_definition": "max_of_directional_p95",
+        "observable_contour_coverage": 0.7161654135338346,
+        "observable_contour_missing_fraction": 0.28383458646616544,
+        "excluded_contour_points": 20,
+        "limitations": [
+          "Geometric contour accuracy is evaluated only on ground-truth observable faces; interiors and occluded faces excluded.",
+          "Grid quantization is 0.05m; viewpoints are sampled at every third reachable raster cell.",
+          "Final map accuracy does not measure localization drift at every trajectory time."
+        ]
+      },
+      "return_error_m": 0.0,
+      "truth_quality": {
+        "valid": true,
+        "issues": [],
+        "limits": {
+          "minimum_distinct_measurement_stamps": 3,
+          "maximum_sim_gap_s": 0.2,
+          "maximum_wall_gap_s": 0.5,
+          "maximum_terminal_sim_age_s": 0.2,
+          "maximum_terminal_wall_age_s": 0.5,
+          "future_tolerance_s": 0.1
+        },
+        "task_start_wall_t": 6.8195742800003245,
+        "decision_wall_t": 12.631460896000135,
+        "decision_sim_t": 7.129,
+        "task_samples": 171,
+        "distinct_measurement_stamps": 171,
+        "maximum_sim_gap_s": 0.036000000000000476,
+        "maximum_wall_gap_s": 0.03705489200001466,
+        "last_truth_wall_age_s": 0.0019009709999409097,
+        "last_truth_sim_age_s": 0.0019999999999997797,
+        "terminal_clock_sync": {
+          "attempted": false,
+          "maximum_wait_wall_s": 2.0,
+          "elapsed_wall_s": 1.225999767484609e-06,
+          "initial_issues": [],
+          "required_new_measurement_stamps": 3,
+          "new_distinct_measurement_stamps": 0
+        }
+      },
+      "resources": {
+        "async_slam_toolbox_node": {
+          "peak_rss_kib": 48292.0,
+          "peak_cpu_percent_one_core_basis": 13.999477707489625,
+          "samples": 11
+        },
+        "controller_server": {
+          "peak_rss_kib": 40860.0,
+          "peak_cpu_percent_one_core_basis": 9.994377772722814,
+          "samples": 11
+        },
+        "smoother_server": {
+          "peak_rss_kib": 34836.0,
+          "peak_cpu_percent_one_core_basis": 6.99606444090597,
+          "samples": 11
+        },
+        "planner_server": {
+          "peak_rss_kib": 40720.0,
+          "peak_cpu_percent_one_core_basis": 8.994837727704319,
+          "samples": 11
+        },
+        "behavior_server": {
+          "peak_rss_kib": 39552.0,
+          "peak_cpu_percent_one_core_basis": 6.9966154152786215,
+          "samples": 11
+        },
+        "bt_navigator": {
+          "peak_rss_kib": 49392.0,
+          "peak_cpu_percent_one_core_basis": 12.988941176514587,
+          "samples": 11
+        },
+        "velocity_smoother": {
+          "peak_rss_kib": 29176.0,
+          "peak_cpu_percent_one_core_basis": 5.9966266636336885,
+          "samples": 11
+        },
+        "wheeltec_explore": {
+          "peak_rss_kib": 75240.0,
+          "peak_cpu_percent_one_core_basis": 39.99071203716036,
+          "samples": 5
+        }
+      }
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 0,
+      "seed": 2,
+      "scale": 2.0,
+      "pose": [
+        -1.7232453796866622,
+        -1.4752834674895967,
+        0.022447964013426733
+      ],
+      "run_dir": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/011_baseline_spawn0_seed2_scale2",
+      "returncode": 1,
+      "success": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      },
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "map_metrics": {
+        "alignment_map_from_world": [
+          1.7543319282744345,
+          1.4378167261829145,
+          -0.021545375124656867
+        ],
+        "alignment_method": "fixed_initial_pose_rigid_no_scale",
+        "resolution_m": 0.05,
+        "robot_center_clearance_radius_m": 0.35,
+        "reachable_safe_cells": 5712,
+        "reachable_safe_area_m2": 14.280000000000003,
+        "correct_reachable_free_cells": 4838,
+        "reachable_coverage": 0.8469887955182073,
+        "reachable_unknown_area_m2": 2.1825000000000006,
+        "physical_free_area_m2": 23.900000000000006,
+        "physical_free_unknown_area_m2": 4.8100000000000005,
+        "other_physical_free_area_m2": 9.620000000000001,
+        "other_physical_free_unknown_area_m2": 2.6275000000000004,
+        "disconnected_safe_area_m2": 0.0,
+        "false_free_obstacle_cells": 11,
+        "false_free_obstacle_area_m2": 0.027500000000000004,
+        "false_free_solid_cells": 16,
+        "false_free_solid_area_m2": 0.04000000000000001,
+        "observable_contour_points": 532,
+        "mapped_observable_contour_points": 349,
+        "contour_observability": "ground_truth_LOS_from_reachable_safe_centers_sampled_every_third_cell",
+        "contour_sample_spacing_m": 0.05,
+        "contour_match_tolerance_m": 0.1,
+        "observable_contour_symmetric_p95_m": 0.6879032048526786,
+        "observable_contour_truth_to_map_p95_m": 0.6879032048526786,
+        "observable_contour_map_to_truth_p95_m": 0.07463306136431139,
+        "contour_symmetric_definition": "max_of_directional_p95",
+        "observable_contour_coverage": 0.7199248120300752,
+        "observable_contour_missing_fraction": 0.2800751879699248,
+        "excluded_contour_points": 20,
+        "limitations": [
+          "Geometric contour accuracy is evaluated only on ground-truth observable faces; interiors and occluded faces excluded.",
+          "Grid quantization is 0.05m; viewpoints are sampled at every third reachable raster cell.",
+          "Final map accuracy does not measure localization drift at every trajectory time."
+        ]
+      },
+      "return_error_m": 0.0,
+      "truth_quality": {
+        "valid": true,
+        "issues": [],
+        "limits": {
+          "minimum_distinct_measurement_stamps": 3,
+          "maximum_sim_gap_s": 0.2,
+          "maximum_wall_gap_s": 0.5,
+          "maximum_terminal_sim_age_s": 0.2,
+          "maximum_terminal_wall_age_s": 0.5,
+          "future_tolerance_s": 0.1
+        },
+        "task_start_wall_t": 6.206278814000143,
+        "decision_wall_t": 11.492102447999969,
+        "decision_sim_t": 6.188,
+        "task_samples": 154,
+        "distinct_measurement_stamps": 154,
+        "maximum_sim_gap_s": 0.03500000000000014,
+        "maximum_wall_gap_s": 0.04078833600033249,
+        "last_truth_wall_age_s": 0.026998104000085732,
+        "last_truth_sim_age_s": 0.027000000000000135,
+        "terminal_clock_sync": {
+          "attempted": false,
+          "maximum_wait_wall_s": 2.0,
+          "elapsed_wall_s": 1.2980003702978138e-06,
+          "initial_issues": [],
+          "required_new_measurement_stamps": 3,
+          "new_distinct_measurement_stamps": 0
+        }
+      },
+      "resources": {
+        "async_slam_toolbox_node": {
+          "peak_rss_kib": 46872.0,
+          "peak_cpu_percent_one_core_basis": 12.999552659395482,
+          "samples": 9
+        },
+        "controller_server": {
+          "peak_rss_kib": 40876.0,
+          "peak_cpu_percent_one_core_basis": 7.9997247134741425,
+          "samples": 9
+        },
+        "smoother_server": {
+          "peak_rss_kib": 34904.0,
+          "peak_cpu_percent_one_core_basis": 5.994551977321875,
+          "samples": 9
+        },
+        "planner_server": {
+          "peak_rss_kib": 40660.0,
+          "peak_cpu_percent_one_core_basis": 7.9997247134741425,
+          "samples": 9
+        },
+        "behavior_server": {
+          "peak_rss_kib": 39960.0,
+          "peak_cpu_percent_one_core_basis": 6.9997591242898745,
+          "samples": 9
+        },
+        "bt_navigator": {
+          "peak_rss_kib": 49544.0,
+          "peak_cpu_percent_one_core_basis": 11.999587070211213,
+          "samples": 9
+        },
+        "velocity_smoother": {
+          "peak_rss_kib": 29696.0,
+          "peak_cpu_percent_one_core_basis": 4.999827945921339,
+          "samples": 9
+        },
+        "wheeltec_explore": {
+          "peak_rss_kib": 75156.0,
+          "peak_cpu_percent_one_core_basis": 41.99855474573925,
+          "samples": 4
+        }
+      }
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 0,
+      "seed": 3,
+      "scale": 0.0,
+      "pose": [
+        -1.6796804378893848,
+        -1.5153017267837774,
+        -0.04323483442462246
+      ],
+      "run_dir": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/012_baseline_spawn0_seed3_scale0",
+      "returncode": 1,
+      "success": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      },
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "map_metrics": {
+        "alignment_map_from_world": [
+          1.6126173994489446,
+          1.5864837911610368,
+          0.04323483442462246
+        ],
+        "alignment_method": "fixed_initial_pose_rigid_no_scale",
+        "resolution_m": 0.05,
+        "robot_center_clearance_radius_m": 0.35,
+        "reachable_safe_cells": 5712,
+        "reachable_safe_area_m2": 14.280000000000003,
+        "correct_reachable_free_cells": 4762,
+        "reachable_coverage": 0.8336834733893558,
+        "reachable_unknown_area_m2": 2.3750000000000004,
+        "physical_free_area_m2": 23.900000000000006,
+        "physical_free_unknown_area_m2": 5.252500000000001,
+        "other_physical_free_area_m2": 9.620000000000001,
+        "other_physical_free_unknown_area_m2": 2.8775000000000004,
+        "disconnected_safe_area_m2": 0.0,
+        "false_free_obstacle_cells": 10,
+        "false_free_obstacle_area_m2": 0.025000000000000005,
+        "false_free_solid_cells": 30,
+        "false_free_solid_area_m2": 0.07500000000000001,
+        "observable_contour_points": 532,
+        "mapped_observable_contour_points": 280,
+        "contour_observability": "ground_truth_LOS_from_reachable_safe_centers_sampled_every_third_cell",
+        "contour_sample_spacing_m": 0.05,
+        "contour_match_tolerance_m": 0.1,
+        "observable_contour_symmetric_p95_m": 0.7756633867597845,
+        "observable_contour_truth_to_map_p95_m": 0.7756633867597845,
+        "observable_contour_map_to_truth_p95_m": 0.06249914387199549,
+        "contour_symmetric_definition": "max_of_directional_p95",
+        "observable_contour_coverage": 0.6710526315789473,
+        "observable_contour_missing_fraction": 0.32894736842105265,
+        "excluded_contour_points": 20,
+        "limitations": [
+          "Geometric contour accuracy is evaluated only on ground-truth observable faces; interiors and occluded faces excluded.",
+          "Grid quantization is 0.05m; viewpoints are sampled at every third reachable raster cell.",
+          "Final map accuracy does not measure localization drift at every trajectory time."
+        ]
+      },
+      "return_error_m": 0.0,
+      "truth_quality": {
+        "valid": true,
+        "issues": [],
+        "limits": {
+          "minimum_distinct_measurement_stamps": 3,
+          "maximum_sim_gap_s": 0.2,
+          "maximum_wall_gap_s": 0.5,
+          "maximum_terminal_sim_age_s": 0.2,
+          "maximum_terminal_wall_age_s": 0.5,
+          "future_tolerance_s": 0.1
+        },
+        "task_start_wall_t": 8.100747136000336,
+        "decision_wall_t": 15.010453279000103,
+        "decision_sim_t": 9.224,
+        "task_samples": 201,
+        "distinct_measurement_stamps": 201,
+        "maximum_sim_gap_s": 0.036000000000000476,
+        "maximum_wall_gap_s": 0.08729160600023533,
+        "last_truth_wall_age_s": 0.007886364000114554,
+        "last_truth_sim_age_s": 0.008000000000000895,
+        "terminal_clock_sync": {
+          "attempted": false,
+          "maximum_wait_wall_s": 2.0,
+          "elapsed_wall_s": 1.2639998203667346e-06,
+          "initial_issues": [],
+          "required_new_measurement_stamps": 3,
+          "new_distinct_measurement_stamps": 0
+        }
+      },
+      "resources": {
+        "async_slam_toolbox_node": {
+          "peak_rss_kib": 48756.0,
+          "peak_cpu_percent_one_core_basis": 14.991735251245025,
+          "samples": 13
+        },
+        "controller_server": {
+          "peak_rss_kib": 40592.0,
+          "peak_cpu_percent_one_core_basis": 8.99826227358652,
+          "samples": 13
+        },
+        "smoother_server": {
+          "peak_rss_kib": 34480.0,
+          "peak_cpu_percent_one_core_basis": 6.998648435011736,
+          "samples": 13
+        },
+        "planner_server": {
+          "peak_rss_kib": 40564.0,
+          "peak_cpu_percent_one_core_basis": 8.998793189841896,
+          "samples": 13
+        },
+        "behavior_server": {
+          "peak_rss_kib": 39208.0,
+          "peak_cpu_percent_one_core_basis": 6.998648435011736,
+          "samples": 13
+        },
+        "bt_navigator": {
+          "peak_rss_kib": 49700.0,
+          "peak_cpu_percent_one_core_basis": 10.998525009806762,
+          "samples": 13
+        },
+        "velocity_smoother": {
+          "peak_rss_kib": 29772.0,
+          "peak_cpu_percent_one_core_basis": 4.999329549912165,
+          "samples": 13
+        },
+        "wheeltec_explore": {
+          "peak_rss_kib": 75100.0,
+          "peak_cpu_percent_one_core_basis": 33.98218599438572,
+          "samples": 6
+        }
+      }
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 0,
+      "seed": 3,
+      "scale": 0.5,
+      "pose": [
+        -1.6796804378893848,
+        -1.5153017267837774,
+        -0.04323483442462246
+      ],
+      "run_dir": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/013_baseline_spawn0_seed3_scale0.5",
+      "returncode": 1,
+      "success": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      },
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "map_metrics": {
+        "alignment_map_from_world": [
+          1.612686197327075,
+          1.586037036676947,
+          0.04295782075108778
+        ],
+        "alignment_method": "fixed_initial_pose_rigid_no_scale",
+        "resolution_m": 0.05,
+        "robot_center_clearance_radius_m": 0.35,
+        "reachable_safe_cells": 5712,
+        "reachable_safe_area_m2": 14.280000000000003,
+        "correct_reachable_free_cells": 4793,
+        "reachable_coverage": 0.8391106442577031,
+        "reachable_unknown_area_m2": 2.2975000000000003,
+        "physical_free_area_m2": 23.900000000000006,
+        "physical_free_unknown_area_m2": 5.052500000000001,
+        "other_physical_free_area_m2": 9.620000000000001,
+        "other_physical_free_unknown_area_m2": 2.7550000000000003,
+        "disconnected_safe_area_m2": 0.0,
+        "false_free_obstacle_cells": 10,
+        "false_free_obstacle_area_m2": 0.025000000000000005,
+        "false_free_solid_cells": 24,
+        "false_free_solid_area_m2": 0.06000000000000001,
+        "observable_contour_points": 532,
+        "mapped_observable_contour_points": 298,
+        "contour_observability": "ground_truth_LOS_from_reachable_safe_centers_sampled_every_third_cell",
+        "contour_sample_spacing_m": 0.05,
+        "contour_match_tolerance_m": 0.1,
+        "observable_contour_symmetric_p95_m": 0.7803926295687094,
+        "observable_contour_truth_to_map_p95_m": 0.7803926295687094,
+        "observable_contour_map_to_truth_p95_m": 0.06456250854554908,
+        "contour_symmetric_definition": "max_of_directional_p95",
+        "observable_contour_coverage": 0.674812030075188,
+        "observable_contour_missing_fraction": 0.325187969924812,
+        "excluded_contour_points": 20,
+        "limitations": [
+          "Geometric contour accuracy is evaluated only on ground-truth observable faces; interiors and occluded faces excluded.",
+          "Grid quantization is 0.05m; viewpoints are sampled at every third reachable raster cell.",
+          "Final map accuracy does not measure localization drift at every trajectory time."
+        ]
+      },
+      "return_error_m": 0.0,
+      "truth_quality": {
+        "valid": true,
+        "issues": [],
+        "limits": {
+          "minimum_distinct_measurement_stamps": 3,
+          "maximum_sim_gap_s": 0.2,
+          "maximum_wall_gap_s": 0.5,
+          "maximum_terminal_sim_age_s": 0.2,
+          "maximum_terminal_wall_age_s": 0.5,
+          "future_tolerance_s": 0.1
+        },
+        "task_start_wall_t": 6.718642297000315,
+        "decision_wall_t": 13.56018145600001,
+        "decision_sim_t": 8.099,
+        "task_samples": 199,
+        "distinct_measurement_stamps": 199,
+        "maximum_sim_gap_s": 0.03500000000000014,
+        "maximum_wall_gap_s": 0.051846445000137464,
+        "last_truth_wall_age_s": 0.011881560999881913,
+        "last_truth_sim_age_s": 0.012000000000000455,
+        "terminal_clock_sync": {
+          "attempted": false,
+          "maximum_wait_wall_s": 2.0,
+          "elapsed_wall_s": 1.3730000318901148e-06,
+          "initial_issues": [],
+          "required_new_measurement_stamps": 3,
+          "new_distinct_measurement_stamps": 0
+        }
+      },
+      "resources": {
+        "async_slam_toolbox_node": {
+          "peak_rss_kib": 47884.0,
+          "peak_cpu_percent_one_core_basis": 12.997833794022137,
+          "samples": 11
+        },
+        "controller_server": {
+          "peak_rss_kib": 40704.0,
+          "peak_cpu_percent_one_core_basis": 9.998333687709337,
+          "samples": 11
+        },
+        "smoother_server": {
+          "peak_rss_kib": 34632.0,
+          "peak_cpu_percent_one_core_basis": 6.998833581396536,
+          "samples": 11
+        },
+        "planner_server": {
+          "peak_rss_kib": 40696.0,
+          "peak_cpu_percent_one_core_basis": 8.998500318938403,
+          "samples": 11
+        },
+        "behavior_server": {
+          "peak_rss_kib": 39160.0,
+          "peak_cpu_percent_one_core_basis": 6.998833581396536,
+          "samples": 11
+        },
+        "bt_navigator": {
+          "peak_rss_kib": 49256.0,
+          "peak_cpu_percent_one_core_basis": 10.999830635608033,
+          "samples": 11
+        },
+        "velocity_smoother": {
+          "peak_rss_kib": 30224.0,
+          "peak_cpu_percent_one_core_basis": 5.999000212625602,
+          "samples": 11
+        },
+        "wheeltec_explore": {
+          "peak_rss_kib": 75540.0,
+          "peak_cpu_percent_one_core_basis": 40.990073269993864,
+          "samples": 6
+        }
+      }
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 0,
+      "seed": 3,
+      "scale": 1.0,
+      "pose": [
+        -1.6796804378893848,
+        -1.5153017267837774,
+        -0.04323483442462246
+      ],
+      "run_dir": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/014_baseline_spawn0_seed3_scale1",
+      "returncode": 1,
+      "success": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      },
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "map_metrics": {
+        "alignment_map_from_world": [
+          1.6127548714730082,
+          1.5855902073871817,
+          0.0426808070775531
+        ],
+        "alignment_method": "fixed_initial_pose_rigid_no_scale",
+        "resolution_m": 0.05,
+        "robot_center_clearance_radius_m": 0.35,
+        "reachable_safe_cells": 5712,
+        "reachable_safe_area_m2": 14.280000000000003,
+        "correct_reachable_free_cells": 4811,
+        "reachable_coverage": 0.8422619047619048,
+        "reachable_unknown_area_m2": 2.2525000000000004,
+        "physical_free_area_m2": 23.900000000000006,
+        "physical_free_unknown_area_m2": 4.965000000000001,
+        "other_physical_free_area_m2": 9.620000000000001,
+        "other_physical_free_unknown_area_m2": 2.7125000000000004,
+        "disconnected_safe_area_m2": 0.0,
+        "false_free_obstacle_cells": 12,
+        "false_free_obstacle_area_m2": 0.030000000000000006,
+        "false_free_solid_cells": 21,
+        "false_free_solid_area_m2": 0.05250000000000001,
+        "observable_contour_points": 532,
+        "mapped_observable_contour_points": 328,
+        "contour_observability": "ground_truth_LOS_from_reachable_safe_centers_sampled_every_third_cell",
+        "contour_sample_spacing_m": 0.05,
+        "contour_match_tolerance_m": 0.1,
+        "observable_contour_symmetric_p95_m": 0.8216692452550132,
+        "observable_contour_truth_to_map_p95_m": 0.8216692452550132,
+        "observable_contour_map_to_truth_p95_m": 0.07086849217592014,
+        "contour_symmetric_definition": "max_of_directional_p95",
+        "observable_contour_coverage": 0.6954887218045113,
+        "observable_contour_missing_fraction": 0.30451127819548873,
+        "excluded_contour_points": 20,
+        "limitations": [
+          "Geometric contour accuracy is evaluated only on ground-truth observable faces; interiors and occluded faces excluded.",
+          "Grid quantization is 0.05m; viewpoints are sampled at every third reachable raster cell.",
+          "Final map accuracy does not measure localization drift at every trajectory time."
+        ]
+      },
+      "return_error_m": 0.0,
+      "truth_quality": {
+        "valid": true,
+        "issues": [],
+        "limits": {
+          "minimum_distinct_measurement_stamps": 3,
+          "maximum_sim_gap_s": 0.2,
+          "maximum_wall_gap_s": 0.5,
+          "maximum_terminal_sim_age_s": 0.2,
+          "maximum_terminal_wall_age_s": 0.5,
+          "future_tolerance_s": 0.1
+        },
+        "task_start_wall_t": 7.2830521359996965,
+        "decision_wall_t": 12.123468358000082,
+        "decision_sim_t": 6.239,
+        "task_samples": 142,
+        "distinct_measurement_stamps": 142,
+        "maximum_sim_gap_s": 0.036000000000000476,
+        "maximum_wall_gap_s": 0.03680622599995331,
+        "last_truth_wall_age_s": 0.004548951000288071,
+        "last_truth_sim_age_s": 0.004999999999999893,
+        "terminal_clock_sync": {
+          "attempted": false,
+          "maximum_wait_wall_s": 2.0,
+          "elapsed_wall_s": 1.2969999261258636e-06,
+          "initial_issues": [],
+          "required_new_measurement_stamps": 3,
+          "new_distinct_measurement_stamps": 0
+        }
+      },
+      "resources": {
+        "async_slam_toolbox_node": {
+          "peak_rss_kib": 47956.0,
+          "peak_cpu_percent_one_core_basis": 11.994896423463272,
+          "samples": 9
+        },
+        "controller_server": {
+          "peak_rss_kib": 40444.0,
+          "peak_cpu_percent_one_core_basis": 8.99588343875842,
+          "samples": 9
+        },
+        "smoother_server": {
+          "peak_rss_kib": 34536.0,
+          "peak_cpu_percent_one_core_basis": 5.996370630714806,
+          "samples": 9
+        },
+        "planner_server": {
+          "peak_rss_kib": 40188.0,
+          "peak_cpu_percent_one_core_basis": 8.99455594607221,
+          "samples": 9
+        },
+        "behavior_server": {
+          "peak_rss_kib": 39248.0,
+          "peak_cpu_percent_one_core_basis": 5.997448211731636,
+          "samples": 9
+        },
+        "bt_navigator": {
+          "peak_rss_kib": 49636.0,
+          "peak_cpu_percent_one_core_basis": 11.992741261429613,
+          "samples": 9
+        },
+        "velocity_smoother": {
+          "peak_rss_kib": 29844.0,
+          "peak_cpu_percent_one_core_basis": 4.997873509776364,
+          "samples": 9
+        },
+        "wheeltec_explore": {
+          "peak_rss_kib": 75280.0,
+          "peak_cpu_percent_one_core_basis": 38.97638689654891,
+          "samples": 4
+        }
+      }
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 0,
+      "seed": 3,
+      "scale": 2.0,
+      "pose": [
+        -1.6796804378893848,
+        -1.5153017267837774,
+        -0.04323483442462246
+      ],
+      "run_dir": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/015_baseline_spawn0_seed3_scale2",
+      "returncode": 1,
+      "success": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      },
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "map_metrics": {
+        "alignment_map_from_world": [
+          1.6128918486264856,
+          1.5846963245276846,
+          0.04212677973048373
+        ],
+        "alignment_method": "fixed_initial_pose_rigid_no_scale",
+        "resolution_m": 0.05,
+        "robot_center_clearance_radius_m": 0.35,
+        "reachable_safe_cells": 5712,
+        "reachable_safe_area_m2": 14.280000000000003,
+        "correct_reachable_free_cells": 4818,
+        "reachable_coverage": 0.8434873949579832,
+        "reachable_unknown_area_m2": 2.2350000000000003,
+        "physical_free_area_m2": 23.900000000000006,
+        "physical_free_unknown_area_m2": 4.900000000000001,
+        "other_physical_free_area_m2": 9.620000000000001,
+        "other_physical_free_unknown_area_m2": 2.6650000000000005,
+        "disconnected_safe_area_m2": 0.0,
+        "false_free_obstacle_cells": 11,
+        "false_free_obstacle_area_m2": 0.027500000000000004,
+        "false_free_solid_cells": 15,
+        "false_free_solid_area_m2": 0.037500000000000006,
+        "observable_contour_points": 532,
+        "mapped_observable_contour_points": 348,
+        "contour_observability": "ground_truth_LOS_from_reachable_safe_centers_sampled_every_third_cell",
+        "contour_sample_spacing_m": 0.05,
+        "contour_match_tolerance_m": 0.1,
+        "observable_contour_symmetric_p95_m": 0.715199314208459,
+        "observable_contour_truth_to_map_p95_m": 0.715199314208459,
+        "observable_contour_map_to_truth_p95_m": 0.07116991873930503,
+        "contour_symmetric_definition": "max_of_directional_p95",
+        "observable_contour_coverage": 0.7124060150375939,
+        "observable_contour_missing_fraction": 0.28759398496240607,
+        "excluded_contour_points": 20,
+        "limitations": [
+          "Geometric contour accuracy is evaluated only on ground-truth observable faces; interiors and occluded faces excluded.",
+          "Grid quantization is 0.05m; viewpoints are sampled at every third reachable raster cell.",
+          "Final map accuracy does not measure localization drift at every trajectory time."
+        ]
+      },
+      "return_error_m": 0.0,
+      "truth_quality": {
+        "valid": true,
+        "issues": [],
+        "limits": {
+          "minimum_distinct_measurement_stamps": 3,
+          "maximum_sim_gap_s": 0.2,
+          "maximum_wall_gap_s": 0.5,
+          "maximum_terminal_sim_age_s": 0.2,
+          "maximum_terminal_wall_age_s": 0.5,
+          "future_tolerance_s": 0.1
+        },
+        "task_start_wall_t": 6.7648294239997995,
+        "decision_wall_t": 12.631409536999854,
+        "decision_sim_t": 7.093,
+        "task_samples": 171,
+        "distinct_measurement_stamps": 171,
+        "maximum_sim_gap_s": 0.03600000000000003,
+        "maximum_wall_gap_s": 0.03577042500000971,
+        "last_truth_wall_age_s": 0.03100983800004542,
+        "last_truth_sim_age_s": 0.030999999999999694,
+        "terminal_clock_sync": {
+          "attempted": false,
+          "maximum_wait_wall_s": 2.0,
+          "elapsed_wall_s": 1.3529997886507772e-06,
+          "initial_issues": [],
+          "required_new_measurement_stamps": 3,
+          "new_distinct_measurement_stamps": 0
+        }
+      },
+      "resources": {
+        "async_slam_toolbox_node": {
+          "peak_rss_kib": 47672.0,
+          "peak_cpu_percent_one_core_basis": 12.998868045572413,
+          "samples": 10
+        },
+        "controller_server": {
+          "peak_rss_kib": 41168.0,
+          "peak_cpu_percent_one_core_basis": 8.999216339242441,
+          "samples": 10
+        },
+        "smoother_server": {
+          "peak_rss_kib": 34516.0,
+          "peak_cpu_percent_one_core_basis": 5.99947755949496,
+          "samples": 10
+        },
+        "planner_server": {
+          "peak_rss_kib": 40876.0,
+          "peak_cpu_percent_one_core_basis": 7.9993034126599465,
+          "samples": 10
+        },
+        "behavior_server": {
+          "peak_rss_kib": 39312.0,
+          "peak_cpu_percent_one_core_basis": 7.9993034126599465,
+          "samples": 10
+        },
+        "bt_navigator": {
+          "peak_rss_kib": 49040.0,
+          "peak_cpu_percent_one_core_basis": 12.998868045572413,
+          "samples": 10
+        },
+        "velocity_smoother": {
+          "peak_rss_kib": 30200.0,
+          "peak_cpu_percent_one_core_basis": 5.99947755949496,
+          "samples": 10
+        },
+        "wheeltec_explore": {
+          "peak_rss_kib": 75788.0,
+          "peak_cpu_percent_one_core_basis": 39.99443205515072,
+          "samples": 5
+        }
+      }
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 0,
+      "seed": 4,
+      "scale": 0.0,
+      "pose": [
+        -1.67047429075712,
+        -1.4892756026979155,
+        -0.04539797917148143
+      ],
+      "run_dir": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/016_baseline_spawn0_seed4_scale0",
+      "returncode": 1,
+      "success": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      },
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "map_metrics": {
+        "alignment_map_from_world": [
+          1.6011663008660166,
+          1.563551295558537,
+          0.04539797917148143
+        ],
+        "alignment_method": "fixed_initial_pose_rigid_no_scale",
+        "resolution_m": 0.05,
+        "robot_center_clearance_radius_m": 0.35,
+        "reachable_safe_cells": 5712,
+        "reachable_safe_area_m2": 14.280000000000003,
+        "correct_reachable_free_cells": 4797,
+        "reachable_coverage": 0.8398109243697479,
+        "reachable_unknown_area_m2": 2.2875000000000005,
+        "physical_free_area_m2": 23.900000000000006,
+        "physical_free_unknown_area_m2": 5.082500000000001,
+        "other_physical_free_area_m2": 9.620000000000001,
+        "other_physical_free_unknown_area_m2": 2.7950000000000004,
+        "disconnected_safe_area_m2": 0.0,
+        "false_free_obstacle_cells": 12,
+        "false_free_obstacle_area_m2": 0.030000000000000006,
+        "false_free_solid_cells": 33,
+        "false_free_solid_area_m2": 0.08250000000000002,
+        "observable_contour_points": 532,
+        "mapped_observable_contour_points": 274,
+        "contour_observability": "ground_truth_LOS_from_reachable_safe_centers_sampled_every_third_cell",
+        "contour_sample_spacing_m": 0.05,
+        "contour_match_tolerance_m": 0.1,
+        "observable_contour_symmetric_p95_m": 0.7971320406321776,
+        "observable_contour_truth_to_map_p95_m": 0.7971320406321776,
+        "observable_contour_map_to_truth_p95_m": 0.0636342655536391,
+        "contour_symmetric_definition": "max_of_directional_p95",
+        "observable_contour_coverage": 0.6560150375939849,
+        "observable_contour_missing_fraction": 0.34398496240601506,
+        "excluded_contour_points": 20,
+        "limitations": [
+          "Geometric contour accuracy is evaluated only on ground-truth observable faces; interiors and occluded faces excluded.",
+          "Grid quantization is 0.05m; viewpoints are sampled at every third reachable raster cell.",
+          "Final map accuracy does not measure localization drift at every trajectory time."
+        ]
+      },
+      "return_error_m": 0.0,
+      "truth_quality": {
+        "valid": true,
+        "issues": [],
+        "limits": {
+          "minimum_distinct_measurement_stamps": 3,
+          "maximum_sim_gap_s": 0.2,
+          "maximum_wall_gap_s": 0.5,
+          "maximum_terminal_sim_age_s": 0.2,
+          "maximum_terminal_wall_age_s": 0.5,
+          "future_tolerance_s": 0.1
+        },
+        "task_start_wall_t": 7.2709315749998495,
+        "decision_wall_t": 12.659567013000014,
+        "decision_sim_t": 7.235,
+        "task_samples": 158,
+        "distinct_measurement_stamps": 158,
+        "maximum_sim_gap_s": 0.03500000000000014,
+        "maximum_wall_gap_s": 0.03672461799988014,
+        "last_truth_wall_age_s": 0.009824794999985897,
+        "last_truth_sim_age_s": 0.010000000000000675,
+        "terminal_clock_sync": {
+          "attempted": false,
+          "maximum_wait_wall_s": 2.0,
+          "elapsed_wall_s": 1.2299997251830064e-06,
+          "initial_issues": [],
+          "required_new_measurement_stamps": 3,
+          "new_distinct_measurement_stamps": 0
+        }
+      },
+      "resources": {
+        "async_slam_toolbox_node": {
+          "peak_rss_kib": 49240.0,
+          "peak_cpu_percent_one_core_basis": 13.998953452236075,
+          "samples": 11
+        },
+        "controller_server": {
+          "peak_rss_kib": 40756.0,
+          "peak_cpu_percent_one_core_basis": 8.994397353910562,
+          "samples": 11
+        },
+        "smoother_server": {
+          "peak_rss_kib": 34576.0,
+          "peak_cpu_percent_one_core_basis": 5.997972493362453,
+          "samples": 11
+        },
+        "planner_server": {
+          "peak_rss_kib": 40540.0,
+          "peak_cpu_percent_one_core_basis": 8.994397353910562,
+          "samples": 11
+        },
+        "behavior_server": {
+          "peak_rss_kib": 40024.0,
+          "peak_cpu_percent_one_core_basis": 5.998368089975488,
+          "samples": 11
+        },
+        "bt_navigator": {
+          "peak_rss_kib": 49372.0,
+          "peak_cpu_percent_one_core_basis": 12.995607068951982,
+          "samples": 11
+        },
+        "velocity_smoother": {
+          "peak_rss_kib": 29572.0,
+          "peak_cpu_percent_one_core_basis": 5.996264902607042,
+          "samples": 11
+        },
+        "wheeltec_explore": {
+          "peak_rss_kib": 74828.0,
+          "peak_cpu_percent_one_core_basis": 39.96963958139047,
+          "samples": 4
+        }
+      }
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 0,
+      "seed": 4,
+      "scale": 0.5,
+      "pose": [
+        -1.67047429075712,
+        -1.4892756026979155,
+        -0.04539797917148143
+      ],
+      "run_dir": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/017_baseline_spawn0_seed4_scale0.5",
+      "returncode": 1,
+      "success": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      },
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "map_metrics": {
+        "alignment_map_from_world": [
+          1.600606496260351,
+          1.5638926089253136,
+          0.045611137662481815
+        ],
+        "alignment_method": "fixed_initial_pose_rigid_no_scale",
+        "resolution_m": 0.05,
+        "robot_center_clearance_radius_m": 0.35,
+        "reachable_safe_cells": 5712,
+        "reachable_safe_area_m2": 14.280000000000003,
+        "correct_reachable_free_cells": 4817,
+        "reachable_coverage": 0.843312324929972,
+        "reachable_unknown_area_m2": 2.2350000000000003,
+        "physical_free_area_m2": 23.900000000000006,
+        "physical_free_unknown_area_m2": 4.925000000000001,
+        "other_physical_free_area_m2": 9.620000000000001,
+        "other_physical_free_unknown_area_m2": 2.6900000000000004,
+        "disconnected_safe_area_m2": 0.0,
+        "false_free_obstacle_cells": 16,
+        "false_free_obstacle_area_m2": 0.04000000000000001,
+        "false_free_solid_cells": 30,
+        "false_free_solid_area_m2": 0.07500000000000001,
+        "observable_contour_points": 532,
+        "mapped_observable_contour_points": 308,
+        "contour_observability": "ground_truth_LOS_from_reachable_safe_centers_sampled_every_third_cell",
+        "contour_sample_spacing_m": 0.05,
+        "contour_match_tolerance_m": 0.1,
+        "observable_contour_symmetric_p95_m": 0.8961383213402488,
+        "observable_contour_truth_to_map_p95_m": 0.8961383213402488,
+        "observable_contour_map_to_truth_p95_m": 0.06143630350342987,
+        "contour_symmetric_definition": "max_of_directional_p95",
+        "observable_contour_coverage": 0.693609022556391,
+        "observable_contour_missing_fraction": 0.306390977443609,
+        "excluded_contour_points": 20,
+        "limitations": [
+          "Geometric contour accuracy is evaluated only on ground-truth observable faces; interiors and occluded faces excluded.",
+          "Grid quantization is 0.05m; viewpoints are sampled at every third reachable raster cell.",
+          "Final map accuracy does not measure localization drift at every trajectory time."
+        ]
+      },
+      "return_error_m": 0.0,
+      "truth_quality": {
+        "valid": true,
+        "issues": [],
+        "limits": {
+          "minimum_distinct_measurement_stamps": 3,
+          "maximum_sim_gap_s": 0.2,
+          "maximum_wall_gap_s": 0.5,
+          "maximum_terminal_sim_age_s": 0.2,
+          "maximum_terminal_wall_age_s": 0.5,
+          "future_tolerance_s": 0.1
+        },
+        "task_start_wall_t": 7.254710055000032,
+        "decision_wall_t": 11.575405188000332,
+        "decision_sim_t": 6.313,
+        "task_samples": 126,
+        "distinct_measurement_stamps": 126,
+        "maximum_sim_gap_s": 0.03699999999999992,
+        "maximum_wall_gap_s": 0.036700364999887825,
+        "last_truth_wall_age_s": 0.028948393000064243,
+        "last_truth_sim_age_s": 0.028999999999999915,
+        "terminal_clock_sync": {
+          "attempted": false,
+          "maximum_wait_wall_s": 2.0,
+          "elapsed_wall_s": 1.826000243454473e-06,
+          "initial_issues": [],
+          "required_new_measurement_stamps": 3,
+          "new_distinct_measurement_stamps": 0
+        }
+      },
+      "resources": {
+        "async_slam_toolbox_node": {
+          "peak_rss_kib": 46560.0,
+          "peak_cpu_percent_one_core_basis": 11.994679639900195,
+          "samples": 9
+        },
+        "controller_server": {
+          "peak_rss_kib": 40884.0,
+          "peak_cpu_percent_one_core_basis": 8.998141676785693,
+          "samples": 9
+        },
+        "smoother_server": {
+          "peak_rss_kib": 34448.0,
+          "peak_cpu_percent_one_core_basis": 5.9987611178571285,
+          "samples": 9
+        },
+        "planner_server": {
+          "peak_rss_kib": 40648.0,
+          "peak_cpu_percent_one_core_basis": 7.998348157142838,
+          "samples": 9
+        },
+        "behavior_server": {
+          "peak_rss_kib": 39936.0,
+          "peak_cpu_percent_one_core_basis": 6.998554637499983,
+          "samples": 9
+        },
+        "bt_navigator": {
+          "peak_rss_kib": 49572.0,
+          "peak_cpu_percent_one_core_basis": 11.997522235714257,
+          "samples": 9
+        },
+        "velocity_smoother": {
+          "peak_rss_kib": 29380.0,
+          "peak_cpu_percent_one_core_basis": 4.998967598214274,
+          "samples": 9
+        },
+        "wheeltec_explore": {
+          "peak_rss_kib": 75156.0,
+          "peak_cpu_percent_one_core_basis": 37.97877263854814,
+          "samples": 4
+        }
+      }
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 0,
+      "seed": 4,
+      "scale": 1.0,
+      "pose": [
+        -1.67047429075712,
+        -1.4892756026979155,
+        -0.04539797917148143
+      ],
+      "run_dir": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/018_baseline_spawn0_seed4_scale1",
+      "returncode": 1,
+      "success": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      },
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "map_metrics": {
+        "alignment_map_from_world": [
+          1.60021404919372,
+          1.5639729281528143,
+          0.0456612391789583
+        ],
+        "alignment_method": "fixed_initial_pose_rigid_no_scale",
+        "resolution_m": 0.05,
+        "robot_center_clearance_radius_m": 0.35,
+        "reachable_safe_cells": 5712,
+        "reachable_safe_area_m2": 14.280000000000003,
+        "correct_reachable_free_cells": 4826,
+        "reachable_coverage": 0.8448879551820728,
+        "reachable_unknown_area_m2": 2.2150000000000003,
+        "physical_free_area_m2": 23.900000000000006,
+        "physical_free_unknown_area_m2": 4.902500000000001,
+        "other_physical_free_area_m2": 9.620000000000001,
+        "other_physical_free_unknown_area_m2": 2.6875000000000004,
+        "disconnected_safe_area_m2": 0.0,
+        "false_free_obstacle_cells": 13,
+        "false_free_obstacle_area_m2": 0.03250000000000001,
+        "false_free_solid_cells": 21,
+        "false_free_solid_area_m2": 0.05250000000000001,
+        "observable_contour_points": 532,
+        "mapped_observable_contour_points": 328,
+        "contour_observability": "ground_truth_LOS_from_reachable_safe_centers_sampled_every_third_cell",
+        "contour_sample_spacing_m": 0.05,
+        "contour_match_tolerance_m": 0.1,
+        "observable_contour_symmetric_p95_m": 0.7374147249549249,
+        "observable_contour_truth_to_map_p95_m": 0.7374147249549249,
+        "observable_contour_map_to_truth_p95_m": 0.06939042588171315,
+        "contour_symmetric_definition": "max_of_directional_p95",
+        "observable_contour_coverage": 0.7142857142857143,
+        "observable_contour_missing_fraction": 0.2857142857142857,
+        "excluded_contour_points": 20,
+        "limitations": [
+          "Geometric contour accuracy is evaluated only on ground-truth observable faces; interiors and occluded faces excluded.",
+          "Grid quantization is 0.05m; viewpoints are sampled at every third reachable raster cell.",
+          "Final map accuracy does not measure localization drift at every trajectory time."
+        ]
+      },
+      "return_error_m": 0.0,
+      "truth_quality": {
+        "valid": true,
+        "issues": [],
+        "limits": {
+          "minimum_distinct_measurement_stamps": 3,
+          "maximum_sim_gap_s": 0.2,
+          "maximum_wall_gap_s": 0.5,
+          "maximum_terminal_sim_age_s": 0.2,
+          "maximum_terminal_wall_age_s": 0.5,
+          "future_tolerance_s": 0.1
+        },
+        "task_start_wall_t": 6.521636087999923,
+        "decision_wall_t": 11.325065658999847,
+        "decision_sim_t": 6.146,
+        "task_samples": 140,
+        "distinct_measurement_stamps": 140,
+        "maximum_sim_gap_s": 0.03600000000000003,
+        "maximum_wall_gap_s": 0.04140765000011015,
+        "last_truth_wall_age_s": 0.020891954000035184,
+        "last_truth_sim_age_s": 0.020999999999999908,
+        "terminal_clock_sync": {
+          "attempted": false,
+          "maximum_wait_wall_s": 2.0,
+          "elapsed_wall_s": 1.2579998838191386e-06,
+          "initial_issues": [],
+          "required_new_measurement_stamps": 3,
+          "new_distinct_measurement_stamps": 0
+        }
+      },
+      "resources": {
+        "async_slam_toolbox_node": {
+          "peak_rss_kib": 47992.0,
+          "peak_cpu_percent_one_core_basis": 12.998929421173598,
+          "samples": 9
+        },
+        "controller_server": {
+          "peak_rss_kib": 41128.0,
+          "peak_cpu_percent_one_core_basis": 9.977921454079388,
+          "samples": 9
+        },
+        "smoother_server": {
+          "peak_rss_kib": 34832.0,
+          "peak_cpu_percent_one_core_basis": 5.99765323824212,
+          "samples": 9
+        },
+        "planner_server": {
+          "peak_rss_kib": 40324.0,
+          "peak_cpu_percent_one_core_basis": 8.980129308671447,
+          "samples": 9
+        },
+        "behavior_server": {
+          "peak_rss_kib": 39692.0,
+          "peak_cpu_percent_one_core_basis": 6.984545017855571,
+          "samples": 9
+        },
+        "bt_navigator": {
+          "peak_rss_kib": 49608.0,
+          "peak_cpu_percent_one_core_basis": 11.990394399124844,
+          "samples": 9
+        },
+        "velocity_smoother": {
+          "peak_rss_kib": 29480.0,
+          "peak_cpu_percent_one_core_basis": 4.9995882389129225,
+          "samples": 9
+        },
+        "wheeltec_explore": {
+          "peak_rss_kib": 75780.0,
+          "peak_cpu_percent_one_core_basis": 38.9967882635208,
+          "samples": 4
+        }
+      }
+    },
+    {
+      "scenario": "baseline",
+      "spawn": 0,
+      "seed": 4,
+      "scale": 2.0,
+      "pose": [
+        -1.67047429075712,
+        -1.4892756026979155,
+        -0.04539797917148143
+      ],
+      "run_dir": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t5-noise-sweep/019_baseline_spawn0_seed4_scale2",
+      "returncode": 1,
+      "success": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      },
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "map_metrics": {
+        "alignment_map_from_world": [
+          1.5953376260996472,
+          1.566998922072538,
+          0.04755409072197874
+        ],
+        "alignment_method": "fixed_initial_pose_rigid_no_scale",
+        "resolution_m": 0.05,
+        "robot_center_clearance_radius_m": 0.35,
+        "reachable_safe_cells": 5712,
+        "reachable_safe_area_m2": 14.280000000000003,
+        "correct_reachable_free_cells": 4825,
+        "reachable_coverage": 0.8447128851540616,
+        "reachable_unknown_area_m2": 2.2175000000000002,
+        "physical_free_area_m2": 23.900000000000006,
+        "physical_free_unknown_area_m2": 4.897500000000001,
+        "other_physical_free_area_m2": 9.620000000000001,
+        "other_physical_free_unknown_area_m2": 2.6800000000000006,
+        "disconnected_safe_area_m2": 0.0,
+        "false_free_obstacle_cells": 12,
+        "false_free_obstacle_area_m2": 0.030000000000000006,
+        "false_free_solid_cells": 20,
+        "false_free_solid_area_m2": 0.05000000000000001,
+        "observable_contour_points": 532,
+        "mapped_observable_contour_points": 343,
+        "contour_observability": "ground_truth_LOS_from_reachable_safe_centers_sampled_every_third_cell",
+        "contour_sample_spacing_m": 0.05,
+        "contour_match_tolerance_m": 0.1,
+        "observable_contour_symmetric_p95_m": 0.7170848525629634,
+        "observable_contour_truth_to_map_p95_m": 0.7170848525629634,
+        "observable_contour_map_to_truth_p95_m": 0.07887183349433584,
+        "contour_symmetric_definition": "max_of_directional_p95",
+        "observable_contour_coverage": 0.7124060150375939,
+        "observable_contour_missing_fraction": 0.28759398496240607,
+        "excluded_contour_points": 20,
+        "limitations": [
+          "Geometric contour accuracy is evaluated only on ground-truth observable faces; interiors and occluded faces excluded.",
+          "Grid quantization is 0.05m; viewpoints are sampled at every third reachable raster cell.",
+          "Final map accuracy does not measure localization drift at every trajectory time."
+        ]
+      },
+      "return_error_m": 0.0,
+      "truth_quality": {
+        "valid": true,
+        "issues": [],
+        "limits": {
+          "minimum_distinct_measurement_stamps": 3,
+          "maximum_sim_gap_s": 0.2,
+          "maximum_wall_gap_s": 0.5,
+          "maximum_terminal_sim_age_s": 0.2,
+          "maximum_terminal_wall_age_s": 0.5,
+          "future_tolerance_s": 0.1
+        },
+        "task_start_wall_t": 7.314005758999883,
+        "decision_wall_t": 11.606282088999706,
+        "decision_sim_t": 6.136,
+        "task_samples": 126,
+        "distinct_measurement_stamps": 126,
+        "maximum_sim_gap_s": 0.03500000000000014,
+        "maximum_wall_gap_s": 0.0371786460000294,
+        "last_truth_wall_age_s": 0.0012832499996875413,
+        "last_truth_sim_age_s": 0.0019999999999997797,
+        "terminal_clock_sync": {
+          "attempted": false,
+          "maximum_wait_wall_s": 2.0,
+          "elapsed_wall_s": 1.3849999049853068e-06,
+          "initial_issues": [],
+          "required_new_measurement_stamps": 3,
+          "new_distinct_measurement_stamps": 0
+        }
+      },
+      "resources": {
+        "async_slam_toolbox_node": {
+          "peak_rss_kib": 47292.0,
+          "peak_cpu_percent_one_core_basis": 12.992974815448552,
+          "samples": 10
+        },
+        "controller_server": {
+          "peak_rss_kib": 41012.0,
+          "peak_cpu_percent_one_core_basis": 9.994513931347692,
+          "samples": 10
+        },
+        "smoother_server": {
+          "peak_rss_kib": 34628.0,
+          "peak_cpu_percent_one_core_basis": 6.9961597519433845,
+          "samples": 10
+        },
+        "planner_server": {
+          "peak_rss_kib": 40756.0,
+          "peak_cpu_percent_one_core_basis": 8.995062538212924,
+          "samples": 10
+        },
+        "behavior_server": {
+          "peak_rss_kib": 39500.0,
+          "peak_cpu_percent_one_core_basis": 6.994944837303855,
+          "samples": 10
+        },
+        "bt_navigator": {
+          "peak_rss_kib": 49056.0,
+          "peak_cpu_percent_one_core_basis": 11.993416717617231,
+          "samples": 10
+        },
+        "velocity_smoother": {
+          "peak_rss_kib": 29936.0,
+          "peak_cpu_percent_one_core_basis": 6.9961597519433845,
+          "samples": 10
+        },
+        "wheeltec_explore": {
+          "peak_rss_kib": 75564.0,
+          "peak_cpu_percent_one_core_basis": 36.982108203995196,
+          "samples": 3
+        }
+      }
+    }
+  ]
+}

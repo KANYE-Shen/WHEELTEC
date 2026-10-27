@@ -1,0 +1,676 @@
+[
+  {
+    "scenario": "baseline",
+    "spawn": 0,
+    "seed": 0,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.34734860902787523
+  },
+  {
+    "scenario": "baseline",
+    "spawn": 0,
+    "seed": 1,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3411836543537474
+  },
+  {
+    "scenario": "baseline",
+    "spawn": 0,
+    "seed": 2,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3141342312537466
+  },
+  {
+    "scenario": "baseline",
+    "spawn": 0,
+    "seed": 3,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3419059503226343
+  },
+  {
+    "scenario": "baseline",
+    "spawn": 0,
+    "seed": 4,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.33580793181963065
+  },
+  {
+    "scenario": "baseline",
+    "spawn": 1,
+    "seed": 0,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3446903531376162
+  },
+  {
+    "scenario": "baseline",
+    "spawn": 1,
+    "seed": 1,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.32423559783243544
+  },
+  {
+    "scenario": "baseline",
+    "spawn": 1,
+    "seed": 2,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3472677585821076
+  },
+  {
+    "scenario": "baseline",
+    "spawn": 1,
+    "seed": 3,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3123753212837777
+  },
+  {
+    "scenario": "baseline",
+    "spawn": 1,
+    "seed": 4,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.34366024939490974
+  },
+  {
+    "scenario": "baseline",
+    "spawn": 2,
+    "seed": 0,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.33342116755997697
+  },
+  {
+    "scenario": "baseline",
+    "spawn": 2,
+    "seed": 1,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.36059976408667455
+  },
+  {
+    "scenario": "baseline",
+    "spawn": 2,
+    "seed": 2,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3257455149340047
+  },
+  {
+    "scenario": "baseline",
+    "spawn": 2,
+    "seed": 3,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.35584229371314746
+  },
+  {
+    "scenario": "baseline",
+    "spawn": 2,
+    "seed": 4,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.35159250518201074
+  },
+  {
+    "scenario": "bent_passage",
+    "spawn": 0,
+    "seed": 0,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.34920684978368366
+  },
+  {
+    "scenario": "bent_passage",
+    "spawn": 0,
+    "seed": 1,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.32451562705025383
+  },
+  {
+    "scenario": "bent_passage",
+    "spawn": 0,
+    "seed": 2,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3434595544539821
+  },
+  {
+    "scenario": "bent_passage",
+    "spawn": 0,
+    "seed": 3,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.36054839648276377
+  },
+  {
+    "scenario": "bent_passage",
+    "spawn": 0,
+    "seed": 4,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3195320854907486
+  },
+  {
+    "scenario": "bent_passage",
+    "spawn": 1,
+    "seed": 0,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3561006381267871
+  },
+  {
+    "scenario": "bent_passage",
+    "spawn": 1,
+    "seed": 1,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.32164679722254985
+  },
+  {
+    "scenario": "bent_passage",
+    "spawn": 1,
+    "seed": 2,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.34623127966823575
+  },
+  {
+    "scenario": "bent_passage",
+    "spawn": 1,
+    "seed": 3,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3212030632634108
+  },
+  {
+    "scenario": "bent_passage",
+    "spawn": 1,
+    "seed": 4,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.34177799194430586
+  },
+  {
+    "scenario": "bent_passage",
+    "spawn": 2,
+    "seed": 0,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.32941681580535775
+  },
+  {
+    "scenario": "bent_passage",
+    "spawn": 2,
+    "seed": 1,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.34704776787719177
+  },
+  {
+    "scenario": "bent_passage",
+    "spawn": 2,
+    "seed": 2,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3290247542369301
+  },
+  {
+    "scenario": "bent_passage",
+    "spawn": 2,
+    "seed": 3,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3250203792445661
+  },
+  {
+    "scenario": "bent_passage",
+    "spawn": 2,
+    "seed": 4,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3251023062028605
+  },
+  {
+    "scenario": "clutter",
+    "spawn": 0,
+    "seed": 0,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.31920346225069324
+  },
+  {
+    "scenario": "clutter",
+    "spawn": 0,
+    "seed": 1,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.32743768880083945
+  },
+  {
+    "scenario": "clutter",
+    "spawn": 0,
+    "seed": 2,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.35120847686137036
+  },
+  {
+    "scenario": "clutter",
+    "spawn": 0,
+    "seed": 3,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.32589751989422194
+  },
+  {
+    "scenario": "clutter",
+    "spawn": 0,
+    "seed": 4,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3298386244050723
+  },
+  {
+    "scenario": "clutter",
+    "spawn": 1,
+    "seed": 0,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.34022435746352
+  },
+  {
+    "scenario": "clutter",
+    "spawn": 1,
+    "seed": 1,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.35953860943577287
+  },
+  {
+    "scenario": "clutter",
+    "spawn": 1,
+    "seed": 2,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3250259068823598
+  },
+  {
+    "scenario": "clutter",
+    "spawn": 1,
+    "seed": 3,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3590572143961784
+  },
+  {
+    "scenario": "clutter",
+    "spawn": 1,
+    "seed": 4,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.34195561538173685
+  },
+  {
+    "scenario": "clutter",
+    "spawn": 2,
+    "seed": 0,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3336932598659296
+  },
+  {
+    "scenario": "clutter",
+    "spawn": 2,
+    "seed": 1,
+    "scale": 1.0,
+    "goals": 0,
+    "state": null
+  },
+  {
+    "scenario": "clutter",
+    "spawn": 2,
+    "seed": 2,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.33630765628563414
+  },
+  {
+    "scenario": "clutter",
+    "spawn": 2,
+    "seed": 3,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3153806752978135
+  },
+  {
+    "scenario": "clutter",
+    "spawn": 2,
+    "seed": 4,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.33470094169605774
+  },
+  {
+    "scenario": "l_shape",
+    "spawn": 0,
+    "seed": 0,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.345749599653648
+  },
+  {
+    "scenario": "l_shape",
+    "spawn": 0,
+    "seed": 1,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3391244488413702
+  },
+  {
+    "scenario": "l_shape",
+    "spawn": 0,
+    "seed": 2,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.33507300717205774
+  },
+  {
+    "scenario": "l_shape",
+    "spawn": 0,
+    "seed": 3,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3443452528433647
+  },
+  {
+    "scenario": "l_shape",
+    "spawn": 0,
+    "seed": 4,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3513479886608572
+  },
+  {
+    "scenario": "l_shape",
+    "spawn": 1,
+    "seed": 0,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3445287240992781
+  },
+  {
+    "scenario": "l_shape",
+    "spawn": 1,
+    "seed": 1,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3500900227218563
+  },
+  {
+    "scenario": "l_shape",
+    "spawn": 1,
+    "seed": 2,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3456848040480965
+  },
+  {
+    "scenario": "l_shape",
+    "spawn": 1,
+    "seed": 3,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.34136618345451675
+  },
+  {
+    "scenario": "l_shape",
+    "spawn": 1,
+    "seed": 4,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.32279160050788036
+  },
+  {
+    "scenario": "l_shape",
+    "spawn": 2,
+    "seed": 0,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3426661276106309
+  },
+  {
+    "scenario": "l_shape",
+    "spawn": 2,
+    "seed": 1,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3362644167011669
+  },
+  {
+    "scenario": "l_shape",
+    "spawn": 2,
+    "seed": 2,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3238302819676695
+  },
+  {
+    "scenario": "l_shape",
+    "spawn": 2,
+    "seed": 3,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.33430669403723706
+  },
+  {
+    "scenario": "l_shape",
+    "spawn": 2,
+    "seed": 4,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3335091148054432
+  },
+  {
+    "scenario": "recess",
+    "spawn": 0,
+    "seed": 0,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3527223795983249
+  },
+  {
+    "scenario": "recess",
+    "spawn": 0,
+    "seed": 1,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3211241681385598
+  },
+  {
+    "scenario": "recess",
+    "spawn": 0,
+    "seed": 2,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3324036501360962
+  },
+  {
+    "scenario": "recess",
+    "spawn": 0,
+    "seed": 3,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.35657386280922604
+  },
+  {
+    "scenario": "recess",
+    "spawn": 0,
+    "seed": 4,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.34499510393982213
+  },
+  {
+    "scenario": "recess",
+    "spawn": 1,
+    "seed": 0,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.33497725451095434
+  },
+  {
+    "scenario": "recess",
+    "spawn": 1,
+    "seed": 1,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.3310437616996583
+  },
+  {
+    "scenario": "recess",
+    "spawn": 1,
+    "seed": 2,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.33273948519459196
+  },
+  {
+    "scenario": "recess",
+    "spawn": 1,
+    "seed": 3,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.34126128293519226
+  },
+  {
+    "scenario": "recess",
+    "spawn": 1,
+    "seed": 4,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "map_unstable",
+    "nearest_safe_center_m": 0.35139018549154255
+  },
+  {
+    "scenario": "recess",
+    "spawn": 2,
+    "seed": 0,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.35627845905391914
+  },
+  {
+    "scenario": "recess",
+    "spawn": 2,
+    "seed": 1,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.340976572864538
+  },
+  {
+    "scenario": "recess",
+    "spawn": 2,
+    "seed": 2,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.36850908612068145
+  },
+  {
+    "scenario": "recess",
+    "spawn": 2,
+    "seed": 3,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.35216016490972846
+  },
+  {
+    "scenario": "recess",
+    "spawn": 2,
+    "seed": 4,
+    "scale": 1.0,
+    "goals": 0,
+    "state": "incomplete",
+    "nearest_safe_center_m": 0.34802631186976857
+  }
+]

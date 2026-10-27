@@ -1,0 +1,38 @@
+{
+  "render_engine": "ogre",
+  "vertical_lines": 3,
+  "no_motion_commands": true,
+  "real_vehicle_contacted": false,
+  "runs": [
+    {
+      "configured_sigma_m": 0.0,
+      "median_beam_temporal_sigma_m": 0.0,
+      "samples": 80,
+      "first_stamp": 2.0,
+      "last_stamp": 9.9,
+      "error": null,
+      "shutdown": {
+        "returncode": 0,
+        "forced_kill": false,
+        "process_group_id": 395,
+        "remaining_live_group_members": []
+      }
+    },
+    {
+      "configured_sigma_m": 0.05,
+      "median_beam_temporal_sigma_m": 0.04939721954915044,
+      "samples": 80,
+      "first_stamp": 2.0,
+      "last_stamp": 9.9,
+      "error": null,
+      "shutdown": {
+        "returncode": 0,
+        "forced_kill": false,
+        "process_group_id": 513,
+        "remaining_live_group_members": []
+      }
+    }
+  ],
+  "native_noise_effective": true,
+  "seed_control": "Not exposed by installed ign gazebo CLI; seeded postprocessing remains available"
+}

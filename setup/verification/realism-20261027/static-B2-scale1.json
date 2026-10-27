@@ -1,0 +1,38 @@
+{
+  "kind": "simulation",
+  "stationary_attested": true,
+  "bag": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-t4-B2-scale1-baseline0/bag",
+  "source_sha256": {
+    "bag_0.db3": "9b1d859dab685e9ad784376a4ac0b1111a2433869dc542712385ca1c3df8f982",
+    "metadata.yaml": "a4895a999c9061d486bcdacb7acb6db51f6a75c9c269b21a4e5c06aa043fb7f8"
+  },
+  "scan": {
+    "frames": 63,
+    "beams": 540,
+    "duration_s": 6.193307086,
+    "invalid_fraction": 0.010758377425044041,
+    "median_temporal_sigma_m": 0.00991470264735783,
+    "beams_with_three_valid_samples": 540,
+    "measurement_hz": 10.010806688425202,
+    "interval_std_s": 0.0025922085645965986,
+    "interval_max_s": 0.10742299899999974,
+    "range_min_m": 0.07999999821186066,
+    "range_max_m": 8.0,
+    "angle_min_rad": -2.356194496154785,
+    "angle_max_rad": 2.356194496154785
+  },
+  "calibration_complete": false,
+  "stationary_odom": {
+    "messages": 182,
+    "duration_s": 6.154,
+    "endpoint_translation_m": 0.004312078994726777,
+    "endpoint_yaw_rad": 0.002585802130860473,
+    "maximum_translation_m": 0.004312078994726777
+  },
+  "limitations": [
+    "Invalid returns include no-echo; not equal to packet loss.",
+    "Temporal beam spread requires a stationary sensor and unchanged scene.",
+    "Stamp interval variation is not hardware timestamp error without an independent time reference.",
+    "Moving odometry drift requires independently measured displacement/yaw annotations; unverified."
+  ]
+}

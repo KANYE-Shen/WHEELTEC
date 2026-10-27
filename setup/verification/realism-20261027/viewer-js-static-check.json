@@ -1,0 +1,7 @@
+{
+  "platform": "Windows host Node.js",
+  "command": "node --check simulation/process_viewer.js",
+  "returncode": 0,
+  "stdout": "",
+  "stderr": ""
+}
