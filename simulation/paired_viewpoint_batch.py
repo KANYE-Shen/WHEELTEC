@@ -22,7 +22,7 @@ def summarize(rows):
             values=[x for x in rows if x['scenario']==scene and x['strategy']==strategy]
             n=len(values);k=sum(x['success'] for x in values)
             cells.append(dict(scenario=scene,spawn=0,strategy=strategy,trials=n,successes=k,
-                              success_rate=k/n,wilson_95=wilson(k,n)))
+                              success_rate=k/n if n else None,wilson_95=wilson(k,n)))
     return cells
 
 
