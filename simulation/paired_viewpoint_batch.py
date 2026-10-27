@@ -4,14 +4,15 @@ import json
 from pathlib import Path
 import subprocess
 import sys
-from check_exploration import source_manifest
+from check_exploration import source_manifest,parse_arguments as check_arguments
 from regression_batch import make_plan,wilson
 
 
-def paired_plan(scenarios,seeds):
+def paired_plan(scenarios,seeds,realism='on'):
+    if realism not in ('on','off'): raise ValueError('invalid realism mode')
     if seeds<5: raise ValueError('minimum five seeds')
     pairs=make_plan(scenarios,[0],range(seeds),[1.])
-    return [dict(**p,strategy=s,pair=i) for i,p in enumerate(pairs)
+    return [dict(**p,strategy=s,pair=i,realism=realism) for i,p in enumerate(pairs)
             for s in (('centroid','visibility') if p['seed']%2==0 else ('visibility','centroid'))]
 
 
@@ -22,7 +23,8 @@ def summarize(rows):
             values=[x for x in rows if x['scenario']==scene and x['strategy']==strategy]
             n=len(values);k=sum(x['success'] for x in values)
             cells.append(dict(scenario=scene,spawn=0,strategy=strategy,trials=n,successes=k,
-                              success_rate=k/n if n else None,wilson_95=wilson(k,n)))
+                              success_rate=k/n if n else None,wilson_95=wilson(k,n),
+                              functional_successes=sum(x.get('functional_success') is True for x in values)))
     return cells
 
 
@@ -31,16 +33,21 @@ def main():
     parser.add_argument('--output',type=Path,required=True)
     parser.add_argument('--scenarios',nargs='+',default=['irregular_arc','irregular_frame'])
     parser.add_argument('--seeds',type=int,default=5)
+    parser.add_argument('--realism',choices=['on','off'],default='on')
+    parser.add_argument('--task-timeout',type=float,default=300.)
+    parser.add_argument('--timeout',type=float,default=460.)
     parser.add_argument('--resume',action='store_true')
     args=parser.parse_args()
-    plan=paired_plan(args.scenarios,args.seeds)
+    check_arguments(['--task-timeout',str(args.task_timeout),'--timeout',str(args.timeout)])
+    settings=dict(realism=args.realism,task_timeout=args.task_timeout,timeout=args.timeout)
+    plan=paired_plan(args.scenarios,args.seeds,args.realism)
     root=args.output.expanduser().resolve();source=source_manifest()
     if args.resume:
         old=json.loads((root/'plan.json').read_text())
-        if old['plan']!=plan or old['source']['sha256']!=source['sha256']: raise RuntimeError('changed frozen plan/source')
+        if old['plan']!=plan or old['source']['sha256']!=source['sha256'] or old.get('settings')!=settings: raise RuntimeError('changed frozen plan/source')
     else:
         root.mkdir(parents=True,exist_ok=False)
-        (root/'plan.json').write_text(json.dumps(dict(source=source,plan=plan,realism='on',all_failures_retained=True),indent=2)+'\n')
+        (root/'plan.json').write_text(json.dumps(dict(source=source,plan=plan,settings=settings,all_failures_retained=True),indent=2)+'\n')
     rows=[]
     for i,trial in enumerate(plan):
         if source_manifest()['sha256']!=source['sha256']: raise RuntimeError('source changed; retain batch and start another')
@@ -49,14 +56,15 @@ def main():
         if not (args.resume and run.exists()):
             command=[sys.executable,str(Path(__file__).with_name('check_exploration.py')),
                      '--scenario',trial['scenario'],'--spawn','0','--spawn-pose',*map(str,trial['pose']),
-                     '--seed',str(trial['seed']),'--noise-scale','1','--realism','on',
+                     '--seed',str(trial['seed']),'--noise-scale','1','--realism',trial['realism'],
+                     '--task-timeout',str(args.task_timeout),'--timeout',str(args.timeout),
                      '--viewpoint-strategy',trial['strategy'],'--domain','88','--record','--output',str(run)]
             with (root/(run.name+'-console.log')).open('x') as log:
                 rc=subprocess.run(command,stdout=log,stderr=subprocess.STDOUT).returncode
         row=dict(**trial,run_dir=str(run),returncode=rc,success=False)
         try:
             r=json.loads((run/'result.json').read_text())
-            row.update(success=r.get('success') is True,state=r.get('explorer',{}).get('state'),
+            row.update(success=r.get('success') is True,functional_success=r.get('functional_success') is True,state=r.get('explorer',{}).get('state'),
                        reason=r.get('explorer',{}).get('reason'),goals=len(r.get('explorer',{}).get('goals',[])),
                        acceptance=r.get('acceptance',{}),failures=r.get('failures',[]),map_metrics=r.get('map_metrics',{}),
                        truth_quality=r.get('truth_quality',{}),realism=r.get('realism',{}),
