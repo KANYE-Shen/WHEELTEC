@@ -22,6 +22,7 @@ from std_msgs.msg import String
 from sensor_msgs.msg import LaserScan
 from tf2_ros import Buffer, TransformListener, TransformException
 
+from .health import MapHealth, MapUnstableError
 from .frontiers import Grid, select_frontiers
 from .policy import RetryBook, completion_state, observation_fresh
 
@@ -42,7 +43,7 @@ class Explorer(Node):
         super().__init__('wheeltec_explore')
         maps = Path.home()/'wheeltec_sim_ws/data/maps'
         default_output = maps/time.strftime('%Y%m%d-%H%M%S_explore')/'room'
-        parameters = {'map_frame': 'map', 'base_frame': 'base_link',
+        parameters = {'map_frame': 'map', 'odom_frame': 'odom', 'base_frame': 'base_link',
                       'map_output': str(default_output), 'reference_yaw_rad': 0.0, 'update_latest': True,
                       'robot_radius': 0.35, 'min_frontier_size': 0.25,
                       'minimum_free_area': 8.0, 'goal_timeout': 120.0,
@@ -53,6 +54,9 @@ class Explorer(Node):
         self.config = {name:self.get_parameter(name).value for name in parameters}
         self.output = Path(self.config['map_output']).expanduser().resolve()
         self.maps_root = maps
+        self.health = MapHealth()
+        self.health_active = False
+        self.health_latched = {}
         self.latest_map = None
         self.map_updates = 0
         self.last_scan_wall = None
@@ -66,6 +70,7 @@ class Explorer(Node):
             QoSProfile(depth=1,durability=DurabilityPolicy.TRANSIENT_LOCAL))
         self.tf = Buffer(cache_time=Duration(seconds=30))
         self.listener = TransformListener(self.tf,self)
+        self.health_timer = self.create_timer(.2,self.health_tick)
         self.nav = ActionClient(self,NavigateToPose,'/navigate_to_pose')
         self.save = self.create_client(SaveMap,'/map_saver/save_map')
         self.serialize = self.create_client(SerializePoseGraph,'/slam_toolbox/serialize_map')
@@ -81,13 +86,42 @@ class Explorer(Node):
 
     def receive_scan(self,message):
         self.last_scan_wall = time.monotonic()
+        self.health.scan(message.header.stamp.sec+message.header.stamp.nanosec/1e9,self.ros_seconds())
+
+    def ros_seconds(self):
+        return self.get_clock().now().nanoseconds/1e9
+
+    def health_tick(self):
+        now = self.ros_seconds()
+        self.health.slam('slam_toolbox' in self.get_node_names())
+        try:
+            t = self.tf.lookup_transform(self.config['map_frame'],self.config['odom_frame'],Time())
+            v = t.transform.translation
+            self.health.transform(t.header.stamp.sec+t.header.stamp.nanosec/1e9,
+                                  now,(v.x,v.y,yaw(t.transform.rotation)))
+        except TransformException:
+            pass
+        snapshot = self.health.snapshot(now)
+        if self.health_active and not snapshot['healthy']:
+            for issue in snapshot['issues']:
+                self.health_latched.setdefault(issue,now)
+        return snapshot
+
+    def require_health(self):
+        snapshot = self.health_tick()
+        if self.health_latched or not snapshot['healthy']:
+            raise MapUnstableError(','.join(sorted(set(snapshot['issues'])|set(self.health_latched))))
+        return True
 
     def receive_map(self,message):
         self.latest_map = message
         self.map_updates += 1
+        self.health.map(message.header.stamp.sec+message.header.stamp.nanosec/1e9,self.ros_seconds())
 
     def status(self,state,reason='',**values):
         self.report.update(state=state,reason=reason,**values)
+        self.report['map_health'] = self.health.snapshot(self.ros_seconds())
+        self.report['map_health']['latched_issues'] = self.health_latched.copy()
         self.report['elapsed_wall_seconds'] = round(time.monotonic()-self.started,2)
         message = String(data=json.dumps(self.report,ensure_ascii=False))
         self.status_publisher.publish(message)
@@ -101,8 +135,8 @@ class Explorer(Node):
         while rclpy.ok() and time.monotonic()<deadline:
             if check_task and time.monotonic()-self.started > self.config['task_timeout']:
                 return False
-            if check_sensors and not observation_fresh(self.last_scan_wall,time.monotonic()):
-                raise RuntimeError('LaserScan updates stopped during navigation')
+            if check_sensors:
+                self.require_health()
             rclpy.spin_once(self,timeout_sec=0.1)
             if predicate():
                 return True
@@ -187,16 +221,20 @@ class Explorer(Node):
     def run(self):
         self.status('starting','Waiting for SLAM map, robot transform and Nav2')
         if not self.wait(lambda:self.latest_map is not None and self.position() is not None
-                         and observation_fresh(self.last_scan_wall,time.monotonic()),90):
+                         and observation_fresh(self.last_scan_wall,time.monotonic())
+                         and self.health_tick()['healthy'],90):
             raise RuntimeError('Timed out waiting for SLAM map and map-to-base transform')
         if not self.nav.wait_for_server(timeout_sec=60):
             raise RuntimeError('Nav2 NavigateToPose action server is unavailable')
+        self.health_active = True
+        self.require_health()
         start = self.position()
         self.report['start_pose'] = list(start)
         self.status('exploring','Selecting reachable frontiers')
         stable_empty, attempts, latest_result = 0,0,None
         forced_reason = ''
         while rclpy.ok():
+            self.require_health()
             if time.monotonic()-self.started>self.config['task_timeout']:
                 forced_reason = 'task_timeout'
                 break
@@ -256,6 +294,7 @@ class Explorer(Node):
                 break
         if latest_result is None:
             raise RuntimeError('No valid occupancy grid was processed')
+        self.require_health()
         saved = self.save_map()
         self.status('returning','Returning to the exploration start position')
         current = self.position()
@@ -263,6 +302,7 @@ class Explorer(Node):
             returned = True
         else:
             returned,_ = self.navigate(*start,returning=True)
+        self.require_health()
         unresolved = 1 if forced_reason else 0
         final = completion_state(latest_result.known_free_area,latest_result.unreachable_clusters,
                                  unresolved,saved,returned,self.config['minimum_free_area'],
@@ -301,6 +341,10 @@ def main(args=None):
         node.cancel_active()
         node.status('failed','operator_interrupted')
         code = 130
+    except MapUnstableError as error:
+        node.cancel_active()
+        node.status('map_unstable',str(error),map_saved=False,returned=False)
+        code = 2
     except Exception as error:
         node.cancel_active()
         node.status('failed',str(error))

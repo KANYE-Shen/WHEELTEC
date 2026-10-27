@@ -1,0 +1,685 @@
+{
+  "cases": 13,
+  "reports": [
+    {
+      "bag": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-validation-suite-final/baseline-spawn0/bag",
+      "counts": {
+        "/scan": 1539,
+        "/map": 153,
+        "/tf": 12219,
+        "/clock": 153883
+      },
+      "checks": 1520,
+      "healthy_checks": 1520,
+      "issue_check_counts": {},
+      "first_issue_sim_s": {},
+      "maximum_map_update_gap_s": 1.066999999999993,
+      "final": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 1.1850000000000023,
+            "update_age_s": 1.0449999999999875
+          },
+          "scan": {
+            "stamp_age_s": 0.08499999999997954,
+            "update_age_s": 0.08299999999999841
+          },
+          "tf": {
+            "stamp_age_s": -0.01500000000001478,
+            "update_age_s": 0.15500000000000114
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 0.07422405891547393,
+        "max_rotation_jump_rad": 0.013960000000000805,
+        "slam_alive": null,
+        "slam_liveness_verified": false
+      },
+      "slam_liveness": "unverified: node graph/process events not recorded",
+      "no_truth_inputs": true,
+      "metadata_sha256": "f62b6d9ef6160769556bdcbff6f74ad939a2019144f1b5888598e171f81b48aa",
+      "case": "baseline-spawn0"
+    },
+    {
+      "bag": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-validation-suite-final/l_shape-spawn0/bag",
+      "counts": {
+        "/map": 115,
+        "/scan": 1155,
+        "/tf": 9161,
+        "/clock": 115419
+      },
+      "checks": 1142,
+      "healthy_checks": 1142,
+      "issue_check_counts": {},
+      "first_issue_sim_s": {},
+      "maximum_map_update_gap_s": 1.0799999999999983,
+      "final": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 1.0210000000000008,
+            "update_age_s": 0.9220000000000113
+          },
+          "scan": {
+            "stamp_age_s": 0.021000000000000796,
+            "update_age_s": 0.019000000000005457
+          },
+          "tf": {
+            "stamp_age_s": -0.07899999999999352,
+            "update_age_s": 0.07400000000001228
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 0.1047401177870055,
+        "max_rotation_jump_rad": 0.03476653396388316,
+        "slam_alive": null,
+        "slam_liveness_verified": false
+      },
+      "slam_liveness": "unverified: node graph/process events not recorded",
+      "no_truth_inputs": true,
+      "metadata_sha256": "65ab0a42d1a24fbecb48d7b39eed8a9d3391437c2e5396ff3623f4c85ccd79fc",
+      "case": "l_shape-spawn0"
+    },
+    {
+      "bag": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-validation-suite-final/l_shape-spawn1/bag",
+      "counts": {
+        "/scan": 1169,
+        "/map": 118,
+        "/tf": 9302,
+        "/clock": 116827
+      },
+      "checks": 1158,
+      "healthy_checks": 1158,
+      "issue_check_counts": {},
+      "first_issue_sim_s": {},
+      "maximum_map_update_gap_s": 1.0220000000000056,
+      "final": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.12899999999999068,
+            "update_age_s": 0.04599999999999227
+          },
+          "scan": {
+            "stamp_age_s": 0.028999999999996362,
+            "update_age_s": 0.026999999999986812
+          },
+          "tf": {
+            "stamp_age_s": -0.07100000000001216,
+            "update_age_s": 0.08699999999998909
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 0.12458025793417878,
+        "max_rotation_jump_rad": 0.028962819205416768,
+        "slam_alive": null,
+        "slam_liveness_verified": false
+      },
+      "slam_liveness": "unverified: node graph/process events not recorded",
+      "no_truth_inputs": true,
+      "metadata_sha256": "1169365309b9a8615538161b3847ee1e469590314251939a4c420dafbd7cedcb",
+      "case": "l_shape-spawn1"
+    },
+    {
+      "bag": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-validation-suite-final/l_shape-spawn2/bag",
+      "counts": {
+        "/scan": 1346,
+        "/map": 135,
+        "/tf": 10710,
+        "/clock": 134540
+      },
+      "checks": 1332,
+      "healthy_checks": 1332,
+      "issue_check_counts": {},
+      "first_issue_sim_s": {},
+      "maximum_map_update_gap_s": 1.070999999999998,
+      "final": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.842000000000013,
+            "update_age_s": 0.5970000000000084
+          },
+          "scan": {
+            "stamp_age_s": 0.04200000000000159,
+            "update_age_s": 0.03999999999999204
+          },
+          "tf": {
+            "stamp_age_s": -0.15799999999998704,
+            "update_age_s": 0.03700000000000614
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 0.18818032149141636,
+        "max_rotation_jump_rad": 0.05881131173753085,
+        "slam_alive": null,
+        "slam_liveness_verified": false
+      },
+      "slam_liveness": "unverified: node graph/process events not recorded",
+      "no_truth_inputs": true,
+      "metadata_sha256": "0842078c81754758c423b0ce4d06bb714a683d4f5bff0ab4ada4b99822bfd807",
+      "case": "l_shape-spawn2"
+    },
+    {
+      "bag": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261024-validation-truth-reruns/clutter-spawn0/bag",
+      "counts": {
+        "/scan": 2206,
+        "/map": 228,
+        "/tf": 17860,
+        "/clock": 220563
+      },
+      "checks": 2185,
+      "healthy_checks": 2185,
+      "issue_check_counts": {},
+      "first_issue_sim_s": {},
+      "maximum_map_update_gap_s": 1.2079999999999984,
+      "final": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.27299999999999613,
+            "update_age_s": 0.09700000000000841
+          },
+          "scan": {
+            "stamp_age_s": 0.0730000000000075,
+            "update_age_s": 0.0630000000000166
+          },
+          "tf": {
+            "stamp_age_s": -0.12699999999998113,
+            "update_age_s": 0.025000000000005684
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 0.09261624547638471,
+        "max_rotation_jump_rad": 0.02791999999999995,
+        "slam_alive": null,
+        "slam_liveness_verified": false
+      },
+      "slam_liveness": "unverified: node graph/process events not recorded",
+      "no_truth_inputs": true,
+      "metadata_sha256": "45a55e264ad3e5e00a7e4dad391f6958c40436e1dc210cad9ce4bfc72634daae",
+      "case": "clutter-spawn0"
+    },
+    {
+      "bag": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261024-validation-truth-reruns/clutter-spawn1/bag",
+      "counts": {
+        "/scan": 1924,
+        "/map": 197,
+        "/tf": 15534,
+        "/clock": 192315
+      },
+      "checks": 1902,
+      "healthy_checks": 1902,
+      "issue_check_counts": {},
+      "first_issue_sim_s": {},
+      "maximum_map_update_gap_s": 1.0879999999999939,
+      "final": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 1.018999999999977,
+            "update_age_s": 0.8309999999999889
+          },
+          "scan": {
+            "stamp_age_s": 0.018999999999977035,
+            "update_age_s": 0.015999999999991132
+          },
+          "tf": {
+            "stamp_age_s": -0.08100000000001728,
+            "update_age_s": 0.1139999999999759
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 0.28571011141128017,
+        "max_rotation_jump_rad": 0.05885726288630144,
+        "slam_alive": null,
+        "slam_liveness_verified": false
+      },
+      "slam_liveness": "unverified: node graph/process events not recorded",
+      "no_truth_inputs": true,
+      "metadata_sha256": "40e89b684c7a5396d494aca5d202abe958c757209d816a5ce28dbdd69937bbb0",
+      "case": "clutter-spawn1"
+    },
+    {
+      "bag": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-validation-suite-final/clutter-spawn2/bag",
+      "counts": {
+        "/scan": 1852,
+        "/map": 187,
+        "/tf": 14800,
+        "/clock": 185182
+      },
+      "checks": 1827,
+      "healthy_checks": 1827,
+      "issue_check_counts": {},
+      "first_issue_sim_s": {},
+      "maximum_map_update_gap_s": 1.2940000000000111,
+      "final": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.686000000000007,
+            "update_age_s": 0.5260000000000105
+          },
+          "scan": {
+            "stamp_age_s": 0.08600000000001273,
+            "update_age_s": 0.08400000000000318
+          },
+          "tf": {
+            "stamp_age_s": -0.11400000000000432,
+            "update_age_s": 0.036000000000001364
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 0.061977375760946744,
+        "max_rotation_jump_rad": 0.015123343829346103,
+        "slam_alive": null,
+        "slam_liveness_verified": false
+      },
+      "slam_liveness": "unverified: node graph/process events not recorded",
+      "no_truth_inputs": true,
+      "metadata_sha256": "c44cab6910057b4f3773ee1e75216c1df1c201db1e73d8f74cd3d04b72965bc7",
+      "case": "clutter-spawn2"
+    },
+    {
+      "bag": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-validation-suite-final/bent_passage-spawn0/bag",
+      "counts": {
+        "/scan": 1205,
+        "/map": 120,
+        "/tf": 9562,
+        "/clock": 120444
+      },
+      "checks": 1192,
+      "healthy_checks": 499,
+      "issue_check_counts": {
+        "map_to_odom_translation_jump": 693
+      },
+      "first_issue_sim_s": {
+        "map_to_odom_translation_jump": 50.63
+      },
+      "maximum_map_update_gap_s": 1.0919999999999987,
+      "final": {
+        "healthy": false,
+        "issues": [
+          "map_to_odom_translation_jump"
+        ],
+        "ages": {
+          "map": {
+            "stamp_age_s": 1.0459999999999923,
+            "update_age_s": 0.9909999999999997
+          },
+          "scan": {
+            "stamp_age_s": 0.04599999999999227,
+            "update_age_s": 0.04399999999999693
+          },
+          "tf": {
+            "stamp_age_s": -0.15399999999999636,
+            "update_age_s": 0.006000000000000227
+          }
+        },
+        "faults": {
+          "map_to_odom_translation_jump": {
+            "stamp": 50.7,
+            "magnitude": 2.5044404036930623,
+            "limit": 0.5
+          }
+        },
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 2.5044404036930623,
+        "max_rotation_jump_rad": 0.04362499999999997,
+        "slam_alive": null,
+        "slam_liveness_verified": false
+      },
+      "slam_liveness": "unverified: node graph/process events not recorded",
+      "no_truth_inputs": true,
+      "metadata_sha256": "96adb0bff2add9b281a5d9536174b24afe4fe1e9f21f4921fb8ca001ffbcb43b",
+      "case": "bent_passage-spawn0"
+    },
+    {
+      "bag": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-validation-suite-final/bent_passage-spawn1/bag",
+      "counts": {
+        "/scan": 860,
+        "/map": 86,
+        "/tf": 6824,
+        "/clock": 85947
+      },
+      "checks": 851,
+      "healthy_checks": 851,
+      "issue_check_counts": {},
+      "first_issue_sim_s": {},
+      "maximum_map_update_gap_s": 1.0359999999999872,
+      "final": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.7489999999999952,
+            "update_age_s": 0.6110000000000042
+          },
+          "scan": {
+            "stamp_age_s": 0.04899999999999238,
+            "update_age_s": 0.045000000000001705
+          },
+          "tf": {
+            "stamp_age_s": -0.15099999999999625,
+            "update_age_s": 0.015999999999991132
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 0.14145268837768601,
+        "max_rotation_jump_rad": 0.04169110869161846,
+        "slam_alive": null,
+        "slam_liveness_verified": false
+      },
+      "slam_liveness": "unverified: node graph/process events not recorded",
+      "no_truth_inputs": true,
+      "metadata_sha256": "d05e9ce4bc0aa42c3e5d40d497464a2ea599bce05e958b8b6889b1ea95937239",
+      "case": "bent_passage-spawn1"
+    },
+    {
+      "bag": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-validation-suite-final/bent_passage-spawn2/bag",
+      "counts": {
+        "/scan": 943,
+        "/map": 94,
+        "/tf": 7483,
+        "/clock": 94276
+      },
+      "checks": 932,
+      "healthy_checks": 932,
+      "issue_check_counts": {},
+      "first_issue_sim_s": {},
+      "maximum_map_update_gap_s": 1.0529999999999973,
+      "final": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.8780000000000001,
+            "update_age_s": 0.8020000000000067
+          },
+          "scan": {
+            "stamp_age_s": 0.07800000000000296,
+            "update_age_s": 0.07500000000000284
+          },
+          "tf": {
+            "stamp_age_s": -0.12199999999999989,
+            "update_age_s": 0.05200000000000671
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 0.19527078553699762,
+        "max_rotation_jump_rad": 0.04939914166792457,
+        "slam_alive": null,
+        "slam_liveness_verified": false
+      },
+      "slam_liveness": "unverified: node graph/process events not recorded",
+      "no_truth_inputs": true,
+      "metadata_sha256": "5dbd83c8523da36f362216a3367e2009efbfa30d609e4f92541b21f572fbec0c",
+      "case": "bent_passage-spawn2"
+    },
+    {
+      "bag": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-validation-suite-final/recess-spawn0/bag",
+      "counts": {
+        "/map": 341,
+        "/scan": 3404,
+        "/tf": 27028,
+        "/clock": 340344
+      },
+      "checks": 3371,
+      "healthy_checks": 3370,
+      "issue_check_counts": {
+        "tf_stale": 1
+      },
+      "first_issue_sim_s": {
+        "tf_stale": 303.747
+      },
+      "maximum_map_update_gap_s": 1.117999999999995,
+      "final": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.7489999999999668,
+            "update_age_s": 0.4259999999999877
+          },
+          "scan": {
+            "stamp_age_s": 0.04899999999997817,
+            "update_age_s": 0.04699999999996862
+          },
+          "tf": {
+            "stamp_age_s": -0.15100000000001046,
+            "update_age_s": 0.027999999999963165
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 0.0985552714281594,
+        "max_rotation_jump_rad": 0.02094000000000021,
+        "slam_alive": null,
+        "slam_liveness_verified": false
+      },
+      "slam_liveness": "unverified: node graph/process events not recorded",
+      "no_truth_inputs": true,
+      "metadata_sha256": "ae306c621378854cb26bb0e5914b54e2fb63fbd27bf9744fd283e38111c0f0ff",
+      "case": "recess-spawn0"
+    },
+    {
+      "bag": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-validation-suite-final/recess-spawn1/bag",
+      "counts": {
+        "/scan": 3364,
+        "/map": 336,
+        "/tf": 26707,
+        "/clock": 336344
+      },
+      "checks": 3325,
+      "healthy_checks": 3325,
+      "issue_check_counts": {},
+      "first_issue_sim_s": {},
+      "maximum_map_update_gap_s": 1.464999999999975,
+      "final": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.5459999999999923,
+            "update_age_s": 0.21600000000000819
+          },
+          "scan": {
+            "stamp_age_s": 0.04599999999999227,
+            "update_age_s": 0.043000000000006366
+          },
+          "tf": {
+            "stamp_age_s": -0.15399999999999636,
+            "update_age_s": 0.007999999999981355
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 0.0653125517269665,
+        "max_rotation_jump_rad": 0.013960000000000694,
+        "slam_alive": null,
+        "slam_liveness_verified": false
+      },
+      "slam_liveness": "unverified: node graph/process events not recorded",
+      "no_truth_inputs": true,
+      "metadata_sha256": "f9fee3d7c5ecae06864b6ca172a7a7de44f4bde93addb0d22f4c7bcc9fe90e3a",
+      "case": "recess-spawn1"
+    },
+    {
+      "bag": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261023-validation-suite-final/recess-spawn2/bag",
+      "counts": {
+        "/scan": 1698,
+        "/map": 171,
+        "/tf": 13513,
+        "/clock": 169729
+      },
+      "checks": 1681,
+      "healthy_checks": 626,
+      "issue_check_counts": {
+        "map_to_odom_translation_jump": 1055
+      },
+      "first_issue_sim_s": {
+        "map_to_odom_translation_jump": 63.328
+      },
+      "maximum_map_update_gap_s": 1.089999999999975,
+      "final": {
+        "healthy": false,
+        "issues": [
+          "map_to_odom_translation_jump"
+        ],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.23099999999999454,
+            "update_age_s": 0.03499999999999659
+          },
+          "scan": {
+            "stamp_age_s": 0.03100000000000591,
+            "update_age_s": 0.028999999999996362
+          },
+          "tf": {
+            "stamp_age_s": 0.03100000000000591,
+            "update_age_s": 0.19599999999999795
+          }
+        },
+        "faults": {
+          "map_to_odom_translation_jump": {
+            "stamp": 63.5,
+            "magnitude": 2.995685322419959,
+            "limit": 0.5
+          }
+        },
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 2.995685322419959,
+        "max_rotation_jump_rad": 0.16751999999999925,
+        "slam_alive": null,
+        "slam_liveness_verified": false
+      },
+      "slam_liveness": "unverified: node graph/process events not recorded",
+      "no_truth_inputs": true,
+      "metadata_sha256": "ad035adbd685dde642037e1fc410d264cad06478fa34c604fdee8a8e39626194",
+      "case": "recess-spawn2"
+    }
+  ],
+  "truth_read": false,
+  "process_liveness_verified": false
+}

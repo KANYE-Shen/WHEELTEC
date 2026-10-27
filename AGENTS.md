@@ -92,3 +92,5 @@
 - 后续用户继续做方案讨论时，遵循已调用 grilling skill 的逐题讨论方式；能从项目或环境查到的事实自行核查。
 
 2026-10-27 T1已实现残余分类及completed_with_residual_frontiers；导航safe集合不变，未知格不能单独证明足迹不可进入，多视角须使用实际观察位置及不同地图版本。单次baseline0 A/B均未完成，不能声称成功率改善；完整记录见setup/verification/2026-10-27-debug-residual-frontiers.md，多种子闭环待T5。
+
+2026-10-27 T2已接入地图健康监测与map_unstable终态；26项探索纯测试、实际ROS跳变注入通过，13项历史bag全部审计。弯通道/0与凹角/2检出2.50/3.00米跳变；凹角/0、/1未复现15个仿真秒的地图停更，发现任务预算可被误标为地图超时，待T3修复。慢漂移与是否假回环仍未验证。依据见[地图健康审计](setup/verification/2026-10-27-debug-map-health.md)。
