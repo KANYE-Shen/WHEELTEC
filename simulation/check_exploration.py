@@ -23,6 +23,7 @@ from truth_capture import GazeboTruthCapture,truth_quality,synchronize_terminal_
 def parse_arguments(argv=None):
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--realism',choices=['on','off'],default='on')
+    parser.add_argument('--viewpoint-strategy',choices=['centroid','visibility'],default='centroid')
     parser.add_argument('--seed',type=int,default=0)
     parser.add_argument('--noise-scale',type=float,default=1.)
     parser.add_argument('--task-timeout',type=float,default=300.0,help='Explorer ROS-time budget before saving and returning')
@@ -155,6 +156,7 @@ def main(argv=None):
     os.environ.update(ROS_LOCALHOST_ONLY='1',ROS_DOMAIN_ID=str(domain))
     result={'success':False,'run_dir':str(run),'ros_domain_id':domain,
             'scenario':scene['id'],'spawn_index':args.spawn,'spawn':spawn,
+            'viewpoint_strategy':args.viewpoint_strategy,
             'realism_mode':args.realism,'seed':args.seed,'noise_scale':args.noise_scale,
             'real_robot_admission_ready':False,
             'task_timeout_ros_seconds':args.task_timeout,'record_requested':args.record,
@@ -256,7 +258,8 @@ def main(argv=None):
         task_start_wall_t=time.monotonic()-started
         explorer_command=['bash','-lc',command,'wheeltec-exploration-check',str(setup),
                                 '--ros-args','-p','use_sim_time:=true','-p','map_output:='+str(run/'map'),
-                                '-p','update_latest:=false','-p','task_timeout:='+str(args.task_timeout),
+                                '-p','update_latest:=false','-p','frontier_viewpoint_strategy:='+args.viewpoint_strategy,
+                                '-p','task_timeout:='+str(args.task_timeout),
                                 '-p','goal_timeout:=75.0','-p','reference_yaw_rad:=0.0','-p','max_goals:=60',
                                 '-p','robot_radius:='+str(result.get('realism',{}).get('robot_radius',.35))]
         affinity=result.get('realism',{}).get('cpu_affinity')

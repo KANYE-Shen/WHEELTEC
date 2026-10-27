@@ -17,7 +17,8 @@ class ValidationTests(unittest.TestCase):
         self.grid = truth_grid(self.scene)
 
     def test_all_scenes_have_safe_connected_starts_and_metric_area(self):
-        self.assertEqual(len(scenario_ids()), 5)
+        self.assertEqual(len(scenario_ids()), 7)
+        self.assertTrue({'irregular_arc','irregular_frame'}.issubset(scenario_ids()))
         for name in scenario_ids():
             scene = load_scenario(name)
             validation = validate_scenario(scene)

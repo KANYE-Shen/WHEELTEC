@@ -5,6 +5,10 @@ sys.path.insert(0,str(Path(__file__).resolve().parent))
 import check_exploration as runner
 
 class OutcomeTests(unittest.TestCase):
+    def test_viewpoint_strategy_is_explicit_and_recordable(self):
+        self.assertEqual(runner.parse_arguments([]).viewpoint_strategy,'centroid')
+        self.assertEqual(runner.parse_arguments(['--viewpoint-strategy','visibility']).viewpoint_strategy,'visibility')
+
     def test_rc2_requires_a_confirmed_terminal_and_clean_shutdown(self):
         self.assertTrue(hasattr(runner,'shutdown_abnormal'))
         clean={'returncode':2,'forced_kill':False,'remaining_live_group_members':[]}
