@@ -20,7 +20,7 @@ ros2 run wheeltec_explore explore --ros-args -p use_sim_time:=true
 
 ## 任务结果
 
-`/exploration/status` 发布 JSON，当前状态包括 `starting`、`exploring`、`saving`、`returning`、`completed`、`completed_with_residual_frontiers`、`incomplete`、`failed`。同一内容同步写入 `<map_output>.exploration.json`。
+`/exploration/status` 发布 JSON，当前状态包括 `starting`、`exploring`、`saving`、`returning`、`completed`、`completed_with_residual_frontiers`、`incomplete`、`map_unstable`、`failed`。同一内容同步写入 `<map_output>.exploration.json`。
 
 连续三次新地图都没有可选目标后，保存 `.yaml`、`.pgm`、`.posegraph`、`.data`，返回起点，再判断结果。只有已观察空地至少 8 平方米、没有剩余不可达前沿、没有因超时或重试耗尽而中断、保存和返回都成功，才报告 `completed`。完成表示按当前分辨率与前沿阈值完成了可达区域探索；小于 `min_frontier_size`（默认 0.25 米）的碎片另外计数。
 
@@ -42,3 +42,12 @@ python3 -m unittest discover -s /mnt/d/虚拟c盘/WHEELTEC/src/wheeltec_explore/
 前沿格采用八邻域聚类，使倾斜墙边的前沿不会碎成短簇；车体安全膨胀与可达路径仍按四邻域搜索，禁止从障碍角斜穿。该区别由45度边界和障碍角回归测试覆盖。
 
 2026-10-27：状态 JSON 增加 residual_counts 与 residual_frontiers。分类为 reachable_unexplored、footprint_excluded、multiview_observed；footprint_excluded 要求已测障碍阻挡附近全部可能中心，未知格本身不构成证明。后两类可产生 completed_with_residual_frontiers，保存、返回、最小面积和独立几何评分仍需分别通过。rc=2 且有终态、无强杀和残留进程时属于任务未通过，不再附加异常退出。新增0.6/0.8米凹袋与静态阴影回归；本轮 baseline0 的单次名义 A/B 两边均未通过，不是多种子准入数据。
+
+
+## 不规则边界视点试验（本地，未推送）
+
+保留原 centroid 默认。参数 `frontier_viewpoint_strategy:=visibility` 开启遮挡感知视点：从原安全可达候选中选取48个确定性候选，最多96个前沿格样本，用包含角点接触的保守射线检测已知自由空间，再按可见前沿与路径距离选点，朝向一个实际可见格。`viewpoint_candidate_budget` 和 `viewpoint_frontier_budget` 可配置，属于工程预算。八连通前沿簇保持不变，不把不规则物体拟合成填满的矩形，不改变0.35m安全半径、未知格膨胀或完成门限。
+
+在已启动的隔离仿真中使用 `ros2 run wheeltec_explore explore --ros-args -p use_sim_time:=true -p frontier_viewpoint_strategy:=visibility`；不要与已有探索器并行运行。自动验证入口为 `python3 simulation/check_exploration.py --scenario irregular_frame --viewpoint-strategy visibility --realism on --record --output ~/wheeltec_sim_ws/data/runs/NEW-visibility`（从仓库目录执行，必须新目录）。这不是实车运动授权。
+
+状态 JSON 的 `viewpoint_diagnostics` 记录候选总数/评估数、前沿样本数、预算是否用尽及可见样本数；采样没有可见目标时保持 reachable_unexplored，不作为 footprint_excluded 或 completed 的证明。LOS仅表示当前地图几何无遮挡，不保证真实雷达FOV、量程或新信息量。完整数据及限制见根目录最新夜间结果报告。

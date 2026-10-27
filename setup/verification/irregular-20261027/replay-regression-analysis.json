@@ -1,0 +1,671 @@
+[
+  {
+    "case": "baseline-spawn0",
+    "offset": 30.0,
+    "clusters": [
+      {
+        "cluster_size": 15,
+        "diagnostics": {
+          "candidate_count": 44,
+          "candidates_evaluated": 44,
+          "frontier_cells": 15,
+          "frontier_samples": 15,
+          "candidate_budget_exhausted": false,
+          "frontier_sampled": false,
+          "visible_sample_count": 15,
+          "visibility_is_completion_evidence": false
+        },
+        "centroid": {
+          "cell": [
+            31,
+            92
+          ],
+          "local_visible": 15,
+          "global_visible": 15,
+          "distance_m": 3.1500000469386578,
+          "local_gain": 4.109588988246961
+        },
+        "visibility": {
+          "cell": [
+            27,
+            87
+          ],
+          "local_visible": 15,
+          "global_visible": 15,
+          "distance_m": 2.7000000402331352,
+          "local_gain": 4.687499941064744
+        }
+      },
+      {
+        "cluster_size": 23,
+        "diagnostics": {
+          "candidate_count": 17,
+          "candidates_evaluated": 17,
+          "frontier_cells": 23,
+          "frontier_samples": 23,
+          "candidate_budget_exhausted": false,
+          "frontier_sampled": false,
+          "visible_sample_count": 0,
+          "visibility_is_completion_evidence": false
+        },
+        "centroid": {
+          "cell": [
+            42,
+            69
+          ],
+          "local_visible": 0,
+          "global_visible": 29,
+          "distance_m": 1.0500000156462193,
+          "local_gain": 0.0
+        },
+        "visibility": null
+      },
+      {
+        "cluster_size": 50,
+        "diagnostics": {
+          "candidate_count": 101,
+          "candidates_evaluated": 48,
+          "frontier_cells": 50,
+          "frontier_samples": 50,
+          "candidate_budget_exhausted": true,
+          "frontier_sampled": false,
+          "visible_sample_count": 28,
+          "visibility_is_completion_evidence": false
+        },
+        "centroid": {
+          "cell": [
+            75,
+            51
+          ],
+          "local_visible": 17,
+          "global_visible": 17,
+          "distance_m": 1.9000000283122063,
+          "local_gain": 7.083333249773004
+        },
+        "visibility": {
+          "cell": [
+            41,
+            69
+          ],
+          "local_visible": 28,
+          "global_visible": 28,
+          "distance_m": 1.1000000163912773,
+          "local_gain": 17.499999820720408
+        }
+      },
+      {
+        "cluster_size": 8,
+        "diagnostics": {
+          "candidate_count": 21,
+          "candidates_evaluated": 21,
+          "frontier_cells": 8,
+          "frontier_samples": 8,
+          "candidate_budget_exhausted": false,
+          "frontier_sampled": false,
+          "visible_sample_count": 8,
+          "visibility_is_completion_evidence": false
+        },
+        "centroid": {
+          "cell": [
+            93,
+            21
+          ],
+          "local_visible": 8,
+          "global_visible": 10,
+          "distance_m": 3.9000000581145287,
+          "local_gain": 1.8181817941675504
+        },
+        "visibility": {
+          "cell": [
+            91,
+            21
+          ],
+          "local_visible": 8,
+          "global_visible": 13,
+          "distance_m": 3.8000000566244125,
+          "local_gain": 1.8604650917795946
+        }
+      }
+    ]
+  },
+  {
+    "case": "l_shape-spawn1",
+    "offset": 5.0,
+    "clusters": [
+      {
+        "cluster_size": 9,
+        "diagnostics": {
+          "candidate_count": 67,
+          "candidates_evaluated": 48,
+          "frontier_cells": 9,
+          "frontier_samples": 9,
+          "candidate_budget_exhausted": true,
+          "frontier_sampled": false,
+          "visible_sample_count": 6,
+          "visibility_is_completion_evidence": false
+        },
+        "centroid": {
+          "cell": [
+            12,
+            105
+          ],
+          "local_visible": 5,
+          "global_visible": 80,
+          "distance_m": 4.450000066310167,
+          "local_gain": 1.0101009965697039
+        },
+        "visibility": {
+          "cell": [
+            13,
+            99
+          ],
+          "local_visible": 6,
+          "global_visible": 82,
+          "distance_m": 4.100000061094761,
+          "local_gain": 1.3043478087633005
+        }
+      },
+      {
+        "cluster_size": 10,
+        "diagnostics": {
+          "candidate_count": 39,
+          "candidates_evaluated": 39,
+          "frontier_cells": 10,
+          "frontier_samples": 10,
+          "candidate_budget_exhausted": false,
+          "frontier_sampled": false,
+          "visible_sample_count": 7,
+          "visibility_is_completion_evidence": false
+        },
+        "centroid": {
+          "cell": [
+            11,
+            110
+          ],
+          "local_visible": 6,
+          "global_visible": 80,
+          "distance_m": 4.750000070780516,
+          "local_gain": 1.1428571274491397
+        },
+        "visibility": {
+          "cell": [
+            15,
+            111
+          ],
+          "local_visible": 7,
+          "global_visible": 82,
+          "distance_m": 4.6000000685453415,
+          "local_gain": 1.3725490011604236
+        }
+      },
+      {
+        "cluster_size": 8,
+        "diagnostics": {
+          "candidate_count": 15,
+          "candidates_evaluated": 15,
+          "frontier_cells": 8,
+          "frontier_samples": 8,
+          "candidate_budget_exhausted": false,
+          "frontier_sampled": false,
+          "visible_sample_count": 6,
+          "visibility_is_completion_evidence": false
+        },
+        "centroid": {
+          "cell": [
+            11,
+            113
+          ],
+          "local_visible": 6,
+          "global_visible": 79,
+          "distance_m": 4.90000007301569,
+          "local_gain": 1.1111110960873067
+        },
+        "visibility": {
+          "cell": [
+            13,
+            110
+          ],
+          "local_visible": 6,
+          "global_visible": 81,
+          "distance_m": 4.6500000692903996,
+          "local_gain": 1.1650485280142373
+        }
+      },
+      {
+        "cluster_size": 6,
+        "diagnostics": {
+          "candidate_count": 88,
+          "candidates_evaluated": 48,
+          "frontier_cells": 6,
+          "frontier_samples": 6,
+          "candidate_budget_exhausted": true,
+          "frontier_sampled": false,
+          "visible_sample_count": 4,
+          "visibility_is_completion_evidence": false
+        },
+        "centroid": {
+          "cell": [
+            13,
+            101
+          ],
+          "local_visible": 4,
+          "global_visible": 79,
+          "distance_m": 4.200000062584877,
+          "local_gain": 0.8510638184545267
+        },
+        "visibility": {
+          "cell": [
+            16,
+            96
+          ],
+          "local_visible": 4,
+          "global_visible": 86,
+          "distance_m": 3.8000000566244125,
+          "local_gain": 0.9302325458897973
+        }
+      },
+      {
+        "cluster_size": 53,
+        "diagnostics": {
+          "candidate_count": 290,
+          "candidates_evaluated": 48,
+          "frontier_cells": 53,
+          "frontier_samples": 53,
+          "candidate_budget_exhausted": true,
+          "frontier_sampled": false,
+          "visible_sample_count": 42,
+          "visibility_is_completion_evidence": false
+        },
+        "centroid": {
+          "cell": [
+            44,
+            96
+          ],
+          "local_visible": 48,
+          "global_visible": 85,
+          "distance_m": 4.800000071525574,
+          "local_gain": 9.056603651362495
+        },
+        "visibility": {
+          "cell": [
+            29,
+            73
+          ],
+          "local_visible": 42,
+          "global_visible": 72,
+          "distance_m": 2.9000000432133675,
+          "local_gain": 12.352941019467005
+        }
+      },
+      {
+        "cluster_size": 47,
+        "diagnostics": {
+          "candidate_count": 25,
+          "candidates_evaluated": 25,
+          "frontier_cells": 47,
+          "frontier_samples": 47,
+          "candidate_budget_exhausted": false,
+          "frontier_sampled": false,
+          "visible_sample_count": 41,
+          "visibility_is_completion_evidence": false
+        },
+        "centroid": {
+          "cell": [
+            52,
+            41
+          ],
+          "local_visible": 33,
+          "global_visible": 67,
+          "distance_m": 2.450000036507845,
+          "local_gain": 11.186440539527853
+        },
+        "visibility": {
+          "cell": [
+            52,
+            38
+          ],
+          "local_visible": 41,
+          "global_visible": 58,
+          "distance_m": 2.3000000342726707,
+          "local_gain": 14.642856963625066
+        }
+      },
+      {
+        "cluster_size": 39,
+        "diagnostics": {
+          "candidate_count": 20,
+          "candidates_evaluated": 20,
+          "frontier_cells": 39,
+          "frontier_samples": 39,
+          "candidate_budget_exhausted": false,
+          "frontier_sampled": false,
+          "visible_sample_count": 34,
+          "visibility_is_completion_evidence": false
+        },
+        "centroid": {
+          "cell": [
+            52,
+            41
+          ],
+          "local_visible": 33,
+          "global_visible": 67,
+          "distance_m": 2.450000036507845,
+          "local_gain": 11.186440539527853
+        },
+        "visibility": {
+          "cell": [
+            50,
+            41
+          ],
+          "local_visible": 34,
+          "global_visible": 62,
+          "distance_m": 2.350000035017729,
+          "local_gain": 11.929824414822683
+        }
+      }
+    ]
+  },
+  {
+    "case": "clutter-spawn1",
+    "offset": 30.0,
+    "clusters": [
+      {
+        "cluster_size": 7,
+        "diagnostics": {
+          "candidate_count": 13,
+          "candidates_evaluated": 13,
+          "frontier_cells": 7,
+          "frontier_samples": 7,
+          "candidate_budget_exhausted": false,
+          "frontier_sampled": false,
+          "visible_sample_count": 5,
+          "visibility_is_completion_evidence": false
+        },
+        "centroid": {
+          "cell": [
+            11,
+            9
+          ],
+          "local_visible": 5,
+          "global_visible": 7,
+          "distance_m": 3.400000050663948,
+          "local_gain": 1.282051265396467
+        },
+        "visibility": {
+          "cell": [
+            11,
+            12
+          ],
+          "local_visible": 5,
+          "global_visible": 26,
+          "distance_m": 3.250000048428774,
+          "local_gain": 1.333333316114214
+        }
+      },
+      {
+        "cluster_size": 5,
+        "diagnostics": {
+          "candidate_count": 74,
+          "candidates_evaluated": 48,
+          "frontier_cells": 5,
+          "frontier_samples": 5,
+          "candidate_budget_exhausted": true,
+          "frontier_sampled": false,
+          "visible_sample_count": 3,
+          "visibility_is_completion_evidence": false
+        },
+        "centroid": {
+          "cell": [
+            11,
+            13
+          ],
+          "local_visible": 3,
+          "global_visible": 39,
+          "distance_m": 3.200000047683716,
+          "local_gain": 0.8108108003614941
+        },
+        "visibility": {
+          "cell": [
+            11,
+            14
+          ],
+          "local_visible": 3,
+          "global_visible": 53,
+          "distance_m": 3.1500000469386578,
+          "local_gain": 0.8219177976493923
+        }
+      },
+      {
+        "cluster_size": 13,
+        "diagnostics": {
+          "candidate_count": 194,
+          "candidates_evaluated": 48,
+          "frontier_cells": 13,
+          "frontier_samples": 13,
+          "candidate_budget_exhausted": true,
+          "frontier_sampled": false,
+          "visible_sample_count": 6,
+          "visibility_is_completion_evidence": false
+        },
+        "centroid": {
+          "cell": [
+            25,
+            90
+          ],
+          "local_visible": 8,
+          "global_visible": 33,
+          "distance_m": 1.3500000201165676,
+          "local_gain": 4.324324277302399
+        },
+        "visibility": {
+          "cell": [
+            17,
+            82
+          ],
+          "local_visible": 6,
+          "global_visible": 8,
+          "distance_m": 0.5500000081956387,
+          "local_gain": 5.7142856696835995
+        }
+      },
+      {
+        "cluster_size": 6,
+        "diagnostics": {
+          "candidate_count": 118,
+          "candidates_evaluated": 48,
+          "frontier_cells": 6,
+          "frontier_samples": 6,
+          "candidate_budget_exhausted": true,
+          "frontier_sampled": false,
+          "visible_sample_count": 5,
+          "visibility_is_completion_evidence": false
+        },
+        "centroid": {
+          "cell": [
+            40,
+            77
+          ],
+          "local_visible": 6,
+          "global_visible": 45,
+          "distance_m": 3.1500000469386578,
+          "local_gain": 1.6438355952987846
+        },
+        "visibility": {
+          "cell": [
+            37,
+            66
+          ],
+          "local_visible": 5,
+          "global_visible": 13,
+          "distance_m": 1.750000026077032,
+          "local_gain": 2.222222196467129
+        }
+      },
+      {
+        "cluster_size": 13,
+        "diagnostics": {
+          "candidate_count": 103,
+          "candidates_evaluated": 48,
+          "frontier_cells": 13,
+          "frontier_samples": 13,
+          "candidate_budget_exhausted": true,
+          "frontier_sampled": false,
+          "visible_sample_count": 13,
+          "visibility_is_completion_evidence": false
+        },
+        "centroid": {
+          "cell": [
+            51,
+            11
+          ],
+          "local_visible": 13,
+          "global_visible": 64,
+          "distance_m": 5.100000075995922,
+          "local_gain": 2.32142853992516
+        },
+        "visibility": {
+          "cell": [
+            50,
+            20
+          ],
+          "local_visible": 13,
+          "global_visible": 63,
+          "distance_m": 4.6000000685453415,
+          "local_gain": 2.5490195735836436
+        }
+      },
+      {
+        "cluster_size": 26,
+        "diagnostics": {
+          "candidate_count": 158,
+          "candidates_evaluated": 48,
+          "frontier_cells": 26,
+          "frontier_samples": 26,
+          "candidate_budget_exhausted": true,
+          "frontier_sampled": false,
+          "visible_sample_count": 25,
+          "visibility_is_completion_evidence": false
+        },
+        "centroid": {
+          "cell": [
+            67,
+            32
+          ],
+          "local_visible": 26,
+          "global_visible": 62,
+          "distance_m": 4.950000073760748,
+          "local_gain": 4.7706421372686
+        },
+        "visibility": {
+          "cell": [
+            49,
+            31
+          ],
+          "local_visible": 25,
+          "global_visible": 59,
+          "distance_m": 4.000000059604645,
+          "local_gain": 5.555555481969575
+        }
+      },
+      {
+        "cluster_size": 41,
+        "diagnostics": {
+          "candidate_count": 207,
+          "candidates_evaluated": 48,
+          "frontier_cells": 41,
+          "frontier_samples": 41,
+          "candidate_budget_exhausted": true,
+          "frontier_sampled": false,
+          "visible_sample_count": 33,
+          "visibility_is_completion_evidence": false
+        },
+        "centroid": {
+          "cell": [
+            82,
+            63
+          ],
+          "local_visible": 38,
+          "global_visible": 62,
+          "distance_m": 5.850000087171793,
+          "local_gain": 5.984251886353076
+        },
+        "visibility": {
+          "cell": [
+            57,
+            71
+          ],
+          "local_visible": 33,
+          "global_visible": 45,
+          "distance_m": 4.200000062584877,
+          "local_gain": 7.021276502249846
+        }
+      },
+      {
+        "cluster_size": 19,
+        "diagnostics": {
+          "candidate_count": 97,
+          "candidates_evaluated": 48,
+          "frontier_cells": 19,
+          "frontier_samples": 19,
+          "candidate_budget_exhausted": true,
+          "frontier_sampled": false,
+          "visible_sample_count": 19,
+          "visibility_is_completion_evidence": false
+        },
+        "centroid": {
+          "cell": [
+            90,
+            31
+          ],
+          "local_visible": 19,
+          "global_visible": 55,
+          "distance_m": 6.150000091642141,
+          "local_gain": 2.85714281776922
+        },
+        "visibility": {
+          "cell": [
+            75,
+            30
+          ],
+          "local_visible": 19,
+          "global_visible": 61,
+          "distance_m": 5.350000079721212,
+          "local_gain": 3.2478632036028046
+        }
+      },
+      {
+        "cluster_size": 14,
+        "diagnostics": {
+          "candidate_count": 31,
+          "candidates_evaluated": 31,
+          "frontier_cells": 14,
+          "frontier_samples": 14,
+          "candidate_budget_exhausted": false,
+          "frontier_sampled": false,
+          "visible_sample_count": 14,
+          "visibility_is_completion_evidence": false
+        },
+        "centroid": {
+          "cell": [
+            93,
+            82
+          ],
+          "local_visible": 14,
+          "global_visible": 67,
+          "distance_m": 5.750000085681677,
+          "local_gain": 2.2399999692916874
+        },
+        "visibility": {
+          "cell": [
+            91,
+            79
+          ],
+          "local_visible": 14,
+          "global_visible": 67,
+          "distance_m": 5.500000081956387,
+          "local_gain": 2.3333333014614057
+        }
+      }
+    ]
+  }
+]

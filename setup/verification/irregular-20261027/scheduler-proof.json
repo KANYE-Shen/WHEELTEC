@@ -1,0 +1,15 @@
+{
+  "task_name": "WHEELTEC-IrregularFrontier-20261028-0400",
+  "trigger": "2026-10-28T04:00:00+08:00",
+  "next_run": "2026-10-28T04:00:00.0000000+08:00",
+  "state": "Ready",
+  "wake_to_run": true,
+  "start_when_available": true,
+  "multiple_instances": "IgnoreNew",
+  "run_level": "Limited",
+  "logon_type": "Interactive",
+  "action_program": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+  "action_arguments": "-NoLogo -NoProfile -NonInteractive -WindowStyle Hidden -Command \"& 'D:\\Python\\python.exe' 'D:\\虚拟c盘\\WHEELTEC\\setup\\automation\\continue_irregular_frontiers.py'\"",
+  "actual_scheduled_execution_verified": false,
+  "checked_at": "2026-10-27T23:13:49.4766817+08:00"
+}

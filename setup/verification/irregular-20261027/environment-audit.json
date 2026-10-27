@@ -1,0 +1,12 @@
+{
+  "checked_at": "2026-10-27T16:03:10.186791+00:00",
+  "domains": [
+    84,
+    88,
+    89
+  ],
+  "processes": [],
+  "latest_path": "/home/wheeltec/wheeltec_sim_ws/data/maps/latest.json",
+  "latest_sha256": "46fe655145eceeb53d0882f7c56cc22714553eea0e9c563c475055409c9ca1c6",
+  "note": "Read-only process snapshot. Raw logs still retain nested forced shutdowns; current absence does not imply graceful exits."
+}

@@ -1,0 +1,25 @@
+{
+  "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-irregular-nominal-v1/002_irregular_arc_seed1_visibility",
+  "replayed_metrics": {
+    "reachable_coverage": 1.0,
+    "observable_contour_symmetric_p95_m": 0.11985305765894891,
+    "observable_contour_coverage": 0.91875
+  },
+  "original_metrics": {
+    "reachable_coverage": 1.0,
+    "observable_contour_symmetric_p95_m": 0.11985305765894891,
+    "observable_contour_coverage": 0.91875
+  },
+  "reproduced": true,
+  "thresholds_unchanged": {
+    "coverage": 0.95,
+    "wall_p95_m": 0.1,
+    "contour_coverage": 0.95
+  },
+  "final_live_metrics": {
+    "reachable_coverage": 1.0,
+    "observable_contour_symmetric_p95_m": 0.08512198510988467,
+    "observable_contour_coverage": 0.9875
+  },
+  "interpretation": "Saved artifact accuracy failure reproduced; later live map improved after return, causal mechanism unverified"
+}

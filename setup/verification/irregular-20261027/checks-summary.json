@@ -1,0 +1,184 @@
+{
+  "check_groups": 10,
+  "tests": 84,
+  "all_passed": true,
+  "groups": [
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "src/wheeltec_explore/test",
+        "-v"
+      ],
+      "returncode": 0,
+      "tests": 36,
+      "wall_seconds": 3.2951980889999994,
+      "log": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-irregular-checks-v3/00.log",
+      "sha256": "4b4595c829b64e50409f5c7f72b657c7c5be4ed676ac4a3ee7a52b79bb31845f"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "simulation",
+        "-p",
+        "test_validation.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "tests": 27,
+      "wall_seconds": 7.761165570999999,
+      "log": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-irregular-checks-v3/01.log",
+      "sha256": "0a357df535721270504dc1c2d1ee40f92283c0e013a80b9bd419c580bdca5e15"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "simulation",
+        "-p",
+        "test_regression_batch.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "tests": 3,
+      "wall_seconds": 1.2608914829999982,
+      "log": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-irregular-checks-v3/02.log",
+      "sha256": "3c3b589c75cf375baf184b10d8c36ec59b309d80f3ff7ac0b8388a0f407d45d2"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "simulation",
+        "-p",
+        "test_outcomes.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "tests": 3,
+      "wall_seconds": 0.967038886000001,
+      "log": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-irregular-checks-v3/03.log",
+      "sha256": "2db35c65ca6879b580b9898dd1a3ce8e7781d5ebebb8c365676acc4d48ccec02"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "simulation",
+        "-p",
+        "test_paired_viewpoints.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "tests": 5,
+      "wall_seconds": 1.5450874190000015,
+      "log": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-irregular-checks-v3/04.log",
+      "sha256": "0da08a0905139ecfbbb3b66a2366038721addafe0405b5a42722df7cdee58564"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "simulation",
+        "-p",
+        "test_replay_viewpoints.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "tests": 1,
+      "wall_seconds": 1.3200001730000004,
+      "log": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-irregular-checks-v3/05.log",
+      "sha256": "0af3f0eeb753b5f4ff82a31a07ec1e849a8ba1245466aacb61236f0160f12e1c"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "simulation",
+        "-p",
+        "test_explorer_time_ros.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "tests": 3,
+      "wall_seconds": 2.2954922820000014,
+      "log": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-irregular-checks-v3/06.log",
+      "sha256": "9b4e1aaeacfc07cf161a0e40cdceffe1c099f00507634d9f03ac71be0e2d8346"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "simulation",
+        "-p",
+        "test_health_ros.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "tests": 1,
+      "wall_seconds": 7.472729583000003,
+      "log": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-irregular-checks-v3/07.log",
+      "sha256": "a9f8586f8143e7db131d449f4d530efb3cb5f6a012b8f861e08598fef3ec2367"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "setup/automation",
+        "-v"
+      ],
+      "returncode": 0,
+      "tests": 2,
+      "wall_seconds": 0.7311529960000023,
+      "log": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-irregular-checks-v3/08.log",
+      "sha256": "fc3c205b8fdef92e042d269fe33276af97a87c4db0fc3590fd96d5e21a708a9b"
+    },
+    {
+      "command": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "setup/verification/irregular-20261027",
+        "-p",
+        "test_collector.py",
+        "-v"
+      ],
+      "returncode": 0,
+      "tests": 3,
+      "wall_seconds": 1.549880765000001,
+      "log": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-irregular-checks-v3/09.log",
+      "sha256": "5463984a760ffcee72d91dfbc356122e1f458e3976cf31e8e2b2de44d5f20078"
+    }
+  ],
+  "raw_summary_sha256": "6ed56f5a73fd48380266b68bdf575d630fee683c522a216516b663fe503cf675"
+}

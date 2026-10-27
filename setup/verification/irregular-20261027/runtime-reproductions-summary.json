@@ -1,0 +1,135 @@
+{
+  "planned": 4,
+  "executed": 4,
+  "rows": [
+    {
+      "original_batch": "20261027-irregular-gazebo-v2",
+      "original_index": 2,
+      "realism": "on",
+      "task_timeout": 300.0,
+      "timeout": 460.0,
+      "symptom": "tf_stale",
+      "trial": {
+        "scenario": "irregular_arc",
+        "spawn": 0,
+        "seed": 1,
+        "scale": 1.0,
+        "pose": [
+          -1.6826561106714908,
+          -1.696485441065827,
+          0.0329129772802899
+        ],
+        "strategy": "visibility",
+        "pair": 1
+      },
+      "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-irregular-runtime-reproductions-v1/00_irregular_arc_seed1_on",
+      "returncode": 1,
+      "reproduced": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "functional_success": false,
+      "formal_success": false,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "result_sha256": "e5f48a0d5abeda529b097e79d39527fd59a24760786937c11c8ab766ff7a89fc"
+    },
+    {
+      "original_batch": "20261027-irregular-nominal-v1",
+      "original_index": 6,
+      "realism": "off",
+      "task_timeout": 120.0,
+      "timeout": 280.0,
+      "symptom": "Nav2 did not become active",
+      "trial": {
+        "scenario": "irregular_arc",
+        "spawn": 0,
+        "seed": 3,
+        "scale": 1.0,
+        "pose": [
+          -1.672296800814369,
+          -1.7220606125202749,
+          0.032623951739250936
+        ],
+        "strategy": "visibility",
+        "pair": 3,
+        "realism": "off"
+      },
+      "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-irregular-runtime-reproductions-v1/01_irregular_arc_seed3_off",
+      "returncode": 1,
+      "reproduced": false,
+      "state": "completed",
+      "reason": "no_reachable_frontiers",
+      "functional_success": true,
+      "formal_success": false,
+      "failures": [],
+      "result_sha256": "e8993a47da2056d321550165d722c6ca5a0acafaa9e08e7fb9b3867d1b20ec56"
+    },
+    {
+      "original_batch": "20261027-irregular-nominal-v1",
+      "original_index": 16,
+      "realism": "off",
+      "task_timeout": 120.0,
+      "timeout": 280.0,
+      "symptom": "Nav2 did not become active",
+      "trial": {
+        "scenario": "irregular_frame",
+        "spawn": 0,
+        "seed": 3,
+        "scale": 1.0,
+        "pose": [
+          -1.6907212003014587,
+          -1.7101902219955534,
+          0.03058050295290915
+        ],
+        "strategy": "visibility",
+        "pair": 8,
+        "realism": "off"
+      },
+      "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-irregular-runtime-reproductions-v1/02_irregular_frame_seed3_off",
+      "returncode": 1,
+      "reproduced": false,
+      "state": "completed",
+      "reason": "no_reachable_frontiers",
+      "functional_success": false,
+      "formal_success": false,
+      "failures": [
+        "Invalid evaluation truth: arrival_gap_exceeded"
+      ],
+      "result_sha256": "84950f39a5be668a5284a3bd4847c7badd645ee8131045fce2fb2a67e43404cb"
+    },
+    {
+      "original_batch": "20261027-irregular-nominal-v1",
+      "original_index": 19,
+      "realism": "off",
+      "task_timeout": 120.0,
+      "timeout": 280.0,
+      "symptom": "tf_stale",
+      "trial": {
+        "scenario": "irregular_frame",
+        "spawn": 0,
+        "seed": 4,
+        "scale": 1.0,
+        "pose": [
+          -1.6872184738698823,
+          -1.7145038530318808,
+          -0.0016495341096720503
+        ],
+        "strategy": "visibility",
+        "pair": 9,
+        "realism": "off"
+      },
+      "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-irregular-runtime-reproductions-v1/03_irregular_frame_seed4_off",
+      "returncode": 1,
+      "reproduced": false,
+      "state": "completed",
+      "reason": "no_reachable_frontiers",
+      "functional_success": true,
+      "formal_success": false,
+      "failures": [],
+      "result_sha256": "03a5cb319be648dc6210e0efb2ae81bfea143d2d70d03a6faf64a2a1c259f628"
+    }
+  ],
+  "original_failures_retained": true,
+  "no_parameter_repairs_attempted": true
+}

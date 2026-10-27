@@ -1,0 +1,28 @@
+{
+  "captured_epoch": 1793114656.9331834,
+  "batch_processes": [
+    {
+      "pid": 407,
+      "command": [
+        "python3",
+        "simulation/paired_viewpoint_batch.py",
+        "--realism",
+        "off",
+        "--task-timeout",
+        "120",
+        "--timeout",
+        "280",
+        "--output",
+        "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-irregular-nominal-v1",
+        ""
+      ],
+      "affinity": [
+        0,
+        1,
+        2,
+        3
+      ]
+    }
+  ],
+  "notes": "Parent taskset inherited by nominal stack; host-only approximation, not RDK X5 equivalence"
+}

@@ -1,0 +1,96 @@
+{
+  "planned_snapshots": 65,
+  "ready": 49,
+  "improved": 39,
+  "worse": 3,
+  "unchanged": 7,
+  "all_goals_safe": true,
+  "both_no_goals": 4,
+  "skipped": [
+    {
+      "case": "baseline-spawn0",
+      "offset_s": 240.0,
+      "status": "timestamp_not_recorded"
+    },
+    {
+      "case": "l_shape-spawn0",
+      "offset_s": 120.0,
+      "status": "timestamp_not_recorded"
+    },
+    {
+      "case": "l_shape-spawn0",
+      "offset_s": 240.0,
+      "status": "timestamp_not_recorded"
+    },
+    {
+      "case": "l_shape-spawn1",
+      "offset_s": 120.0,
+      "status": "timestamp_not_recorded"
+    },
+    {
+      "case": "l_shape-spawn1",
+      "offset_s": 240.0,
+      "status": "timestamp_not_recorded"
+    },
+    {
+      "case": "l_shape-spawn2",
+      "offset_s": 240.0,
+      "status": "timestamp_not_recorded"
+    },
+    {
+      "case": "clutter-spawn0",
+      "offset_s": 240.0,
+      "status": "timestamp_not_recorded"
+    },
+    {
+      "case": "clutter-spawn1",
+      "offset_s": 240.0,
+      "status": "timestamp_not_recorded"
+    },
+    {
+      "case": "clutter-spawn2",
+      "offset_s": 240.0,
+      "status": "timestamp_not_recorded"
+    },
+    {
+      "case": "bent_passage-spawn0",
+      "offset_s": 120.0,
+      "status": "timestamp_not_recorded"
+    },
+    {
+      "case": "bent_passage-spawn0",
+      "offset_s": 240.0,
+      "status": "timestamp_not_recorded"
+    },
+    {
+      "case": "bent_passage-spawn1",
+      "offset_s": 120.0,
+      "status": "timestamp_not_recorded"
+    },
+    {
+      "case": "bent_passage-spawn1",
+      "offset_s": 240.0,
+      "status": "timestamp_not_recorded"
+    },
+    {
+      "case": "bent_passage-spawn2",
+      "offset_s": 120.0,
+      "status": "timestamp_not_recorded"
+    },
+    {
+      "case": "bent_passage-spawn2",
+      "offset_s": 240.0,
+      "status": "timestamp_not_recorded"
+    },
+    {
+      "case": "recess-spawn2",
+      "offset_s": 240.0,
+      "status": "timestamp_not_recorded"
+    }
+  ],
+  "failures": [],
+  "counterfactual_one_step_only": true,
+  "map_health": "capture issues retained; not certified healthy",
+  "no_truth_inputs": true,
+  "raw_summary_sha256": "e2c11ae8b793659b5e9d8e9a4a7f2902e1f08a3737b92e0fce90d6da67973bb7"
+}

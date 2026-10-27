@@ -1,0 +1,71 @@
+{
+  "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261027-irregular-nominal-v1/019_irregular_frame_seed4_visibility",
+  "snapshot_t": 4.0,
+  "map_index": 3,
+  "width": 100,
+  "height": 101,
+  "rows": [
+    {
+      "repeat": 0,
+      "strategy": "centroid",
+      "wall_seconds": 0.0512038239999999,
+      "goals": 5
+    },
+    {
+      "repeat": 0,
+      "strategy": "visibility",
+      "wall_seconds": 0.06412834200000006,
+      "goals": 5
+    },
+    {
+      "repeat": 1,
+      "strategy": "visibility",
+      "wall_seconds": 0.06975336799999976,
+      "goals": 5
+    },
+    {
+      "repeat": 1,
+      "strategy": "centroid",
+      "wall_seconds": 0.04894389499999985,
+      "goals": 5
+    },
+    {
+      "repeat": 2,
+      "strategy": "centroid",
+      "wall_seconds": 0.046487241999999984,
+      "goals": 5
+    },
+    {
+      "repeat": 2,
+      "strategy": "visibility",
+      "wall_seconds": 0.06996910400000012,
+      "goals": 5
+    },
+    {
+      "repeat": 3,
+      "strategy": "visibility",
+      "wall_seconds": 0.06292080700000025,
+      "goals": 5
+    },
+    {
+      "repeat": 3,
+      "strategy": "centroid",
+      "wall_seconds": 0.046491129000000075,
+      "goals": 5
+    },
+    {
+      "repeat": 4,
+      "strategy": "centroid",
+      "wall_seconds": 0.04859658499999986,
+      "goals": 5
+    },
+    {
+      "repeat": 4,
+      "strategy": "visibility",
+      "wall_seconds": 0.06623734100000034,
+      "goals": 5
+    }
+  ],
+  "source_sha256": "e9dd4f40eaf961367fc093a3ece626f610701a3664501d21dbb630cad3dc76fa",
+  "limitations": "Idle isolated four-core affinity; not exact decision trace or concurrent SLAM/Nav2 runtime"
+}

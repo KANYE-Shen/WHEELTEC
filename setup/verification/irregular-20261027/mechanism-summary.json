@@ -1,0 +1,219 @@
+{
+  "data_kind": "synthetic",
+  "acceptance_test": false,
+  "pairs": 60,
+  "cells": [
+    {
+      "layout": "curved_c",
+      "spawn": 0,
+      "pairs": 5,
+      "improved": 5,
+      "worse": 0,
+      "unchanged": 0,
+      "improvement_wilson_95": [
+        0.5655175352168251,
+        1.0
+      ],
+      "mean_gain_before": 23.281191609377753,
+      "mean_gain_after": 32.13302139037434,
+      "mean_visible_before": 71.0,
+      "mean_visible_after": 53.0
+    },
+    {
+      "layout": "curved_c",
+      "spawn": 1,
+      "pairs": 5,
+      "improved": 5,
+      "worse": 0,
+      "unchanged": 0,
+      "improvement_wilson_95": [
+        0.5655175352168251,
+        1.0
+      ],
+      "mean_gain_before": 23.907344632768364,
+      "mean_gain_after": 29.555555555555554,
+      "mean_visible_before": 71.0,
+      "mean_visible_after": 39.0
+    },
+    {
+      "layout": "curved_c",
+      "spawn": 2,
+      "pairs": 5,
+      "improved": 5,
+      "worse": 0,
+      "unchanged": 0,
+      "improvement_wilson_95": [
+        0.5655175352168251,
+        1.0
+      ],
+      "mean_gain_before": 88.88921568627451,
+      "mean_gain_after": 90.34285714285713,
+      "mean_visible_before": 71.0,
+      "mean_visible_after": 66.8
+    },
+    {
+      "layout": "straight",
+      "spawn": 0,
+      "pairs": 5,
+      "improved": 5,
+      "worse": 0,
+      "unchanged": 0,
+      "improvement_wilson_95": [
+        0.5655175352168251,
+        1.0
+      ],
+      "mean_gain_before": 23.406772205303117,
+      "mean_gain_after": 38.66215234102026,
+      "mean_visible_before": 98.0,
+      "mean_visible_after": 98.0
+    },
+    {
+      "layout": "straight",
+      "spawn": 1,
+      "pairs": 5,
+      "improved": 5,
+      "worse": 0,
+      "unchanged": 0,
+      "improvement_wilson_95": [
+        0.5655175352168251,
+        1.0
+      ],
+      "mean_gain_before": 23.857443718228033,
+      "mean_gain_after": 38.495485674353596,
+      "mean_visible_before": 98.0,
+      "mean_visible_after": 98.0
+    },
+    {
+      "layout": "straight",
+      "spawn": 2,
+      "pairs": 5,
+      "improved": 5,
+      "worse": 0,
+      "unchanged": 0,
+      "improvement_wilson_95": [
+        0.5655175352168251,
+        1.0
+      ],
+      "mean_gain_before": 50.69358190025712,
+      "mean_gain_after": 54.62589505437802,
+      "mean_visible_before": 98.0,
+      "mean_visible_after": 98.0
+    },
+    {
+      "layout": "thin_frame",
+      "spawn": 0,
+      "pairs": 5,
+      "improved": 5,
+      "worse": 0,
+      "unchanged": 0,
+      "improvement_wilson_95": [
+        0.5655175352168251,
+        1.0
+      ],
+      "mean_gain_before": 13.449875419114708,
+      "mean_gain_after": 40.568082368082365,
+      "mean_visible_before": 39.0,
+      "mean_visible_after": 73.0
+    },
+    {
+      "layout": "thin_frame",
+      "spawn": 1,
+      "pairs": 5,
+      "improved": 5,
+      "worse": 0,
+      "unchanged": 0,
+      "improvement_wilson_95": [
+        0.5655175352168251,
+        1.0
+      ],
+      "mean_gain_before": 6.764227642276422,
+      "mean_gain_after": 31.565164247517192,
+      "mean_visible_before": 14.0,
+      "mean_visible_after": 53.0
+    },
+    {
+      "layout": "thin_frame",
+      "spawn": 2,
+      "pairs": 5,
+      "improved": 5,
+      "worse": 0,
+      "unchanged": 0,
+      "improvement_wilson_95": [
+        0.5655175352168251,
+        1.0
+      ],
+      "mean_gain_before": 7.181376518218623,
+      "mean_gain_after": 23.04783636550519,
+      "mean_visible_before": 14.0,
+      "mean_visible_after": 53.0
+    },
+    {
+      "layout": "wavy_edge",
+      "spawn": 0,
+      "pairs": 5,
+      "improved": 5,
+      "worse": 0,
+      "unchanged": 0,
+      "improvement_wilson_95": [
+        0.5655175352168251,
+        1.0
+      ],
+      "mean_gain_before": 13.478040518532993,
+      "mean_gain_after": 14.684385097189253,
+      "mean_visible_before": 57.0,
+      "mean_visible_after": 62.4
+    },
+    {
+      "layout": "wavy_edge",
+      "spawn": 1,
+      "pairs": 5,
+      "improved": 5,
+      "worse": 0,
+      "unchanged": 0,
+      "improvement_wilson_95": [
+        0.5655175352168251,
+        1.0
+      ],
+      "mean_gain_before": 20.368740031897925,
+      "mean_gain_after": 34.67179487179487,
+      "mean_visible_before": 57.0,
+      "mean_visible_after": 67.6
+    },
+    {
+      "layout": "wavy_edge",
+      "spawn": 2,
+      "pairs": 5,
+      "improved": 5,
+      "worse": 0,
+      "unchanged": 0,
+      "improvement_wilson_95": [
+        0.5655175352168251,
+        1.0
+      ],
+      "mean_gain_before": 28.80700437773608,
+      "mean_gain_after": 33.84989952358373,
+      "mean_visible_before": 57.0,
+      "mean_visible_after": 61.6
+    }
+  ],
+  "timing_seconds": {
+    "centroid": {
+      "p50": 0.052555706499994415,
+      "p95": 0.06257737319999279,
+      "maximum": 0.06834371399999384
+    },
+    "visibility": {
+      "p50": 0.06811760450000293,
+      "p95": 0.0814512751000013,
+      "maximum": 0.08401251799999443
+    }
+  },
+  "all_goals_safe": true,
+  "no_goal_cases": [],
+  "limitations": [
+    "LOS only; no measured sensor FOV or information gain",
+    "Not a closed-loop exploration success rate",
+    "Desktop load, not RDK X5 timing"
+  ],
+  "raw_summary_sha256": "1d9278239f5dfe6b39a88577894542ff7e19fd176cead6129586f701733c40fd"
+}
