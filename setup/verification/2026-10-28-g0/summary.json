@@ -1,0 +1,18 @@
+{
+  "checked_at_host_utc": "2026-10-28T13:40:19.180548+00:00",
+  "authorization": "用户回复通过关卡0，授权执行只读核查；不等于实测验收合格",
+  "g0_measurement_passed": false,
+  "interface_check_passed": false,
+  "blockers": [
+    "scan_no_publisher_no_messages",
+    "odom_no_publisher_no_messages",
+    "no_tf_chain",
+    "robot_system_clock_year_2000",
+    "physical_dimensions_kinematics_and_labels_not_measured"
+  ],
+  "bag_recorded": false,
+  "bag_not_recorded_reason": "No sensor publishers; retained failed JSON, did not create an empty bag as calibration evidence",
+  "motion_commands_sent": false,
+  "new_drivers_started": false,
+  "next_gate_authorized": false
+}

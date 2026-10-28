@@ -1,0 +1,1 @@
+{"path": "/home/wheeltec/.wheeltec-console/g0-sensors-20000101T082312/stationary-scan-60s", "requested_duration_s": 60, "elapsed_s": 60.366683574000035, "returncode": 0, "started_robot_epoch": 946686855.5932776, "topics": ["/scan", "/odom", "/tf", "/tf_static"], "motion_commands": 0}

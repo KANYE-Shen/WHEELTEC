@@ -1,0 +1,24 @@
+[INFO] [launch]: All log files can be found below /home/wheeltec/.ros/log/2000-01-01-08-23-20-464700-wheeltec-11783
+[INFO] [launch]: Default logging verbosity is set to INFO
+lidar_type:ls_N10Plus_uart
+[INFO] [lslidar_driver_node-1]: process started with pid [12028]
+[lslidar_driver_node-1] [1m[34m************ Lslidar ROS driver version: 5.1.1 ************[0m
+[lslidar_driver_node-1] [1m[34mpcap file: [0m
+[lslidar_driver_node-1] [1m[34mpacket rate: 188[0m
+[lslidar_driver_node-1] [1m[34mframe id: laser[0m
+[lslidar_driver_node-1] [1m[34mpointcloud topic: lslidar_point_cloud[0m
+[lslidar_driver_node-1] [1m[34muse time service: false[0m
+[lslidar_driver_node-1] [1m[34muse first point time: false[0m
+[lslidar_driver_node-1] [1m[34mpublish scan: true[0m
+[lslidar_driver_node-1] [1m[34muse high precision mode: false[0m
+[lslidar_driver_node-1] [1m[34mpublish multiecholaserscan: false[0m
+[lslidar_driver_node-1] [1m[34menable noise filter: false[0m
+[lslidar_driver_node-1] [1m[34mmin range: 0.15[0m
+[lslidar_driver_node-1] [1m[34mmax range: 50[0m
+[lslidar_driver_node-1] [1m[34mN10Plus hz: 10[0m
+[lslidar_driver_node-1] [1m[36mOnly accepting serial data from: /dev/wheeltec_lidar[0m
+[lslidar_driver_node-1] [1m[37mLidar model: N10Plus[0m
+[lslidar_driver_node-1] [1m[37mSuccessfully opened serial port/dev/wheeltec_lidar at 460800 baud.[0m
+[lslidar_driver_node-1] [1m[32msart_init_angle[0m
+[lslidar_driver_node-1] [1m[34msart_angle:0--end_angle: 15000[0m
+[lslidar_driver_node-1] [1m[34msart_angle:18000--end_angle: 36000[0m

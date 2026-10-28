@@ -1,0 +1,16 @@
+{
+  "remote_run": "/home/wheeltec/.wheeltec-console/g0-sensors-20000101T082312",
+  "sensor_processes": [
+    {
+      "name": "camera",
+      "pid": 11782,
+      "command": "source /opt/ros/humble/setup.bash && source /home/wheeltec/wheeltec_ros2/install/setup.bash && exec ros2 launch turn_on_wheeltec_robot wheeltec_camera.launch.py"
+    },
+    {
+      "name": "lidar",
+      "pid": 11783,
+      "command": "source /opt/ros/humble/setup.bash && source /home/wheeltec/wheeltec_ros2/install/setup.bash && exec ros2 launch turn_on_wheeltec_robot wheeltec_lidar.launch.py"
+    }
+  ],
+  "no_base_or_navigation_launched": true
+}

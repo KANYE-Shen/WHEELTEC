@@ -1,0 +1,44 @@
+{
+  "checked_at": "2026-10-28T13:34:18.135692+00:00",
+  "page": "http://127.0.0.1:8766",
+  "host": "192.168.0.100",
+  "username": "wheeltec",
+  "host_key_matches_existing_known_hosts": true,
+  "event_type": "state",
+  "connected": true,
+  "target_kind": "robot",
+  "control_enabled": false,
+  "control_reason": "read_only",
+  "streams": {
+    "scan": {
+      "stamp": null,
+      "age": null,
+      "hz": 0.0,
+      "fresh": false
+    },
+    "map": {
+      "stamp": null,
+      "age": null,
+      "hz": 0.0,
+      "fresh": false
+    },
+    "odom": {
+      "stamp": null,
+      "age": null,
+      "hz": 0.0,
+      "fresh": false
+    },
+    "camera": {
+      "stamp": null,
+      "age": null,
+      "hz": 0.0,
+      "fresh": false
+    }
+  },
+  "adapter_pid": 6656,
+  "adapter_deployment": "/home/wheeltec/.wheeltec-console/readonly-20261028T213303",
+  "password_or_token_in_report": false,
+  "drivers_started": false,
+  "motion_commands_sent": false,
+  "g0_passed": false
+}

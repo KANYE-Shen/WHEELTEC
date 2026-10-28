@@ -1,0 +1,9 @@
+stdin is not a terminal device. Keyboard handling disabled.[INFO] [0946687023.472836200] [rosbag2_recorder]: Press SPACE for pausing/resuming
+[INFO] [0946687023.481927518] [rosbag2_storage]: Opened database '/home/wheeltec/.wheeltec-console/g0-sensors-20000101T082312/stationary-scan-60s-v2/stationary-scan-60s-v2_0.db3' for READ_WRITE.
+[INFO] [0946687023.486428781] [rosbag2_recorder]: Listening for topics...
+[INFO] [0946687023.486469114] [rosbag2_recorder]: Event publisher thread: Starting
+[INFO] [0946687023.503395121] [rosbag2_recorder]: Subscribed to topic '/scan'
+[INFO] [0946687023.503960165] [rosbag2_recorder]: Recording...
+[INFO] [0946687084.380806999] [rosbag2_cpp]: Writing remaining messages from cache to the bag. It may take a while
+[INFO] [0946687084.384149550] [rosbag2_recorder]: Event publisher thread: Exiting
+[INFO] [0946687084.384418301] [rosbag2_recorder]: Recording stopped

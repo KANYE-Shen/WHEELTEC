@@ -1,0 +1,47 @@
+[INFO] [launch]: All log files can be found below /home/wheeltec/.ros/log/2000-01-01-08-23-20-464700-wheeltec-11782
+[INFO] [launch]: Default logging verbosity is set to INFO
+camera_mode:usb
+/home/wheeltec/wheeltec_ros2/install/usb_cam/share/usb_cam/config/params.yaml
+[INFO] [usb_cam_node_exe-1]: process started with pid [11989]
+[INFO] [republish-2]: process started with pid [11991]
+[INFO] [republish-3]: process started with pid [11993]
+[usb_cam_node_exe-1] [INFO] [0946686202.271688162] [usb_cam]: camera_name value: test_camera
+[usb_cam_node_exe-1] [WARN] [0946686202.272050497] [usb_cam]: framerate: 30.000000
+[usb_cam_node_exe-1] [INFO] [0946686202.283813155] [usb_cam]: camera calibration URL: package://usb_cam/config/camera_info.yaml
+[usb_cam_node_exe-1] [INFO] [0946686202.288240460] [usb_cam]: Starting 'test_camera' (/dev/RgbCam) at 640x480 via mmap (mjpeg2rgb) at 30 FPS
+[usb_cam_node_exe-1] [swscaler @ 0xaaaaee5ff010] No accelerated colorspace conversion found from yuv422p to rgb24.
+[usb_cam_node_exe-1] [INFO] [0946686202.452348641] [usb_cam]: This devices supproted formats:
+[usb_cam_node_exe-1] [INFO] [0946686202.453156643] [usb_cam]: 	Motion-JPEG: 1280 x 720 (30 Hz)
+[usb_cam_node_exe-1] [INFO] [0946686202.453303394] [usb_cam]: 	Motion-JPEG: 1280 x 720 (30 Hz)
+[usb_cam_node_exe-1] [INFO] [0946686202.453379519] [usb_cam]: 	Motion-JPEG: 160 x 120 (30 Hz)
+[usb_cam_node_exe-1] [INFO] [0946686202.453436019] [usb_cam]: 	Motion-JPEG: 176 x 144 (30 Hz)
+[usb_cam_node_exe-1] [INFO] [0946686202.453487102] [usb_cam]: 	Motion-JPEG: 320 x 240 (30 Hz)
+[usb_cam_node_exe-1] [INFO] [0946686202.453536269] [usb_cam]: 	Motion-JPEG: 352 x 288 (30 Hz)
+[usb_cam_node_exe-1] [INFO] [0946686202.453583894] [usb_cam]: 	Motion-JPEG: 848 x 480 (30 Hz)
+[usb_cam_node_exe-1] [INFO] [0946686202.453631478] [usb_cam]: 	Motion-JPEG: 800 x 600 (30 Hz)
+[usb_cam_node_exe-1] [INFO] [0946686202.453677686] [usb_cam]: 	Motion-JPEG: 960 x 540 (30 Hz)
+[usb_cam_node_exe-1] [INFO] [0946686202.453724353] [usb_cam]: 	Motion-JPEG: 640 x 480 (30 Hz)
+[usb_cam_node_exe-1] [INFO] [0946686202.453770728] [usb_cam]: 	Motion-JPEG: 1280 x 720 (30 Hz)
+[usb_cam_node_exe-1] [INFO] [0946686202.453817353] [usb_cam]: 	Motion-JPEG: 1280 x 720 (30 Hz)
+[usb_cam_node_exe-1] [INFO] [0946686202.453864312] [usb_cam]: 	YUYV 4:2:2: 1280 x 720 (10 Hz)
+[usb_cam_node_exe-1] [INFO] [0946686202.453911354] [usb_cam]: 	YUYV 4:2:2: 1280 x 720 (10 Hz)
+[usb_cam_node_exe-1] [INFO] [0946686202.453957187] [usb_cam]: 	YUYV 4:2:2: 160 x 120 (30 Hz)
+[usb_cam_node_exe-1] [INFO] [0946686202.454004396] [usb_cam]: 	YUYV 4:2:2: 176 x 144 (30 Hz)
+[usb_cam_node_exe-1] [INFO] [0946686202.454050521] [usb_cam]: 	YUYV 4:2:2: 320 x 240 (30 Hz)
+[usb_cam_node_exe-1] [INFO] [0946686202.454096979] [usb_cam]: 	YUYV 4:2:2: 352 x 288 (30 Hz)
+[usb_cam_node_exe-1] [INFO] [0946686202.454143188] [usb_cam]: 	YUYV 4:2:2: 848 x 480 (25 Hz)
+[usb_cam_node_exe-1] [INFO] [0946686202.454189813] [usb_cam]: 	YUYV 4:2:2: 800 x 600 (20 Hz)
+[usb_cam_node_exe-1] [INFO] [0946686202.454235105] [usb_cam]: 	YUYV 4:2:2: 960 x 540 (20 Hz)
+[usb_cam_node_exe-1] [INFO] [0946686202.454281771] [usb_cam]: 	YUYV 4:2:2: 640 x 480 (30 Hz)
+[usb_cam_node_exe-1] [INFO] [0946686202.454327021] [usb_cam]: 	YUYV 4:2:2: 1280 x 720 (10 Hz)
+[usb_cam_node_exe-1] [INFO] [0946686202.454373397] [usb_cam]: 	YUYV 4:2:2: 1280 x 720 (10 Hz)
+[usb_cam_node_exe-1] unknown control 'white_balance_temperature_auto'
+[usb_cam_node_exe-1] 
+[usb_cam_node_exe-1] [INFO] [0946686202.524666766] [usb_cam]: Setting 'white_balance_temperature_auto' to 1
+[usb_cam_node_exe-1] [INFO] [0946686202.524817433] [usb_cam]: Setting 'exposure_auto' to 3
+[usb_cam_node_exe-1] unknown control 'exposure_auto'
+[usb_cam_node_exe-1] 
+[usb_cam_node_exe-1] [INFO] [0946686202.549951964] [usb_cam]: Setting 'focus_auto' to 0
+[usb_cam_node_exe-1] unknown control 'focus_auto'
+[usb_cam_node_exe-1] 
+[usb_cam_node_exe-1] [INFO] [0946686202.846474776] [usb_cam]: Timer triggering every 33 ms

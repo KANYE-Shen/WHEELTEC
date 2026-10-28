@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "read_only": true,
+  "simulation": false,
+  "interface_check_passed": false,
+  "deployment_ready": false,
+  "physical_motion_tests": "not_run",
+  "output": "/home/wheeltec/.wheeltec-console/g0-sensors-20000101T082312/interfaces.json",
+  "manual_checks_required": [
+    "measured chassis kinematics and dimensions",
+    "laser extrinsics",
+    "wheel/steering calibration",
+    "odometry accuracy",
+    "braking distance",
+    "low-speed supervised navigation and actual RDK load"
+  ],
+  "started_at": "2000-01-01T08:24:24+0800",
+  "resources_before": {
+    "architecture": "aarch64",
+    "ros_distro": "humble",
+    "memory_total_mib": 7080,
+    "memory_available_mib": 6098,
+    "board_model": "D-Robotics RDK X5 V1.0"
+  },
+  "duration_wall_seconds": 15.554235912999957,
+  "streams": {
+    "scan": {
+      "messages": 151,
+      "wall_hz": 10.021671520585882,
+      "measurement_wall_hz": 10.021671520585882,
+      "duplicate_stamps": 0,
+      "distinct_measurements": 151,
+      "minimum_hz": 5,
+      "receive_age_seconds": 0.5122223089999807,
+      "measurement_age_seconds": 0.5122223089999807,
+      "stamp_age_seconds": 0.514586329460144,
+      "backwards_stamps": 0,
+      "zero_stamps": 0,
+      "passed": true,
+      "topic": "/scan",
+      "publishers": 1
+    },
+    "odom": {
+      "messages": 0,
+      "wall_hz": null,
+      "measurement_wall_hz": null,
+      "duplicate_stamps": 0,
+      "distinct_measurements": 0,
+      "minimum_hz": 10,
+      "receive_age_seconds": null,
+      "measurement_age_seconds": null,
+      "stamp_age_seconds": null,
+      "backwards_stamps": 0,
+      "zero_stamps": 0,
+      "passed": false,
+      "topic": "/odom",
+      "publishers": 0
+    }
+  },
+  "ros_topics_and_types": {
+    "/camera/color/image_raw": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/camera/color/image_raw/compressed": [
+      "sensor_msgs/msg/CompressedImage"
+    ],
+    "/camera/depth/image_raw": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/camera/depth/image_raw/compressed": [
+      "sensor_msgs/msg/CompressedImage"
+    ],
+    "/camera_info": [
+      "sensor_msgs/msg/CameraInfo"
+    ],
+    "/image_raw": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/image_raw/compressed": [
+      "sensor_msgs/msg/CompressedImage"
+    ],
+    "/image_raw/compressedDepth": [
+      "sensor_msgs/msg/CompressedImage"
+    ],
+    "/image_raw/theora": [
+      "theora_image_transport/msg/Packet"
+    ],
+    "/map": [
+      "nav_msgs/msg/OccupancyGrid"
+    ],
+    "/odom": [
+      "nav_msgs/msg/Odometry"
+    ],
+    "/parameter_events": [
+      "rcl_interfaces/msg/ParameterEvent"
+    ],
+    "/rosout": [
+      "rcl_interfaces/msg/Log"
+    ],
+    "/safety/status": [
+      "std_msgs/msg/String"
+    ],
+    "/scan": [
+      "sensor_msgs/msg/LaserScan"
+    ],
+    "/tf": [
+      "tf2_msgs/msg/TFMessage"
+    ],
+    "/tf_static": [
+      "tf2_msgs/msg/TFMessage"
+    ],
+    "/x10/lslidar_driver_node/transition_event": [
+      "lifecycle_msgs/msg/TransitionEvent"
+    ],
+    "/x10/lslidar_point_cloud": [
+      "sensor_msgs/msg/PointCloud2"
+    ],
+    "/x10/motor_control": [
+      "std_msgs/msg/Int8"
+    ],
+    "/x10/time_topic": [
+      "std_msgs/msg/Float64"
+    ]
+  },
+  "ros_node_names": [
+    "wheeltec_console_adapter",
+    "launch_ros_11783",
+    "usb_cam",
+    "republish_color_compressed",
+    "republish_depth_compressed",
+    "wheeltec_readonly_interface_check",
+    "lslidar_driver_node"
+  ],
+  "imu_topic_candidates": [],
+  "imu_hardware_confirmed": false,
+  "scan": {
+    "frame_id": "laser",
+    "beams": 540,
+    "valid_beams": 428,
+    "range_min_m": 0.15000000596046448,
+    "range_max_m": 50.0,
+    "angle_min_rad": -3.1415927410125732,
+    "angle_max_rad": 3.1415927410125732
+  },
+  "tf_at_last_scan_stamp": [],
+  "tf_lookup_failed_attempts_at_sample_end": 47,
+  "resources_after": {
+    "architecture": "aarch64",
+    "ros_distro": "humble",
+    "memory_total_mib": 7080,
+    "memory_available_mib": 6043,
+    "board_model": "D-Robotics RDK X5 V1.0"
+  },
+  "host_cpu_busy_percent_during_check": 20.7
+}

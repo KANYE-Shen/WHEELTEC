@@ -1,0 +1,61 @@
+{
+  "host_utc": "2026-10-28T14:01:14.157719+00:00",
+  "authorization": "启动，此后完成G0实测；independent camera/lidar only",
+  "interface_check_passed": false,
+  "scan": {
+    "messages_in_15s": 151,
+    "wall_hz": 10.021671520585882,
+    "passed": true,
+    "beams": 540,
+    "frame": "laser",
+    "driver_declared_range_m": [
+      0.15,
+      50
+    ],
+    "measured_effective_range": "未验证"
+  },
+  "camera": {
+    "receiving": true,
+    "capture_timestamp_valid": false,
+    "fault": "periodic ~0.8s future stamps; raw and compressed",
+    "web_browser_checks": "7/7"
+  },
+  "odom": {
+    "messages": 0,
+    "publishers": 0,
+    "passed": false
+  },
+  "tf": {
+    "edges": [],
+    "passed": false
+  },
+  "robot_clock": "2000-01-01; uncorrected",
+  "physical_measurements": "未验证",
+  "cpu_busy_percent_during_interface_check": 20.7,
+  "memory_available_mib": 6043,
+  "full_algorithm_load": "未验证",
+  "bags": [
+    {
+      "path": "/home/wheeltec/.wheeltec-console/g0-sensors-20000101T082312/stationary-scan-60s",
+      "status": "retained, only ~53.09s actual scan span; requested process duration included startup",
+      "audit": "bag-audit.json"
+    },
+    {
+      "path": "/home/wheeltec/.wheeltec-console/g0-sensors-20000101T082312/stationary-scan-60s-v2",
+      "status": "recording-ready timer; valid duration >=60s",
+      "scan_messages": 610,
+      "scan_duration_s": 60.774949041,
+      "audit": "bag-audit-v2.json"
+    }
+  ],
+  "absent_bag_topics": [
+    "/odom",
+    "/tf",
+    "/tf_static"
+  ],
+  "raw_bags_retained_on_robot": true,
+  "no_motion_commands": true,
+  "no_base_driver_started": true,
+  "g0_passed": false,
+  "next": "Resolve camera timestamps/clock, determine read-only odom/TF path and physical inspection; do not start base or G1"
+}

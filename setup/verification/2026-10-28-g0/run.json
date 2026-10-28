@@ -1,0 +1,8 @@
+{
+  "remote_run": "/home/wheeltec/.wheeltec-console/g0-20261028T213601",
+  "checker_sha256": "f30bfddc738b3bbd2543d54e6461a21fa37776daf332d64c22e2276d0690d1d7",
+  "checker_returncode": 1,
+  "user_authorization": "通过关卡0",
+  "robot_motion_authorized": false,
+  "no_drivers_started": true
+}
