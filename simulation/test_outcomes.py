@@ -10,6 +10,22 @@ class OutcomeTests(unittest.TestCase):
         self.assertTrue(runner.launch_shutdown_abnormal("sending signal 'SIGKILL' to process[lifecycle_manager-14]"))
         self.assertTrue(runner.launch_shutdown_abnormal('process has died [pid 3, exit code -9, cmd lifecycle_manager]'))
 
+    def test_exit_status_drain_uses_wall_deadline_not_twenty_callbacks(self):
+        ticks=[0]
+        def spin(timeout):
+            ticks[0]+=1
+        self.assertTrue(runner.drain_terminal_status(lambda:ticks[0]>=25,spin,
+                          lambda:ticks[0]*.01,timeout=1.))
+        self.assertEqual(ticks[0],25)
+
+    def test_missing_exit_status_drain_is_bounded_and_not_success(self):
+        ticks=[0]
+        def spin(timeout):
+            ticks[0]+=1
+        self.assertFalse(runner.drain_terminal_status(lambda:False,spin,
+                           lambda:ticks[0]*.1,timeout=1.))
+        self.assertLessEqual(ticks[0],11)
+
     def test_viewpoint_strategy_is_explicit_and_recordable(self):
         self.assertEqual(runner.parse_arguments([]).viewpoint_strategy,'centroid')
         self.assertEqual(runner.parse_arguments(['--viewpoint-strategy','visibility']).viewpoint_strategy,'visibility')

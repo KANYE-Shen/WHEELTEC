@@ -15,7 +15,7 @@ from rclpy.signals import SignalHandlerOptions
 from action_msgs.msg import GoalStatus
 from geometry_msgs.msg import PoseStamped
 from nav_msgs.msg import OccupancyGrid
-from nav2_msgs.action import NavigateToPose
+from nav2_msgs.action import NavigateToPose, Spin
 from nav2_msgs.srv import SaveMap
 from slam_toolbox.srv import SerializePoseGraph
 from std_msgs.msg import String
@@ -23,6 +23,7 @@ from sensor_msgs.msg import LaserScan
 from tf2_ros import Buffer, TransformListener, TransformException
 
 from .defaults import DEFAULTS
+from .active_scan import choose_scan, rotation_clearance, ScanBudget, simulation_observation_allowed
 from .health import MapHealth, MapUnstableError
 from .frontiers import Grid, select_frontiers
 from .policy import RetryBook, completion_state, observation_fresh
@@ -49,6 +50,17 @@ class Explorer(Node):
         for name,value in parameters.items():
             self.declare_parameter(name,value)
         self.config = {name:self.get_parameter(name).value for name in parameters}
+        angle = self.config['active_scan_angle_deg']
+        if not math.isfinite(angle) or not 0 <= angle <= 360:
+            raise ValueError('Active scan angle must be between 0 and 360 degrees')
+        if angle:
+            board = Path('/proc/device-tree/model')
+            model = board.read_text() if board.exists() else ''
+            if not simulation_observation_allowed(self.get_parameter('use_sim_time').value,
+                                                   os.environ.get('ROS_LOCALHOST_ONLY',''),model):
+                raise RuntimeError('Active observation is available only in localhost simulation')
+        self.scan_budget = ScanBudget(self.config['active_scan_max_attempts'])
+        self.spin_action = ActionClient(self,Spin,'spin') if angle else None
         self.output = Path(self.config['map_output']).expanduser().resolve()
         self.maps_root = maps
         self.health = MapHealth(
@@ -79,6 +91,7 @@ class Explorer(Node):
         self.history = []
         self.active_goal = None
         self.active_result = None
+        self.pending_action = None
         self.retry = RetryBook(self.config['retry_cooldown'],self.config['max_attempts'],self.config['retry_radius'])
         self.report = {'state':'starting','map_output':str(self.output),'goals':[],
                        'reference_yaw_rad':self.config['reference_yaw_rad']}
@@ -212,6 +225,88 @@ class Explorer(Node):
             return False,'no_result'
         return response.status==GoalStatus.STATUS_SUCCEEDED,str(response.status)
 
+    def active_observe(self, pose, initial=False):
+        """One bounded simulation observation; all motion stays in Nav2's Spin action."""
+        plan = choose_scan(self.grid(),pose,self.config['robot_radius'],
+                           self.config['active_scan_angle_deg'],self.config['active_scan_fov_deg'])
+        event = dict(plan=plan,started_ros=self.ros_seconds(),motion_requested=False)
+        self.report.setdefault('active_scans',[]).append(event)
+        self.status('initial_observation' if initial else 'active_scan',plan['reason'])
+        if plan['angle_rad'] is None:
+            return False,('active_scan_clearance_unproven' if not plan['safe'] else 'active_scan_no_information_gain')
+        if not self.wait(self.spin_action.server_is_ready,self.config['nav_server_timeout'],check_task=True,check_sensors=True):
+            return False,'active_scan_server_unavailable'
+        # Recheck after waiting: the map used for permission cannot be an old snapshot.
+        fresh_pose = self.position()
+        if fresh_pose is None or not rotation_clearance(self.grid(),fresh_pose,self.config['robot_radius'])['safe']:
+            return False,'active_scan_clearance_lost'
+        goal = Spin.Goal()
+        goal.target_yaw = float(plan['angle_rad'])
+        goal.time_allowance = Duration(seconds=self.config['active_scan_timeout']).to_msg()
+        accepted = self.spin_action.send_goal_async(goal)
+        self.pending_action = accepted
+        abandoned = [False]
+        def cancel_late(future):
+            if abandoned[0]:
+                handle = future.result()
+                if handle is not None and handle.accepted:
+                    handle.cancel_goal_async()
+        accepted.add_done_callback(cancel_late)
+        try:
+            if not self.wait(accepted.done,self.config['goal_response_timeout'],check_task=True,check_sensors=True):
+                raise RuntimeError('Active scan goal response timeout; simulation stack must be stopped')
+        except BaseException:
+            # Health exceptions and operator interruption also abandon this request.
+            # cancel_active keeps spinning a bounded grace period for its response.
+            abandoned[0] = True
+            if accepted.done():
+                cancel_late(accepted)
+            raise
+        handle = accepted.result()
+        self.pending_action = None
+        if handle is None or not handle.accepted:
+            return False,'active_scan_rejected'
+        self.active_goal = handle
+        self.active_result = handle.get_result_async()
+        event['motion_requested'] = True
+        start_time = self.ros_seconds()
+        previous = fresh_pose
+        travelled = 0.
+        reason = ''
+        while rclpy.ok() and not self.active_result.done():
+            rclpy.spin_once(self,timeout_sec=.05)
+            self.require_health()
+            current = self.position()
+            if current is None:
+                reason = 'active_scan_tf_unavailable'
+                break
+            travelled += math.atan2(math.sin(current[2]-previous[2]),math.cos(current[2]-previous[2]))
+            previous = current
+            if not rotation_clearance(self.grid(),current,self.config['robot_radius'])['safe']:
+                reason = 'active_scan_clearance_lost'
+                break
+            if self.ros_seconds()-start_time >= self.config['active_scan_timeout']:
+                reason = 'active_scan_timeout'
+                break
+            if self.ros_seconds()-self.started_ros >= self.config['task_timeout']:
+                reason = 'task_timeout'
+                break
+        event.update(observed_rotation_rad=travelled,elapsed_ros=self.ros_seconds()-start_time)
+        if reason or not rclpy.ok():
+            if not self.cancel_active():
+                raise RuntimeError('Active scan cancellation not confirmed')
+            event.update(success=False,reason=reason or 'shutdown')
+            return False,reason or 'shutdown'
+        result = self.active_result.result()
+        self.active_goal = None
+        self.active_result = None
+        success = result is not None and result.status == GoalStatus.STATUS_SUCCEEDED
+        event.update(success=success,reason='succeeded' if success else 'active_scan_failed')
+        revision = self.map_updates
+        if success and not self.wait(lambda:self.map_updates>revision,self.config['map_update_timeout'],check_task=True,check_sensors=True):
+            return False,self.wait_reason or 'map_update_timeout'
+        return success,event['reason']
+
     def save_map(self):
         self.status('saving','Saving occupancy grid and SLAM pose graph')
         if not self.wait(lambda:self.save.service_is_ready() and self.serialize.service_is_ready(),
@@ -245,8 +340,19 @@ class Explorer(Node):
             atomic_json(self.maps_root/'latest.json',metadata)
         return True
 
+    def wait_status_observers(self):
+        expected = self.config['expected_status_observers']
+        if not isinstance(expected,int) or expected < 0:
+            raise ValueError('Nonnegative status observer count required')
+        if expected == 0:
+            return True
+        return self.wait(lambda:self.status_publisher.get_subscription_count()>=expected,
+                         self.config['initialization_timeout'])
+
     def run(self):
         self.status('starting','Waiting for SLAM map, robot transform and Nav2')
+        if not self.wait_status_observers():
+            raise RuntimeError('Required status observers did not match; no exploration started')
         if not self.wait(lambda:self.latest_map is not None and self.position() is not None
                          and observation_fresh(self.last_scan_ros,self.ros_seconds(),self.config['scan_max_age'])
                          and self.health_tick()['healthy'],self.config['initialization_timeout']):
@@ -290,6 +396,15 @@ class Explorer(Node):
             candidates = [g for g in latest_result.goals
                           if self.retry.available((g.x,g.y),self.ros_seconds())]
             if not candidates:
+                if (not latest_result.goals and self.spin_action is not None
+                        and self.scan_budget.take()):
+                    success, reason = self.active_observe(pose,initial=attempts==0)
+                    if not success:
+                        forced_reason = reason
+                        self.report['manual_intervention_required'] = 'clearance' in reason
+                        break
+                    stable_empty = 0
+                    continue
                 if latest_result.goals:
                     if all(self.retry.exhausted((g.x,g.y)) for g in latest_result.goals):
                         forced_reason = 'frontier_retries_exhausted'
@@ -358,6 +473,16 @@ class Explorer(Node):
         return 0 if final in ('completed','completed_with_residual_frontiers') else 2
 
     def cancel_active(self):
+        pending = getattr(self,'pending_action',None)
+        if pending is not None:
+            if not self.wait(pending.done,self.config['cancel_response_timeout']):
+                self.get_logger().error('Pending Spin response not confirmed; simulation stack must be stopped')
+                return False
+            handle = pending.result()
+            self.pending_action = None
+            if handle is not None and handle.accepted:
+                self.active_goal = handle
+                self.active_result = handle.get_result_async()
         if self.active_goal is not None:
             future = self.active_goal.cancel_goal_async()
             acknowledged = self.wait(future.done,self.config['cancel_response_timeout'])

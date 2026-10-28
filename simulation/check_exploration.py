@@ -24,6 +24,7 @@ def parse_arguments(argv=None):
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--realism',choices=['on','off'],default='on')
     parser.add_argument('--viewpoint-strategy',choices=['centroid','visibility'],default='centroid')
+    parser.add_argument('--active-scan-angle',type=float,choices=[0.,90.,180.,360.],default=0.)
     parser.add_argument('--seed',type=int,default=0)
     parser.add_argument('--noise-scale',type=float,default=1.)
     parser.add_argument('--task-timeout',type=float,default=300.0,help='Explorer ROS-time budget before saving and returning')
@@ -116,6 +117,16 @@ def launch_shutdown_abnormal(text):
     return "sending signal 'SIGKILL'" in text or 'exit code -9' in text
 
 
+def drain_terminal_status(predicate, spin_once, now=time.monotonic, timeout=1.):
+    # Twenty immediately-ready /clock callbacks are not one second of DDS grace.
+    deadline=now()+timeout
+    while not predicate():
+        if now()>=deadline:
+            return False
+        spin_once(.05)
+    return True
+
+
 def source_manifest():
     files=[]
     for directory in (ROOT/'simulation',ROOT/'src/wheeltec_explore'):
@@ -161,7 +172,7 @@ def main(argv=None):
     os.environ.update(ROS_LOCALHOST_ONLY='1',ROS_DOMAIN_ID=str(domain))
     result={'success':False,'run_dir':str(run),'ros_domain_id':domain,
             'scenario':scene['id'],'spawn_index':args.spawn,'spawn':spawn,
-            'viewpoint_strategy':args.viewpoint_strategy,
+            'viewpoint_strategy':args.viewpoint_strategy,'active_scan_angle_deg':args.active_scan_angle,
             'realism_mode':args.realism,'seed':args.seed,'noise_scale':args.noise_scale,
             'real_robot_admission_ready':False,
             'task_timeout_ros_seconds':args.task_timeout,'record_requested':args.record,
@@ -216,10 +227,8 @@ def main(argv=None):
                 if predicate():
                     return
                 if check_explorer and explorer_process.poll() is not None:
-                    for _ in range(20):
-                        rclpy.spin_once(node,timeout_sec=.05)
-                        if predicate():
-                            return
+                    if drain_terminal_status(predicate,lambda timeout:rclpy.spin_once(node,timeout_sec=timeout)):
+                        return
                     raise RuntimeError('Explorer exited before terminal status; see explore.log')
             raise RuntimeError('Timeout: '+reason)
         def launch(command,log_name):
@@ -264,6 +273,8 @@ def main(argv=None):
         explorer_command=['bash','-lc',command,'wheeltec-exploration-check',str(setup),
                                 '--ros-args','-p','use_sim_time:=true','-p','map_output:='+str(run/'map'),
                                 '-p','update_latest:=false','-p','frontier_viewpoint_strategy:='+args.viewpoint_strategy,
+                                '-p','active_scan_angle_deg:='+str(args.active_scan_angle),
+                                '-p','expected_status_observers:='+str(2 if args.record else 1),
                                 '-p','task_timeout:='+str(args.task_timeout),
                                 '-p','goal_timeout:=75.0','-p','reference_yaw_rad:=0.0','-p','max_goals:=60',
                                 '-p','robot_radius:='+str(result.get('realism',{}).get('robot_radius',.35))]
