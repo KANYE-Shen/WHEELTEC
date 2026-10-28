@@ -1,0 +1,161 @@
+test_does_not_overwrite_or_write_inside_source (test_timestamp_source_audit.TimestampAuditTests.test_does_not_overwrite_or_write_inside_source) ... FAIL
+test_frame_sequence_is_monotonic_across_second (test_timestamp_source_audit.TimestampAuditTests.test_frame_sequence_is_monotonic_across_second) ... FAIL
+test_half_second_does_not_round_seconds_up (test_timestamp_source_audit.TimestampAuditTests.test_half_second_does_not_round_seconds_up) ... FAIL
+test_identifies_all_three_exact_pinned_states (test_timestamp_source_audit.TimestampAuditTests.test_identifies_all_three_exact_pinned_states) ... FAIL
+test_integer_shift_retains_epoch_microseconds (test_timestamp_source_audit.TimestampAuditTests.test_integer_shift_retains_epoch_microseconds) ... FAIL
+test_mixed_source_is_not_called_fixed (test_timestamp_source_audit.TimestampAuditTests.test_mixed_source_is_not_called_fixed) ... FAIL
+test_modified_fixture_cannot_supply_candidate_code (test_timestamp_source_audit.TimestampAuditTests.test_modified_fixture_cannot_supply_candidate_code) ... FAIL
+test_prepare_preserves_source_and_emits_reviewable_diff (test_timestamp_source_audit.TimestampAuditTests.test_prepare_preserves_source_and_emits_reviewable_diff) ... FAIL
+test_rejects_invalid_time_fields (test_timestamp_source_audit.TimestampAuditTests.test_rejects_invalid_time_fields) ... FAIL
+test_rounding_monotonic_nsec_carries_at_second (test_timestamp_source_audit.TimestampAuditTests.test_rounding_monotonic_nsec_carries_at_second) ... FAIL
+test_timestamp_carries_fractional_epoch_shift (test_timestamp_source_audit.TimestampAuditTests.test_timestamp_carries_fractional_epoch_shift) ... FAIL
+test_unknown_or_incomplete_source_is_refused (test_timestamp_source_audit.TimestampAuditTests.test_unknown_or_incomplete_source_is_refused) ... FAIL
+
+======================================================================
+FAIL: test_does_not_overwrite_or_write_inside_source (test_timestamp_source_audit.TimestampAuditTests.test_does_not_overwrite_or_write_inside_source)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\����c��\WHEELTEC\robot\test_timestamp_source_audit.py", line 54, in test_does_not_overwrite_or_write_inside_source
+    with self.assertRaises(ValueError): target.prepare_patch(src,out)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\����c��\WHEELTEC\robot\timestamp_source_audit.py", line 4, in prepare_patch
+    def prepare_patch(*args): raise AssertionError('offline review bundle missing')
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: offline review bundle missing
+
+======================================================================
+FAIL: test_frame_sequence_is_monotonic_across_second (test_timestamp_source_audit.TimestampAuditTests.test_frame_sequence_is_monotonic_across_second)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\����c��\WHEELTEC\robot\test_timestamp_source_audit.py", line 23, in test_frame_sequence_is_monotonic_across_second
+    values=[target.image_timestamp(s,u,100700286) for s,u in [(10,499999),(10,500000),(10,999999),(11,0)]]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\����c��\WHEELTEC\robot\timestamp_source_audit.py", line 2, in image_timestamp
+    def image_timestamp(*args): raise AssertionError('integer timestamp assembly missing')
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: integer timestamp assembly missing
+
+======================================================================
+FAIL: test_half_second_does_not_round_seconds_up (test_timestamp_source_audit.TimestampAuditTests.test_half_second_does_not_round_seconds_up)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\����c��\WHEELTEC\robot\test_timestamp_source_audit.py", line 20, in test_half_second_does_not_round_seconds_up
+    stamps=[target.image_timestamp(10, u, 100000000) for u in [499999,500000,999999]]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\����c��\WHEELTEC\robot\timestamp_source_audit.py", line 2, in image_timestamp
+    def image_timestamp(*args): raise AssertionError('integer timestamp assembly missing')
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: integer timestamp assembly missing
+
+======================================================================
+FAIL: test_identifies_all_three_exact_pinned_states (test_timestamp_source_audit.TimestampAuditTests.test_identifies_all_three_exact_pinned_states)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\����c��\WHEELTEC\robot\test_timestamp_source_audit.py", line 30, in test_identifies_all_three_exact_pinned_states
+    self.assertEqual(target.audit_source(FIXTURES/state)['state'],state)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\����c��\WHEELTEC\robot\timestamp_source_audit.py", line 3, in audit_source
+    def audit_source(*args): raise AssertionError('source fingerprint audit missing')
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: source fingerprint audit missing
+
+======================================================================
+FAIL: test_integer_shift_retains_epoch_microseconds (test_timestamp_source_audit.TimestampAuditTests.test_integer_shift_retains_epoch_microseconds)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\����c��\WHEELTEC\robot\test_timestamp_source_audit.py", line 14, in test_integer_shift_retains_epoch_microseconds
+    self.assertEqual(target.epoch_shift_us(946686580, 823742, 10, 123456000), 946686570700286)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\����c��\WHEELTEC\robot\timestamp_source_audit.py", line 1, in epoch_shift_us
+    def epoch_shift_us(*args): raise AssertionError('integer microsecond conversion missing')
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: integer microsecond conversion missing
+
+======================================================================
+FAIL: test_mixed_source_is_not_called_fixed (test_timestamp_source_audit.TimestampAuditTests.test_mixed_source_is_not_called_fixed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\����c��\WHEELTEC\robot\test_timestamp_source_audit.py", line 39, in test_mixed_source_is_not_called_fixed
+    self.assertEqual(target.audit_source(src)['state'],'unknown')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\����c��\WHEELTEC\robot\timestamp_source_audit.py", line 3, in audit_source
+    def audit_source(*args): raise AssertionError('source fingerprint audit missing')
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: source fingerprint audit missing
+
+======================================================================
+FAIL: test_modified_fixture_cannot_supply_candidate_code (test_timestamp_source_audit.TimestampAuditTests.test_modified_fixture_cannot_supply_candidate_code)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\����c��\WHEELTEC\robot\test_timestamp_source_audit.py", line 61, in test_modified_fixture_cannot_supply_candidate_code
+    with self.assertRaises(ValueError): target.prepare_patch(FIXTURES/'legacy',Path(d)/'out',fixtures)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\����c��\WHEELTEC\robot\timestamp_source_audit.py", line 4, in prepare_patch
+    def prepare_patch(*args): raise AssertionError('offline review bundle missing')
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: offline review bundle missing
+
+======================================================================
+FAIL: test_prepare_preserves_source_and_emits_reviewable_diff (test_timestamp_source_audit.TimestampAuditTests.test_prepare_preserves_source_and_emits_reviewable_diff)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\����c��\WHEELTEC\robot\test_timestamp_source_audit.py", line 44, in test_prepare_preserves_source_and_emits_reviewable_diff
+    out=Path(d)/'bundle'; result=target.prepare_patch(src,out)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\����c��\WHEELTEC\robot\timestamp_source_audit.py", line 4, in prepare_patch
+    def prepare_patch(*args): raise AssertionError('offline review bundle missing')
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: offline review bundle missing
+
+======================================================================
+FAIL: test_rejects_invalid_time_fields (test_timestamp_source_audit.TimestampAuditTests.test_rejects_invalid_time_fields)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\����c��\WHEELTEC\robot\test_timestamp_source_audit.py", line 27, in test_rejects_invalid_time_fields
+    with self.assertRaises(ValueError): target.image_timestamp(*args)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\����c��\WHEELTEC\robot\timestamp_source_audit.py", line 2, in image_timestamp
+    def image_timestamp(*args): raise AssertionError('integer timestamp assembly missing')
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: integer timestamp assembly missing
+
+======================================================================
+FAIL: test_rounding_monotonic_nsec_carries_at_second (test_timestamp_source_audit.TimestampAuditTests.test_rounding_monotonic_nsec_carries_at_second)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\����c��\WHEELTEC\robot\test_timestamp_source_audit.py", line 16, in test_rounding_monotonic_nsec_carries_at_second
+    self.assertEqual(target.epoch_shift_us(100, 0, 9, 999999500), 90000000)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\����c��\WHEELTEC\robot\timestamp_source_audit.py", line 1, in epoch_shift_us
+    def epoch_shift_us(*args): raise AssertionError('integer microsecond conversion missing')
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: integer microsecond conversion missing
+
+======================================================================
+FAIL: test_timestamp_carries_fractional_epoch_shift (test_timestamp_source_audit.TimestampAuditTests.test_timestamp_carries_fractional_epoch_shift)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\����c��\WHEELTEC\robot\test_timestamp_source_audit.py", line 18, in test_timestamp_carries_fractional_epoch_shift
+    self.assertEqual(target.image_timestamp(10, 999999, 946686570700286), (946686581, 700285000))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\����c��\WHEELTEC\robot\timestamp_source_audit.py", line 2, in image_timestamp
+    def image_timestamp(*args): raise AssertionError('integer timestamp assembly missing')
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: integer timestamp assembly missing
+
+======================================================================
+FAIL: test_unknown_or_incomplete_source_is_refused (test_timestamp_source_audit.TimestampAuditTests.test_unknown_or_incomplete_source_is_refused)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\����c��\WHEELTEC\robot\test_timestamp_source_audit.py", line 33, in test_unknown_or_incomplete_source_is_refused
+    self.assertEqual(target.audit_source(Path(d))['state'],'unknown')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\����c��\WHEELTEC\robot\timestamp_source_audit.py", line 3, in audit_source
+    def audit_source(*args): raise AssertionError('source fingerprint audit missing')
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: source fingerprint audit missing
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.090s
+
+FAILED (failures=12)

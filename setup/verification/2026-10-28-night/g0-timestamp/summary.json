@@ -1,0 +1,21 @@
+{
+  "offline_only": true,
+  "python_tests_passed": 12,
+  "python_red_failures": 12,
+  "cpp": {
+    "legacy_checks": 5,
+    "legacy_expected_failures": 4,
+    "pr267_checks": 8,
+    "pr267_expected_failures": 1,
+    "candidate_checks_passed": 8
+  },
+  "isolated_patch_apply_check": true,
+  "isolated_patched_files_match_candidate_sha256": true,
+  "cli_exit_code_checks_passed": 3,
+  "full_driver_build": false,
+  "real_robot_verified": false,
+  "deployment_ready": false,
+  "g0_gate_passed": false,
+  "installed_driver_modified": false,
+  "source_version_on_robot": "unknown"
+}

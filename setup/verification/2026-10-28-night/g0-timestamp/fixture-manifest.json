@@ -1,0 +1,22 @@
+{
+  "legacy_commit": "e030e2d4824d2abf9c14fab644b81dd0d6e18447",
+  "pr267_commit": "c743cb16c5080c69a53472b058b7255bef8c5a13",
+  "unit_fix_commit": "ee0a2f76d8ccf5a4e1e5e88127689d30ba36f243",
+  "files": {
+    "include/usb_cam/usb_cam.hpp": {
+      "legacy": "db7961280520d821df9f18ee942915728e7e066eba0b14a1fcdb9c01c36eafff",
+      "pr267": "88c613319f58c412c9075a09359e475670a37bc8c7ac6f70eade329cc4dc1ce1",
+      "candidate": "88c613319f58c412c9075a09359e475670a37bc8c7ac6f70eade329cc4dc1ce1"
+    },
+    "include/usb_cam/utils.hpp": {
+      "legacy": "351a711e8f35c11b92e6146db1512bb6ea725db77272cb989a4e1f8844f2c63a",
+      "pr267": "9dd5a0524ec8f294a585993c648506a82c35270f029b14b53fdd231d9256a338",
+      "candidate": "e8db3fdb6b6d3239ac8405d8c89c03863280cee8bfa827ed7e485c2e00f034a9"
+    },
+    "src/usb_cam.cpp": {
+      "legacy": "1f527daec7cd56565333c815a5e9f655fa9498e6a9ab6029556b695e0cf8ba9a",
+      "pr267": "ff52e5db9660339e91fd30514c10b0c0676e074a6864fb4b5b963d680a8c6f6e",
+      "candidate": "ff52e5db9660339e91fd30514c10b0c0676e074a6864fb4b5b963d680a8c6f6e"
+    }
+  }
+}

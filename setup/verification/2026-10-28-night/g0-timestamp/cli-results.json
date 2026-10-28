@@ -1,0 +1,34 @@
+[
+  {
+    "arguments": [
+      "D:\\\u865a\u62dfc\u76d8\\WHEELTEC\\robot\\timestamp_source_audit.py",
+      "D:\\\u865a\u62dfc\u76d8\\WHEELTEC\\setup\\verification\\2026-10-28-night\\g0-timestamp\\fixtures\\legacy"
+    ],
+    "expected_returncode": 0,
+    "returncode": 0,
+    "stdout": "{\n  \"source\": \"D:\\\\\\u865a\\u62dfc\\u76d8\\\\WHEELTEC\\\\setup\\\\verification\\\\2026-10-28-night\\\\g0-timestamp\\\\fixtures\\\\legacy\",\n  \"state\": \"legacy\",\n  \"files\": {\n    \"include/usb_cam/usb_cam.hpp\": {\n      \"sha256\": \"db7961280520d821df9f18ee942915728e7e066eba0b14a1fcdb9c01c36eafff\"\n    },\n    \"include/usb_cam/utils.hpp\": {\n      \"sha256\": \"351a711e8f35c11b92e6146db1512bb6ea725db77272cb989a4e1f8844f2c63a\"\n    },\n    \"src/usb_cam.cpp\": {\n      \"sha256\": \"1f527daec7cd56565333c815a5e9f655fa9498e6a9ab6029556b695e0cf8ba9a\"\n    }\n  },\n  \"scope\": \"three timestamp-bearing files only; not full release or installed binary\",\n  \"can_prepare_review_bundle\": true,\n  \"deployment_ready\": false,\n  \"real_robot_verified\": false\n}\n",
+    "stderr": ""
+  },
+  {
+    "arguments": [
+      "D:\\\u865a\u62dfc\u76d8\\WHEELTEC\\robot\\timestamp_source_audit.py",
+      "D:\\\u865a\u62dfc\u76d8\\WHEELTEC\\setup\\verification\\2026-10-28-night\\g0-timestamp\\fixtures"
+    ],
+    "expected_returncode": 1,
+    "returncode": 1,
+    "stdout": "{\n  \"source\": \"D:\\\\\\u865a\\u62dfc\\u76d8\\\\WHEELTEC\\\\setup\\\\verification\\\\2026-10-28-night\\\\g0-timestamp\\\\fixtures\",\n  \"state\": \"unknown\",\n  \"files\": {\n    \"include/usb_cam/usb_cam.hpp\": {\n      \"sha256\": null,\n      \"error\": \"[Errno 2] No such file or directory: 'D:\\\\\\\\\\u865a\\u62dfc\\u76d8\\\\\\\\WHEELTEC\\\\\\\\setup\\\\\\\\verification\\\\\\\\2026-10-28-night\\\\\\\\g0-timestamp\\\\\\\\fixtures\\\\\\\\include\\\\\\\\usb_cam\\\\\\\\usb_cam.hpp'\"\n    },\n    \"include/usb_cam/utils.hpp\": {\n      \"sha256\": null,\n      \"error\": \"[Errno 2] No such file or directory: 'D:\\\\\\\\\\u865a\\u62dfc\\u76d8\\\\\\\\WHEELTEC\\\\\\\\setup\\\\\\\\verification\\\\\\\\2026-10-28-night\\\\\\\\g0-timestamp\\\\\\\\fixtures\\\\\\\\include\\\\\\\\usb_cam\\\\\\\\utils.hpp'\"\n    },\n    \"src/usb_cam.cpp\": {\n      \"sha256\": null,\n      \"error\": \"[Errno 2] No such file or directory: 'D:\\\\\\\\\\u865a\\u62dfc\\u76d8\\\\\\\\WHEELTEC\\\\\\\\setup\\\\\\\\verification\\\\\\\\2026-10-28-night\\\\\\\\g0-timestamp\\\\\\\\fixtures\\\\\\\\src\\\\\\\\usb_cam.cpp'\"\n    }\n  },\n  \"scope\": \"three timestamp-bearing files only; not full release or installed binary\",\n  \"can_prepare_review_bundle\": false,\n  \"deployment_ready\": false,\n  \"real_robot_verified\": false\n}\n",
+    "stderr": ""
+  },
+  {
+    "arguments": [
+      "D:\\\u865a\u62dfc\u76d8\\WHEELTEC\\robot\\timestamp_source_audit.py",
+      "D:\\\u865a\u62dfc\u76d8\\WHEELTEC\\setup\\verification\\2026-10-28-night\\g0-timestamp\\fixtures\\legacy",
+      "--prepare",
+      "D:\\\u865a\u62dfc\u76d8\\WHEELTEC\\setup\\verification\\2026-10-28-night\\g0-timestamp\\review-bundle"
+    ],
+    "expected_returncode": 2,
+    "returncode": 2,
+    "stdout": "{\"error\": \"Refusing to overwrite existing review output\", \"deployment_ready\": false}\n",
+    "stderr": ""
+  }
+]

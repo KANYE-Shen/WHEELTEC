@@ -1,0 +1,17 @@
+test_does_not_overwrite_or_write_inside_source (test_timestamp_source_audit.TimestampAuditTests.test_does_not_overwrite_or_write_inside_source) ... ok
+test_frame_sequence_is_monotonic_across_second (test_timestamp_source_audit.TimestampAuditTests.test_frame_sequence_is_monotonic_across_second) ... ok
+test_half_second_does_not_round_seconds_up (test_timestamp_source_audit.TimestampAuditTests.test_half_second_does_not_round_seconds_up) ... ok
+test_identifies_all_three_exact_pinned_states (test_timestamp_source_audit.TimestampAuditTests.test_identifies_all_three_exact_pinned_states) ... ok
+test_integer_shift_retains_epoch_microseconds (test_timestamp_source_audit.TimestampAuditTests.test_integer_shift_retains_epoch_microseconds) ... ok
+test_mixed_source_is_not_called_fixed (test_timestamp_source_audit.TimestampAuditTests.test_mixed_source_is_not_called_fixed) ... ok
+test_modified_fixture_cannot_supply_candidate_code (test_timestamp_source_audit.TimestampAuditTests.test_modified_fixture_cannot_supply_candidate_code) ... ok
+test_prepare_preserves_source_and_emits_reviewable_diff (test_timestamp_source_audit.TimestampAuditTests.test_prepare_preserves_source_and_emits_reviewable_diff) ... ok
+test_rejects_invalid_time_fields (test_timestamp_source_audit.TimestampAuditTests.test_rejects_invalid_time_fields) ... ok
+test_rounding_monotonic_nsec_carries_at_second (test_timestamp_source_audit.TimestampAuditTests.test_rounding_monotonic_nsec_carries_at_second) ... ok
+test_timestamp_carries_fractional_epoch_shift (test_timestamp_source_audit.TimestampAuditTests.test_timestamp_carries_fractional_epoch_shift) ... ok
+test_unknown_or_incomplete_source_is_refused (test_timestamp_source_audit.TimestampAuditTests.test_unknown_or_incomplete_source_is_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.218s
+
+OK

@@ -1,0 +1,16 @@
+{
+  "raw": {
+    "count": 21,
+    "backward_transitions": 3,
+    "future_count": 10,
+    "min_age_sec": -0.807429481,
+    "max_age_sec": 0.202624447
+  },
+  "compressed": {
+    "count": 22,
+    "backward_transitions": 3,
+    "future_count": 10,
+    "min_age_sec": -0.813372164,
+    "max_age_sec": 0.192876335
+  }
+}

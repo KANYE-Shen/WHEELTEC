@@ -1,0 +1,3 @@
+GitHub API rate limit exceeded; .diff HTTP unexpected EOF. Fixed-source bare git clone succeeded.
+Initial git apply succeeded but candidate byte hashes differed under Windows core.autocrlf; failure retained separately. core.autocrlf=false rerun required.
+Moving Git cache from D: to C: copied files then hit read-only Git object deletion PermissionError; copied cache preserved and source leftovers cleaned only after verifying both resolved paths.

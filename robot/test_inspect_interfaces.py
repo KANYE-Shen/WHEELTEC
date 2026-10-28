@@ -66,7 +66,7 @@ class StreamAssessmentTests(unittest.TestCase):
         modules = {'rclpy':ros,'rclpy.parameter':NS(Parameter=lambda *a,**kw:None),
                    'rclpy.qos':NS(qos_profile_sensor_data=None),
                    'rclpy.time':NS(Time=NS(from_msg=lambda stamp:stamp)),
-                   'sensor_msgs.msg':NS(LaserScan=object),'nav_msgs.msg':NS(Odometry=object),
+                   'sensor_msgs.msg':NS(LaserScan=object,Image=object),'nav_msgs.msg':NS(Odometry=object),
                    'tf2_ros':NS(Buffer=lambda **kw:buffer,TransformListener=lambda *a:object(),TransformException=RuntimeError)}
         ticks = itertools.count(step=.1)
         with patch.dict(sys.modules,modules), \
@@ -83,6 +83,19 @@ class StreamAssessmentTests(unittest.TestCase):
         self.assertTrue(result['invalid_numeric_fields'])
         self.assertEqual(result['imu_topic_candidates'],['/imu'])
         self.assertFalse(result['imu_hardware_confirmed'])
+
+
+class G0ClockRegressionTests(unittest.TestCase):
+    def test_uninitialized_clock_cannot_be_reported_as_ready(self):
+        from inspect_interfaces import clock_assessment
+        self.assertFalse(clock_assessment(946687000)['plausible_utc'])
+        self.assertFalse(clock_assessment(1793196000)['synchronization_verified'])
+        self.assertTrue(clock_assessment(1793196000)['plausible_utc'])
+
+    def test_future_sample_is_not_erased_by_a_fresh_last_sample(self):
+        result=assess_stream([0,1,2],[100.8,101,102],2,102,.5,sample_clocks=[100,101,102])
+        self.assertFalse(result['passed'])
+        self.assertEqual(result['future_samples'],1)
 
 if __name__ == '__main__':
     unittest.main()

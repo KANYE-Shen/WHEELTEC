@@ -1,0 +1,27 @@
+{
+  "commands": [
+    {
+      "command": [
+        "git",
+        "apply",
+        "--check",
+        "candidate.patch"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "apply",
+        "candidate.patch"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "patched_isolated_copy_matches_candidate": false,
+  "installed_driver_modified": false
+}

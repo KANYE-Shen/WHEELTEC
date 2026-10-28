@@ -1,0 +1,19 @@
+{
+  "source": "D:\\\u865a\u62dfc\u76d8\\WHEELTEC\\setup\\verification\\2026-10-28-night\\g0-timestamp\\fixtures\\candidate",
+  "state": "candidate",
+  "files": {
+    "include/usb_cam/usb_cam.hpp": {
+      "sha256": "88c613319f58c412c9075a09359e475670a37bc8c7ac6f70eade329cc4dc1ce1"
+    },
+    "include/usb_cam/utils.hpp": {
+      "sha256": "e8db3fdb6b6d3239ac8405d8c89c03863280cee8bfa827ed7e485c2e00f034a9"
+    },
+    "src/usb_cam.cpp": {
+      "sha256": "ff52e5db9660339e91fd30514c10b0c0676e074a6864fb4b5b963d680a8c6f6e"
+    }
+  },
+  "scope": "three timestamp-bearing files only; not full release or installed binary",
+  "can_prepare_review_bundle": false,
+  "deployment_ready": false,
+  "real_robot_verified": false
+}

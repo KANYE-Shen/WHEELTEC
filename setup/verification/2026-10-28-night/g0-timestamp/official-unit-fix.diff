@@ -1,0 +1,23 @@
+commit ee0a2f76d8ccf5a4e1e5e88127689d30ba36f243
+Author:     Evan Flynn <evanflynn.msu@gmail.com>
+AuthorDate: Sun Jun 16 09:44:06 2024 -0700
+Commit:     Evan Flynn <evanflynn.msu@gmail.com>
+CommitDate: Sun Jun 16 09:44:06 2024 -0700
+
+    Keep units as microseconds, not nanoseconds
+    
+    Signed-off-by: Evan Flynn <evanflynn.msu@gmail.com>
+
+diff --git a/include/usb_cam/utils.hpp b/include/usb_cam/utils.hpp
+index add1ff9..acd03d4 100644
+--- a/include/usb_cam/utils.hpp
++++ b/include/usb_cam/utils.hpp
+@@ -94,7 +94,7 @@ inline time_t get_epoch_time_shift_us()
+     monotonic_time.tv_sec * 1000000 + static_cast<int64_t>(
+     std::round(monotonic_time.tv_nsec / 1000.0));
+   const int64_t epoch_us =
+-    epoch_time.tv_sec * 1000000 + epoch_time.tv_usec / 1000.0;
++    epoch_time.tv_sec * 1000000 + epoch_time.tv_usec;
+ 
+   return static_cast<time_t>(epoch_us - uptime_us);
+ }

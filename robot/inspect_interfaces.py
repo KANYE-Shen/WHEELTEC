@@ -12,7 +12,11 @@ import platform
 import time
 
 
-def assess_stream(received, stamps, now, stamp_now, minimum_hz):
+def assess_stream(received, stamps, now, stamp_now, minimum_hz, sample_clocks=None):
+    if sample_clocks is not None and len(sample_clocks) != len(stamps):
+        raise ValueError("Each source stamp requires its receive-side ROS clock")
+    future_samples = sum(stamp-clock > .15 for stamp,clock in zip(stamps,sample_clocks or []))
+    old_samples = sum(clock-stamp > 1. for stamp,clock in zip(stamps,sample_clocks or []))
     count = len(received)
     rate = (count-1)/(received[-1]-received[0]) if count > 1 and received[-1] > received[0] else None
     age = now-received[-1] if count else None
@@ -27,10 +31,17 @@ def assess_stream(received, stamps, now, stamp_now, minimum_hz):
     zeros = sum(s <= 0 for s in stamps)
     finite = all(math.isfinite(s) for s in stamps)
     fresh = measurement_age is not None and 0 <= measurement_age <= 1.0
-    valid_stamp = finite and stamp_age is not None and -.15 <= stamp_age <= 1.0 and not backwards and not zeros
-    return {'messages':count,'wall_hz':rate,'measurement_wall_hz':measurement_rate,'duplicate_stamps':duplicates,'distinct_measurements':len(updates),'minimum_hz':minimum_hz,'receive_age_seconds':age,'measurement_age_seconds':measurement_age,
+    valid_stamp = finite and stamp_age is not None and -.15 <= stamp_age <= 1.0 and not backwards and not zeros and not future_samples and not old_samples
+    return {'future_samples':future_samples,'stale_at_receipt_samples':old_samples,'messages':count,'wall_hz':rate,'measurement_wall_hz':measurement_rate,'duplicate_stamps':duplicates,'distinct_measurements':len(updates),'minimum_hz':minimum_hz,'receive_age_seconds':age,'measurement_age_seconds':measurement_age,
             'stamp_age_seconds':stamp_age,'backwards_stamps':backwards,'zero_stamps':zeros,
             'passed':bool(len(updates) >= 3 and fresh and valid_stamp and measurement_rate is not None and measurement_rate >= minimum_hz)}
+
+
+
+def clock_assessment(epoch):
+    # Detect the board's uninitialized year-2000 clock without pretending NTP is checked.
+    return {'wall_epoch':epoch,'plausible_utc':math.isfinite(epoch) and epoch >= 1577836800,
+            'synchronization_verified':False,'reference':'UTC lower-bound diagnostic only'}
 
 
 def finite_report(value, invalid_fields, path='report'):
@@ -65,6 +76,8 @@ def main():
     parser.add_argument('--seconds',type=float,default=15)
     parser.add_argument('--scan-topic',default='/scan')
     parser.add_argument('--odom-topic',default='/odom')
+    parser.add_argument('--camera-topic',default='/image_raw')
+    parser.add_argument('--camera-min-hz',type=float,default=1.)
     parser.add_argument('--base-frame',default='base_link')
     parser.add_argument('--odom-frame',default='odom')
     parser.add_argument('--scan-min-hz',type=float,default=5)
@@ -72,7 +85,7 @@ def main():
     parser.add_argument('--simulation',action='store_true',help='Only for validating this checker against simulation')
     parser.add_argument('--output',type=Path,required=True)
     args = parser.parse_args()
-    if not 3 <= args.seconds <= 300 or any(not math.isfinite(v) or v <= 0 for v in (args.scan_min_hz,args.odom_min_hz)):
+    if not 3 <= args.seconds <= 300 or any(not math.isfinite(v) or v <= 0 for v in (args.scan_min_hz,args.odom_min_hz,args.camera_min_hz)):
         parser.error('Use 3–300 seconds and positive minimum frequencies')
     output = args.output.expanduser().resolve()
     output.parent.mkdir(parents=True,exist_ok=True)
@@ -83,10 +96,12 @@ def main():
               'manual_checks_required':['measured chassis kinematics and dimensions','laser extrinsics',
                                         'wheel/steering calibration','odometry accuracy','braking distance',
                                         'low-speed supervised navigation and actual RDK load'],
+              'clock':clock_assessment(time.time()),
               'started_at':time.strftime('%Y-%m-%dT%H:%M:%S%z'),'resources_before':resources()}
     node = None
-    received = {'scan':[],'odom':[]}
-    stamps = {'scan':[],'odom':[]}
+    received = {'scan':[],'odom':[],'camera':[]}
+    stamps = {'scan':[],'odom':[],'camera':[]}
+    sample_clocks = {'scan':[],'odom':[],'camera':[]}
     last = {}
     scan_details = {}
     tf_failures = 0
@@ -96,7 +111,7 @@ def main():
         from rclpy.parameter import Parameter
         from rclpy.qos import qos_profile_sensor_data
         from rclpy.time import Time
-        from sensor_msgs.msg import LaserScan
+        from sensor_msgs.msg import LaserScan, Image
         from nav_msgs.msg import Odometry
         from tf2_ros import Buffer, TransformListener, TransformException
         rclpy.init()
@@ -110,6 +125,7 @@ def main():
                 return
             received[kind].append(time.monotonic())
             stamps[kind].append(message.header.stamp.sec+message.header.stamp.nanosec*1e-9)
+            sample_clocks[kind].append(node.get_clock().now().nanoseconds*1e-9)
             last[kind] = message
             if kind == 'scan':
                 valid = sum(math.isfinite(v) and message.range_min <= v <= message.range_max for v in message.ranges)
@@ -118,7 +134,8 @@ def main():
                                     angle_min_rad=message.angle_min,angle_max_rad=message.angle_max)
         subscriptions = [
             node.create_subscription(LaserScan,args.scan_topic,lambda m:receive('scan',m),qos_profile_sensor_data),
-            node.create_subscription(Odometry,args.odom_topic,lambda m:receive('odom',m),qos_profile_sensor_data)]
+            node.create_subscription(Odometry,args.odom_topic,lambda m:receive('odom',m),qos_profile_sensor_data),
+            node.create_subscription(Image,args.camera_topic,lambda m:receive('camera',m),qos_profile_sensor_data)]
         begin = time.monotonic()
         last_tf = []
         while time.monotonic()-begin < args.seconds:
@@ -149,9 +166,9 @@ def main():
         now = time.monotonic()
         stamp_now = node.get_clock().now().nanoseconds*1e-9
         report['duration_wall_seconds'] = now-begin
-        report['streams'] = {kind:assess_stream(received[kind],stamps[kind],now,stamp_now,minimum)
-                             for kind,minimum in [('scan',args.scan_min_hz),('odom',args.odom_min_hz)]}
-        for kind,topic in [('scan',args.scan_topic),('odom',args.odom_topic)]:
+        report['streams'] = {kind:assess_stream(received[kind],stamps[kind],now,stamp_now,minimum,sample_clocks=sample_clocks[kind])
+                             for kind,minimum in [('scan',args.scan_min_hz),('odom',args.odom_min_hz),('camera',args.camera_min_hz)]}
+        for kind,topic in [('scan',args.scan_topic),('odom',args.odom_topic),('camera',args.camera_topic)]:
             report['streams'][kind].update(topic=topic,publishers=node.count_publishers(topic))
         report['ros_topics_and_types'] = dict(node.get_topic_names_and_types())
         report['ros_node_names'] = node.get_node_names()
@@ -165,7 +182,8 @@ def main():
             report['odom_frames'] = {'parent':odom.header.frame_id,'child':odom.child_frame_id}
         frames_ok = report.get('odom_frames') == {'parent':args.odom_frame,'child':args.base_frame}
         report['interface_check_passed'] = bool(all(s['passed'] for s in report['streams'].values())
-                                                and scan_details.get('valid_beams',0) > 0 and last_tf and frames_ok)
+                                                and scan_details.get('valid_beams',0) > 0 and last_tf and frames_ok
+                                                and (args.simulation or report['clock']['plausible_utc']))
     except KeyboardInterrupt:
         interrupted = True
         report['error'] = 'operator_interrupted'

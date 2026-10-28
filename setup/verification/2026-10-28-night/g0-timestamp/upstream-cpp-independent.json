@@ -1,0 +1,32 @@
+{
+  "offline_only": true,
+  "temporary_directory": "/tmp/wheeltec-timestamp-z8x4SJ",
+  "full_driver_build": false,
+  "real_robot_verified": false,
+  "states": {
+    "legacy": {
+      "compile_returncode": 0,
+      "compile_stdout": "",
+      "compile_stderr": "",
+      "returncode": 1,
+      "stdout": "FAIL epoch microseconds retained (ee0a2f7)\nFAIL half second stays in same second\nFAIL last microsecond does not round seconds\nFAIL no backward stamp at rollover\nchecks=5 failures=4\n",
+      "stderr": ""
+    },
+    "pr267": {
+      "compile_returncode": 0,
+      "compile_stdout": "",
+      "compile_stderr": "",
+      "returncode": 1,
+      "stdout": "FAIL epoch microseconds retained (ee0a2f7)\nchecks=8 failures=1\n",
+      "stderr": ""
+    },
+    "candidate": {
+      "compile_returncode": 0,
+      "compile_stdout": "",
+      "compile_stderr": "",
+      "returncode": 0,
+      "stdout": "checks=8 failures=0\n",
+      "stderr": ""
+    }
+  }
+}
