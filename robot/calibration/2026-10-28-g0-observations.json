@@ -1,0 +1,82 @@
+{
+  "schema": "wheeltec.g0.observations.v1",
+  "date": "2026-10-28",
+  "calibration_complete": false,
+  "deployment_ready": false,
+  "g0_passed": false,
+  "motion_data_collected": false,
+  "source": "setup/verification/2026-10-28-g0/sensors-on-v1",
+  "observations": {
+    "scan_receive_hz": {
+      "value": 10.021671520585882,
+      "source": "measured",
+      "unit": "Hz",
+      "method": "151 distinct ROS scan messages during read-only interface sample; monotonic arrival interval",
+      "evidence": "interfaces.json",
+      "scope": "receive frequency, not laser timing calibration"
+    },
+    "scan_message_beams": {
+      "value": 540,
+      "source": "measured",
+      "unit": "count",
+      "evidence": "interfaces.json",
+      "scope": "message shape, not physical angular resolution calibration"
+    },
+    "scan_message_angle_span_deg": {
+      "value": 360,
+      "source": "measured",
+      "unit": "deg",
+      "evidence": "interfaces.json",
+      "scope": "message endpoints; actual usable FOV/blind zones unverified"
+    },
+    "scan_driver_declared_range_m": {
+      "value": [
+        0.15,
+        50.0
+      ],
+      "source": "driver_declared",
+      "evidence": "interfaces.json",
+      "scope": "not independently measured effective range"
+    },
+    "stationary_scan_span_s": {
+      "value": 60.774949041,
+      "source": "measured",
+      "unit": "s",
+      "messages": 610,
+      "evidence": "bag-audit-v2.json"
+    },
+    "camera_capture_time_healthy": {
+      "value": false,
+      "source": "measured",
+      "evidence": "../2026-10-28-camera-flicker/source-stamps.json"
+    },
+    "odom_tf_available": {
+      "value": false,
+      "source": "measured",
+      "evidence": "interfaces.json",
+      "scope": "base driver intentionally not started; do not infer hardware has no odometry"
+    },
+    "cpu_busy_during_readonly_percent": {
+      "value": 20.7,
+      "source": "measured",
+      "evidence": "interfaces.json",
+      "scope": "not full SLAM/Nav2/exploration load"
+    }
+  },
+  "unverified": [
+    "effective_laser_fov",
+    "range_noise_sigma",
+    "dropout_distribution",
+    "laser_model",
+    "physical_geometry",
+    "kinematics",
+    "odometry_scale_and_drift",
+    "actuator_delay_and_braking",
+    "IMU",
+    "algorithm_load",
+    "clock_synchronization",
+    "raw_bag_offline_replay"
+  ],
+  "simulation_profile_changed": false,
+  "note": "Observation index only, not the complete realism profile schema. Do not pass this file to generate_profile or relabel assumed FOV/noise/geometry as measured."
+}
