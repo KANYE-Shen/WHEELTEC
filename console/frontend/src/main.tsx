@@ -498,7 +498,7 @@ function App() {
           <div className="metrics">
             {["scan", "odom", "map", "camera"].map((key, i) => {
               const s = state?.streams[key];
-              const readout = streamReadout(key, s, healthy, (now - lastReceive) / 1000);
+              const readout = streamReadout(key, s, healthy, (now - lastReceive) / 1000, cameraStampWarning);
               const fresh = readout.available;
               return (
                 <div className="metric" key={key}>
@@ -517,7 +517,7 @@ function App() {
                       ? `数据年龄 ${Math.max(0, readout.age).toFixed(2)} s`
                       : "尚未收到数据"}{" "}
                     · {readout.status}
-                    {readout.timestampWarning && " · 采集时间异常"}
+                    {readout.timestampWarning && " · 已检测到时间异常"}
                   </p>
                 </div>
               );

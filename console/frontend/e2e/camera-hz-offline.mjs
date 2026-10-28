@@ -45,6 +45,16 @@ await check("recorded future-stamp oscillation never hides Hz",async()=>{
 await check("warning remains distinct from receive-rate",async()=>{
  await page.getByText(/已检测到相机采集时间戳异常/).waitFor({timeout:3000});
 });
+await check("metric warning color and height stay stable after first fault",async()=>{
+ await page.getByText(/已检测到相机采集时间戳异常/).waitFor();
+ const samples=[];
+ for(let i=0;i<40;i++){
+  samples.push(await metric.evaluate(el=>({height:el.getBoundingClientRect().height,dot:el.querySelector(".dot")?.className})));
+  await page.waitForTimeout(100);
+ }
+ fs.writeFileSync(path.join(out,"metric-layout-samples.json"),JSON.stringify(samples));
+ if(new Set(samples.map(x=>x.height)).size!==1||new Set(samples.map(x=>x.dot)).size!==1)throw Error("Metric warning flickers between source clock phases");
+});
 await page.screenshot({path:path.join(out,"offline-replay.png"),fullPage:true});
 await check("real video reception stop hides rate",async()=>{
  stopped=true;await page.waitForTimeout(500);

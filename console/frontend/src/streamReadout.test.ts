@@ -5,6 +5,11 @@ describe("camera receive frequency", () => {
   const a = streamReadout("camera",{stamp:10.8,age:-.8,hz:17,fresh:false,receiving:true,receive_age:.1,receive_hz:7.5},true,.1);
   expect(a.available).toBe(true);expect(a.hz).toBe(7.5);expect(a.age).toBeCloseTo(.2);expect(a.timestampWarning).toBe(true);
  });
+ it("keeps a detected timestamp warning stable between intermittent good stamps", () => {
+  const s={stamp:10,age:.1,hz:8,fresh:true,receiving:true,receive_age:.1,receive_hz:7.5};
+  expect(streamReadout("camera",s,true,0,true).timestampWarning).toBe(true);
+  expect(streamReadout("camera",s,true,0,false).timestampWarning).toBe(false);
+ });
  it("hides stale or disconnected camera readings", () => {
   const s={stamp:10,age:0,hz:7.5,fresh:true,receiving:true,receive_age:.8,receive_hz:7.5};
   expect(streamReadout("camera",s,true,.3).available).toBe(false);

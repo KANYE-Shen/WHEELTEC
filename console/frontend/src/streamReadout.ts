@@ -1,5 +1,5 @@
 import type { Stream } from "./protocol";
-export function streamReadout(key: string, stream: Stream | undefined, online: boolean, elapsed: number) {
+export function streamReadout(key: string, stream: Stream | undefined, online: boolean, elapsed: number, captureWarningLatched = false) {
   const camera = key === "camera";
   const receiveAge = stream?.receive_age;
   const age = camera && receiveAge != null ? receiveAge : stream?.age;
@@ -11,7 +11,7 @@ export function streamReadout(key: string, stream: Stream | undefined, online: b
     available,
     hz: camera ? (stream?.receive_hz ?? stream?.hz ?? 0) : (stream?.hz ?? 0),
     age: currentAge,
-    timestampWarning: Boolean(camera && online && receiving && !stream?.fresh),
+    timestampWarning: Boolean(camera && online && receiving && (captureWarningLatched || !stream?.fresh)),
     status: !available ? "不可用 / 过期" : camera ? "接收中" : "实时",
   };
 }
