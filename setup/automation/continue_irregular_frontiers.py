@@ -33,7 +33,7 @@ def main():
     logs=Path(tempfile.gettempdir())/'wheeltec-irregular-frontier-wake-20261028'
     logs.mkdir(exist_ok=True)
     stamp=time.strftime('%Y%m%dT%H%M%S')
-    # OS lock is held for this entire scheduled continuation, with no approval bypass.
+    # Serialize the queue request; the existing chat retains its permission mode.
     import msvcrt
     with (logs/'worker.lock').open('a+b') as lock:
         lock.seek(0);lock.write(b'0');lock.flush();lock.seek(0)
@@ -45,9 +45,8 @@ def main():
             if not binaries:raise RuntimeError('Codex executable unavailable')
             binary=max(binaries,key=lambda x:x.stat().st_mtime)
             prompt=(ROOT/'setup/automation/irregular-frontiers-continuation.md').read_text(encoding='utf-8')
-            command=[str(binary),'exec','--approve-for-me','--cd',str(ROOT),'resume',SESSION,'-','--json','--output-last-message',str(logs/(stamp+'-result.md'))]
-            with (logs/(stamp+'-events.log')).open('xb') as log:
-                result=subprocess.run(command,input=prompt.encode('utf-8'),stdout=log,stderr=subprocess.STDOUT,cwd=ROOT)
+            command=[str(binary),'queue','--thread',SESSION,'--message',prompt]
+            result=subprocess.run(command,capture_output=True,cwd=ROOT)
             (logs/(stamp+'-exit.json')).write_text(json.dumps({'returncode':result.returncode,'session':SESSION,'started_at':stamp}),encoding='utf-8')
             if result.returncode:raise SystemExit(result.returncode)
         finally:
