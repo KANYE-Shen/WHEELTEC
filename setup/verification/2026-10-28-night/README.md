@@ -1,6 +1,6 @@
 # 2026-10-28 夜间离线工作记录
 
-状态：离线验证已完成，最终归档/推送核验中；实车已断开，未连接、未部署、未发送运动命令。新版AGENTS与附件字节一致；旧版AGENTS-before.md、副本AGENTS-attached.md。机器进度task.json；凌晨3点续作登记证明scheduler-proof.json，说明见setup/automation/g0-night-continuation.md。
+状态：本轮离线交付已完成并核验推送；实车已断开，未连接、未部署、未发送运动命令。新版AGENTS与附件字节一致；旧版AGENTS-before.md、副本AGENTS-attached.md。机器进度task.json；凌晨3点续作登记证明scheduler-proof.json，说明见setup/automation/g0-night-continuation.md。
 
 
 最终结果：相机Hz离线7/7，ROS/仿真回归97/97，完整探索0/40、首目标0/40，G0未通过。新增算法保持默认关闭，不部署实车。完整对照见[P0-results.md](P0-results.md)，Git提交和远端核验见push-receipt.json。
@@ -87,3 +87,5 @@ v2复验单纯1秒回调排空仍漏收，16个完整结果及第17个中断尝�
 新旧续作守卫均已使用同会话queue，不覆盖审批权限；旧守卫遗留选项有先失败回归后修复。03:00任务已登记，实际未来定时触发未验证；离线交付完成后状态标completed以保持静默。不要为验证定时器而启动新的代理或绕过审批。
 
 状态订阅配对复验使用v2全部16个完整尝试及v3对应相同种子/pose/角度，未按结果筛选；旧漏收2/16，新0/16。第17个中断尝试另记失败，未丢弃。记录paired-status-observer-comparison.json。
+
+最终证据提交f693cbdcee79a1e24980edace0b65123fceb3840已与远端一致。当前完成的是离线修复/试验/归档交付，探索独立验收与G0仍失败，不能由completed任务文件推定实车准入。03:00守卫因此静默；下一关卡由用户另行授权。

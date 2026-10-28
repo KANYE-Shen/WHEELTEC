@@ -1,6 +1,6 @@
 {
-  "status": "running",
-  "heartbeat_epoch": 1793204689.884828,
+  "status": "completed",
+  "heartbeat_epoch": 1793205378.6299093,
   "resume_at": "2026-10-29T03:00:00+08:00",
   "thread_id": "01a17bf2-e4a2-7283-9e65-2ec9169ff665",
   "attachment_sha256": "b1cdd4262905baaeccc6220ee7a9f50e77afea0307444001611b7141150daac6",
@@ -10,8 +10,12 @@
     "g0_offline": "checker_and_safety_26_of_26_upstream_candidate_8_of_8_not_deployed",
     "P0_active_scan": "prototype_default_off_45_pure_tests_11_lifecycle_tests_build_passed_not_admitted",
     "regression": "v3_complete_0_of_40_v1_0_of_40_v2_0_of_17_total_99_failures_retained",
-    "push": "code_and_readme_remote_d2fc42e_final_evidence_pending"
+    "push": "verified_remote_f693cbdcee79a1e24980edace0b65123fceb3840"
   },
   "g0_gate_passed": false,
-  "offline_only": true
+  "offline_only": true,
+  "offline_delivery_complete": true,
+  "physical_g0_passed": false,
+  "algorithm_independent_acceptance_passed": false,
+  "completion_scope": "Requested offline code/experiments/evidence delivery; unverified physical work and failed algorithm acceptance remain explicitly reported."
 }

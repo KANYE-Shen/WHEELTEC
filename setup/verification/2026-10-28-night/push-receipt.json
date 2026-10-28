@@ -1,0 +1,24 @@
+{
+  "verified_at": "2026-10-29T00:36:18.629909+08:00",
+  "branch": "work/irregular-frontiers-20261027",
+  "repository": "https://github.com/KANYE-Shen/WHEELTEC",
+  "published_evidence_commit": "f693cbdcee79a1e24980edace0b65123fceb3840",
+  "verified_remote_commit": "f693cbdcee79a1e24980edace0b65123fceb3840",
+  "remote_match": true,
+  "clean_before_completion_checkpoint": true,
+  "commits": [
+    "f693cbdcee79a1e24980edace0b65123fceb3840 docs(validation): publish complete overnight outcomes and failed simulation batches",
+    "198b65790bf1929f0d271a0945734b260367fd23 chore(explore): clarify prototype limits and trim test file endings",
+    "f709cbc76e1e377301c15e81f880010fe44268c1 fix(console): latch camera timestamp warning to prevent metric card flicker",
+    "c7be6cfc5c348e28a862ebeb9da2b163949a8553 fix(automation): remove approval override from legacy continuation",
+    "d2fc42e933158e77c8c5a7221fb8e055a66015e1 docs: update real G0 status and overnight validation boundaries",
+    "f0ccfcaba08735d4ea1e9da6df94a5ccc51dcfa8 feat(explore): prototype simulation-only active observation with conservative sweep guards",
+    "823a52275e6ba85c9638fe048bd9dd2e26da4e05 chore(automation): queue quota-only continuation with existing chat permissions",
+    "cdd572a874882715adb222384197f22dc5c6446c fix(robot): detect G0 clock faults and prepare pinned usb_cam timestamp audit",
+    "ee756f99db0e3dd41a877c4faa2f7860b2a8271e fix(console): keep received camera frames and Hz stable while flagging capture timestamps",
+    "e3e7f7a8617331a8312a246b972859f070da3c48 docs(robot): preserve real G0 sensor evidence and adopt revised project rules"
+  ],
+  "scope": "Offline deliverables published; full exploration acceptance and G0 NOT passed. No merge to main.",
+  "large_raw_simulation_data": "Linux workspace paths in raw-artifacts.json; results/logs/metadata/SHA published",
+  "real_bags": "Still on robot; metadata/SHA published; no claim of copied raw real bag."
+}
