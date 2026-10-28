@@ -99,4 +99,3 @@ class StatusObserverTests(unittest.TestCase):
   with self.assertRaises(ValueError):Explorer.wait_status_observers(node)
 
 if __name__=='__main__':unittest.main(verbosity=2)
-
