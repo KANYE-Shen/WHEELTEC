@@ -6,6 +6,7 @@ import { MapView } from "./MapView";
 import { TerminalView } from "./TerminalView";
 import { velocity, editable, controlStatus } from "./control";
 import { getPanels } from "./panels";
+import { streamReadout } from "./streamReadout";
 import "./style.css";
 const blank: Profile = {
   name: "WSL 仿真",
@@ -36,7 +37,8 @@ function App() {
     [lastReceive, setLastReceive] = useState(0),
     [busy, setBusy] = useState(false),
     [cameraUrl, setCameraUrl] = useState(""),
-    [cameraFailed, setCameraFailed] = useState(false);
+    [cameraFailed, setCameraFailed] = useState(false),
+    [cameraStampWarning, setCameraStampWarning] = useState(false);
   const logBox = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!paused && logBox.current)
@@ -78,6 +80,8 @@ function App() {
         if (m.type === "state") {
           if (!m.data.control.mine || !m.data.control.ready)
             keys.current.clear();
+          if (m.data.streams.camera?.receiving && !m.data.streams.camera.fresh)
+            setCameraStampWarning(true);
           setState(m.data);
           setConnected(true);
           setLastReceive(Date.now());
@@ -111,30 +115,45 @@ function App() {
     };
   }, []);
   useEffect(() => {
-    let previous = "";
-    const timer = setInterval(async () => {
-      if (
-        !current.current?.streams.camera?.fresh ||
-        Date.now() - lastGood.current > 1000
-      )
-        return;
+    let active = true;
+    let timer: ReturnType<typeof setTimeout>;
+    const controller = new AbortController();
+    const poll = async () => {
+      let url = "";
       try {
-        const r = await fetch("/api/v1/camera");
-        if (!r.ok) throw Error();
-        const url = URL.createObjectURL(await r.blob());
-        if (previous) URL.revokeObjectURL(previous);
-        previous = url;
-        setCameraUrl(url);
-        setCameraFailed(false);
+        const camera = current.current?.streams.camera;
+        if ((camera?.receiving ?? camera?.fresh) &&
+            Date.now() - lastGood.current <= 1000) {
+          const r = await fetch("/api/v1/camera", { signal: controller.signal });
+          if (!r.ok) throw Error();
+          url = URL.createObjectURL(await r.blob());
+          const image = new Image();
+          image.src = url;
+          await image.decode();
+          if (active) {
+            setCameraUrl(url);
+            setCameraFailed(false);
+            url = ""; // The rendered frame owns this URL until React replaces it.
+          }
+        }
       } catch {
-        setCameraFailed(true);
+        if (active) setCameraFailed(true);
+      } finally {
+        if (url) URL.revokeObjectURL(url);
+        if (active) timer = setTimeout(poll, 220);
       }
-    }, 220);
+    };
+    timer = setTimeout(poll, 220);
     return () => {
-      clearInterval(timer);
-      if (previous) URL.revokeObjectURL(previous);
+      active = false;
+      clearTimeout(timer);
+      controller.abort();
     };
   }, []);
+  useEffect(() => {
+    // Cleanup runs after the replacement has committed, never during its fetch/decode.
+    return () => { if (cameraUrl) URL.revokeObjectURL(cameraUrl); };
+  }, [cameraUrl]);
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
       const target = e.target as HTMLElement;
@@ -479,24 +498,26 @@ function App() {
           <div className="metrics">
             {["scan", "odom", "map", "camera"].map((key, i) => {
               const s = state?.streams[key];
-              const fresh = healthy && s?.fresh;
+              const readout = streamReadout(key, s, healthy, (now - lastReceive) / 1000);
+              const fresh = readout.available;
               return (
                 <div className="metric" key={key}>
                   <div>
                     <span>
                       {["激光雷达", "轮式里程计", "占据栅格地图", "相机"][i]}
                     </span>
-                    <span className={`dot ${fresh ? "live" : ""}`} />
+                    <span className={`dot ${fresh ? (readout.timestampWarning ? "warning" : "live") : ""}`} />
                   </div>
                   <strong>
-                    {fresh ? s!.hz.toFixed(1) : "—"}
+                    {fresh ? readout.hz.toFixed(1) : "—"}
                     <small> Hz</small>
                   </strong>
                   <p>
-                    {s?.age != null
-                      ? `数据年龄 ${Math.max(0, s.age + Math.max(0, now - lastReceive) / 1000).toFixed(2)} s`
+                    {readout.age != null
+                      ? `数据年龄 ${Math.max(0, readout.age).toFixed(2)} s`
                       : "尚未收到数据"}{" "}
-                    · {fresh ? "实时" : "不可用 / 过期"}
+                    · {readout.status}
+                    {readout.timestampWarning && " · 采集时间异常"}
                   </p>
                 </div>
               );
@@ -516,9 +537,14 @@ function App() {
                   <h2>相机</h2>
                   <span>只用于监看</span>
                 </div>
+                {cameraStampWarning && (
+                    <p role="status" className="camera-warning">
+                      已检测到相机采集时间戳异常；画面按接收时间显示，不用于定位或安全判定。
+                    </p>
+                  )}
                 <div className="camera">
                   {healthy &&
-                  state?.streams.camera?.fresh &&
+                  (state?.streams.camera?.receiving ?? state?.streams.camera?.fresh) &&
                   cameraUrl &&
                   !cameraFailed ? (
                     <img src={cameraUrl} alt="实时相机画面" />

@@ -14,7 +14,7 @@ from pathlib import Path
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from console.settings import CONTROL
 from console.backend.policy import Lease, simulation_authorized, ArmHandshake
-from .data import finite_ranges, grid_payload, jpeg_from_image, fresh_measurement, tf_chain_fresh
+from .data import finite_ranges, grid_payload, jpeg_from_image, fresh_measurement, tf_chain_fresh, camera_reception, distinct_receive_hz
 
 
 def main():
@@ -383,6 +383,8 @@ def main():
                     age = now-self.stamps[key] if key in self.stamps else None
                     streams[key] = {'stamp': self.stamps.get(
                         key), 'age': age, 'hz': hz, 'fresh': self.fresh(key, 15. if key == 'map' else 1.)}
+                streams['camera']['receive_hz'] = distinct_receive_hz(self.history.get('camera', []))
+                streams['camera'].update(camera_reception(self.received.get('camera'), time.monotonic()))
                 result = dict(self.latest)
                 # The original source timestamp is always retained; stale poses are omitted.
                 result.update(kind=args.kind, clock=now, streams=streams, pose=self.transform(args.map_frame, args.base_frame),
@@ -406,7 +408,7 @@ def main():
                         node.snapshot(), allow_nan=False).encode()
                     mime = 'application/json'
                 elif not post and self.path == '/camera':
-                    if not node.fresh('camera') or node.image is None:
+                    if not camera_reception(node.received.get('camera'), time.monotonic())['receiving'] or node.image is None:
                         self.send_error(503)
                         return
                     data = node.image

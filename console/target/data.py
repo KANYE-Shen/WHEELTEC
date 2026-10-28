@@ -56,3 +56,22 @@ def tf_chain_fresh(edges, source, target, wall_now, limit=1.):
                 visited.add(other)
                 pending.append(other)
     return False
+
+
+def camera_reception(received, wall_now, limit=1.):
+    """Video transport liveness only; never substitutes for capture/TF freshness."""
+    age = wall_now-received if received is not None else None
+    return {'receive_age': age, 'receiving': age is not None and 0 <= age <= limit}
+
+
+def distinct_receive_hz(history):
+    """Distinct source frames per monotonic receive interval, not source-clock Hz."""
+    seen = set()
+    arrivals = []
+    for received, stamp in history:
+        if stamp not in seen:
+            seen.add(stamp)
+            arrivals.append(received)
+    if len(arrivals) < 2 or arrivals[-1] <= arrivals[0]:
+        return 0.
+    return (len(arrivals)-1)/(arrivals[-1]-arrivals[0])

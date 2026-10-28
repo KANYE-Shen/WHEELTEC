@@ -10,7 +10,7 @@
 | POST /api/v1/probe | host、port → fingerprint；仅探测，不代表身份已核实 |
 | POST /api/v1/connect | profile、临时 password、adapter_token；验证指纹和目标 kind 后建立会话 |
 | POST /api/v1/disconnect | 请求停车、关闭 SSH，不停止目标算法服务 |
-| GET /api/v1/camera | 新鲜 JPEG；过期/不可用返回 503 |
+| GET /api/v1/camera | 单调接收年龄≤1秒的 JPEG；接收中断/不可用返回503；不保证源采集时间戳合格 |
 | WS /api/v1/events | state、offline、ack、error 事件；接收 control 命令 |
 | WS /api/v1/terminal | JSON input/resize 请求、二进制 PTY 输出；与手动控制互斥 |
 | GET /api/v1/desktop/{path} | 仿真 noVNC 静态资源，经 SSH 转发到指定 localhost 端口 |
@@ -44,3 +44,8 @@ owner 由网关为每条事件连接生成，不接受客户端指定身份；cl
 
 
 实车PTY前置检查：readonly（control.enabled=false）拒绝；配置安全链后，先请求stop，再要求新的watchdog_revision、watchdog_fresh=true、armed=false，且不存在最终驱动输出不独占或watchdog不可用状态。1.5秒未获确认则拒绝。stop响应scope为manual_pipeline或local_lease_only，accepted只表示该作用域内的请求被接收，不是物理制动距离证明。原始ROS状态中的watchdog_revision由适配器接收计数，不由浏览器填写。
+
+
+相机streams额外提供receiving（单调接收年龄≤1秒）和receive_age（秒）。fresh、stamp、age保留原始采集时间校验含义；receiving=true且fresh=false仅可显示并告警，不作为有效测量或运动安全依据。其他传感器不改用接收时间替代源时间。旧适配器缺少receiving时前端回退到fresh。
+
+相机另提供receive_hz：按采集stamp去重raw/compressed后，以单调接收间隔统计的近期接收频率；不是源时钟频率或硬件标称帧率。原hz保留兼容。新前端优先显示receive_hz，旧适配器缺字段时回退hz；旧源时间戳异常仍需修复。

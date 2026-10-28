@@ -1,0 +1,29 @@
+{
+  "host_utc": "2026-10-28T13:59:29.100634+00:00",
+  "red": {
+    "test": "CameraReceptionTests",
+    "total": 2,
+    "errors": 2,
+    "reason": "ImportError: camera_reception not yet implemented"
+  },
+  "green": {
+    "backend": {
+      "passed": 27,
+      "total": 27
+    },
+    "frontend_unit": {
+      "passed": 6,
+      "total": 6
+    },
+    "browser": {
+      "passed": 7,
+      "total": 7
+    },
+    "production_build": "passed"
+  },
+  "notes": [
+    "Red/green command outputs in current chat; browser raw data retained.",
+    "Live baseline includes initial loading; final browser excludes initial warmup.",
+    "Capture timestamp validation and motion safety freshness unchanged."
+  ]
+}

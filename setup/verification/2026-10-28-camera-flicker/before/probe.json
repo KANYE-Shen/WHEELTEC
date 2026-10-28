@@ -1,0 +1,119 @@
+{
+  "frames": 961,
+  "blank": 1,
+  "visible": 362,
+  "placeholders": 597,
+  "revokedDisplayed": 14,
+  "requests": [
+    {
+      "status": 200
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 503
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 503
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 503
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 503
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 503
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 503
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 503
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 503
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 503
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 503
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 200
+    },
+    {
+      "status": 503
+    }
+  ],
+  "errors": [],
+  "text": "▧\n暂无实时画面\n\n等待相机话题 / 检查编码与时间戳"
+}

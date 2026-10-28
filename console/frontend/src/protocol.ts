@@ -10,6 +10,9 @@ export type Stream = {
   age: number | null;
   hz: number;
   fresh: boolean;
+  receiving?: boolean;
+  receive_age?: number | null;
+  receive_hz?: number;
 };
 export type Scan = {
   frame: string;

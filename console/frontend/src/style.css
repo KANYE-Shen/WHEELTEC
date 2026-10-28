@@ -633,3 +633,5 @@ footer {
 .map-tools > button:first-child {
   margin-left: 0;
 }
+
+.dot.warning { background: #e8bb7a; }

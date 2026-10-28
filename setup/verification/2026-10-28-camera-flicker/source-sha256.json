@@ -1,0 +1,8 @@
+{
+  "console/frontend/src/main.tsx": "515ad196fad831ee690379957350955cfa096882c8c887f46ce57deea9d56d88",
+  "console/frontend/src/protocol.ts": "55a7286adbc1c42d267629feb5e6349e79b1c1294aa9e0293173b873059b79f2",
+  "console/frontend/e2e/camera-readonly.mjs": "9f9fc6145d88a22670b63dd9e4e74eaf1b8dabb805439c72032cd2a9ecbc2020",
+  "console/target/adapter.py": "49fcdd993f86bf6c8b704d9e98404fb5d1e53e16a7b453510a578261ccadc7b0",
+  "console/target/data.py": "7d802c802de033a6e136c988c53a2674fcbb12673db0d35217e3bad11d364827",
+  "console/tests/test_data.py": "8cc78aa368d78c6cc709c6a5f8c28e52e75e839d9041a9c75bc6b9c9dd4ce983"
+}
