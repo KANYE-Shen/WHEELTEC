@@ -1,0 +1,9 @@
+{
+  "reason": "Protocol diagnosis: no status samples at all in affected short-lived Explorer runs; wall drain alone insufficient. Stop invalid diagnostic batch before testing subscriber readiness. Preserve partial summary and all raw trials.",
+  "parent": 518,
+  "children": [
+    6822
+  ],
+  "root": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-ab-v2",
+  "signals": "SIGINT only; check runner performs its owned stack shutdown"
+}

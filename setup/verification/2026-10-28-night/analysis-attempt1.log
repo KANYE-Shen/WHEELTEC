@@ -1,0 +1,1 @@
+Diagnostic script only: first run failed TypeError: Grid.__init__() missing 2 required positional arguments: 'origin_yaw' and 'data'. Corrected to use actual seven-field Grid interface. No simulation/algorithm files changed.

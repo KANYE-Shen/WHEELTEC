@@ -1,0 +1,39 @@
+{
+  "scope": "Only exact verified v2 groups; parent interruption did not complete owned cleanup. This attempt remains invalid.",
+  "groups": [
+    {
+      "group": 6835,
+      "before": [
+        6835,
+        6845
+      ],
+      "verified_owner_marker": "wheeltec-validation-6822",
+      "forced_kill": false,
+      "after": []
+    },
+    {
+      "group": 6837,
+      "before": [
+        6837,
+        6889,
+        6891,
+        6893,
+        6895,
+        6899,
+        6905,
+        6916,
+        6935,
+        6938,
+        6940,
+        6942,
+        6959,
+        6961,
+        6983,
+        6999
+      ],
+      "verified_owner_marker": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-ab-v2/",
+      "forced_kill": false,
+      "after": []
+    }
+  ]
+}

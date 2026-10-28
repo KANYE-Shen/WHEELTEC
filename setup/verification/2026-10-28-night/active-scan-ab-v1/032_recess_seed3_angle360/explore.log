@@ -1,0 +1,7 @@
+[INFO] [1793202046.178106833] [wheeltec_explore]: {"state": "starting", "reason": "Waiting for SLAM map, robot transform and Nav2", "elapsed_wall_seconds": 0.0}
+[INFO] [1793202047.563831796] [wheeltec_explore]: {"state": "exploring", "reason": "Selecting reachable frontiers", "elapsed_wall_seconds": 1.62}
+[INFO] [1793202047.704923680] [wheeltec_explore]: {"state": "initial_observation", "reason": "unknown_swept_space", "elapsed_wall_seconds": 1.75}
+[INFO] [1793202047.777288327] [wheeltec_explore]: {"state": "saving", "reason": "Saving occupancy grid and SLAM pose graph", "elapsed_wall_seconds": 1.81}
+[INFO] [1793202047.888522250] [wheeltec_explore]: {"state": "returning", "reason": "Returning to the exploration start position", "elapsed_wall_seconds": 1.93}
+[INFO] [1793202047.954476482] [wheeltec_explore]: {"state": "incomplete", "reason": "active_scan_clearance_unproven", "elapsed_wall_seconds": 2.0}
+[ros2run]: Process exited with failure 2

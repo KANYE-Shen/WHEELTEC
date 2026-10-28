@@ -1,0 +1,231 @@
+{
+  "state": "incomplete",
+  "map_output": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-ab-v2/003_irregular_arc_seed0_angle360/map",
+  "goals": [],
+  "reference_yaw_rad": 0.0,
+  "reason": "active_scan_clearance_unproven",
+  "map_health": {
+    "healthy": true,
+    "issues": [],
+    "ages": {
+      "map": {
+        "stamp_age_s": 0.1333721539999999,
+        "update_age_s": 0.03299999999999992
+      },
+      "scan": {
+        "stamp_age_s": 0.033308172999999996,
+        "update_age_s": 0.03100000000000014
+      },
+      "tf": {
+        "stamp_age_s": -0.16669182699999974,
+        "update_age_s": 0.015000000000000124
+      }
+    },
+    "faults": {},
+    "limits": {
+      "jump_translation": 0.5,
+      "jump_rotation": 0.35,
+      "map_timeout": 15.0,
+      "scan_timeout": 1.0,
+      "tf_timeout": 1.0,
+      "future_tolerance": 0.1,
+      "tf_future_offset": 0.2
+    },
+    "max_translation_jump_m": 4.137220745641422e-07,
+    "max_rotation_jump_rad": 0.0034899999999999814,
+    "slam_alive": true,
+    "slam_liveness_verified": true,
+    "latched_issues": {}
+  },
+  "elapsed_ros_seconds": 0.4,
+  "timeout_clock": "ROS",
+  "parameters": {
+    "active_scan_angle_deg": 360.0,
+    "active_scan_fov_deg": 270.0,
+    "active_scan_timeout": 45.0,
+    "active_scan_max_attempts": 1,
+    "frontier_viewpoint_strategy": "centroid",
+    "viewpoint_candidate_budget": 48,
+    "viewpoint_frontier_budget": 96,
+    "map_frame": "map",
+    "odom_frame": "odom",
+    "base_frame": "base_link",
+    "robot_radius": 0.35,
+    "min_frontier_size": 0.25,
+    "min_goal_distance": 0.2,
+    "visited_radius": 0.3,
+    "observation_min_separation": 0.3,
+    "frontier_approach_radius": 0.6,
+    "start_snap_distance": 0.15,
+    "return_tolerance": 0.15,
+    "distance_score_bias": 0.1,
+    "score_distance_offset": 0.5,
+    "minimum_free_area": 8.0,
+    "goal_timeout": 75.0,
+    "task_timeout": 300.0,
+    "max_goals": 60,
+    "retry_cooldown": 20.0,
+    "max_attempts": 3,
+    "retry_radius": 0.35,
+    "map_update_timeout": 15.0,
+    "scan_max_age": 1.0,
+    "tf_max_age": 1.0,
+    "future_tolerance": 0.1,
+    "slam_transform_timeout": 0.2,
+    "map_jump_translation": 0.5,
+    "map_jump_rotation": 0.35,
+    "initialization_timeout": 90.0,
+    "nav_server_timeout": 60.0,
+    "goal_response_timeout": 10.0,
+    "cancel_response_timeout": 5.0,
+    "cancel_result_timeout": 15.0,
+    "map_save_timeout": 30.0,
+    "retry_map_wait": 3.0,
+    "stable_empty_maps": 3,
+    "map_output": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-ab-v2/003_irregular_arc_seed0_angle360/map",
+    "reference_yaw_rad": 0.0,
+    "update_latest": false
+  },
+  "elapsed_wall_seconds": 1.01,
+  "start_pose": [
+    -0.0007277978466695073,
+    3.8166186998392633e-07,
+    -0.00039004615681539234
+  ],
+  "known_free_area_m2": 16.768,
+  "frontier_clusters": 8,
+  "unreachable_clusters": 8,
+  "ignored_small_clusters": 21,
+  "residual_counts": {
+    "reachable_unexplored": 8,
+    "footprint_excluded": 0,
+    "multiview_observed": 0
+  },
+  "residual_frontiers": [
+    {
+      "classification": "reachable_unexplored",
+      "frontier_cells": 31,
+      "centroid": [
+        -0.3770662070051559,
+        0.06140897299446879
+      ],
+      "reachable_approach_cells": 0
+    },
+    {
+      "classification": "reachable_unexplored",
+      "frontier_cells": 34,
+      "centroid": [
+        1.3987402710693255,
+        3.3864090225408296
+      ],
+      "reachable_approach_cells": 0
+    },
+    {
+      "classification": "reachable_unexplored",
+      "frontier_cells": 27,
+      "centroid": [
+        1.669110645468528,
+        1.961409001306675
+      ],
+      "reachable_approach_cells": 0
+    },
+    {
+      "classification": "reachable_unexplored",
+      "frontier_cells": 109,
+      "centroid": [
+        2.698740290440835,
+        2.3352622178866964
+      ],
+      "reachable_approach_cells": 0
+    },
+    {
+      "classification": "reachable_unexplored",
+      "frontier_cells": 20,
+      "centroid": [
+        2.1837402827667374,
+        1.3039089915091617
+      ],
+      "reachable_approach_cells": 0
+    },
+    {
+      "classification": "reachable_unexplored",
+      "frontier_cells": 58,
+      "centroid": [
+        2.33236097463653,
+        3.5605469561701697
+      ],
+      "reachable_approach_cells": 0
+    },
+    {
+      "classification": "reachable_unexplored",
+      "frontier_cells": 61,
+      "centroid": [
+        2.7626747176230406,
+        3.523704106553899
+      ],
+      "reachable_approach_cells": 0
+    },
+    {
+      "classification": "reachable_unexplored",
+      "frontier_cells": 39,
+      "centroid": [
+        3.1487402971463574,
+        1.2614089908758621
+      ],
+      "reachable_approach_cells": 0
+    }
+  ],
+  "viewpoint_diagnostics": [],
+  "active_scans": [
+    {
+      "plan": {
+        "safe": false,
+        "reason": "unknown_swept_space",
+        "checked_cells": 19,
+        "blocking_cell": [
+          12,
+          12
+        ],
+        "angle_rad": null,
+        "expected_new_directions": 0
+      },
+      "started_ros": 3.444,
+      "motion_requested": false
+    }
+  ],
+  "manual_intervention_required": true,
+  "map_saved": true,
+  "returned": true,
+  "completion_criteria": {
+    "stable_empty_maps": 0,
+    "minimum_free_area_m2": 8.0,
+    "no_unreachable_clusters": false
+  },
+  "history": [
+    {
+      "state": "starting",
+      "reason": "Waiting for SLAM map, robot transform and Nav2",
+      "elapsed_wall_seconds": 0.0
+    },
+    {
+      "state": "exploring",
+      "reason": "Selecting reachable frontiers",
+      "elapsed_wall_seconds": 0.49
+    },
+    {
+      "state": "initial_observation",
+      "reason": "unknown_swept_space",
+      "elapsed_wall_seconds": 0.66
+    },
+    {
+      "state": "saving",
+      "reason": "Saving occupancy grid and SLAM pose graph",
+      "elapsed_wall_seconds": 0.76
+    },
+    {
+      "state": "returning",
+      "reason": "Returning to the exploration start position",
+      "elapsed_wall_seconds": 0.89
+    }
+  ]
+}

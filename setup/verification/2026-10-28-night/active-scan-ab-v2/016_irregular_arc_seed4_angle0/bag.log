@@ -1,0 +1,9 @@
+stdin is not a terminal device. Keyboard handling disabled.[INFO] [1793202830.269992146] [rosbag2_recorder]: Press SPACE for pausing/resuming
+[INFO] [1793202830.270852466] [rosbag2_storage]: Opened database '/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-ab-v2/016_irregular_arc_seed4_angle0/bag/bag_0.db3' for READ_WRITE.
+[INFO] [1793202830.271312346] [rosbag2_recorder]: Listening for topics...
+[INFO] [1793202830.271323969] [rosbag2_recorder]: Event publisher thread: Starting
+[INFO] [1793202830.271370955] [rosbag2_recorder]: Recording...
+[INFO] [1793202830.271401432] [rosbag2_recorder]: use_sim_time set, waiting for /clock before starting recording...
+[INFO] [1793202830.564344702] [rosbag2_cpp]: Writing remaining messages from cache to the bag. It may take a while
+[INFO] [1793202830.564669024] [rosbag2_recorder]: Event publisher thread: Exiting
+[INFO] [1793202830.564725107] [rosbag2_recorder]: Recording stopped

@@ -1,0 +1,116 @@
+{
+  "raw_root": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-observer-smoke-v3",
+  "raw_retained": true,
+  "files": [
+    {
+      "path": "bag/bag_0.db3",
+      "bytes": 765952,
+      "sha256": "d71926d2e759de66c608e3f2a948a0891eb628edbf96b9e3673e92cca261cea9"
+    },
+    {
+      "path": "bag/metadata.yaml",
+      "bytes": 4850,
+      "sha256": "89017070a9e5ef5af9f045eee1549abbf8a3296851ee5c1117abb33527af45e1"
+    },
+    {
+      "path": "bag-qos.yaml",
+      "bytes": 300,
+      "sha256": "0f2eda19f975306d65951f2cf8463d7f1ac61af70fbff053d061e5ee6c941744"
+    },
+    {
+      "path": "bag.log",
+      "bytes": 2057,
+      "sha256": "99a2a0958741afae297a8fa76a0e269def8f3ee12806d28e662b1ae05470839c"
+    },
+    {
+      "path": "explore.log",
+      "bytes": 776,
+      "sha256": "4db2d8266cfccb870b1f38b535a22d8919c454d4141bfcdee82a029e9c0f664e"
+    },
+    {
+      "path": "launch.log",
+      "bytes": 40596,
+      "sha256": "2c3d8138aff392a301a7ef14273e1f6af5d08c5d3f619ee53fc61e1d71cc04e4"
+    },
+    {
+      "path": "map.exploration.json",
+      "bytes": 5178,
+      "sha256": "e5c151447f43c26c67915d0d28e365412d04c62bb162e21eea777b8a0eda42d8"
+    },
+    {
+      "path": "map.pgm",
+      "bytes": 10317,
+      "sha256": "e1e170bb73dec757004fa0d5b85b24b08cdd577e1a1d2e86d2c5a07ceea1d1c9"
+    },
+    {
+      "path": "map.yaml",
+      "bytes": 123,
+      "sha256": "80551b06c1ff13da5d7dad8d4def39608a50eb1c5cc032921f9bfa87adc1b5b7"
+    },
+    {
+      "path": "process.json",
+      "bytes": 400187,
+      "sha256": "62f1a093212b6070307ada1e675786b1b8c8920af1146e441e2d676830110b30"
+    },
+    {
+      "path": "realism/bridge.yaml",
+      "bytes": 902,
+      "sha256": "644447db1b0f444e8e832e8bebfa8c545cba0e1ac4e1b9f1b245f70179fd5b05"
+    },
+    {
+      "path": "realism/manifest.json",
+      "bytes": 10699,
+      "sha256": "80eac9e2e6496e69cd12cce0332ba89a8e2eeb0054ade8bfbada745637e8fc4d"
+    },
+    {
+      "path": "realism/model.sdf",
+      "bytes": 5322,
+      "sha256": "aec58e6e9f979f6152dcd6af1aeb73ab6f686eee70efd5291d65b2bd665c00c4"
+    },
+    {
+      "path": "realism/nav2.yaml",
+      "bytes": 9428,
+      "sha256": "4c269a03f239f4065e8bc17794383797ac449d32144f44b68c889d4853bd16d0"
+    },
+    {
+      "path": "realism/slam.yaml",
+      "bytes": 1891,
+      "sha256": "cbe0d3183acb3e943825613eaa1ed4cb90308ece6f9b95ff6272493697f4b3ca"
+    },
+    {
+      "path": "realism/world.sdf",
+      "bytes": 24823,
+      "sha256": "a9ed00b53b7a3f7c64df17d6e9456a4878ee1e72e3f87085cbd4529623aefa6b"
+    },
+    {
+      "path": "resources.jsonl",
+      "bytes": 9271,
+      "sha256": "a2b86d83253d7c3cc223c8bd195131dfae8df4b601dff2b4609d34d298ef9817"
+    },
+    {
+      "path": "result.json",
+      "bytes": 62257,
+      "sha256": "bd1e2c7d4e700c7534a91dd808e748c2069fb27ab3dd4f08219b510c37ceeac2"
+    },
+    {
+      "path": "truth-reader-diagnostics.json",
+      "bytes": 248,
+      "sha256": "6fc39040db21a088876e338d583549e2046b1afdf8bd86a91054f326e0bc1901"
+    },
+    {
+      "path": "truth-reader.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "truth-samples.jsonl",
+      "bytes": 13814,
+      "sha256": "b862653b4079b94b5975198b693a33d12aaacd6295f938f9352ea5cac0a41363"
+    },
+    {
+      "path": "truth.json",
+      "bytes": 16577,
+      "sha256": "a70bd270fa0f2882939a34d8dacef6b32d7eb6f496009ae40352668c8667eba2"
+    }
+  ]
+}

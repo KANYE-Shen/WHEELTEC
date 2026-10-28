@@ -1,0 +1,1789 @@
+{
+  "success": false,
+  "run_dir": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-ab-v3/005_irregular_arc_seed1_angle180",
+  "ros_domain_id": 90,
+  "scenario": "irregular_arc",
+  "spawn_index": 0,
+  "spawn": {
+    "name": "start_0",
+    "pose": [
+      -1.6826561106714908,
+      -1.696485441065827,
+      0.0329129772802899
+    ],
+    "named_pose": [
+      -1.7,
+      -1.7,
+      0
+    ]
+  },
+  "viewpoint_strategy": "centroid",
+  "active_scan_angle_deg": 180.0,
+  "realism_mode": "on",
+  "seed": 1,
+  "noise_scale": 1.0,
+  "real_robot_admission_ready": false,
+  "task_timeout_ros_seconds": 300.0,
+  "record_requested": true,
+  "ground_truth_used_only_for_evaluation": true,
+  "status_history": [
+    {
+      "t": 3.036,
+      "wall_t": 8.015708590000031,
+      "state": "starting",
+      "map_output": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-ab-v3/005_irregular_arc_seed1_angle180/map",
+      "goals": [],
+      "reference_yaw_rad": 0.0,
+      "reason": "Waiting for SLAM map, robot transform and Nav2",
+      "map_health": {
+        "healthy": false,
+        "issues": [
+          "map_missing",
+          "scan_missing",
+          "slam_not_alive",
+          "tf_missing"
+        ],
+        "ages": {},
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 0.0,
+        "max_rotation_jump_rad": 0.0,
+        "slam_alive": null,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "elapsed_ros_seconds": 0.0,
+      "timeout_clock": "ROS",
+      "parameters": {
+        "expected_status_observers": 2,
+        "active_scan_angle_deg": 180.0,
+        "active_scan_fov_deg": 270.0,
+        "active_scan_timeout": 45.0,
+        "active_scan_max_attempts": 1,
+        "frontier_viewpoint_strategy": "centroid",
+        "viewpoint_candidate_budget": 48,
+        "viewpoint_frontier_budget": 96,
+        "map_frame": "map",
+        "odom_frame": "odom",
+        "base_frame": "base_link",
+        "robot_radius": 0.35,
+        "min_frontier_size": 0.25,
+        "min_goal_distance": 0.2,
+        "visited_radius": 0.3,
+        "observation_min_separation": 0.3,
+        "frontier_approach_radius": 0.6,
+        "start_snap_distance": 0.15,
+        "return_tolerance": 0.15,
+        "distance_score_bias": 0.1,
+        "score_distance_offset": 0.5,
+        "minimum_free_area": 8.0,
+        "goal_timeout": 75.0,
+        "task_timeout": 300.0,
+        "max_goals": 60,
+        "retry_cooldown": 20.0,
+        "max_attempts": 3,
+        "retry_radius": 0.35,
+        "map_update_timeout": 15.0,
+        "scan_max_age": 1.0,
+        "tf_max_age": 1.0,
+        "future_tolerance": 0.1,
+        "slam_transform_timeout": 0.2,
+        "map_jump_translation": 0.5,
+        "map_jump_rotation": 0.35,
+        "initialization_timeout": 90.0,
+        "nav_server_timeout": 60.0,
+        "goal_response_timeout": 10.0,
+        "cancel_response_timeout": 5.0,
+        "cancel_result_timeout": 15.0,
+        "map_save_timeout": 30.0,
+        "retry_map_wait": 3.0,
+        "stable_empty_maps": 3,
+        "map_output": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-ab-v3/005_irregular_arc_seed1_angle180/map",
+        "reference_yaw_rad": 0.0,
+        "update_latest": false
+      },
+      "elapsed_wall_seconds": 0.0
+    },
+    {
+      "t": 4.033,
+      "wall_t": 9.020595687999958,
+      "state": "exploring",
+      "map_output": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-ab-v3/005_irregular_arc_seed1_angle180/map",
+      "goals": [],
+      "reference_yaw_rad": 0.0,
+      "reason": "Selecting reachable frontiers",
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.22947888599999988,
+            "update_age_s": 0.0
+          },
+          "scan": {
+            "stamp_age_s": 0.02982899399999983,
+            "update_age_s": 0.028999999999999915
+          },
+          "tf": {
+            "stamp_age_s": 0.6307397179999996,
+            "update_age_s": 0.0
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 0.0,
+        "max_rotation_jump_rad": 0.0,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "elapsed_ros_seconds": 0.49,
+      "timeout_clock": "ROS",
+      "parameters": {
+        "expected_status_observers": 2,
+        "active_scan_angle_deg": 180.0,
+        "active_scan_fov_deg": 270.0,
+        "active_scan_timeout": 45.0,
+        "active_scan_max_attempts": 1,
+        "frontier_viewpoint_strategy": "centroid",
+        "viewpoint_candidate_budget": 48,
+        "viewpoint_frontier_budget": 96,
+        "map_frame": "map",
+        "odom_frame": "odom",
+        "base_frame": "base_link",
+        "robot_radius": 0.35,
+        "min_frontier_size": 0.25,
+        "min_goal_distance": 0.2,
+        "visited_radius": 0.3,
+        "observation_min_separation": 0.3,
+        "frontier_approach_radius": 0.6,
+        "start_snap_distance": 0.15,
+        "return_tolerance": 0.15,
+        "distance_score_bias": 0.1,
+        "score_distance_offset": 0.5,
+        "minimum_free_area": 8.0,
+        "goal_timeout": 75.0,
+        "task_timeout": 300.0,
+        "max_goals": 60,
+        "retry_cooldown": 20.0,
+        "max_attempts": 3,
+        "retry_radius": 0.35,
+        "map_update_timeout": 15.0,
+        "scan_max_age": 1.0,
+        "tf_max_age": 1.0,
+        "future_tolerance": 0.1,
+        "slam_transform_timeout": 0.2,
+        "map_jump_translation": 0.5,
+        "map_jump_rotation": 0.35,
+        "initialization_timeout": 90.0,
+        "nav_server_timeout": 60.0,
+        "goal_response_timeout": 10.0,
+        "cancel_response_timeout": 5.0,
+        "cancel_result_timeout": 15.0,
+        "map_save_timeout": 30.0,
+        "retry_map_wait": 3.0,
+        "stable_empty_maps": 3,
+        "map_output": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-ab-v3/005_irregular_arc_seed1_angle180/map",
+        "reference_yaw_rad": 0.0,
+        "update_latest": false
+      },
+      "elapsed_wall_seconds": 1.01,
+      "start_pose": [
+        0.0019185880616864024,
+        1.7701420846417795e-06,
+        0.000659831038758205
+      ]
+    },
+    {
+      "t": 4.221,
+      "wall_t": 9.211330149999867,
+      "state": "initial_observation",
+      "map_output": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-ab-v3/005_irregular_arc_seed1_angle180/map",
+      "goals": [],
+      "reference_yaw_rad": 0.0,
+      "reason": "unknown_swept_space",
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.22947888599999988,
+            "update_age_s": 0.0
+          },
+          "scan": {
+            "stamp_age_s": 0.02982899399999983,
+            "update_age_s": 0.028999999999999915
+          },
+          "tf": {
+            "stamp_age_s": 0.6307397179999996,
+            "update_age_s": 0.0
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 0.0,
+        "max_rotation_jump_rad": 0.0,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "elapsed_ros_seconds": 0.49,
+      "timeout_clock": "ROS",
+      "parameters": {
+        "expected_status_observers": 2,
+        "active_scan_angle_deg": 180.0,
+        "active_scan_fov_deg": 270.0,
+        "active_scan_timeout": 45.0,
+        "active_scan_max_attempts": 1,
+        "frontier_viewpoint_strategy": "centroid",
+        "viewpoint_candidate_budget": 48,
+        "viewpoint_frontier_budget": 96,
+        "map_frame": "map",
+        "odom_frame": "odom",
+        "base_frame": "base_link",
+        "robot_radius": 0.35,
+        "min_frontier_size": 0.25,
+        "min_goal_distance": 0.2,
+        "visited_radius": 0.3,
+        "observation_min_separation": 0.3,
+        "frontier_approach_radius": 0.6,
+        "start_snap_distance": 0.15,
+        "return_tolerance": 0.15,
+        "distance_score_bias": 0.1,
+        "score_distance_offset": 0.5,
+        "minimum_free_area": 8.0,
+        "goal_timeout": 75.0,
+        "task_timeout": 300.0,
+        "max_goals": 60,
+        "retry_cooldown": 20.0,
+        "max_attempts": 3,
+        "retry_radius": 0.35,
+        "map_update_timeout": 15.0,
+        "scan_max_age": 1.0,
+        "tf_max_age": 1.0,
+        "future_tolerance": 0.1,
+        "slam_transform_timeout": 0.2,
+        "map_jump_translation": 0.5,
+        "map_jump_rotation": 0.35,
+        "initialization_timeout": 90.0,
+        "nav_server_timeout": 60.0,
+        "goal_response_timeout": 10.0,
+        "cancel_response_timeout": 5.0,
+        "cancel_result_timeout": 15.0,
+        "map_save_timeout": 30.0,
+        "retry_map_wait": 3.0,
+        "stable_empty_maps": 3,
+        "map_output": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-ab-v3/005_irregular_arc_seed1_angle180/map",
+        "reference_yaw_rad": 0.0,
+        "update_latest": false
+      },
+      "elapsed_wall_seconds": 1.2,
+      "start_pose": [
+        0.0019185880616864024,
+        1.7701420846417795e-06,
+        0.000659831038758205
+      ],
+      "known_free_area_m2": 16.813,
+      "frontier_clusters": 8,
+      "unreachable_clusters": 8,
+      "ignored_small_clusters": 21,
+      "residual_counts": {
+        "reachable_unexplored": 8,
+        "footprint_excluded": 0,
+        "multiview_observed": 0
+      },
+      "residual_frontiers": [
+        {
+          "classification": "reachable_unexplored",
+          "frontier_cells": 30,
+          "centroid": [
+            -0.3560905038555304,
+            0.05793678008842029
+          ],
+          "reachable_approach_cells": 0
+        },
+        {
+          "classification": "reachable_unexplored",
+          "frontier_cells": 25,
+          "centroid": [
+            1.7949095281968674,
+            1.8829368072830395
+          ],
+          "reachable_approach_cells": 0
+        },
+        {
+          "classification": "reachable_unexplored",
+          "frontier_cells": 32,
+          "centroid": [
+            1.618909525574263,
+            3.307936828517194
+          ],
+          "reachable_approach_cells": 0
+        },
+        {
+          "classification": "reachable_unexplored",
+          "frontier_cells": 115,
+          "centroid": [
+            2.843692152520598,
+            2.172067246374027
+          ],
+          "reachable_approach_cells": 0
+        },
+        {
+          "classification": "reachable_unexplored",
+          "frontier_cells": 20,
+          "centroid": [
+            2.2439095348874885,
+            1.1579367964796976
+          ],
+          "reachable_approach_cells": 0
+        },
+        {
+          "classification": "reachable_unexplored",
+          "frontier_cells": 55,
+          "centroid": [
+            2.594364085564214,
+            3.3947550116290675
+          ],
+          "reachable_approach_cells": 0
+        },
+        {
+          "classification": "reachable_unexplored",
+          "frontier_cells": 41,
+          "centroid": [
+            3.2189095494161206,
+            1.05000996560317
+          ],
+          "reachable_approach_cells": 0
+        },
+        {
+          "classification": "reachable_unexplored",
+          "frontier_cells": 58,
+          "centroid": [
+            3.012875063587347,
+            3.332936828889723
+          ],
+          "reachable_approach_cells": 0
+        }
+      ],
+      "viewpoint_diagnostics": [],
+      "active_scans": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 26,
+            "blocking_cell": [
+              10,
+              15
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 4.031,
+          "motion_requested": false
+        }
+      ]
+    },
+    {
+      "t": 4.336,
+      "wall_t": 9.328326168999865,
+      "state": "saving",
+      "map_output": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-ab-v3/005_irregular_arc_seed1_angle180/map",
+      "goals": [],
+      "reference_yaw_rad": 0.0,
+      "reason": "Saving occupancy grid and SLAM pose graph",
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.22947888599999988,
+            "update_age_s": 0.0
+          },
+          "scan": {
+            "stamp_age_s": 0.02982899399999983,
+            "update_age_s": 0.028999999999999915
+          },
+          "tf": {
+            "stamp_age_s": 0.6307397179999996,
+            "update_age_s": 0.0
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 0.0,
+        "max_rotation_jump_rad": 0.0,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "elapsed_ros_seconds": 0.49,
+      "timeout_clock": "ROS",
+      "parameters": {
+        "expected_status_observers": 2,
+        "active_scan_angle_deg": 180.0,
+        "active_scan_fov_deg": 270.0,
+        "active_scan_timeout": 45.0,
+        "active_scan_max_attempts": 1,
+        "frontier_viewpoint_strategy": "centroid",
+        "viewpoint_candidate_budget": 48,
+        "viewpoint_frontier_budget": 96,
+        "map_frame": "map",
+        "odom_frame": "odom",
+        "base_frame": "base_link",
+        "robot_radius": 0.35,
+        "min_frontier_size": 0.25,
+        "min_goal_distance": 0.2,
+        "visited_radius": 0.3,
+        "observation_min_separation": 0.3,
+        "frontier_approach_radius": 0.6,
+        "start_snap_distance": 0.15,
+        "return_tolerance": 0.15,
+        "distance_score_bias": 0.1,
+        "score_distance_offset": 0.5,
+        "minimum_free_area": 8.0,
+        "goal_timeout": 75.0,
+        "task_timeout": 300.0,
+        "max_goals": 60,
+        "retry_cooldown": 20.0,
+        "max_attempts": 3,
+        "retry_radius": 0.35,
+        "map_update_timeout": 15.0,
+        "scan_max_age": 1.0,
+        "tf_max_age": 1.0,
+        "future_tolerance": 0.1,
+        "slam_transform_timeout": 0.2,
+        "map_jump_translation": 0.5,
+        "map_jump_rotation": 0.35,
+        "initialization_timeout": 90.0,
+        "nav_server_timeout": 60.0,
+        "goal_response_timeout": 10.0,
+        "cancel_response_timeout": 5.0,
+        "cancel_result_timeout": 15.0,
+        "map_save_timeout": 30.0,
+        "retry_map_wait": 3.0,
+        "stable_empty_maps": 3,
+        "map_output": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-ab-v3/005_irregular_arc_seed1_angle180/map",
+        "reference_yaw_rad": 0.0,
+        "update_latest": false
+      },
+      "elapsed_wall_seconds": 1.31,
+      "start_pose": [
+        0.0019185880616864024,
+        1.7701420846417795e-06,
+        0.000659831038758205
+      ],
+      "known_free_area_m2": 16.813,
+      "frontier_clusters": 8,
+      "unreachable_clusters": 8,
+      "ignored_small_clusters": 21,
+      "residual_counts": {
+        "reachable_unexplored": 8,
+        "footprint_excluded": 0,
+        "multiview_observed": 0
+      },
+      "residual_frontiers": [
+        {
+          "classification": "reachable_unexplored",
+          "frontier_cells": 30,
+          "centroid": [
+            -0.3560905038555304,
+            0.05793678008842029
+          ],
+          "reachable_approach_cells": 0
+        },
+        {
+          "classification": "reachable_unexplored",
+          "frontier_cells": 25,
+          "centroid": [
+            1.7949095281968674,
+            1.8829368072830395
+          ],
+          "reachable_approach_cells": 0
+        },
+        {
+          "classification": "reachable_unexplored",
+          "frontier_cells": 32,
+          "centroid": [
+            1.618909525574263,
+            3.307936828517194
+          ],
+          "reachable_approach_cells": 0
+        },
+        {
+          "classification": "reachable_unexplored",
+          "frontier_cells": 115,
+          "centroid": [
+            2.843692152520598,
+            2.172067246374027
+          ],
+          "reachable_approach_cells": 0
+        },
+        {
+          "classification": "reachable_unexplored",
+          "frontier_cells": 20,
+          "centroid": [
+            2.2439095348874885,
+            1.1579367964796976
+          ],
+          "reachable_approach_cells": 0
+        },
+        {
+          "classification": "reachable_unexplored",
+          "frontier_cells": 55,
+          "centroid": [
+            2.594364085564214,
+            3.3947550116290675
+          ],
+          "reachable_approach_cells": 0
+        },
+        {
+          "classification": "reachable_unexplored",
+          "frontier_cells": 41,
+          "centroid": [
+            3.2189095494161206,
+            1.05000996560317
+          ],
+          "reachable_approach_cells": 0
+        },
+        {
+          "classification": "reachable_unexplored",
+          "frontier_cells": 58,
+          "centroid": [
+            3.012875063587347,
+            3.332936828889723
+          ],
+          "reachable_approach_cells": 0
+        }
+      ],
+      "viewpoint_diagnostics": [],
+      "active_scans": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 26,
+            "blocking_cell": [
+              10,
+              15
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 4.031,
+          "motion_requested": false
+        }
+      ],
+      "manual_intervention_required": true
+    },
+    {
+      "t": 4.446,
+      "wall_t": 9.441157164999822,
+      "state": "map_unstable",
+      "map_output": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-ab-v3/005_irregular_arc_seed1_angle180/map",
+      "goals": [],
+      "reference_yaw_rad": 0.0,
+      "reason": "tf_stale",
+      "map_health": {
+        "healthy": false,
+        "issues": [
+          "tf_stale"
+        ],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.6404788860000004,
+            "update_age_s": 0.4110000000000005
+          },
+          "scan": {
+            "stamp_age_s": 0.4408289940000003,
+            "update_age_s": 0.4400000000000004
+          },
+          "tf": {
+            "stamp_age_s": 1.041739718,
+            "update_age_s": 0.4110000000000005
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 0.0,
+        "max_rotation_jump_rad": 0.0,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {
+          "tf_stale": 4.442
+        }
+      },
+      "elapsed_ros_seconds": 0.9,
+      "timeout_clock": "ROS",
+      "parameters": {
+        "expected_status_observers": 2,
+        "active_scan_angle_deg": 180.0,
+        "active_scan_fov_deg": 270.0,
+        "active_scan_timeout": 45.0,
+        "active_scan_max_attempts": 1,
+        "frontier_viewpoint_strategy": "centroid",
+        "viewpoint_candidate_budget": 48,
+        "viewpoint_frontier_budget": 96,
+        "map_frame": "map",
+        "odom_frame": "odom",
+        "base_frame": "base_link",
+        "robot_radius": 0.35,
+        "min_frontier_size": 0.25,
+        "min_goal_distance": 0.2,
+        "visited_radius": 0.3,
+        "observation_min_separation": 0.3,
+        "frontier_approach_radius": 0.6,
+        "start_snap_distance": 0.15,
+        "return_tolerance": 0.15,
+        "distance_score_bias": 0.1,
+        "score_distance_offset": 0.5,
+        "minimum_free_area": 8.0,
+        "goal_timeout": 75.0,
+        "task_timeout": 300.0,
+        "max_goals": 60,
+        "retry_cooldown": 20.0,
+        "max_attempts": 3,
+        "retry_radius": 0.35,
+        "map_update_timeout": 15.0,
+        "scan_max_age": 1.0,
+        "tf_max_age": 1.0,
+        "future_tolerance": 0.1,
+        "slam_transform_timeout": 0.2,
+        "map_jump_translation": 0.5,
+        "map_jump_rotation": 0.35,
+        "initialization_timeout": 90.0,
+        "nav_server_timeout": 60.0,
+        "goal_response_timeout": 10.0,
+        "cancel_response_timeout": 5.0,
+        "cancel_result_timeout": 15.0,
+        "map_save_timeout": 30.0,
+        "retry_map_wait": 3.0,
+        "stable_empty_maps": 3,
+        "map_output": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-ab-v3/005_irregular_arc_seed1_angle180/map",
+        "reference_yaw_rad": 0.0,
+        "update_latest": false
+      },
+      "elapsed_wall_seconds": 1.43,
+      "start_pose": [
+        0.0019185880616864024,
+        1.7701420846417795e-06,
+        0.000659831038758205
+      ],
+      "known_free_area_m2": 16.813,
+      "frontier_clusters": 8,
+      "unreachable_clusters": 8,
+      "ignored_small_clusters": 21,
+      "residual_counts": {
+        "reachable_unexplored": 8,
+        "footprint_excluded": 0,
+        "multiview_observed": 0
+      },
+      "residual_frontiers": [
+        {
+          "classification": "reachable_unexplored",
+          "frontier_cells": 30,
+          "centroid": [
+            -0.3560905038555304,
+            0.05793678008842029
+          ],
+          "reachable_approach_cells": 0
+        },
+        {
+          "classification": "reachable_unexplored",
+          "frontier_cells": 25,
+          "centroid": [
+            1.7949095281968674,
+            1.8829368072830395
+          ],
+          "reachable_approach_cells": 0
+        },
+        {
+          "classification": "reachable_unexplored",
+          "frontier_cells": 32,
+          "centroid": [
+            1.618909525574263,
+            3.307936828517194
+          ],
+          "reachable_approach_cells": 0
+        },
+        {
+          "classification": "reachable_unexplored",
+          "frontier_cells": 115,
+          "centroid": [
+            2.843692152520598,
+            2.172067246374027
+          ],
+          "reachable_approach_cells": 0
+        },
+        {
+          "classification": "reachable_unexplored",
+          "frontier_cells": 20,
+          "centroid": [
+            2.2439095348874885,
+            1.1579367964796976
+          ],
+          "reachable_approach_cells": 0
+        },
+        {
+          "classification": "reachable_unexplored",
+          "frontier_cells": 55,
+          "centroid": [
+            2.594364085564214,
+            3.3947550116290675
+          ],
+          "reachable_approach_cells": 0
+        },
+        {
+          "classification": "reachable_unexplored",
+          "frontier_cells": 41,
+          "centroid": [
+            3.2189095494161206,
+            1.05000996560317
+          ],
+          "reachable_approach_cells": 0
+        },
+        {
+          "classification": "reachable_unexplored",
+          "frontier_cells": 58,
+          "centroid": [
+            3.012875063587347,
+            3.332936828889723
+          ],
+          "reachable_approach_cells": 0
+        }
+      ],
+      "viewpoint_diagnostics": [],
+      "active_scans": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 26,
+            "blocking_cell": [
+              10,
+              15
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 4.031,
+          "motion_requested": false
+        }
+      ],
+      "manual_intervention_required": true,
+      "map_saved": false,
+      "returned": false
+    }
+  ],
+  "failures": [
+    "Missing map artifact .posegraph",
+    "Missing map artifact .data",
+    "Missing map artifact .metadata.json",
+    "rosbag missing required messages or unreadable"
+  ],
+  "source": {
+    "git_revision": "823a52275e6ba85c9638fe048bd9dd2e26da4e05",
+    "sha256": {
+      "simulation/benchmark_viewpoints.py": "f0d7bbf4a505c7dd4c0ecd220ada2f7a18036e019d506845cf1f2636468790b0",
+      "simulation/build_gui_sync.py": "5d3f248ef40693fad21d7ddce3c90dc6018fe7c09f50291459980753b0c8c9b4",
+      "simulation/calibrate_realism.py": "944bff1c36ceb008b5cf4ef507858e7b2b8f639068a00a4beacc63fc66026fa4",
+      "simulation/capture_process.py": "ae16a529be27718a382e29054ca162a6577bc939e334234a60beb706f56f000d",
+      "simulation/check_exploration.py": "5a99a0dbfc5bc9de18d74e44985c3d542e2e94295686bff86838e2cf5c5cbadc",
+      "simulation/check_health_bags.py": "0a8e9f92e513bc6c63dd75a39c08ca8c61e9cdc029ffa2435669fbd755687465",
+      "simulation/check_native_lidar_noise.py": "c2a1216d7e53338e3c6da88cf9e4f77b9cd9ed5e9255453ec6bba21d0d8172b1",
+      "simulation/check_navigation.py": "30182ef9477657d425b009093a53288403118a0219342efef0ed14551e88fe90",
+      "simulation/check_normal_session.py": "0c6c27c1eacfb4a5929b5b963f3aa2fb5e6c8e12b7db28764c671bf463c09a1f",
+      "simulation/check_obstacles.py": "9a0328c32edbd58b8347b8633cacec709a43367ca9ed08874ca7e430f5b435a0",
+      "simulation/check_room.py": "ea84f095bc26eeed7c687a3af15e4620642be4bfe19c00e0bbe1554d58c743ac",
+      "simulation/config/bridge.yaml": "8c03ed14072c12defb80d1471a511e9cf2f786c81df86a6a79d1fb3e50ada2d9",
+      "simulation/config/nav2.yaml": "737906ff0689a329684e16b8d1020e9e2e5ef94c244950c547325626629093e3",
+      "simulation/config/navigate_wait.xml": "72d6d3ad72e82fb295233b26a4c31e36972ccdc431e7288b98f8b3cdd061292e",
+      "simulation/config/realism.yaml": "3d22a829a514993fc7f60cb4b810a9ad22613d7e0319b42f21966f04dd452303",
+      "simulation/config/slam.yaml": "3c10f823f1a51b16e01cd5b12843eef1502d696e2a83c4f856420bba020a7942",
+      "simulation/gui_sync/RenderSync.cc": "9c7ed35cbd1af3a2d26b46e5a05e65a6e9eddc1a0211f54e9e0cdadbf4f75bde",
+      "simulation/gui_sync/RenderSync.hh": "5b4e8b403780a0ee634e8fa9b0dbfdf6228d4abeb82a3c07c29f8610fa71ae18",
+      "simulation/gui_sync/WheeltecRenderSync.qml": "bd1759d4dc05979988925d17ec9ed3b4d82467474d820f2b951098ef7c93a8fa",
+      "simulation/irregular_fixtures.py": "8c3c847cd94241eee8bb8ed341d1a294adb37bbb597e49f8e3e1ffe86bb546bc",
+      "simulation/launch/navigation.launch.py": "ec0f2ee4feca285d84ead19b97f836aba39bf2b0f6cb48d10c8001a9da0795a7",
+      "simulation/launch/room.launch.py": "130971c3a275b3b5d9d128fc8560114d47f0a9a38c24028cb63874a29c054665",
+      "simulation/map_metrics.py": "3b24eb354c5c1002340400f3adb88ff05abc5b3f9f843f2a7299574ab85c1385",
+      "simulation/models/wheeltec_reference/model.sdf": "790ee948429671ee19d81eed8ab71c02e1106212344ee7ec15856fe833654033",
+      "simulation/paired_active_scan_batch.py": "bc941a91065490a624d7ca0a7ec680bd6757dfff71319d964673df02ab177e6b",
+      "simulation/paired_viewpoint_batch.py": "40a27dca7dd8974a6f7698fdbd084348f85a53dcf05d818fcea5d4ad5815524e",
+      "simulation/process_capture.py": "962b85fe5313e387cb39c5413ed26ee6ee0e51c031f93833d8e9e8a22c609f07",
+      "simulation/realism.py": "a715a45aeb80438b0d33d703215d5125d5713fed97f18c54d0ede8a2fd6a748d",
+      "simulation/realism_node.py": "5d4d2846ef6176400a1dad2a906ee5cc32dfc4336183f8ed4450dfb94c7b90ee",
+      "simulation/regression_batch.py": "d4f851b78a21369f9796b2e75d54d2d11c37a2779eadf1ce7b641fa4166d3f64",
+      "simulation/replay_health.py": "03d0d668be7e4f896fb0e087152fbc8dc26bb0d80bb1f69bd794f0d2648ce17a",
+      "simulation/replay_viewpoints.py": "9c1f08e76ce1e76f8b5d028d96221f32ebca409672af6c43ec30d10ab327c1a8",
+      "simulation/resource_monitor.py": "9d392961ebc1354a4ed681a9335ca94cbe1cb0998478a5e9cb668ade9f8772c1",
+      "simulation/room_session.py": "7a9ef9f457e7800d8d2c875d6adc030870b02195e46b48ff60fdf33ad9d4b15d",
+      "simulation/run_room.py": "9910e81e6eba9d90701ca3fe255525fa32145d390afd3a5ec05500e4cde925af",
+      "simulation/save_map.py": "5d34317f1553d5a5878b5ffeaa56e83a72f1f5ae4cb88ddfbfdfec1072e6fbbb",
+      "simulation/scenarios/baseline.json": "9c524db887a9a8f88e248c4765ac5b5b3dacc372da37d3fff434faab796c2793",
+      "simulation/scenarios/bent_passage.json": "3c89d5d99a5817c01353cf63de8f84e9d2f2a7fcd925a396979e7e99dae35e0e",
+      "simulation/scenarios/clutter.json": "de8d08656df0c7f5e138c057e979261006360f724a191578d6f9d608b6b22955",
+      "simulation/scenarios/irregular_arc.json": "3003b770f8fa1b626b3a54a28cfa9905d9b61e4ae0fe6b0c7217fc8fbec386cd",
+      "simulation/scenarios/irregular_frame.json": "e956ec0870a18a9a016bc9d7a31f2055e14da78618dc789a286949bb7f61a7be",
+      "simulation/scenarios/l_shape.json": "55206c1bbba36e948be81802e2b17fe9d2e6199ad0d173fe9140753bd6ef31ca",
+      "simulation/scenarios/recess.json": "27e04d116086318eec6ff8c6c8bea25e34e301f6aba58e002da7c353da40fb40",
+      "simulation/scenarios.py": "a407fc306715620231f74674111c88deae570854d2f5ba2c41bcd5214b6fe610",
+      "simulation/teleop.py": "edd8624eea0bec098f2e45dcc46038c9871f2c83ba38a9d5192706f6cb6aa1b6",
+      "simulation/test_active_scan_lifecycle_ros.py": "ecd607435f400894d6b45d27497532c74de77464eab9d90ebfb18a8ef655c32b",
+      "simulation/test_explorer_time_ros.py": "4c990f6cdae0f731700f3c115d15cd17899f9259a5913efff73cb8db13f25801",
+      "simulation/test_health_ros.py": "6826555592e7f1fbda97a207e888619cbdc14e1426316543ac036fe57b767ef5",
+      "simulation/test_map_roundtrip_ros.py": "3438171b6003c21349bf070b7f35c9b281fac75455ee5e1888999ec43d00653a",
+      "simulation/test_outcomes.py": "f3b88d887268361634d86f19983a22f2feea1296716a863e8d915d70a5d97b73",
+      "simulation/test_paired_active_scan_batch.py": "21139034bab4c38f55f121819162ccf5ce3c8b1cfdb365dd15156f5880420bf8",
+      "simulation/test_paired_viewpoints.py": "373ecc3a129432c3874a8b73f2721acc4300aeed17397b06141915f4010825a2",
+      "simulation/test_process_capture_ros.py": "474b5bda2a228f10b9214261f0ea0f9eaa173f0aaa5fa7f07d07f8da8cac6319",
+      "simulation/test_realism.py": "8cf08c994e7786dd8de371284860b597d49eea347f8f818148b3bea31618e84d",
+      "simulation/test_realism_ros.py": "17c6c8f6fd7b396ef8b032f60f7c73b1977a07cfc799bccb99d7dc2a38f7369a",
+      "simulation/test_regression_batch.py": "4ec03a918458ee4d886475a20624fa370cf33406095cfff9473f874c7fde4942",
+      "simulation/test_replay_viewpoints.py": "fdf0cf3c790b0f3852790966189b5b59e1b61d112d147b9f3bd597278f6a6e15",
+      "simulation/test_room_session.py": "c435c29882c9fa871f05c8d3c78c4b98dadfbe0c62b17dfb2d41194bdbb24f7f",
+      "simulation/test_teleop.py": "0f5db5dccc91042696c541c74def6eb5cfb114de86a85aa7f643dd1777ac2887",
+      "simulation/test_teleop_ros.py": "7caa45cde5aa871f22282eb1c384b2a3ab1ce001752670d476e96b6121be1a53",
+      "simulation/test_truth_clock_ros.py": "f334c0145e6a99e68ffed6e45bcb3c66315dcfbd0dc9644e758dd31946d2a8f0",
+      "simulation/test_truth_runtime.py": "780b3889e1d82402394bb3c57394deb954288d81ae52665ae965d6ae7cf94ac4",
+      "simulation/test_validation.py": "5e8d6175718c9d4492ca3b8378a9179c291e587c3fc2763f8bd61b2c7345013e",
+      "simulation/test_view_process.py": "5db5cd745ef2b4b4c663cdf174c13cb1d60b33cb70bd2c9baf5c465d682b43a4",
+      "simulation/truth_capture.py": "0d1eeb62e98a8115fb73548e0c64a9f427c98838211878842ea45c19e2f229c4",
+      "simulation/truth_capture_worker.py": "9c0ee995575ad45d4014346cdf94209ee4b3c82482be8e702cfc743b7ffd4a97",
+      "simulation/view_process.py": "6e5de64ebb2ce338eb1d05467b9218f43f645bd503e20a60a6d45eb8576c2b39",
+      "simulation/worlds/room_25m2.sdf": "a7b89c66bf89aef325e2416134078b1d898d8549a718ad0a74e7e58682859c05",
+      "src/wheeltec_explore/package.xml": "21e95e8a3f0f84f08b5c592902b4857848f1c17e66b78c860ae18bc24ceddb1c",
+      "src/wheeltec_explore/setup.py": "32a55a22f13c62de762478d1b4059c7f6c27535e6de11083f1017cbcaa64484c",
+      "src/wheeltec_explore/test/fixtures/recorded_occluded_frontier.json": "d15a97ab7ac0a9992fecfb909d6318eac0699a9512b5996aa221fff87a77f6e5",
+      "src/wheeltec_explore/test/test_active_scan.py": "b743d44c5d8cd0917fb28e6699dfb4f7062c68ad0ff6206f6f5606c59e75f029",
+      "src/wheeltec_explore/test/test_frontiers.py": "e607b50d67ba87daf5e047bb082b5786631e2dca55031a4fdff020b8a7214d06",
+      "src/wheeltec_explore/test/test_health.py": "8ffd06991184502e2089968d1b8392aae75a7aa6ca5c6a31385b53b878120a48",
+      "src/wheeltec_explore/test/test_policy.py": "dcc71fe7189dce2509df05d9d14719ac57fe4c891815c7e1511e78d836bd5983",
+      "src/wheeltec_explore/test/test_residuals.py": "e2e59c0bf8aa023e3f0bb6c93070ebf65e6d23c1a8165810bf2ca4f515ed4efa",
+      "src/wheeltec_explore/test/test_viewpoints.py": "12eb3042153fd79ad309ac982cc9ff6a2311595e8ca3e77f354634f4f14cd20a",
+      "src/wheeltec_explore/wheeltec_explore/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "src/wheeltec_explore/wheeltec_explore/active_scan.py": "6782ed5e561a4f5669bcd0951110cb0fdafae2455efb237e125e7e74dfa1daad",
+      "src/wheeltec_explore/wheeltec_explore/defaults.py": "6f8cf272145ed80734e1c9a512746e6d80f32ac07d73200364b7fd5fcc8204be",
+      "src/wheeltec_explore/wheeltec_explore/frontiers.py": "df41672c27ed18751fc71dca8ca240fb54208e25bf9d6c78c56edc0920091d0e",
+      "src/wheeltec_explore/wheeltec_explore/health.py": "d42d972259cfc77608bc256bf42ca5033d6b3e3ecc14e0e93e768f513af1766d",
+      "src/wheeltec_explore/wheeltec_explore/node.py": "e80a0dbea0bc161fe4164e7e1c68d3ff55653b459a201dd63f468d68c6e9ef05",
+      "src/wheeltec_explore/wheeltec_explore/policy.py": "7833dd62da3d90b78ab750860a8a5cb7a87fe49dec483953f083496a09dc9f4d",
+      "src/wheeltec_explore/wheeltec_explore/viewpoints.py": "e9dd4f40eaf961367fc093a3ece626f610701a3664501d21dbb630cad3dc76fa"
+    }
+  },
+  "latest_selector_sha256_before": "46fe655145eceeb53d0882f7c56cc22714553eea0e9c563c475055409c9ca1c6",
+  "initial_truth_world_m": [
+    -1.6826561106714908,
+    -1.696485441065827
+  ],
+  "maximum_distance_from_start_m": 0,
+  "initial_map_pose": [
+    0.0006055311700262312,
+    1.0390736192521048e-06,
+    0.001056207224664585
+  ],
+  "map_from_world": [
+    1.736443294919085,
+    1.6420307880340603,
+    -0.031856770055625316
+  ],
+  "realism": {
+    "world": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-ab-v3/005_irregular_arc_seed1_angle180/realism/world.sdf",
+    "model": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-ab-v3/005_irregular_arc_seed1_angle180/realism/model.sdf",
+    "bridge": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-ab-v3/005_irregular_arc_seed1_angle180/realism/bridge.yaml",
+    "nav2": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-ab-v3/005_irregular_arc_seed1_angle180/realism/nav2.yaml",
+    "slam": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-ab-v3/005_irregular_arc_seed1_angle180/realism/slam.yaml",
+    "robot_radius": 0.35,
+    "seed": 1,
+    "noise_scale": 1.0,
+    "calibration_complete": false,
+    "profile": {
+      "schema_version": 1,
+      "date": "2026-10-27",
+      "kind": "assumptions_only",
+      "calibration_complete": false,
+      "physical_data_collected": false,
+      "gate_approvals": [],
+      "parameters": {
+        "laser": {
+          "model": {
+            "value": null,
+            "source": "assumed",
+            "unit": "",
+            "basis": "Physical model not verified; do not infer from model-family notes"
+          },
+          "beams": {
+            "value": 540,
+            "source": "assumed",
+            "unit": "count",
+            "basis": "Engineering assumption pending G0-G2 measurements",
+            "interval": [
+              360,
+              1440
+            ]
+          },
+          "fov_deg": {
+            "value": 270,
+            "source": "assumed",
+            "unit": "deg",
+            "basis": "Engineering assumption pending G0-G2 measurements",
+            "interval": [
+              240,
+              360
+            ]
+          },
+          "frequency_hz": {
+            "value": 10,
+            "source": "assumed",
+            "unit": "Hz",
+            "basis": "Engineering assumption pending G0-G2 measurements",
+            "interval": [
+              5,
+              15
+            ]
+          },
+          "range_min_m": {
+            "value": 0.08,
+            "source": "assumed",
+            "unit": "m",
+            "basis": "Engineering assumption pending G0-G2 measurements",
+            "interval": [
+              0.05,
+              0.15
+            ]
+          },
+          "range_max_m": {
+            "value": 8,
+            "source": "assumed",
+            "unit": "m",
+            "basis": "Engineering assumption pending G0-G2 measurements",
+            "interval": [
+              5,
+              12
+            ]
+          },
+          "noise_sigma_m": {
+            "value": 0.01,
+            "source": "assumed",
+            "unit": "m",
+            "basis": "Engineering assumption pending G0-G2 measurements",
+            "interval": [
+              0.002,
+              0.03
+            ]
+          },
+          "dropout_probability": {
+            "value": 0.01,
+            "source": "assumed",
+            "unit": "",
+            "basis": "Engineering assumption pending G0-G2 measurements",
+            "interval": [
+              0,
+              0.05
+            ]
+          },
+          "timestamp_jitter_s": {
+            "value": 0.002,
+            "source": "assumed",
+            "unit": "s",
+            "basis": "Engineering assumption pending G0-G2 measurements",
+            "interval": [
+              0,
+              0.01
+            ]
+          }
+        },
+        "geometry": {
+          "length_m": {
+            "value": 0.4,
+            "source": "assumed",
+            "unit": "m",
+            "basis": "Conservative existing Nav2 envelope, not measured chassis",
+            "interval": [
+              0.36,
+              0.5
+            ]
+          },
+          "width_m": {
+            "value": 0.43,
+            "source": "assumed",
+            "unit": "m",
+            "basis": "Conservative existing Nav2 envelope, not measured chassis",
+            "interval": [
+              0.39,
+              0.5
+            ]
+          },
+          "wheel_radius_m": {
+            "value": 0.075,
+            "source": "assumed",
+            "unit": "m",
+            "basis": "Engineering assumption pending G0-G2 measurements",
+            "interval": [
+              0.05,
+              0.1
+            ]
+          },
+          "wheel_separation_m": {
+            "value": 0.35,
+            "source": "assumed",
+            "unit": "m",
+            "basis": "Engineering assumption pending G0-G2 measurements",
+            "interval": [
+              0.25,
+              0.45
+            ]
+          },
+          "safety_margin_m": {
+            "value": 0.0563590627994795,
+            "source": "assumed",
+            "unit": "m",
+            "basis": "Preserve existing 0.35m explorer radius with shared envelope",
+            "interval": [
+              0,
+              0.12
+            ]
+          }
+        },
+        "odom": {
+          "wheel_radius_scale_error": {
+            "value": 0.01,
+            "source": "assumed",
+            "unit": "",
+            "basis": "Engineering assumption pending G0-G2 measurements",
+            "interval": [
+              -0.03,
+              0.03
+            ]
+          },
+          "wheel_separation_scale_error": {
+            "value": 0.01,
+            "source": "assumed",
+            "unit": "",
+            "basis": "Engineering assumption pending G0-G2 measurements",
+            "interval": [
+              -0.03,
+              0.03
+            ]
+          },
+          "left_right_scale_error": {
+            "value": 0.002,
+            "source": "assumed",
+            "unit": "",
+            "basis": "Engineering assumption pending G0-G2 measurements",
+            "interval": [
+              -0.01,
+              0.01
+            ]
+          },
+          "linear_white_sigma_m_s": {
+            "value": 0.005,
+            "source": "assumed",
+            "unit": "m/s",
+            "basis": "Engineering assumption pending G0-G2 measurements",
+            "interval": [
+              0,
+              0.02
+            ]
+          },
+          "yaw_white_sigma_rad_s": {
+            "value": 0.01,
+            "source": "assumed",
+            "unit": "rad/s",
+            "basis": "Engineering assumption pending G0-G2 measurements",
+            "interval": [
+              0,
+              0.04
+            ]
+          },
+          "linear_walk_sigma": {
+            "value": 0.0005,
+            "source": "assumed",
+            "unit": "m/s/sqrt(s)",
+            "basis": "Engineering assumption pending G0-G2 measurements",
+            "interval": [
+              0,
+              0.003
+            ]
+          },
+          "yaw_walk_sigma": {
+            "value": 0.001,
+            "source": "assumed",
+            "unit": "rad/s/sqrt(s)",
+            "basis": "Engineering assumption pending G0-G2 measurements",
+            "interval": [
+              0,
+              0.006
+            ]
+          },
+          "turn_slip_sigma_m_rad": {
+            "value": 0.015,
+            "source": "assumed",
+            "unit": "m/rad",
+            "basis": "Engineering assumption pending G0-G2 measurements",
+            "interval": [
+              0,
+              0.05
+            ]
+          }
+        },
+        "actuator": {
+          "delay_min_s": {
+            "value": 0.05,
+            "source": "assumed",
+            "unit": "s",
+            "basis": "User-authorized 50-150ms assumption range",
+            "interval": [
+              0.05,
+              0.15
+            ]
+          },
+          "delay_max_s": {
+            "value": 0.15,
+            "source": "assumed",
+            "unit": "s",
+            "basis": "User-authorized 50-150ms assumption range",
+            "interval": [
+              0.05,
+              0.15
+            ]
+          },
+          "linear_deadzone_m_s": {
+            "value": 0.015,
+            "source": "assumed",
+            "unit": "m/s",
+            "basis": "Engineering assumption pending G0-G2 measurements",
+            "interval": [
+              0,
+              0.03
+            ]
+          },
+          "yaw_deadzone_rad_s": {
+            "value": 0.03,
+            "source": "assumed",
+            "unit": "rad/s",
+            "basis": "Engineering assumption pending G0-G2 measurements",
+            "interval": [
+              0,
+              0.08
+            ]
+          },
+          "max_linear_m_s": {
+            "value": 0.2,
+            "source": "assumed",
+            "unit": "m/s",
+            "basis": "Engineering assumption pending G0-G2 measurements",
+            "interval": [
+              0.1,
+              0.3
+            ]
+          },
+          "max_yaw_rad_s": {
+            "value": 0.7,
+            "source": "assumed",
+            "unit": "rad/s",
+            "basis": "Engineering assumption pending G0-G2 measurements",
+            "interval": [
+              0.3,
+              1
+            ]
+          },
+          "linear_accel_m_s2": {
+            "value": 0.4,
+            "source": "assumed",
+            "unit": "m/s2",
+            "basis": "Engineering assumption pending G0-G2 measurements",
+            "interval": [
+              0.2,
+              0.8
+            ]
+          },
+          "linear_decel_m_s2": {
+            "value": 0.4,
+            "source": "assumed",
+            "unit": "m/s2",
+            "basis": "Engineering assumption pending G0-G2 measurements",
+            "interval": [
+              0.2,
+              0.8
+            ]
+          },
+          "yaw_accel_rad_s2": {
+            "value": 1.2,
+            "source": "assumed",
+            "unit": "rad/s2",
+            "basis": "Engineering assumption pending G0-G2 measurements",
+            "interval": [
+              0.5,
+              2
+            ]
+          },
+          "yaw_decel_rad_s2": {
+            "value": 1.2,
+            "source": "assumed",
+            "unit": "rad/s2",
+            "basis": "Engineering assumption pending G0-G2 measurements",
+            "interval": [
+              0.5,
+              2
+            ]
+          },
+          "command_timeout_s": {
+            "value": 0.5,
+            "source": "assumed",
+            "unit": "s",
+            "basis": "Engineering assumption pending G0-G2 measurements",
+            "interval": [
+              0.2,
+              1
+            ]
+          }
+        },
+        "compute": {
+          "cores": {
+            "value": 4,
+            "source": "assumed",
+            "unit": "cores",
+            "basis": "Optional taskset host approximation; does not reproduce RDK X5 architecture/clock",
+            "interval": [
+              2,
+              8
+            ]
+          },
+          "apply_limit": {
+            "value": true,
+            "source": "assumed",
+            "unit": "",
+            "basis": "Limit stack for exploratory realism profile; report board equivalence unverified"
+          }
+        },
+        "imu": {
+          "present": {
+            "value": null,
+            "source": "assumed",
+            "unit": "",
+            "basis": "Unverified on this robot; no IMU/EKF fabricated or enabled"
+          }
+        }
+      },
+      "calibration_source": "/mnt/d/虚拟c盘/WHEELTEC/robot/calibration/2026-10-27.json",
+      "calibration_sha256": "0cbe897d2649ef1731ec250a7bf08b5ba7728aa2187a0b32b43b77f07346e556"
+    },
+    "native_noise": false,
+    "randomness": "postprocessing streams seeded; native physics scheduling not controlled",
+    "cpu_affinity": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "truth_quality": {
+    "valid": true,
+    "issues": [],
+    "limits": {
+      "minimum_distinct_measurement_stamps": 3,
+      "maximum_sim_gap_s": 0.2,
+      "maximum_wall_gap_s": 0.5,
+      "maximum_terminal_sim_age_s": 0.2,
+      "maximum_terminal_wall_age_s": 0.5,
+      "future_tolerance_s": 0.1
+    },
+    "task_start_wall_t": 7.213513668999894,
+    "decision_wall_t": 10.806570788000045,
+    "decision_sim_t": 5.423,
+    "task_samples": 105,
+    "distinct_measurement_stamps": 105,
+    "maximum_sim_gap_s": 0.03500000000000014,
+    "maximum_wall_gap_s": 0.036771834999854036,
+    "last_truth_wall_age_s": 0.013794854000025225,
+    "last_truth_sim_age_s": 0.014000000000000234,
+    "terminal_clock_sync": {
+      "attempted": false,
+      "maximum_wait_wall_s": 2.0,
+      "elapsed_wall_s": 1.5180003174464218e-06,
+      "initial_issues": [],
+      "required_new_measurement_stamps": 3,
+      "new_distinct_measurement_stamps": 0
+    }
+  },
+  "explorer": {
+    "state": "map_unstable",
+    "map_output": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-ab-v3/005_irregular_arc_seed1_angle180/map",
+    "goals": [],
+    "reference_yaw_rad": 0.0,
+    "reason": "tf_stale",
+    "map_health": {
+      "healthy": false,
+      "issues": [
+        "tf_stale"
+      ],
+      "ages": {
+        "map": {
+          "stamp_age_s": 0.6404788860000004,
+          "update_age_s": 0.4110000000000005
+        },
+        "scan": {
+          "stamp_age_s": 0.4408289940000003,
+          "update_age_s": 0.4400000000000004
+        },
+        "tf": {
+          "stamp_age_s": 1.041739718,
+          "update_age_s": 0.4110000000000005
+        }
+      },
+      "faults": {},
+      "limits": {
+        "jump_translation": 0.5,
+        "jump_rotation": 0.35,
+        "map_timeout": 15.0,
+        "scan_timeout": 1.0,
+        "tf_timeout": 1.0,
+        "future_tolerance": 0.1,
+        "tf_future_offset": 0.2
+      },
+      "max_translation_jump_m": 0.0,
+      "max_rotation_jump_rad": 0.0,
+      "slam_alive": true,
+      "slam_liveness_verified": true,
+      "latched_issues": {
+        "tf_stale": 4.442
+      }
+    },
+    "elapsed_ros_seconds": 0.9,
+    "timeout_clock": "ROS",
+    "parameters": {
+      "expected_status_observers": 2,
+      "active_scan_angle_deg": 180.0,
+      "active_scan_fov_deg": 270.0,
+      "active_scan_timeout": 45.0,
+      "active_scan_max_attempts": 1,
+      "frontier_viewpoint_strategy": "centroid",
+      "viewpoint_candidate_budget": 48,
+      "viewpoint_frontier_budget": 96,
+      "map_frame": "map",
+      "odom_frame": "odom",
+      "base_frame": "base_link",
+      "robot_radius": 0.35,
+      "min_frontier_size": 0.25,
+      "min_goal_distance": 0.2,
+      "visited_radius": 0.3,
+      "observation_min_separation": 0.3,
+      "frontier_approach_radius": 0.6,
+      "start_snap_distance": 0.15,
+      "return_tolerance": 0.15,
+      "distance_score_bias": 0.1,
+      "score_distance_offset": 0.5,
+      "minimum_free_area": 8.0,
+      "goal_timeout": 75.0,
+      "task_timeout": 300.0,
+      "max_goals": 60,
+      "retry_cooldown": 20.0,
+      "max_attempts": 3,
+      "retry_radius": 0.35,
+      "map_update_timeout": 15.0,
+      "scan_max_age": 1.0,
+      "tf_max_age": 1.0,
+      "future_tolerance": 0.1,
+      "slam_transform_timeout": 0.2,
+      "map_jump_translation": 0.5,
+      "map_jump_rotation": 0.35,
+      "initialization_timeout": 90.0,
+      "nav_server_timeout": 60.0,
+      "goal_response_timeout": 10.0,
+      "cancel_response_timeout": 5.0,
+      "cancel_result_timeout": 15.0,
+      "map_save_timeout": 30.0,
+      "retry_map_wait": 3.0,
+      "stable_empty_maps": 3,
+      "map_output": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-ab-v3/005_irregular_arc_seed1_angle180/map",
+      "reference_yaw_rad": 0.0,
+      "update_latest": false
+    },
+    "elapsed_wall_seconds": 1.43,
+    "start_pose": [
+      0.0019185880616864024,
+      1.7701420846417795e-06,
+      0.000659831038758205
+    ],
+    "known_free_area_m2": 16.813,
+    "frontier_clusters": 8,
+    "unreachable_clusters": 8,
+    "ignored_small_clusters": 21,
+    "residual_counts": {
+      "reachable_unexplored": 8,
+      "footprint_excluded": 0,
+      "multiview_observed": 0
+    },
+    "residual_frontiers": [
+      {
+        "classification": "reachable_unexplored",
+        "frontier_cells": 30,
+        "centroid": [
+          -0.3560905038555304,
+          0.05793678008842029
+        ],
+        "reachable_approach_cells": 0
+      },
+      {
+        "classification": "reachable_unexplored",
+        "frontier_cells": 25,
+        "centroid": [
+          1.7949095281968674,
+          1.8829368072830395
+        ],
+        "reachable_approach_cells": 0
+      },
+      {
+        "classification": "reachable_unexplored",
+        "frontier_cells": 32,
+        "centroid": [
+          1.618909525574263,
+          3.307936828517194
+        ],
+        "reachable_approach_cells": 0
+      },
+      {
+        "classification": "reachable_unexplored",
+        "frontier_cells": 115,
+        "centroid": [
+          2.843692152520598,
+          2.172067246374027
+        ],
+        "reachable_approach_cells": 0
+      },
+      {
+        "classification": "reachable_unexplored",
+        "frontier_cells": 20,
+        "centroid": [
+          2.2439095348874885,
+          1.1579367964796976
+        ],
+        "reachable_approach_cells": 0
+      },
+      {
+        "classification": "reachable_unexplored",
+        "frontier_cells": 55,
+        "centroid": [
+          2.594364085564214,
+          3.3947550116290675
+        ],
+        "reachable_approach_cells": 0
+      },
+      {
+        "classification": "reachable_unexplored",
+        "frontier_cells": 41,
+        "centroid": [
+          3.2189095494161206,
+          1.05000996560317
+        ],
+        "reachable_approach_cells": 0
+      },
+      {
+        "classification": "reachable_unexplored",
+        "frontier_cells": 58,
+        "centroid": [
+          3.012875063587347,
+          3.332936828889723
+        ],
+        "reachable_approach_cells": 0
+      }
+    ],
+    "viewpoint_diagnostics": [],
+    "active_scans": [
+      {
+        "plan": {
+          "safe": false,
+          "reason": "unknown_swept_space",
+          "checked_cells": 26,
+          "blocking_cell": [
+            10,
+            15
+          ],
+          "angle_rad": null,
+          "expected_new_directions": 0
+        },
+        "started_ros": 4.031,
+        "motion_requested": false
+      }
+    ],
+    "manual_intervention_required": true,
+    "map_saved": false,
+    "returned": false
+  },
+  "process_capture": {
+    "path": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-ab-v3/005_irregular_arc_seed1_angle180/process.json",
+    "frames": 11,
+    "maps": 5,
+    "issues": {}
+  },
+  "truth_source": {
+    "time_source": "Gazebo Pose_V.header.stamp",
+    "arrival_time_source": "independent worker monotonic wall clock before parse",
+    "topic": "/world/wheeltec_room/dynamic_pose/info",
+    "sample_period_sim_s": 0.02,
+    "sampling": "retain first, then source stamp >= period or regressed stamp",
+    "transport": "append-only UTF-8 JSONL; flush every complete sample",
+    "sample_path": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-ab-v3/005_irregular_arc_seed1_angle180/truth-samples.jsonl",
+    "diagnostics_path": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-ab-v3/005_irregular_arc_seed1_angle180/truth-reader-diagnostics.json",
+    "maximum_partial_record_bytes": 1048576,
+    "raw_messages": 332,
+    "retained_samples": 166,
+    "parse_errors": 0,
+    "missing_reference_messages": 0,
+    "queue_dropped_samples": 0,
+    "reader_error": null,
+    "native_returncode": 0,
+    "worker_pid": 2447,
+    "native_pid": 2454,
+    "spool_bytes": 17956,
+    "maximum_spool_bytes": 134217728
+  },
+  "resource_summary": {
+    "async_slam_toolbox_node": {
+      "peak_rss_kib": 47720.0,
+      "peak_cpu_percent_one_core_basis": 12.991608875723417,
+      "samples": 9
+    },
+    "controller_server": {
+      "peak_rss_kib": 41240.0,
+      "peak_cpu_percent_one_core_basis": 7.999317058307757,
+      "samples": 9
+    },
+    "smoother_server": {
+      "peak_rss_kib": 34592.0,
+      "peak_cpu_percent_one_core_basis": 4.999635801530153,
+      "samples": 9
+    },
+    "planner_server": {
+      "peak_rss_kib": 40460.0,
+      "peak_cpu_percent_one_core_basis": 8.994190760116211,
+      "samples": 9
+    },
+    "behavior_server": {
+      "peak_rss_kib": 39364.0,
+      "peak_cpu_percent_one_core_basis": 5.996127173410808,
+      "samples": 9
+    },
+    "bt_navigator": {
+      "peak_rss_kib": 49224.0,
+      "peak_cpu_percent_one_core_basis": 10.999060955173167,
+      "samples": 9
+    },
+    "velocity_smoother": {
+      "peak_rss_kib": 29524.0,
+      "peak_cpu_percent_one_core_basis": 4.999573161442348,
+      "samples": 9
+    },
+    "wheeltec_explore": {
+      "peak_rss_kib": 74788.0,
+      "peak_cpu_percent_one_core_basis": 20.981159904524,
+      "samples": 2
+    }
+  },
+  "cpu_measurement_scope": "WSL host reference; not RDK X5 measured performance",
+  "shutdown": {
+    "recorder": {
+      "returncode": 0,
+      "forced_kill": false,
+      "process_group_id": 2448,
+      "remaining_live_group_members": []
+    },
+    "explorer": {
+      "returncode": 2,
+      "forced_kill": false,
+      "process_group_id": 2781,
+      "remaining_live_group_members": []
+    },
+    "launch": {
+      "returncode": 0,
+      "forced_kill": false,
+      "process_group_id": 2449,
+      "remaining_live_group_members": []
+    },
+    "truth_reader": {
+      "returncode": 0,
+      "forced_kill": false,
+      "process_group_id": 2447,
+      "remaining_live_group_members": []
+    }
+  },
+  "latest_selector_sha256_after": "46fe655145eceeb53d0882f7c56cc22714553eea0e9c563c475055409c9ca1c6",
+  "gazebo_return_error_m": 0.0,
+  "truth_traveled_distance_m": 0.0,
+  "final_truth_world_m": [
+    -1.6826561106714908,
+    -1.696485441065827
+  ],
+  "trajectory_safety": {
+    "contact_measurement": "geometric_projection_only",
+    "minimum_clearance_m": 0.5820495922379616,
+    "geometric_overlap_samples": 0,
+    "geometric_overlap_events": 0,
+    "samples": 161,
+    "interpolation_step_m": 0.02,
+    "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+    "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+  },
+  "map_metrics": {
+    "alignment_map_from_world": [
+      1.736443294919085,
+      1.6420307880340603,
+      -0.031856770055625316
+    ],
+    "alignment_method": "fixed_initial_pose_rigid_no_scale",
+    "resolution_m": 0.05,
+    "robot_center_clearance_radius_m": 0.35,
+    "reachable_safe_cells": 5536,
+    "reachable_safe_area_m2": 13.840000000000003,
+    "correct_reachable_free_cells": 4230,
+    "reachable_coverage": 0.7640895953757225,
+    "reachable_unknown_area_m2": 3.2650000000000006,
+    "physical_free_area_m2": 24.615000000000006,
+    "physical_free_unknown_area_m2": 7.347500000000001,
+    "other_physical_free_area_m2": 10.775000000000002,
+    "other_physical_free_unknown_area_m2": 4.0825000000000005,
+    "disconnected_safe_area_m2": 0.0,
+    "false_free_obstacle_cells": 8,
+    "false_free_obstacle_area_m2": 0.020000000000000004,
+    "false_free_solid_cells": 20,
+    "false_free_solid_area_m2": 0.05000000000000001,
+    "observable_contour_points": 640,
+    "mapped_observable_contour_points": 313,
+    "contour_observability": "ground_truth_LOS_from_reachable_safe_centers_sampled_every_third_cell",
+    "contour_sample_spacing_m": 0.05,
+    "contour_match_tolerance_m": 0.1,
+    "observable_contour_symmetric_p95_m": 0.6323614554145255,
+    "observable_contour_truth_to_map_p95_m": 0.6323614554145255,
+    "observable_contour_map_to_truth_p95_m": 0.06870869553593535,
+    "contour_symmetric_definition": "max_of_directional_p95",
+    "observable_contour_coverage": 0.6484375,
+    "observable_contour_missing_fraction": 0.3515625,
+    "excluded_contour_points": 0,
+    "limitations": [
+      "Geometric contour accuracy is evaluated only on ground-truth observable faces; interiors and occluded faces excluded.",
+      "Grid quantization is 0.05m; viewpoints are sampled at every third reachable raster cell.",
+      "Final map accuracy does not measure localization drift at every trajectory time."
+    ]
+  },
+  "saved_map_metrics": {
+    "alignment_map_from_world": [
+      1.736443294919085,
+      1.6420307880340603,
+      -0.031856770055625316
+    ],
+    "alignment_method": "fixed_initial_pose_rigid_no_scale",
+    "resolution_m": 0.05,
+    "robot_center_clearance_radius_m": 0.35,
+    "reachable_safe_cells": 5536,
+    "reachable_safe_area_m2": 13.840000000000003,
+    "correct_reachable_free_cells": 4229,
+    "reachable_coverage": 0.7639089595375722,
+    "reachable_unknown_area_m2": 3.2675000000000005,
+    "physical_free_area_m2": 24.615000000000006,
+    "physical_free_unknown_area_m2": 7.370000000000001,
+    "other_physical_free_area_m2": 10.775000000000002,
+    "other_physical_free_unknown_area_m2": 4.102500000000001,
+    "disconnected_safe_area_m2": 0.0,
+    "false_free_obstacle_cells": 10,
+    "false_free_obstacle_area_m2": 0.025000000000000005,
+    "false_free_solid_cells": 22,
+    "false_free_solid_area_m2": 0.05500000000000001,
+    "observable_contour_points": 640,
+    "mapped_observable_contour_points": 309,
+    "contour_observability": "ground_truth_LOS_from_reachable_safe_centers_sampled_every_third_cell",
+    "contour_sample_spacing_m": 0.05,
+    "contour_match_tolerance_m": 0.1,
+    "observable_contour_symmetric_p95_m": 0.632417476981476,
+    "observable_contour_truth_to_map_p95_m": 0.632417476981476,
+    "observable_contour_map_to_truth_p95_m": 0.0686326737369088,
+    "contour_symmetric_definition": "max_of_directional_p95",
+    "observable_contour_coverage": 0.640625,
+    "observable_contour_missing_fraction": 0.359375,
+    "excluded_contour_points": 0,
+    "limitations": [
+      "Geometric contour accuracy is evaluated only on ground-truth observable faces; interiors and occluded faces excluded.",
+      "Grid quantization is 0.05m; viewpoints are sampled at every third reachable raster cell.",
+      "Final map accuracy does not measure localization drift at every trajectory time."
+    ]
+  },
+  "artifact_bytes": {
+    ".yaml": 123,
+    ".pgm": 10830
+  },
+  "rosbag": {
+    "info_returncode": 0,
+    "info": "\nFiles:             bag_0.db3\nBag size:          760.7 KiB\nStorage id:        sqlite3\nDuration:          5.427000000s\nStart:             Jan  1 1970 08:00:00.002000000 (0.002000000)\nEnd:               Jan  1 1970 08:00:05.429000000 (5.429000000)\nMessages:          6082\nTopic information: Topic: /exploration/status | Type: std_msgs/msg/String | Count: 5 | Serialization Format: cdr\n                   Topic: /tf_static | Type: tf2_msgs/msg/TFMessage | Count: 1 | Serialization Format: cdr\n                   Topic: /scan | Type: sensor_msgs/msg/LaserScan | Count: 55 | Serialization Format: cdr\n                   Topic: /plan | Type: nav_msgs/msg/Path | Count: 0 | Serialization Format: cdr\n                   Topic: /odom | Type: nav_msgs/msg/Odometry | Count: 159 | Serialization Format: cdr\n                   Topic: /map | Type: nav_msgs/msg/OccupancyGrid | Count: 5 | Serialization Format: cdr\n                   Topic: /tf | Type: tf2_msgs/msg/TFMessage | Count: 429 | Serialization Format: cdr\n                   Topic: /clock | Type: rosgraph_msgs/msg/Clock | Count: 5428 | Serialization Format: cdr\n\n",
+    "error": "",
+    "readable": true,
+    "topic_message_counts": {
+      "/exploration/status": 5,
+      "/tf_static": 1,
+      "/scan": 55,
+      "/plan": 0,
+      "/odom": 159,
+      "/map": 5,
+      "/tf": 429,
+      "/clock": 5428
+    },
+    "missing_or_empty_topics": [
+      "/plan"
+    ]
+  },
+  "acceptance": {
+    "truth_quality": true,
+    "completed": false,
+    "map_saved": false,
+    "returned": false,
+    "return_error": true,
+    "no_geometric_overlap": true,
+    "reachable_coverage": false,
+    "observable_contour_p95": false,
+    "observable_contour_coverage": false,
+    "realism_enabled": true
+  },
+  "functional_success": false,
+  "elapsed_wall_seconds": 18.68595365500005,
+  "error": "Missing map artifact .posegraph"
+}

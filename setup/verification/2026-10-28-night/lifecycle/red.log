@@ -1,0 +1,21 @@
+test_health_exception_during_pending_response_cancels_late_acceptance (__main__.ScanLifecycleTests) ... FAIL
+test_rejection_is_not_motion_success (__main__.ScanLifecycleTests) ... ok
+test_response_timeout_cancels_late_acceptance (__main__.ScanLifecycleTests) ... ok
+test_success_clears_live_handle (__main__.ScanLifecycleTests) ... ok
+test_tf_loss_cancels_active_action (__main__.ScanLifecycleTests) ... ok
+test_unknown_envelope_never_sends_spin (__main__.ScanLifecycleTests) ... ok
+
+======================================================================
+FAIL: test_health_exception_during_pending_response_cancels_late_acceptance (__main__.ScanLifecycleTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/d/虚拟c盘/WHEELTEC/setup/verification/2026-10-28-night/lifecycle/test_active_scan_lifecycle_ros.py", line 66, in test_health_exception_during_pending_response_cancels_late_acceptance
+    handle.cancel_goal_async.assert_called_once()
+  File "/usr/lib/python3.10/unittest/mock.py", line 908, in assert_called_once
+    raise AssertionError(msg)
+AssertionError: Expected 'mock' to have been called once. Called 0 times.
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.032s
+
+FAILED (failures=1)

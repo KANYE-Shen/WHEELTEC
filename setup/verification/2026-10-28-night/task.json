@@ -1,0 +1,17 @@
+{
+  "status": "running",
+  "heartbeat_epoch": 1793204689.884828,
+  "resume_at": "2026-10-29T03:00:00+08:00",
+  "thread_id": "01a17bf2-e4a2-7283-9e65-2ec9169ff665",
+  "attachment_sha256": "b1cdd4262905baaeccc6220ee7a9f50e77afea0307444001611b7141150daac6",
+  "steps": {
+    "scheduler": "registered_ready_guard_4_tests",
+    "camera_hz": "offline_browser_7_of_7_frontend_11_of_11_backend_29_of_29_build_passed_not_deployed",
+    "g0_offline": "checker_and_safety_26_of_26_upstream_candidate_8_of_8_not_deployed",
+    "P0_active_scan": "prototype_default_off_45_pure_tests_11_lifecycle_tests_build_passed_not_admitted",
+    "regression": "v3_complete_0_of_40_v1_0_of_40_v2_0_of_17_total_99_failures_retained",
+    "push": "code_and_readme_remote_d2fc42e_final_evidence_pending"
+  },
+  "g0_gate_passed": false,
+  "offline_only": true
+}

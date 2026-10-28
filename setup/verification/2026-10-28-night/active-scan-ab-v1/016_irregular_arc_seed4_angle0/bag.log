@@ -1,0 +1,22 @@
+stdin is not a terminal device. Keyboard handling disabled.[INFO] [1793201718.067194196] [rosbag2_recorder]: Press SPACE for pausing/resuming
+[INFO] [1793201718.068093321] [rosbag2_storage]: Opened database '/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-ab-v1/016_irregular_arc_seed4_angle0/bag/bag_0.db3' for READ_WRITE.
+[INFO] [1793201718.068710443] [rosbag2_recorder]: Listening for topics...
+[INFO] [1793201718.068763318] [rosbag2_recorder]: Event publisher thread: Starting
+[INFO] [1793201718.068802968] [rosbag2_recorder]: Recording...
+[INFO] [1793201718.068834930] [rosbag2_recorder]: use_sim_time set, waiting for /clock before starting recording...
+[INFO] [1793201721.336215916] [rosbag2_recorder]: Sim time /clock found, starting recording.
+[INFO] [1793201721.337666515] [rosbag2_recorder]: Subscribed to topic '/clock'
+[INFO] [1793201721.338928348] [rosbag2_recorder]: Subscribed to topic '/tf'
+[INFO] [1793201721.339083059] [rosbag2_recorder]: Overriding subscription profile for /map
+[INFO] [1793201721.339692869] [rosbag2_recorder]: Subscribed to topic '/map'
+[INFO] [1793201721.340181046] [rosbag2_recorder]: Subscribed to topic '/plan'
+[INFO] [1793201721.340315915] [rosbag2_recorder]: Overriding subscription profile for /tf_static
+[INFO] [1793201721.340603722] [rosbag2_recorder]: Subscribed to topic '/tf_static'
+[INFO] [1793201721.645527686] [rosbag2_recorder]: Subscribed to topic '/odom'
+[INFO] [1793201721.646451935] [rosbag2_recorder]: Subscribed to topic '/scan'
+[INFO] [1793201724.581134458] [rosbag2_recorder]: Overriding subscription profile for /exploration/status
+[INFO] [1793201724.581912752] [rosbag2_recorder]: Subscribed to topic '/exploration/status'
+[INFO] [1793201724.581938973] [rosbag2_recorder]: All requested topics are subscribed. Stopping discovery...
+[INFO] [1793201729.599255551] [rosbag2_cpp]: Writing remaining messages from cache to the bag. It may take a while
+[INFO] [1793201729.600805614] [rosbag2_recorder]: Event publisher thread: Exiting
+[INFO] [1793201729.600873177] [rosbag2_recorder]: Recording stopped

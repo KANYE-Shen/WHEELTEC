@@ -1,0 +1,19 @@
+stdin is not a terminal device. Keyboard handling disabled.[INFO] [1793201693.682567350] [rosbag2_recorder]: Press SPACE for pausing/resuming
+[INFO] [1793201693.683417105] [rosbag2_storage]: Opened database '/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-ab-v1/015_irregular_arc_seed3_angle180/bag/bag_0.db3' for READ_WRITE.
+[INFO] [1793201693.683866582] [rosbag2_recorder]: Listening for topics...
+[INFO] [1793201693.683880678] [rosbag2_recorder]: Event publisher thread: Starting
+[INFO] [1793201693.683943220] [rosbag2_recorder]: use_sim_time set, waiting for /clock before starting recording...
+[INFO] [1793201693.683908437] [rosbag2_recorder]: Recording...
+[INFO] [1793201697.090616671] [rosbag2_recorder]: Sim time /clock found, starting recording.
+[INFO] [1793201697.092128145] [rosbag2_recorder]: Subscribed to topic '/clock'
+[INFO] [1793201697.093405498] [rosbag2_recorder]: Subscribed to topic '/tf'
+[INFO] [1793201697.093583804] [rosbag2_recorder]: Overriding subscription profile for /map
+[INFO] [1793201697.094270476] [rosbag2_recorder]: Subscribed to topic '/map'
+[INFO] [1793201697.094826912] [rosbag2_recorder]: Subscribed to topic '/plan'
+[INFO] [1793201697.094985923] [rosbag2_recorder]: Overriding subscription profile for /tf_static
+[INFO] [1793201697.095293674] [rosbag2_recorder]: Subscribed to topic '/tf_static'
+[INFO] [1793201697.197272297] [rosbag2_recorder]: Subscribed to topic '/odom'
+[INFO] [1793201697.198185310] [rosbag2_recorder]: Subscribed to topic '/scan'
+[INFO] [1793201704.064757417] [rosbag2_cpp]: Writing remaining messages from cache to the bag. It may take a while
+[INFO] [1793201704.067299663] [rosbag2_recorder]: Event publisher thread: Exiting
+[INFO] [1793201704.067355392] [rosbag2_recorder]: Recording stopped

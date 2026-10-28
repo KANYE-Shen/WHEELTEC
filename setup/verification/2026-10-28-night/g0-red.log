@@ -1,0 +1,31 @@
+test_future_sample_is_not_erased_by_a_fresh_last_sample (test_inspect_interfaces.G0ClockRegressionTests.test_future_sample_is_not_erased_by_a_fresh_last_sample) ... ERROR
+test_uninitialized_clock_cannot_be_reported_as_ready (test_inspect_interfaces.G0ClockRegressionTests.test_uninitialized_clock_cannot_be_reported_as_ready) ... ERROR
+test_backwards_zero_and_future_timestamps_fail (test_inspect_interfaces.StreamAssessmentTests.test_backwards_zero_and_future_timestamps_fail) ... ok
+test_fresh_monotonic_sensor_stream_is_usable (test_inspect_interfaces.StreamAssessmentTests.test_fresh_monotonic_sensor_stream_is_usable) ... ok
+test_frozen_clock_and_republished_tail_is_stale (test_inspect_interfaces.StreamAssessmentTests.test_frozen_clock_and_republished_tail_is_stale) ... ok
+test_nonfinite_scan_still_produces_failure_report (test_inspect_interfaces.StreamAssessmentTests.test_nonfinite_scan_still_produces_failure_report) ... ok
+test_publisher_without_messages_is_not_live (test_inspect_interfaces.StreamAssessmentTests.test_publisher_without_messages_is_not_live) ... ok
+test_republished_old_measurements_do_not_inflate_sensor_rate (test_inspect_interfaces.StreamAssessmentTests.test_republished_old_measurements_do_not_inflate_sensor_rate) ... ok
+test_stale_or_slow_data_does_not_pass (test_inspect_interfaces.StreamAssessmentTests.test_stale_or_slow_data_does_not_pass) ... ok
+
+======================================================================
+ERROR: test_future_sample_is_not_erased_by_a_fresh_last_sample (test_inspect_interfaces.G0ClockRegressionTests.test_future_sample_is_not_erased_by_a_fresh_last_sample)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\����c��\WHEELTEC\robot\test_inspect_interfaces.py", line 96, in test_future_sample_is_not_erased_by_a_fresh_last_sample
+    result=assess_stream([0,1,2],[100.8,101,102],2,102,.5,sample_clocks=[100,101,102])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: assess_stream() got an unexpected keyword argument 'sample_clocks'
+
+======================================================================
+ERROR: test_uninitialized_clock_cannot_be_reported_as_ready (test_inspect_interfaces.G0ClockRegressionTests.test_uninitialized_clock_cannot_be_reported_as_ready)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\����c��\WHEELTEC\robot\test_inspect_interfaces.py", line 90, in test_uninitialized_clock_cannot_be_reported_as_ready
+    from inspect_interfaces import clock_assessment
+ImportError: cannot import name 'clock_assessment' from 'inspect_interfaces' (D:\����c��\WHEELTEC\robot\inspect_interfaces.py)
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.113s
+
+FAILED (errors=2)

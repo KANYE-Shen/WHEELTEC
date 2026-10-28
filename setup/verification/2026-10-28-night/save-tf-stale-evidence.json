@@ -1,0 +1,159 @@
+{
+  "scope": "Offline bag read only; source/bag timestamps, not wall latency",
+  "run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-ab-v3/002_irregular_arc_seed0_angle180",
+  "seed": 0,
+  "pose": [
+    -1.6961350522764682,
+    -1.6820661857610493,
+    -0.03878726932345618
+  ],
+  "streams": {
+    "/clock": {
+      "messages": 4857,
+      "first": [
+        0.002,
+        0.003
+      ],
+      "last": [
+        4.859,
+        4.859
+      ],
+      "maximum_bag_stamp_gap_s": 0.004999999999999893,
+      "maximum_source_stamp_gap_s": 0.001000000000000334
+    },
+    "/scan": {
+      "messages": 49,
+      "first": [
+        0.004,
+        0.004559629
+      ],
+      "last": [
+        4.805,
+        4.801368204
+      ],
+      "maximum_bag_stamp_gap_s": 0.11100000000000021,
+      "maximum_source_stamp_gap_s": 0.10616527600000003
+    },
+    "map_to_odom": {
+      "messages": 241,
+      "first": [
+        0.119,
+        0.30180123
+      ],
+      "last": [
+        4.848,
+        5.001368204
+      ],
+      "maximum_bag_stamp_gap_s": 0.02299999999999991,
+      "maximum_source_stamp_gap_s": 0.10616527599999959
+    },
+    "/map": {
+      "messages": 5,
+      "first": [
+        0.85,
+        0.801333569
+      ],
+      "last": [
+        4.782,
+        4.702973747
+      ],
+      "maximum_bag_stamp_gap_s": 0.9890000000000003,
+      "maximum_source_stamp_gap_s": 1.0023459009999995
+    }
+  },
+  "statuses": [
+    {
+      "t": 2.518,
+      "state": "starting",
+      "reason": "Waiting for SLAM map, robot transform and Nav2",
+      "ages": {},
+      "slam_alive": null
+    },
+    {
+      "t": 3.484,
+      "state": "exploring",
+      "reason": "Selecting reachable frontiers",
+      "ages": {
+        "map": {
+          "stamp_age_s": 0.7813376189999999,
+          "update_age_s": 0.0
+        },
+        "scan": {
+          "stamp_age_s": 0.08470790600000022,
+          "update_age_s": 0.08000000000000007
+        },
+        "tf": {
+          "stamp_age_s": 0.7849786110000001,
+          "update_age_s": 0.0
+        }
+      },
+      "slam_alive": true
+    },
+    {
+      "t": 3.668,
+      "state": "initial_observation",
+      "reason": "unknown_swept_space",
+      "ages": {
+        "map": {
+          "stamp_age_s": 0.7813376189999999,
+          "update_age_s": 0.0
+        },
+        "scan": {
+          "stamp_age_s": 0.08470790600000022,
+          "update_age_s": 0.08000000000000007
+        },
+        "tf": {
+          "stamp_age_s": 0.7849786110000001,
+          "update_age_s": 0.0
+        }
+      },
+      "slam_alive": true
+    },
+    {
+      "t": 3.774,
+      "state": "saving",
+      "reason": "Saving occupancy grid and SLAM pose graph",
+      "ages": {
+        "map": {
+          "stamp_age_s": 0.7813376189999999,
+          "update_age_s": 0.0
+        },
+        "scan": {
+          "stamp_age_s": 0.08470790600000022,
+          "update_age_s": 0.08000000000000007
+        },
+        "tf": {
+          "stamp_age_s": 0.7849786110000001,
+          "update_age_s": 0.0
+        }
+      },
+      "slam_alive": true
+    },
+    {
+      "t": 3.876,
+      "state": "map_unstable",
+      "reason": "tf_stale",
+      "ages": {
+        "map": {
+          "stamp_age_s": 1.1723376189999999,
+          "update_age_s": 0.391
+        },
+        "scan": {
+          "stamp_age_s": 0.47570790600000024,
+          "update_age_s": 0.4710000000000001
+        },
+        "tf": {
+          "stamp_age_s": 1.1759786110000001,
+          "update_age_s": 0.391
+        }
+      },
+      "slam_alive": true
+    }
+  ],
+  "failures": [
+    "Missing map artifact .posegraph",
+    "Missing map artifact .data",
+    "Missing map artifact .metadata.json",
+    "rosbag missing required messages or unreadable"
+  ]
+}

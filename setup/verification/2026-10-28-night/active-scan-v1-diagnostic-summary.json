@@ -1,0 +1,17 @@
+{
+  "source": "Offline diagnostics, not rescoring or explorer input",
+  "attempts": 40,
+  "strict_successes": 0,
+  "wire_terminal_missing": 12,
+  "artifact_states": {
+    "incomplete": 38,
+    "null": 2
+  },
+  "artifact_reasons": {
+    "remaining_unreachable_frontiers_or_insufficient_observed_area": 10,
+    "active_scan_clearance_unproven": 28,
+    "null": 2
+  },
+  "motion_requests": 0,
+  "first_goals": 0
+}

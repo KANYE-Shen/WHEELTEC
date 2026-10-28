@@ -1,0 +1,5555 @@
+{
+  "batch": "20261028-active-scan-ab-v3",
+  "complete": true,
+  "strict_successes": 0,
+  "attempted": 40,
+  "first_goals": 0,
+  "cells": [
+    {
+      "scenario": "irregular_arc",
+      "spawn": 0,
+      "angle": 0.0,
+      "trials": 5,
+      "successes": 0,
+      "success_rate": 0.0,
+      "wilson_95": [
+        0.0,
+        0.43448246478317476
+      ],
+      "first_goal_count": 0,
+      "first_goal_rate": 0.0,
+      "first_goal_wilson_95": [
+        0.0,
+        0.43448246478317476
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "states": {
+        "incomplete": 5
+      },
+      "reasons": {
+        "remaining_unreachable_frontiers_or_insufficient_observed_area": 5
+      },
+      "coverage": {
+        "n": 5,
+        "median": 0.7635476878612717,
+        "min": 0.7604768786127167,
+        "max": 0.7660765895953757
+      },
+      "contour_p95_m": {
+        "n": 5,
+        "median": 0.6106563577474887,
+        "min": 0.5361124618525861,
+        "max": 0.6676762052774341
+      },
+      "wall_seconds": {
+        "n": 5,
+        "median": 19.33371127999999,
+        "min": 18.748117503000003,
+        "max": 22.295330622000165
+      },
+      "ros_seconds": {
+        "n": 5,
+        "median": 2.63,
+        "min": 2.08,
+        "max": 3.65
+      },
+      "truth_valid_count": 5,
+      "truth_travel_m": {
+        "n": 5,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "truth_rotation_rad": {
+        "n": 5,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "return_error_m": {
+        "n": 5,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    },
+    {
+      "scenario": "irregular_arc",
+      "spawn": 0,
+      "angle": 90.0,
+      "trials": 5,
+      "successes": 0,
+      "success_rate": 0.0,
+      "wilson_95": [
+        0.0,
+        0.43448246478317476
+      ],
+      "first_goal_count": 0,
+      "first_goal_rate": 0.0,
+      "first_goal_wilson_95": [
+        0.0,
+        0.43448246478317476
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "states": {
+        "incomplete": 5
+      },
+      "reasons": {
+        "active_scan_clearance_unproven": 5
+      },
+      "coverage": {
+        "n": 5,
+        "median": 0.7631864161849711,
+        "min": 0.759393063583815,
+        "max": 0.763728323699422
+      },
+      "contour_p95_m": {
+        "n": 5,
+        "median": 0.6254741978765114,
+        "min": 0.585538042107139,
+        "max": 0.6438666334667421
+      },
+      "wall_seconds": {
+        "n": 5,
+        "median": 17.669041316999937,
+        "min": 15.864942963999738,
+        "max": 20.85265457299988
+      },
+      "ros_seconds": {
+        "n": 5,
+        "median": 1.31,
+        "min": 0.89,
+        "max": 1.91
+      },
+      "truth_valid_count": 5,
+      "truth_travel_m": {
+        "n": 5,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "truth_rotation_rad": {
+        "n": 5,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "return_error_m": {
+        "n": 5,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    },
+    {
+      "scenario": "irregular_arc",
+      "spawn": 0,
+      "angle": 180.0,
+      "trials": 5,
+      "successes": 0,
+      "success_rate": 0.0,
+      "wilson_95": [
+        0.0,
+        0.43448246478317476
+      ],
+      "first_goal_count": 0,
+      "first_goal_rate": 0.0,
+      "first_goal_wilson_95": [
+        0.0,
+        0.43448246478317476
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "states": {
+        "map_unstable": 3,
+        "incomplete": 2
+      },
+      "reasons": {
+        "tf_stale": 3,
+        "active_scan_clearance_unproven": 2
+      },
+      "coverage": {
+        "n": 5,
+        "median": 0.7610187861271677,
+        "min": 0.7586705202312138,
+        "max": 0.7639089595375722
+      },
+      "contour_p95_m": {
+        "n": 5,
+        "median": 0.632417476981476,
+        "min": 0.585538042107139,
+        "max": 0.6805409506004959
+      },
+      "wall_seconds": {
+        "n": 5,
+        "median": 17.792212737000227,
+        "min": 16.74672282499978,
+        "max": 22.23617447400011
+      },
+      "ros_seconds": {
+        "n": 5,
+        "median": 0.9,
+        "min": 0.5,
+        "max": 1.77
+      },
+      "truth_valid_count": 5,
+      "truth_travel_m": {
+        "n": 5,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "truth_rotation_rad": {
+        "n": 5,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "return_error_m": {
+        "n": 5,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    },
+    {
+      "scenario": "irregular_arc",
+      "spawn": 0,
+      "angle": 360.0,
+      "trials": 5,
+      "successes": 0,
+      "success_rate": 0.0,
+      "wilson_95": [
+        0.0,
+        0.43448246478317476
+      ],
+      "first_goal_count": 0,
+      "first_goal_rate": 0.0,
+      "first_goal_wilson_95": [
+        0.0,
+        0.43448246478317476
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "states": {
+        "incomplete": 5
+      },
+      "reasons": {
+        "active_scan_clearance_unproven": 5
+      },
+      "coverage": {
+        "n": 5,
+        "median": 0.7610187861271677,
+        "min": 0.7586705202312138,
+        "max": 0.7642702312138728
+      },
+      "contour_p95_m": {
+        "n": 5,
+        "median": 0.6345982859378012,
+        "min": 0.6106563577474887,
+        "max": 0.7752100185053303
+      },
+      "wall_seconds": {
+        "n": 5,
+        "median": 17.414160031999927,
+        "min": 16.814642047000234,
+        "max": 18.2134677009999
+      },
+      "ros_seconds": {
+        "n": 5,
+        "median": 0.94,
+        "min": 0.48,
+        "max": 1.69
+      },
+      "truth_valid_count": 5,
+      "truth_travel_m": {
+        "n": 5,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "truth_rotation_rad": {
+        "n": 5,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "return_error_m": {
+        "n": 5,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    },
+    {
+      "scenario": "recess",
+      "spawn": 0,
+      "angle": 0.0,
+      "trials": 5,
+      "successes": 0,
+      "success_rate": 0.0,
+      "wilson_95": [
+        0.0,
+        0.43448246478317476
+      ],
+      "first_goal_count": 0,
+      "first_goal_rate": 0.0,
+      "first_goal_wilson_95": [
+        0.0,
+        0.43448246478317476
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "states": {
+        "incomplete": 5
+      },
+      "reasons": {
+        "remaining_unreachable_frontiers_or_insufficient_observed_area": 5
+      },
+      "coverage": {
+        "n": 5,
+        "median": 0.7453416149068323,
+        "min": 0.7444543034605147,
+        "max": 0.7482253771073647
+      },
+      "contour_p95_m": {
+        "n": 5,
+        "median": 1.8483961242002709,
+        "min": 1.832193016284486,
+        "max": 1.8513866356771889
+      },
+      "wall_seconds": {
+        "n": 5,
+        "median": 16.23512304199994,
+        "min": 15.234483757999897,
+        "max": 21.952870306000023
+      },
+      "ros_seconds": {
+        "n": 5,
+        "median": 2.56,
+        "min": 1.74,
+        "max": 3.56
+      },
+      "truth_valid_count": 5,
+      "truth_travel_m": {
+        "n": 5,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "truth_rotation_rad": {
+        "n": 5,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "return_error_m": {
+        "n": 5,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    },
+    {
+      "scenario": "recess",
+      "spawn": 0,
+      "angle": 90.0,
+      "trials": 5,
+      "successes": 0,
+      "success_rate": 0.0,
+      "wilson_95": [
+        0.0,
+        0.43448246478317476
+      ],
+      "first_goal_count": 0,
+      "first_goal_rate": 0.0,
+      "first_goal_wilson_95": [
+        0.0,
+        0.43448246478317476
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "states": {
+        "incomplete": 5
+      },
+      "reasons": {
+        "active_scan_clearance_unproven": 5
+      },
+      "coverage": {
+        "n": 5,
+        "median": 0.7468944099378882,
+        "min": 0.7444543034605147,
+        "max": 0.7515527950310559
+      },
+      "contour_p95_m": {
+        "n": 5,
+        "median": 1.8504533896934467,
+        "min": 1.8162704737067834,
+        "max": 2.248658731716725
+      },
+      "wall_seconds": {
+        "n": 5,
+        "median": 14.070227860999694,
+        "min": 13.320812944999943,
+        "max": 23.300219702999584
+      },
+      "ros_seconds": {
+        "n": 5,
+        "median": 1.64,
+        "min": 0.95,
+        "max": 2.19
+      },
+      "truth_valid_count": 5,
+      "truth_travel_m": {
+        "n": 5,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "truth_rotation_rad": {
+        "n": 5,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "return_error_m": {
+        "n": 5,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    },
+    {
+      "scenario": "recess",
+      "spawn": 0,
+      "angle": 180.0,
+      "trials": 5,
+      "successes": 0,
+      "success_rate": 0.0,
+      "wilson_95": [
+        0.0,
+        0.43448246478317476
+      ],
+      "first_goal_count": 0,
+      "first_goal_rate": 0.0,
+      "first_goal_wilson_95": [
+        0.0,
+        0.43448246478317476
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "states": {
+        "incomplete": 5
+      },
+      "reasons": {
+        "active_scan_clearance_unproven": 5
+      },
+      "coverage": {
+        "n": 5,
+        "median": 0.7448979591836735,
+        "min": 0.7426796805678794,
+        "max": 0.7515527950310559
+      },
+      "contour_p95_m": {
+        "n": 5,
+        "median": 1.8534236776575839,
+        "min": 1.8271516962227334,
+        "max": 2.248658731716725
+      },
+      "wall_seconds": {
+        "n": 5,
+        "median": 13.565187764999791,
+        "min": 12.865283065999847,
+        "max": 16.113913385999695
+      },
+      "ros_seconds": {
+        "n": 5,
+        "median": 1.53,
+        "min": 0.88,
+        "max": 2.13
+      },
+      "truth_valid_count": 5,
+      "truth_travel_m": {
+        "n": 5,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "truth_rotation_rad": {
+        "n": 5,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "return_error_m": {
+        "n": 5,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    },
+    {
+      "scenario": "recess",
+      "spawn": 0,
+      "angle": 360.0,
+      "trials": 5,
+      "successes": 0,
+      "success_rate": 0.0,
+      "wilson_95": [
+        0.0,
+        0.43448246478317476
+      ],
+      "first_goal_count": 0,
+      "first_goal_rate": 0.0,
+      "first_goal_wilson_95": [
+        0.0,
+        0.43448246478317476
+      ],
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "states": {
+        "incomplete": 5
+      },
+      "reasons": {
+        "active_scan_clearance_unproven": 5
+      },
+      "coverage": {
+        "n": 5,
+        "median": 0.7468944099378882,
+        "min": 0.7444543034605147,
+        "max": 0.7495563442768411
+      },
+      "contour_p95_m": {
+        "n": 5,
+        "median": 1.8538507471360717,
+        "min": 1.8271516962227334,
+        "max": 2.248658731716725
+      },
+      "wall_seconds": {
+        "n": 5,
+        "median": 13.72861243000034,
+        "min": 12.210291966000113,
+        "max": 15.485774040999786
+      },
+      "ros_seconds": {
+        "n": 5,
+        "median": 1.35,
+        "min": 0.83,
+        "max": 2.69
+      },
+      "truth_valid_count": 5,
+      "truth_travel_m": {
+        "n": 5,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "truth_rotation_rad": {
+        "n": 5,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "return_error_m": {
+        "n": 5,
+        "median": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      }
+    }
+  ],
+  "rows": [
+    {
+      "scenario": "irregular_arc",
+      "seed": 0,
+      "angle": 0.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [],
+      "legal_goal_count": 0,
+      "frontier_clusters": 8,
+      "known_free_area_m2": 16.87,
+      "unreachable_clusters": 8,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.2738830710000002,
+            "update_age_s": 0.1979999999999995
+          },
+          "scan": {
+            "stamp_age_s": 0.07718777399999954,
+            "update_age_s": 0.01699999999999946
+          },
+          "tf": {
+            "stamp_age_s": -0.12281222600000063,
+            "update_age_s": 0.01699999999999946
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 0.010000052346553434,
+        "max_rotation_jump_rad": 0.0034900000000000135,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7621026011560693,
+      "contour_p95_m": 0.6676762052774341,
+      "contour_coverage": 0.64375,
+      "elapsed_wall_s": 18.748117503000003,
+      "elapsed_ros_s": 2.56,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.5953400136908364,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 205,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 453,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 786,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 454,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 452,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 5,
+      "bag_status_messages": 4,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 0,
+      "angle": 90.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "active_scan_clearance_unproven",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 19,
+            "blocking_cell": [
+              13,
+              12
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 4.917,
+          "motion_requested": false
+        }
+      ],
+      "legal_goal_count": 0,
+      "frontier_clusters": 9,
+      "known_free_area_m2": 16.82,
+      "unreachable_clusters": 9,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.5391942220000008,
+            "update_age_s": 0.4720000000000004
+          },
+          "scan": {
+            "stamp_age_s": 0.040339034000000495,
+            "update_age_s": 0.020000000000000462
+          },
+          "tf": {
+            "stamp_age_s": -0.15966096599999968,
+            "update_age_s": 0.013000000000000789
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 3.4338578922610594e-06,
+        "max_rotation_jump_rad": 0.003489999999999999,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.759393063583815,
+      "contour_p95_m": 0.6438666334667421,
+      "contour_coverage": 0.6515625,
+      "elapsed_wall_s": 20.85265457299988,
+      "elapsed_ros_s": 1.91,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.5953400136908364,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 192,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 894,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 1227,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 895,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 893,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 6,
+      "bag_status_messages": 5,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 0,
+      "angle": 180.0,
+      "strict_success": false,
+      "state": "map_unstable",
+      "reason": "tf_stale",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 19,
+            "blocking_cell": [
+              12,
+              12
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 3.484,
+          "motion_requested": false
+        }
+      ],
+      "legal_goal_count": 0,
+      "frontier_clusters": 8,
+      "known_free_area_m2": 16.768,
+      "unreachable_clusters": 8,
+      "map_health": {
+        "healthy": false,
+        "issues": [
+          "tf_stale"
+        ],
+        "ages": {
+          "map": {
+            "stamp_age_s": 1.1723376189999999,
+            "update_age_s": 0.391
+          },
+          "scan": {
+            "stamp_age_s": 0.47570790600000024,
+            "update_age_s": 0.4710000000000001
+          },
+          "tf": {
+            "stamp_age_s": 1.1759786110000001,
+            "update_age_s": 0.391
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 0.0,
+        "max_rotation_jump_rad": 0.0,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {
+          "tf_stale": 3.875
+        }
+      },
+      "coverage": 0.7592124277456648,
+      "contour_p95_m": 0.6805409506004959,
+      "contour_coverage": 0.6390625,
+      "elapsed_wall_s": 17.72391116000017,
+      "elapsed_ros_s": 0.79,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.5953400136908364,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 144,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 1279,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 1613,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 1280,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 1278,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 5,
+      "bag_status_messages": 5,
+      "latest_preserved": true,
+      "failures": [
+        "Missing map artifact .posegraph",
+        "Missing map artifact .data",
+        "Missing map artifact .metadata.json",
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": false,
+        "returned": false,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 0,
+      "angle": 360.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "active_scan_clearance_unproven",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 19,
+            "blocking_cell": [
+              12,
+              12
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 4.004,
+          "motion_requested": false
+        }
+      ],
+      "legal_goal_count": 0,
+      "frontier_clusters": 8,
+      "known_free_area_m2": 16.78,
+      "unreachable_clusters": 8,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.6313081730000003,
+            "update_age_s": 0.5790000000000002
+          },
+          "scan": {
+            "stamp_age_s": 0.03219422200000022,
+            "update_age_s": 0.029000000000000803
+          },
+          "tf": {
+            "stamp_age_s": -0.06790339899999953,
+            "update_age_s": 0.025000000000000355
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 4.137220745888649e-07,
+        "max_rotation_jump_rad": 0.0034899999999999922,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7592124277456648,
+      "contour_p95_m": 0.6805409506004959,
+      "contour_coverage": 0.6390625,
+      "elapsed_wall_s": 16.955417353999792,
+      "elapsed_ros_s": 0.83,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.5953400136908364,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 164,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 1665,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 1999,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 1666,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 1664,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 6,
+      "bag_status_messages": 6,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 1,
+      "angle": 90.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "active_scan_clearance_unproven",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 25,
+            "blocking_cell": [
+              10,
+              15
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 3.13,
+          "motion_requested": false
+        }
+      ],
+      "legal_goal_count": 0,
+      "frontier_clusters": 8,
+      "known_free_area_m2": 16.783,
+      "unreachable_clusters": 8,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.6463961869999997,
+            "update_age_s": 0.54
+          },
+          "scan": {
+            "stamp_age_s": 0.04375163199999976,
+            "update_age_s": 0.040999999999999925
+          },
+          "tf": {
+            "stamp_age_s": -0.15624836799999997,
+            "update_age_s": 0.03100000000000014
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 3.827331821343878e-06,
+        "max_rotation_jump_rad": 0.0034900000000000035,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7631864161849711,
+      "contour_p95_m": 0.632417476981476,
+      "contour_coverage": 0.6359375,
+      "elapsed_wall_s": 15.864942963999738,
+      "elapsed_ros_s": 0.89,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.5820495922379616,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 137,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 2056,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 2393,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 2057,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 2055,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 6,
+      "bag_status_messages": 6,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 1,
+      "angle": 180.0,
+      "strict_success": false,
+      "state": "map_unstable",
+      "reason": "tf_stale",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 26,
+            "blocking_cell": [
+              10,
+              15
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 4.031,
+          "motion_requested": false
+        }
+      ],
+      "legal_goal_count": 0,
+      "frontier_clusters": 8,
+      "known_free_area_m2": 16.813,
+      "unreachable_clusters": 8,
+      "map_health": {
+        "healthy": false,
+        "issues": [
+          "tf_stale"
+        ],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.6404788860000004,
+            "update_age_s": 0.4110000000000005
+          },
+          "scan": {
+            "stamp_age_s": 0.4408289940000003,
+            "update_age_s": 0.4400000000000004
+          },
+          "tf": {
+            "stamp_age_s": 1.041739718,
+            "update_age_s": 0.4110000000000005
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 0.0,
+        "max_rotation_jump_rad": 0.0,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {
+          "tf_stale": 4.442
+        }
+      },
+      "coverage": 0.7639089595375722,
+      "contour_p95_m": 0.632417476981476,
+      "contour_coverage": 0.640625,
+      "elapsed_wall_s": 18.68595365500005,
+      "elapsed_ros_s": 0.9,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.5820495922379616,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 161,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 2448,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 2781,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 2449,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 2447,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 5,
+      "bag_status_messages": 5,
+      "latest_preserved": true,
+      "failures": [
+        "Missing map artifact .posegraph",
+        "Missing map artifact .data",
+        "Missing map artifact .metadata.json",
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": false,
+        "returned": false,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 1,
+      "angle": 360.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "active_scan_clearance_unproven",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 26,
+            "blocking_cell": [
+              10,
+              15
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 3.504,
+          "motion_requested": false
+        }
+      ],
+      "legal_goal_count": 0,
+      "frontier_clusters": 8,
+      "known_free_area_m2": 16.793,
+      "unreachable_clusters": 8,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.23767673,
+            "update_age_s": 0.030999999999999694
+          },
+          "scan": {
+            "stamp_age_s": 0.03502564699999988,
+            "update_age_s": 0.028000000000000025
+          },
+          "tf": {
+            "stamp_age_s": -0.1649743530000003,
+            "update_age_s": 0.017999999999999794
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 7.734760636565123e-06,
+        "max_rotation_jump_rad": 0.003490000000000007,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.763728323699422,
+      "contour_p95_m": 0.6345982859378012,
+      "contour_coverage": 0.6390625,
+      "elapsed_wall_s": 17.414160031999927,
+      "elapsed_ros_s": 0.94,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.5820495922379616,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 150,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 2833,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 3167,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 2834,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 2832,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 6,
+      "bag_status_messages": 6,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 1,
+      "angle": 0.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [],
+      "legal_goal_count": 0,
+      "frontier_clusters": 8,
+      "known_free_area_m2": 16.833,
+      "unreachable_clusters": 8,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.35717101600000056,
+            "update_age_s": 0.24100000000000055
+          },
+          "scan": {
+            "stamp_age_s": 0.05494089700000071,
+            "update_age_s": 0.04800000000000004
+          },
+          "tf": {
+            "stamp_age_s": -0.14505910299999947,
+            "update_age_s": 0.016000000000000014
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 5.897044118073648e-06,
+        "max_rotation_jump_rad": 0.003490000000000007,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7639089595375722,
+      "contour_p95_m": 0.5361124618525861,
+      "contour_coverage": 0.6578125,
+      "elapsed_wall_s": 19.33371127999999,
+      "elapsed_ros_s": 3.51,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.5820495922379616,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 225,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 3219,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 3552,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 3220,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 3218,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 5,
+      "bag_status_messages": 4,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 2,
+      "angle": 180.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "active_scan_clearance_unproven",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 18,
+            "blocking_cell": [
+              11,
+              11
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 4.808,
+          "motion_requested": false
+        }
+      ],
+      "legal_goal_count": 0,
+      "frontier_clusters": 8,
+      "known_free_area_m2": 16.805,
+      "unreachable_clusters": 8,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 1.0190727850000005,
+            "update_age_s": 0.9430000000000005
+          },
+          "scan": {
+            "stamp_age_s": 0.02129936499999996,
+            "update_age_s": 0.004000000000000448
+          },
+          "tf": {
+            "stamp_age_s": -0.07304628300000005,
+            "update_age_s": 0.028999999999999915
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 0.01000000000000001,
+        "max_rotation_jump_rad": 0.0034900000000000113,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7586705202312138,
+      "contour_p95_m": 0.6106563577474887,
+      "contour_coverage": 0.66875,
+      "elapsed_wall_s": 22.23617447400011,
+      "elapsed_ros_s": 1.48,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.5587781504083469,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 188,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 3604,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 3938,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 3605,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 3603,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 6,
+      "bag_status_messages": 6,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 2,
+      "angle": 360.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "active_scan_clearance_unproven",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 18,
+            "blocking_cell": [
+              11,
+              11
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 4.513,
+          "motion_requested": false
+        }
+      ],
+      "legal_goal_count": 0,
+      "frontier_clusters": 8,
+      "known_free_area_m2": 16.805,
+      "unreachable_clusters": 8,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.32892838199999996,
+            "update_age_s": 0.0259999999999998
+          },
+          "scan": {
+            "stamp_age_s": 0.031850678999999715,
+            "update_age_s": 0.019999999999999574
+          },
+          "tf": {
+            "stamp_age_s": -0.07232880900000005,
+            "update_age_s": 0.016000000000000014
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 0.01000000000000001,
+        "max_rotation_jump_rad": 0.0034900000000000217,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7586705202312138,
+      "contour_p95_m": 0.6106563577474887,
+      "contour_coverage": 0.66875,
+      "elapsed_wall_s": 17.91375089500025,
+      "elapsed_ros_s": 1.58,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.5587781504083469,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 179,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 3990,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 4323,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 3991,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 3989,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 6,
+      "bag_status_messages": 5,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 2,
+      "angle": 0.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [],
+      "legal_goal_count": 0,
+      "frontier_clusters": 8,
+      "known_free_area_m2": 16.865,
+      "unreachable_clusters": 8,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.269642943,
+            "update_age_s": 0.22300000000000075
+          },
+          "scan": {
+            "stamp_age_s": 0.0723922340000005,
+            "update_age_s": 0.04500000000000082
+          },
+          "tf": {
+            "stamp_age_s": -0.12760776599999968,
+            "update_age_s": 0.0420000000000007
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 0.01000000000000001,
+        "max_rotation_jump_rad": 0.003490000000000016,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7604768786127167,
+      "contour_p95_m": 0.6106563577474887,
+      "contour_coverage": 0.671875,
+      "elapsed_wall_s": 18.864915999000004,
+      "elapsed_ros_s": 2.63,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.5587781504083469,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 209,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 4375,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 4710,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 4376,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 4374,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 5,
+      "bag_status_messages": 5,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 2,
+      "angle": 90.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "active_scan_clearance_unproven",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 18,
+            "blocking_cell": [
+              11,
+              11
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 4.373,
+          "motion_requested": false
+        }
+      ],
+      "legal_goal_count": 0,
+      "frontier_clusters": 9,
+      "known_free_area_m2": 16.853,
+      "unreachable_clusters": 9,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.6420727850000008,
+            "update_age_s": 0.6240000000000006
+          },
+          "scan": {
+            "stamp_age_s": 0.04667119100000061,
+            "update_age_s": 0.04100000000000037
+          },
+          "tf": {
+            "stamp_age_s": -0.15332880899999957,
+            "update_age_s": 0.012000000000000455
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 0.009999975637393663,
+        "max_rotation_jump_rad": 0.0034900000000000217,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7601156069364162,
+      "contour_p95_m": 0.6206433378089333,
+      "contour_coverage": 0.6640625,
+      "elapsed_wall_s": 17.53572739099991,
+      "elapsed_ros_s": 0.93,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.5587781504083469,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 176,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 4762,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 5095,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 4763,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 4761,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 6,
+      "bag_status_messages": 6,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 3,
+      "angle": 360.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "active_scan_clearance_unproven",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 18,
+            "blocking_cell": [
+              10,
+              14
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 3.511,
+          "motion_requested": false
+        }
+      ],
+      "legal_goal_count": 0,
+      "frontier_clusters": 8,
+      "known_free_area_m2": 16.795,
+      "unreachable_clusters": 8,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.18213517700000015,
+            "update_age_s": 0.040999999999999925
+          },
+          "scan": {
+            "stamp_age_s": 0.08379925900000007,
+            "update_age_s": 0.040999999999999925
+          },
+          "tf": {
+            "stamp_age_s": -0.11620074100000011,
+            "update_age_s": 0.0259999999999998
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 1.3413826104326918e-17,
+        "max_rotation_jump_rad": 2.4340338772299575e-17,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7610187861271677,
+      "contour_p95_m": 0.6335607770089338,
+      "contour_coverage": 0.6375,
+      "elapsed_wall_s": 16.814642047000234,
+      "elapsed_ros_s": 0.48,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.5565301589754506,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 151,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 5147,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 5479,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 5148,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 5146,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 6,
+      "bag_status_messages": 6,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 3,
+      "angle": 0.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [],
+      "legal_goal_count": 0,
+      "frontier_clusters": 8,
+      "known_free_area_m2": 16.918,
+      "unreachable_clusters": 8,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.3043085309999993,
+            "update_age_s": 0.22499999999999964
+          },
+          "scan": {
+            "stamp_age_s": 0.1071974649999996,
+            "update_age_s": 0.03399999999999981
+          },
+          "tf": {
+            "stamp_age_s": -0.09280253500000057,
+            "update_age_s": 0.03399999999999981
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 0.010000011463103323,
+        "max_rotation_jump_rad": 0.0034900000000000165,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7660765895953757,
+      "contour_p95_m": 0.6242864685543638,
+      "contour_coverage": 0.640625,
+      "elapsed_wall_s": 22.295330622000165,
+      "elapsed_ros_s": 3.65,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.5565301589754506,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 240,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 5531,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 5864,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 5532,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 5530,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 5,
+      "bag_status_messages": 4,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 3,
+      "angle": 90.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "active_scan_clearance_unproven",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 18,
+            "blocking_cell": [
+              10,
+              14
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 4.987,
+          "motion_requested": false
+        }
+      ],
+      "legal_goal_count": 0,
+      "frontier_clusters": 7,
+      "known_free_area_m2": 16.835,
+      "unreachable_clusters": 7,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.540999921,
+            "update_age_s": 0.4540000000000006
+          },
+          "scan": {
+            "stamp_age_s": 0.04128545799999994,
+            "update_age_s": 0.031000000000000583
+          },
+          "tf": {
+            "stamp_age_s": -0.15871454199999935,
+            "update_age_s": 0.020000000000000462
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 1.3217171301109095e-17,
+        "max_rotation_jump_rad": 2.6237692574149207e-17,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.763728323699422,
+      "contour_p95_m": 0.6254741978765114,
+      "contour_coverage": 0.6390625,
+      "elapsed_wall_s": 19.643621074999828,
+      "elapsed_ros_s": 1.31,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.5565301589754506,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 194,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 5916,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 6250,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 5917,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 5915,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 6,
+      "bag_status_messages": 6,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 3,
+      "angle": 180.0,
+      "strict_success": false,
+      "state": "map_unstable",
+      "reason": "tf_stale",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 18,
+            "blocking_cell": [
+              10,
+              14
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 3.479,
+          "motion_requested": false
+        }
+      ],
+      "legal_goal_count": 0,
+      "frontier_clusters": 8,
+      "known_free_area_m2": 16.795,
+      "unreachable_clusters": 8,
+      "map_health": {
+        "healthy": false,
+        "issues": [
+          "tf_stale"
+        ],
+        "ages": {
+          "map": {
+            "stamp_age_s": 1.099447246,
+            "update_age_s": 0.41900000000000004
+          },
+          "scan": {
+            "stamp_age_s": 0.5008010679999999,
+            "update_age_s": 0.4890000000000003
+          },
+          "tf": {
+            "stamp_age_s": 1.297419397,
+            "update_age_s": 0.41900000000000004
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 0.0,
+        "max_rotation_jump_rad": 0.0,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {
+          "tf_stale": 3.898
+        }
+      },
+      "coverage": 0.7610187861271677,
+      "contour_p95_m": 0.6335607770089338,
+      "contour_coverage": 0.6375,
+      "elapsed_wall_s": 16.74672282499978,
+      "elapsed_ros_s": 0.5,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.5565301589754506,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 145,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 6313,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 6650,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 6314,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 6312,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 5,
+      "bag_status_messages": 5,
+      "latest_preserved": true,
+      "failures": [
+        "Missing map artifact .posegraph",
+        "Missing map artifact .data",
+        "Missing map artifact .metadata.json",
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": false,
+        "returned": false,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 4,
+      "angle": 0.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [],
+      "legal_goal_count": 0,
+      "frontier_clusters": 9,
+      "known_free_area_m2": 16.863,
+      "unreachable_clusters": 9,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.33329329900000015,
+            "update_age_s": 0.22499999999999964
+          },
+          "scan": {
+            "stamp_age_s": 0.03309726200000007,
+            "update_age_s": 0.028999999999999915
+          },
+          "tf": {
+            "stamp_age_s": -0.1669027380000001,
+            "update_age_s": 0.008999999999999453
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 5.199645609961548e-06,
+        "max_rotation_jump_rad": 0.003490000000000019,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7635476878612717,
+      "contour_p95_m": 0.585538042107139,
+      "contour_coverage": 0.659375,
+      "elapsed_wall_s": 20.744114780000018,
+      "elapsed_ros_s": 2.08,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.5623344270451169,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 203,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 6702,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 7035,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 6703,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 6701,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 5,
+      "bag_status_messages": 4,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 4,
+      "angle": 90.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "active_scan_clearance_unproven",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 18,
+            "blocking_cell": [
+              10,
+              11
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 4.829,
+          "motion_requested": false
+        }
+      ],
+      "legal_goal_count": 0,
+      "frontier_clusters": 9,
+      "known_free_area_m2": 16.865,
+      "unreachable_clusters": 9,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.5466817580000001,
+            "update_age_s": 0.4190000000000005
+          },
+          "scan": {
+            "stamp_age_s": 0.047111010000000064,
+            "update_age_s": 0.021000000000000796
+          },
+          "tf": {
+            "stamp_age_s": -0.15288898999999923,
+            "update_age_s": 0.012000000000000455
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 5.199645609961548e-06,
+        "max_rotation_jump_rad": 0.0034900000000000074,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7635476878612717,
+      "contour_p95_m": 0.585538042107139,
+      "contour_coverage": 0.659375,
+      "elapsed_wall_s": 17.669041316999937,
+      "elapsed_ros_s": 1.79,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.5623344270451169,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 188,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 7087,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 7421,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 7088,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 7086,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 6,
+      "bag_status_messages": 5,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 4,
+      "angle": 180.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "active_scan_clearance_unproven",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 18,
+            "blocking_cell": [
+              10,
+              11
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 4.839,
+          "motion_requested": false
+        }
+      ],
+      "legal_goal_count": 0,
+      "frontier_clusters": 9,
+      "known_free_area_m2": 16.838,
+      "unreachable_clusters": 9,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.5098782660000003,
+            "update_age_s": 0.04300000000000015
+          },
+          "scan": {
+            "stamp_age_s": 0.006663609000000292,
+            "update_age_s": 0.0019999999999997797
+          },
+          "tf": {
+            "stamp_age_s": -0.0898889899999995,
+            "update_age_s": 0.03300000000000036
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 8.465686973118116e-06,
+        "max_rotation_jump_rad": 0.0034900000000000074,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7635476878612717,
+      "contour_p95_m": 0.585538042107139,
+      "contour_coverage": 0.659375,
+      "elapsed_wall_s": 17.792212737000227,
+      "elapsed_ros_s": 1.77,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.5623344270451169,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 190,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 7482,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 7816,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 7483,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 7481,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 6,
+      "bag_status_messages": 5,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 4,
+      "angle": 360.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "active_scan_clearance_unproven",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 18,
+            "blocking_cell": [
+              10,
+              11
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 4.889,
+          "motion_requested": false
+        }
+      ],
+      "legal_goal_count": 0,
+      "frontier_clusters": 9,
+      "known_free_area_m2": 16.79,
+      "unreachable_clusters": 9,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.3483667299999995,
+            "update_age_s": 0.0649999999999995
+          },
+          "scan": {
+            "stamp_age_s": 0.04266360899999988,
+            "update_age_s": 0.03699999999999992
+          },
+          "tf": {
+            "stamp_age_s": -0.1573363910000003,
+            "update_age_s": 0.017999999999999794
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 5.199645609961115e-06,
+        "max_rotation_jump_rad": 0.0034900000000000074,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7642702312138728,
+      "contour_p95_m": 0.7752100185053303,
+      "contour_coverage": 0.6578125,
+      "elapsed_wall_s": 18.2134677009999,
+      "elapsed_ros_s": 1.69,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.5623344270451169,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 191,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 7870,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 8204,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 7871,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 7869,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 6,
+      "bag_status_messages": 5,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "recess",
+      "seed": 0,
+      "angle": 0.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [],
+      "legal_goal_count": 0,
+      "frontier_clusters": 6,
+      "known_free_area_m2": 14.44,
+      "unreachable_clusters": 6,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.25430607000000016,
+            "update_age_s": 0.20000000000000018
+          },
+          "scan": {
+            "stamp_age_s": 0.046178547000000236,
+            "update_age_s": 0.02799999999999958
+          },
+          "tf": {
+            "stamp_age_s": -0.15382145299999994,
+            "update_age_s": 0.022999999999999687
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 0.01000005189556604,
+        "max_rotation_jump_rad": 0.003490000000000029,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7453416149068323,
+      "contour_p95_m": 1.846649050554406,
+      "contour_coverage": 0.5557324840764332,
+      "elapsed_wall_s": 16.23512304199994,
+      "elapsed_ros_s": 2.56,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.6234015399018722,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 214,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 8258,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 8591,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 8259,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 8257,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 5,
+      "bag_status_messages": 4,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "recess",
+      "seed": 0,
+      "angle": 90.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "active_scan_clearance_unproven",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 20,
+            "blocking_cell": [
+              11,
+              16
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 4.82,
+          "motion_requested": false
+        }
+      ],
+      "legal_goal_count": 0,
+      "frontier_clusters": 6,
+      "known_free_area_m2": 14.458,
+      "unreachable_clusters": 6,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.5740966009999999,
+            "update_age_s": 0.45500000000000007
+          },
+          "scan": {
+            "stamp_age_s": 0.07263179600000047,
+            "update_age_s": 0.04800000000000004
+          },
+          "tf": {
+            "stamp_age_s": -0.1273682039999997,
+            "update_age_s": 0.038000000000000256
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 1.8304259092537746e-06,
+        "max_rotation_jump_rad": 0.003490000000000032,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7468944099378882,
+      "contour_p95_m": 1.8162704737067834,
+      "contour_coverage": 0.5589171974522293,
+      "elapsed_wall_s": 14.070227860999694,
+      "elapsed_ros_s": 1.33,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.6234015399018722,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 190,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 8645,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 8979,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 8646,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 8644,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 6,
+      "bag_status_messages": 6,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "recess",
+      "seed": 0,
+      "angle": 180.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "active_scan_clearance_unproven",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 22,
+            "blocking_cell": [
+              11,
+              16
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 4.761,
+          "motion_requested": false
+        }
+      ],
+      "legal_goal_count": 0,
+      "frontier_clusters": 6,
+      "known_free_area_m2": 14.358,
+      "unreachable_clusters": 6,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.38463179599999986,
+            "update_age_s": 0.04100000000000037
+          },
+          "scan": {
+            "stamp_age_s": 0.08634015400000017,
+            "update_age_s": 0.03300000000000036
+          },
+          "tf": {
+            "stamp_age_s": -0.11365984600000001,
+            "update_age_s": 0.019999999999999574
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 2.5469403852337936e-17,
+        "max_rotation_jump_rad": 3.144186300207963e-17,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7426796805678794,
+      "contour_p95_m": 1.8534236776575839,
+      "contour_coverage": 0.5509554140127388,
+      "elapsed_wall_s": 16.113913385999695,
+      "elapsed_ros_s": 1.6,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.6234015399018722,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 186,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 9032,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 9366,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 9033,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 9031,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 6,
+      "bag_status_messages": 5,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "recess",
+      "seed": 0,
+      "angle": 360.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "active_scan_clearance_unproven",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 21,
+            "blocking_cell": [
+              11,
+              16
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 4.859,
+          "motion_requested": false
+        }
+      ],
+      "legal_goal_count": 0,
+      "frontier_clusters": 6,
+      "known_free_area_m2": 14.425,
+      "unreachable_clusters": 6,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.5306317959999998,
+            "update_age_s": 0.04899999999999949
+          },
+          "scan": {
+            "stamp_age_s": 0.03331512499999967,
+            "update_age_s": 0.027000000000000135
+          },
+          "tf": {
+            "stamp_age_s": -0.1666848750000005,
+            "update_age_s": 0.027000000000000135
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 0.010000000000000009,
+        "max_rotation_jump_rad": 0.0034900000000000304,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7468944099378882,
+      "contour_p95_m": 1.8538507471360717,
+      "contour_coverage": 0.5557324840764332,
+      "elapsed_wall_s": 15.485774040999786,
+      "elapsed_ros_s": 2.69,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.6234015399018722,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 191,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 9418,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 9752,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 9419,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 9417,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 6,
+      "bag_status_messages": 5,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "recess",
+      "seed": 1,
+      "angle": 90.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "active_scan_clearance_unproven",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 27,
+            "blocking_cell": [
+              10,
+              18
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 5.135,
+          "motion_requested": false
+        }
+      ],
+      "legal_goal_count": 0,
+      "frontier_clusters": 5,
+      "known_free_area_m2": 14.505,
+      "unreachable_clusters": 5,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.7658453620000003,
+            "update_age_s": 0.6959999999999997
+          },
+          "scan": {
+            "stamp_age_s": 0.0660332540000006,
+            "update_age_s": 0.03200000000000003
+          },
+          "tf": {
+            "stamp_age_s": -0.13396674599999958,
+            "update_age_s": 0.023000000000000576
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 7.4484663629907055e-06,
+        "max_rotation_jump_rad": 0.0034900000000000356,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7515527950310559,
+      "contour_p95_m": 1.8504533896934467,
+      "contour_coverage": 0.554140127388535,
+      "elapsed_wall_s": 13.752263105000111,
+      "elapsed_ros_s": 1.99,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.5874283085503367,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 197,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 9804,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 10140,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 9805,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 9803,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 6,
+      "bag_status_messages": 5,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "recess",
+      "seed": 1,
+      "angle": 180.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "active_scan_clearance_unproven",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 27,
+            "blocking_cell": [
+              10,
+              18
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 4.678,
+          "motion_requested": false
+        }
+      ],
+      "legal_goal_count": 0,
+      "frontier_clusters": 5,
+      "known_free_area_m2": 14.5,
+      "unreachable_clusters": 5,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.4158453619999998,
+            "update_age_s": 0.04100000000000037
+          },
+          "scan": {
+            "stamp_age_s": 0.02018884399999976,
+            "update_age_s": 0.0129999999999999
+          },
+          "tf": {
+            "stamp_age_s": -0.17981115600000042,
+            "update_age_s": 0.0019999999999997797
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 7.416826376821409e-06,
+        "max_rotation_jump_rad": 0.0034900000000000235,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7515527950310559,
+      "contour_p95_m": 1.8504563030383647,
+      "contour_coverage": 0.554140127388535,
+      "elapsed_wall_s": 14.029620089000218,
+      "elapsed_ros_s": 1.53,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.5874283085503367,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 185,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 10192,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 10524,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 10193,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 10191,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 6,
+      "bag_status_messages": 5,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "recess",
+      "seed": 1,
+      "angle": 360.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "active_scan_clearance_unproven",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 27,
+            "blocking_cell": [
+              10,
+              18
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 3.615,
+          "motion_requested": false
+        }
+      ],
+      "legal_goal_count": 0,
+      "frontier_clusters": 5,
+      "known_free_area_m2": 14.433,
+      "unreachable_clusters": 5,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.17302564700000023,
+            "update_age_s": 0.03399999999999981
+          },
+          "scan": {
+            "stamp_age_s": 0.07382899400000031,
+            "update_age_s": 0.03200000000000003
+          },
+          "tf": {
+            "stamp_age_s": -0.12617100599999986,
+            "update_age_s": 0.020000000000000462
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 6.813834681580222e-06,
+        "max_rotation_jump_rad": 0.003490000000000008,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7495563442768411,
+      "contour_p95_m": 1.85193106435268,
+      "contour_coverage": 0.554140127388535,
+      "elapsed_wall_s": 12.210291966000113,
+      "elapsed_ros_s": 0.92,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.5874283085503367,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 154,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 10578,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 10911,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 10579,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 10577,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 6,
+      "bag_status_messages": 6,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "recess",
+      "seed": 1,
+      "angle": 0.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [],
+      "legal_goal_count": 0,
+      "frontier_clusters": 5,
+      "known_free_area_m2": 14.48,
+      "unreachable_clusters": 5,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.35206125500000063,
+            "update_age_s": 0.23399999999999999
+          },
+          "scan": {
+            "stamp_age_s": 0.05425836300000064,
+            "update_age_s": 0.04100000000000037
+          },
+          "tf": {
+            "stamp_age_s": -0.14574163699999954,
+            "update_age_s": 0.034000000000000696
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 1.251328077622167e-05,
+        "max_rotation_jump_rad": 0.003490000000000008,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7466725820763088,
+      "contour_p95_m": 1.8483961242002709,
+      "contour_coverage": 0.554140127388535,
+      "elapsed_wall_s": 15.234483757999897,
+      "elapsed_ros_s": 3.42,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.5874283085503367,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 242,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 10963,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 11297,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 10964,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 10962,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 5,
+      "bag_status_messages": 4,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "recess",
+      "seed": 2,
+      "angle": 180.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "active_scan_clearance_unproven",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 24,
+            "blocking_cell": [
+              14,
+              16
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 5.168,
+          "motion_requested": false
+        }
+      ],
+      "legal_goal_count": 0,
+      "frontier_clusters": 6,
+      "known_free_area_m2": 14.425,
+      "unreachable_clusters": 6,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.6148024530000002,
+            "update_age_s": 0.5620000000000003
+          },
+          "scan": {
+            "stamp_age_s": 0.01624709199999952,
+            "update_age_s": 0.0129999999999999
+          },
+          "tf": {
+            "stamp_age_s": -0.08612529400000035,
+            "update_age_s": 0.017000000000000348
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 0.010000157620047275,
+        "max_rotation_jump_rad": 0.0034900000000000165,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7484472049689441,
+      "contour_p95_m": 1.8749573280200273,
+      "contour_coverage": 0.5589171974522293,
+      "elapsed_wall_s": 13.565187764999791,
+      "elapsed_ros_s": 2.13,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.5844332400884809,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 199,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 11349,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 11682,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 11350,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 11348,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 6,
+      "bag_status_messages": 5,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "recess",
+      "seed": 2,
+      "angle": 360.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "active_scan_clearance_unproven",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 25,
+            "blocking_cell": [
+              13,
+              16
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 4.873,
+          "motion_requested": false
+        }
+      ],
+      "legal_goal_count": 0,
+      "frontier_clusters": 6,
+      "known_free_area_m2": 14.42,
+      "unreachable_clusters": 6,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.5136711910000002,
+            "update_age_s": 0.44200000000000017
+          },
+          "scan": {
+            "stamp_age_s": 0.013607902000000394,
+            "update_age_s": 0.006000000000000227
+          },
+          "tf": {
+            "stamp_age_s": -0.08870063500000036,
+            "update_age_s": 0.03500000000000014
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 0.010000157620047275,
+        "max_rotation_jump_rad": 0.003490000000000026,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7484472049689441,
+      "contour_p95_m": 1.8749573280200273,
+      "contour_coverage": 0.5589171974522293,
+      "elapsed_wall_s": 13.72861243000034,
+      "elapsed_ros_s": 1.35,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.5844332400884809,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 191,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 11734,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 12068,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 11735,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 11733,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 6,
+      "bag_status_messages": 6,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "recess",
+      "seed": 2,
+      "angle": 0.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [],
+      "legal_goal_count": 0,
+      "frontier_clusters": 7,
+      "known_free_area_m2": 14.44,
+      "unreachable_clusters": 7,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.24543700999999984,
+            "update_age_s": 0.22100000000000009
+          },
+          "scan": {
+            "stamp_age_s": 0.05097039300000006,
+            "update_age_s": 0.02999999999999936
+          },
+          "tf": {
+            "stamp_age_s": -0.14902960699999923,
+            "update_age_s": 0.007999999999999119
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 1.4753047781698327e-05,
+        "max_rotation_jump_rad": 0.0034900000000000243,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7482253771073647,
+      "contour_p95_m": 1.8491301266258344,
+      "contour_coverage": 0.5573248407643312,
+      "elapsed_wall_s": 21.952870306000023,
+      "elapsed_ros_s": 1.74,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.5844332400884809,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 271,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 12120,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 12453,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 12121,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 12119,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 5,
+      "bag_status_messages": 5,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "recess",
+      "seed": 2,
+      "angle": 90.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "active_scan_clearance_unproven",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 25,
+            "blocking_cell": [
+              13,
+              16
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 4.696,
+          "motion_requested": false
+        }
+      ],
+      "legal_goal_count": 0,
+      "frontier_clusters": 6,
+      "known_free_area_m2": 14.415,
+      "unreachable_clusters": 6,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.3436711910000003,
+            "update_age_s": 0.03500000000000014
+          },
+          "scan": {
+            "stamp_age_s": 0.04695371700000006,
+            "update_age_s": 0.03300000000000036
+          },
+          "tf": {
+            "stamp_age_s": -0.15304628300000012,
+            "update_age_s": 0.025000000000000355
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 0.010000097660398631,
+        "max_rotation_jump_rad": 0.0034900000000000365,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7484472049689441,
+      "contour_p95_m": 1.8749573280200273,
+      "contour_coverage": 0.5589171974522293,
+      "elapsed_wall_s": 15.5329625090003,
+      "elapsed_ros_s": 1.64,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.5844332400884809,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 185,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 12505,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 12839,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 12506,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 12504,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 6,
+      "bag_status_messages": 5,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "recess",
+      "seed": 3,
+      "angle": 360.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "active_scan_clearance_unproven",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 18,
+            "blocking_cell": [
+              11,
+              15
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 3.861,
+          "motion_requested": false
+        }
+      ],
+      "legal_goal_count": 0,
+      "frontier_clusters": 5,
+      "known_free_area_m2": 14.29,
+      "unreachable_clusters": 5,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.46113517700000006,
+            "update_age_s": 0.3999999999999999
+          },
+          "scan": {
+            "stamp_age_s": 0.06120645399999969,
+            "update_age_s": 0.020999999999999908
+          },
+          "tf": {
+            "stamp_age_s": -0.1387935460000005,
+            "update_age_s": 0.013999999999999346
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 1.2931202423980211e-17,
+        "max_rotation_jump_rad": 2.2334564753201398e-17,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7448979591836735,
+      "contour_p95_m": 1.8271516962227334,
+      "contour_coverage": 0.5493630573248408,
+      "elapsed_wall_s": 12.843255462000343,
+      "elapsed_ros_s": 0.83,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.6222922012957681,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 159,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 12891,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 13224,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 12892,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 12890,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 6,
+      "bag_status_messages": 6,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "recess",
+      "seed": 3,
+      "angle": 0.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [],
+      "legal_goal_count": 0,
+      "frontier_clusters": 5,
+      "known_free_area_m2": 14.29,
+      "unreachable_clusters": 5,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.2918736879999999,
+            "update_age_s": 0.20999999999999996
+          },
+          "scan": {
+            "stamp_age_s": 0.09169400800000016,
+            "update_age_s": 0.04300000000000015
+          },
+          "tf": {
+            "stamp_age_s": -0.10830599200000002,
+            "update_age_s": 0.0389999999999997
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 2.653589182755455e-17,
+        "max_rotation_jump_rad": 2.8189256484623115e-17,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7448979591836735,
+      "contour_p95_m": 1.832193016284486,
+      "contour_coverage": 0.5477707006369427,
+      "elapsed_wall_s": 16.628235163000227,
+      "elapsed_ros_s": 1.88,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.6222922012957681,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 258,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 13290,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 13624,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 13291,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 13289,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 5,
+      "bag_status_messages": 5,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "recess",
+      "seed": 3,
+      "angle": 90.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "active_scan_clearance_unproven",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 18,
+            "blocking_cell": [
+              11,
+              15
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 4.22,
+          "motion_requested": false
+        }
+      ],
+      "legal_goal_count": 0,
+      "frontier_clusters": 5,
+      "known_free_area_m2": 14.3,
+      "unreachable_clusters": 5,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.7558010679999994,
+            "update_age_s": 0.5719999999999992
+          },
+          "scan": {
+            "stamp_age_s": 0.0525969169999998,
+            "update_age_s": 0.021999999999999353
+          },
+          "tf": {
+            "stamp_age_s": -0.14740308300000038,
+            "update_age_s": 0.013999999999999346
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 1.254420038013672e-17,
+        "max_rotation_jump_rad": 1.929879867024198e-17,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7448979591836735,
+      "contour_p95_m": 1.8269795285360662,
+      "contour_coverage": 0.5477707006369427,
+      "elapsed_wall_s": 13.320812944999943,
+      "elapsed_ros_s": 0.95,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.6222922012957681,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 170,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 13676,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 14010,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 13677,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 13675,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 6,
+      "bag_status_messages": 6,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "recess",
+      "seed": 3,
+      "angle": 180.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "active_scan_clearance_unproven",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 18,
+            "blocking_cell": [
+              11,
+              15
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 3.973,
+          "motion_requested": false
+        }
+      ],
+      "legal_goal_count": 0,
+      "frontier_clusters": 5,
+      "known_free_area_m2": 14.29,
+      "unreachable_clusters": 5,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.6191351770000004,
+            "update_age_s": 0.585
+          },
+          "scan": {
+            "stamp_age_s": 0.01899992099999981,
+            "update_age_s": 0.012000000000000455
+          },
+          "tf": {
+            "stamp_age_s": -0.08053615800000014,
+            "update_age_s": 0.0259999999999998
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 1.2676298882920723e-17,
+        "max_rotation_jump_rad": 3.350184712980209e-17,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7448979591836735,
+      "contour_p95_m": 1.8271516962227334,
+      "contour_coverage": 0.5493630573248408,
+      "elapsed_wall_s": 12.865283065999847,
+      "elapsed_ros_s": 0.93,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.6222922012957681,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 164,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 14066,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 14400,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 14067,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 14065,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 6,
+      "bag_status_messages": 6,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "recess",
+      "seed": 4,
+      "angle": 0.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "remaining_unreachable_frontiers_or_insufficient_observed_area",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [],
+      "legal_goal_count": 0,
+      "frontier_clusters": 5,
+      "known_free_area_m2": 14.403,
+      "unreachable_clusters": 5,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.25401278100000013,
+            "update_age_s": 0.21199999999999974
+          },
+          "scan": {
+            "stamp_age_s": 0.05574015599999971,
+            "update_age_s": 0.024999999999999467
+          },
+          "tf": {
+            "stamp_age_s": -0.14425984400000047,
+            "update_age_s": 0.02400000000000002
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 8.459528862140584e-06,
+        "max_rotation_jump_rad": 0.003490000000000033,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7444543034605147,
+      "contour_p95_m": 1.8513866356771889,
+      "contour_coverage": 0.5509554140127388,
+      "elapsed_wall_s": 15.324775221999971,
+      "elapsed_ros_s": 3.56,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.622724974341542,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 242,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 14452,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 14786,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 14453,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 14451,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 5,
+      "bag_status_messages": 4,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "recess",
+      "seed": 4,
+      "angle": 90.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "active_scan_clearance_unproven",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 18,
+            "blocking_cell": [
+              11,
+              17
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 5.017,
+          "motion_requested": false
+        }
+      ],
+      "legal_goal_count": 0,
+      "frontier_clusters": 5,
+      "known_free_area_m2": 14.403,
+      "unreachable_clusters": 5,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.7766817579999996,
+            "update_age_s": 0.6669999999999998
+          },
+          "scan": {
+            "stamp_age_s": 0.07329329900000037,
+            "update_age_s": 0.04999999999999982
+          },
+          "tf": {
+            "stamp_age_s": -0.1267067009999998,
+            "update_age_s": 0.04300000000000015
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 5.199645609962059e-06,
+        "max_rotation_jump_rad": 0.003490000000000006,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7444543034605147,
+      "contour_p95_m": 2.248658731716725,
+      "contour_coverage": 0.5207006369426752,
+      "elapsed_wall_s": 23.300219702999584,
+      "elapsed_ros_s": 2.19,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.622724974341542,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 195,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 14838,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 15171,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 14839,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 14837,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 6,
+      "bag_status_messages": 5,
+      "latest_preserved": true,
+      "failures": [
+        "abnormal shutdown: launch reported nested SIGKILL",
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "recess",
+      "seed": 4,
+      "angle": 180.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "active_scan_clearance_unproven",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 18,
+            "blocking_cell": [
+              11,
+              17
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 3.847,
+          "motion_requested": false
+        }
+      ],
+      "legal_goal_count": 0,
+      "frontier_clusters": 5,
+      "known_free_area_m2": 14.403,
+      "unreachable_clusters": 5,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.502743889,
+            "update_age_s": 0.45599999999999996
+          },
+          "scan": {
+            "stamp_age_s": 0.100501811,
+            "update_age_s": 0.03699999999999992
+          },
+          "tf": {
+            "stamp_age_s": -0.09949818900000018,
+            "update_age_s": 0.03000000000000025
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 1.2642028957422937e-17,
+        "max_rotation_jump_rad": 2.688821387764051e-17,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7444543034605147,
+      "contour_p95_m": 2.248658731716725,
+      "contour_coverage": 0.5207006369426752,
+      "elapsed_wall_s": 13.527166166999905,
+      "elapsed_ros_s": 0.88,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.622724974341542,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 161,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 15223,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 15557,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 15224,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 15222,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 6,
+      "bag_status_messages": 6,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    },
+    {
+      "scenario": "recess",
+      "seed": 4,
+      "angle": 360.0,
+      "strict_success": false,
+      "state": "incomplete",
+      "reason": "active_scan_clearance_unproven",
+      "first_goal": false,
+      "first_goal_elapsed_ros_s": null,
+      "initial_observation_events": [
+        {
+          "plan": {
+            "safe": false,
+            "reason": "unknown_swept_space",
+            "checked_cells": 18,
+            "blocking_cell": [
+              11,
+              17
+            ],
+            "angle_rad": null,
+            "expected_new_directions": 0
+          },
+          "started_ros": 4.944,
+          "motion_requested": false
+        }
+      ],
+      "legal_goal_count": 0,
+      "frontier_clusters": 5,
+      "known_free_area_m2": 14.403,
+      "unreachable_clusters": 5,
+      "map_health": {
+        "healthy": true,
+        "issues": [],
+        "ages": {
+          "map": {
+            "stamp_age_s": 0.5518782660000001,
+            "update_age_s": 0.4219999999999997
+          },
+          "scan": {
+            "stamp_age_s": 0.04866360900000011,
+            "update_age_s": 0.0389999999999997
+          },
+          "tf": {
+            "stamp_age_s": -0.15133639100000007,
+            "update_age_s": 0.028999999999999915
+          }
+        },
+        "faults": {},
+        "limits": {
+          "jump_translation": 0.5,
+          "jump_rotation": 0.35,
+          "map_timeout": 15.0,
+          "scan_timeout": 1.0,
+          "tf_timeout": 1.0,
+          "future_tolerance": 0.1,
+          "tf_future_offset": 0.2
+        },
+        "max_translation_jump_m": 5.199645609962059e-06,
+        "max_rotation_jump_rad": 0.003490000000000006,
+        "slam_alive": true,
+        "slam_liveness_verified": true,
+        "latched_issues": {}
+      },
+      "coverage": 0.7444543034605147,
+      "contour_p95_m": 2.248658731716725,
+      "contour_coverage": 0.5207006369426752,
+      "elapsed_wall_s": 13.72997942899974,
+      "elapsed_ros_s": 1.99,
+      "truth_valid": true,
+      "truth_rotation_rad_evaluator_only": 0.0,
+      "truth_travel_m": 0.0,
+      "return_error_m": 0.0,
+      "safety": {
+        "contact_measurement": "geometric_projection_only",
+        "minimum_clearance_m": 0.622724974341542,
+        "geometric_overlap_samples": 0,
+        "geometric_overlap_events": 0,
+        "samples": 191,
+        "interpolation_step_m": 0.02,
+        "footprint": "union_of_reference_SDF_body_and_two_wheel_projections",
+        "limitations": "2D projection against static geometry; no physics contact sensor, dynamic obstacles or vertical separation."
+      },
+      "shutdown": {
+        "recorder": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 15609,
+          "remaining_live_group_members": []
+        },
+        "explorer": {
+          "returncode": 2,
+          "forced_kill": false,
+          "process_group_id": 15942,
+          "remaining_live_group_members": []
+        },
+        "launch": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 15610,
+          "remaining_live_group_members": []
+        },
+        "truth_reader": {
+          "returncode": 0,
+          "forced_kill": false,
+          "process_group_id": 15608,
+          "remaining_live_group_members": []
+        }
+      },
+      "wire_status_messages": 6,
+      "bag_status_messages": 5,
+      "latest_preserved": true,
+      "failures": [
+        "rosbag missing required messages or unreadable"
+      ],
+      "acceptance": {
+        "truth_quality": true,
+        "completed": false,
+        "map_saved": true,
+        "returned": true,
+        "return_error": true,
+        "no_geometric_overlap": true,
+        "reachable_coverage": false,
+        "observable_contour_p95": false,
+        "observable_contour_coverage": false,
+        "realism_enabled": true
+      }
+    }
+  ],
+  "state_counts": {
+    "incomplete": 37,
+    "map_unstable": 3
+  },
+  "wire_terminal_missing": 0,
+  "no_motion_requested": true,
+  "latest_preserved": true,
+  "truth_valid_count": 40
+}

@@ -1,0 +1,23 @@
+
+> wheeltec-console@1.0.0 test
+> vitest run src --reporter=verbose
+
+
+ RUN  v4.1.12 D:/虚拟c盘/WHEELTEC/console/frontend
+
+ ✓ src/streamReadout.test.ts > camera receive frequency > keeps the Hz readout when capture timestamps jump into the future 1ms
+ ✓ src/streamReadout.test.ts > camera receive frequency > hides stale or disconnected camera readings 0ms
+ ✓ src/streamReadout.test.ts > camera receive frequency > does not use receive liveness to approve laser measurements 0ms
+ ✓ src/streamReadout.test.ts > camera receive frequency > supports older adapters without receive metadata 0ms
+ ✓ src/control.test.ts > keyboard motion > combines WASD and cancels opposites 1ms
+ ✓ src/control.test.ts > keyboard motion > release produces zero 0ms
+ ✓ src/control.test.ts > keyboard motion > never treats terminal and editable input as teleop 0ms
+ ✓ src/control.test.ts > control status truthfulness > offline never claims current ownership 0ms
+ ✓ src/control.test.ts > control status truthfulness > read only never claims parking or ownership 0ms
+ ✓ src/control.test.ts > control status truthfulness > online manual ownership and held release are distinct 0ms
+
+ Test Files  2 passed (2)
+      Tests  10 passed (10)
+   Start at  22:16:32
+   Duration  274ms (transform 98ms, setup 0ms, import 146ms, tests 6ms, environment 0ms)
+

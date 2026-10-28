@@ -1,0 +1,8 @@
+test_failures_count_and_wilson_uses_all_rows (test_paired_active_scan_batch.ActiveScanBatchTests.test_failures_count_and_wilson_uses_all_rows) ... ok
+test_less_than_five_seeds_is_rejected (test_paired_active_scan_batch.ActiveScanBatchTests.test_less_than_five_seeds_is_rejected) ... ok
+test_same_seed_start_and_config_are_shared_by_all_angles (test_paired_active_scan_batch.ActiveScanBatchTests.test_same_seed_start_and_config_are_shared_by_all_angles) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.047s
+
+OK

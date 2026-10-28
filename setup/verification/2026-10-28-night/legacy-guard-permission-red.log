@@ -1,0 +1,25 @@
+test_only_quota_failure_resumes_unfinished_idle_thread (test_continue_g0_night.NightGuardTests.test_only_quota_failure_resumes_unfinished_idle_thread) ... ok
+test_task_text_containing_quota_does_not_count_as_error (test_continue_g0_night.NightGuardTests.test_task_text_containing_quota_does_not_count_as_error) ... ok
+test_scheduled_continuation_uses_existing_chat_permissions (test_continue_irregular_frontiers.ContinuationPermissionTests.test_scheduled_continuation_uses_existing_chat_permissions) ... FAIL
+test_completed_is_quiet_and_active_recent_is_not_duplicated (test_continue_irregular_frontiers.WakeGuardTests.test_completed_is_quiet_and_active_recent_is_not_duplicated) ... ok
+test_fail_closed_on_invalid_task_state (test_continue_irregular_frontiers.WakeGuardTests.test_fail_closed_on_invalid_task_state) ... ok
+
+======================================================================
+FAIL: test_scheduled_continuation_uses_existing_chat_permissions (test_continue_irregular_frontiers.ContinuationPermissionTests.test_scheduled_continuation_uses_existing_chat_permissions)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\����c��\WHEELTEC\setup\automation\test_continue_irregular_frontiers.py", line 34, in test_scheduled_continuation_uses_existing_chat_permissions
+    self.assertEqual(command[1:4],['queue','--thread',module.SESSION])
+AssertionError: Lists differ: ['exec', '--approve-for-me', '--cd'] != ['queue', '--thread', '01a17bf2-e4a2-7283-9e65-2ec9169ff665']
+
+First differing element 0:
+'exec'
+'queue'
+
+- ['exec', '--approve-for-me', '--cd']
++ ['queue', '--thread', '01a17bf2-e4a2-7283-9e65-2ec9169ff665']
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.145s
+
+FAILED (failures=1)

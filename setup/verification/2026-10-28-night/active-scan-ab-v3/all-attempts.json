@@ -1,0 +1,249 @@
+{
+  "planned_trials": 40,
+  "summary_rows": 40,
+  "attempted": 40,
+  "successes": 0,
+  "partial": false,
+  "attempts": [
+    {
+      "run": "000_irregular_arc_seed0_angle0",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "001_irregular_arc_seed0_angle90",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "002_irregular_arc_seed0_angle180",
+      "result_present": true,
+      "success": false,
+      "error": "Missing map artifact .posegraph"
+    },
+    {
+      "run": "003_irregular_arc_seed0_angle360",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "004_irregular_arc_seed1_angle90",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "005_irregular_arc_seed1_angle180",
+      "result_present": true,
+      "success": false,
+      "error": "Missing map artifact .posegraph"
+    },
+    {
+      "run": "006_irregular_arc_seed1_angle360",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "007_irregular_arc_seed1_angle0",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "008_irregular_arc_seed2_angle180",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "009_irregular_arc_seed2_angle360",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "010_irregular_arc_seed2_angle0",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "011_irregular_arc_seed2_angle90",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "012_irregular_arc_seed3_angle360",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "013_irregular_arc_seed3_angle0",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "014_irregular_arc_seed3_angle90",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "015_irregular_arc_seed3_angle180",
+      "result_present": true,
+      "success": false,
+      "error": "Missing map artifact .posegraph"
+    },
+    {
+      "run": "016_irregular_arc_seed4_angle0",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "017_irregular_arc_seed4_angle90",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "018_irregular_arc_seed4_angle180",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "019_irregular_arc_seed4_angle360",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "020_recess_seed0_angle0",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "021_recess_seed0_angle90",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "022_recess_seed0_angle180",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "023_recess_seed0_angle360",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "024_recess_seed1_angle90",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "025_recess_seed1_angle180",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "026_recess_seed1_angle360",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "027_recess_seed1_angle0",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "028_recess_seed2_angle180",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "029_recess_seed2_angle360",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "030_recess_seed2_angle0",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "031_recess_seed2_angle90",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "032_recess_seed3_angle360",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "033_recess_seed3_angle0",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "034_recess_seed3_angle90",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "035_recess_seed3_angle180",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "036_recess_seed4_angle0",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "037_recess_seed4_angle90",
+      "result_present": true,
+      "success": false,
+      "error": "abnormal shutdown: launch reported nested SIGKILL"
+    },
+    {
+      "run": "038_recess_seed4_angle180",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "039_recess_seed4_angle360",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    }
+  ]
+}

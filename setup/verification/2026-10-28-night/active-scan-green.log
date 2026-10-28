@@ -1,0 +1,13 @@
+test_gain_comes_from_unknown_outside_current_fov_not_ground_truth (test_active_scan.ActiveScanSafetyTests.test_gain_comes_from_unknown_outside_current_fov_not_ground_truth) ... ok
+test_known_free_full_sweep_is_accepted (test_active_scan.ActiveScanSafetyTests.test_known_free_full_sweep_is_accepted) ... ok
+test_no_information_gain_does_not_cause_pointless_spin (test_active_scan.ActiveScanSafetyTests.test_no_information_gain_does_not_cause_pointless_spin) ... ok
+test_obstacle_cell_intersecting_sweep_and_map_edge_are_rejected (test_active_scan.ActiveScanSafetyTests.test_obstacle_cell_intersecting_sweep_and_map_edge_are_rejected) ... ok
+test_rotated_grid_origin_does_not_change_safety (test_active_scan.ActiveScanSafetyTests.test_rotated_grid_origin_does_not_change_safety) ... ok
+test_scan_attempts_are_finite_even_if_observation_does_not_help (test_active_scan.ActiveScanSafetyTests.test_scan_attempts_are_finite_even_if_observation_does_not_help) ... ok
+test_unknown_clearance_blocks_even_high_expected_gain (test_active_scan.ActiveScanSafetyTests.test_unknown_clearance_blocks_even_high_expected_gain) ... ok
+test_unknown_inside_rotation_envelope_is_rejected (test_active_scan.ActiveScanSafetyTests.test_unknown_inside_rotation_envelope_is_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.002s
+
+OK

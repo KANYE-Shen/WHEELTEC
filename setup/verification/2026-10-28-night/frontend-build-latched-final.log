@@ -1,0 +1,13 @@
+
+> wheeltec-console@1.0.0 build
+> tsc --noEmit && vite build
+
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 41 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.42 kB │ gzip:   0.32 kB
+dist/assets/index-gLWngy1L.css   10.26 kB │ gzip:   3.05 kB
+dist/assets/index-B7XAYshK.js   498.11 kB │ gzip: 139.27 kB
+✓ built in 924ms

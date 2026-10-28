@@ -1,0 +1,35 @@
+
+> wheeltec-console@1.0.0 test
+> vitest run src --reporter=verbose
+
+
+ RUN  v4.1.12 D:/虚拟c盘/WHEELTEC/console/frontend
+
+ ✓ src/control.test.ts > keyboard motion > combines WASD and cancels opposites 1ms
+ ✓ src/control.test.ts > keyboard motion > release produces zero 0ms
+ ✓ src/control.test.ts > keyboard motion > never treats terminal and editable input as teleop 0ms
+ ✓ src/control.test.ts > control status truthfulness > offline never claims current ownership 0ms
+ ✓ src/control.test.ts > control status truthfulness > read only never claims parking or ownership 0ms
+ ✓ src/control.test.ts > control status truthfulness > online manual ownership and held release are distinct 0ms
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/streamReadout.test.ts [ src/streamReadout.test.ts ]
+Error: Cannot find module './streamReadout' imported from D:/虚拟c盘/WHEELTEC/console/frontend/src/streamReadout.test.ts
+ ❯ src/streamReadout.test.ts:2:1
+      1| import { describe, it, expect } from "vitest";
+      2| import { streamReadout } from "./streamReadout";
+       | ^
+      3| describe("camera receive frequency", () => {
+      4|  it("keeps the Hz readout when capture timestamps jump into the future…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { code: 'ERR_MODULE_NOT_FOUND' }
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  6 passed (6)
+   Start at  22:15:00
+   Duration  302ms (transform 117ms, setup 0ms, import 94ms, tests 3ms, environment 0ms)
+

@@ -1,0 +1,20 @@
+test_failures_count_and_wilson_uses_all_rows (test_paired_active_scan_batch.ActiveScanBatchTests.test_failures_count_and_wilson_uses_all_rows) ... ERROR
+test_less_than_five_seeds_is_rejected (test_paired_active_scan_batch.ActiveScanBatchTests.test_less_than_five_seeds_is_rejected) ... ok
+test_same_seed_start_and_config_are_shared_by_all_angles (test_paired_active_scan_batch.ActiveScanBatchTests.test_same_seed_start_and_config_are_shared_by_all_angles) ... ok
+
+======================================================================
+ERROR: test_failures_count_and_wilson_uses_all_rows (test_paired_active_scan_batch.ActiveScanBatchTests.test_failures_count_and_wilson_uses_all_rows)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\虚拟c盘\WHEELTEC\simulation\test_paired_active_scan_batch.py", line 13, in test_failures_count_and_wilson_uses_all_rows
+    row=summarize(rows)[0]
+        ^^^^^^^^^^^^^^^
+  File "D:\虚拟c盘\WHEELTEC\simulation\paired_active_scan_batch.py", line 37, in summarize
+    seeds=[x['seed'] for x in values]))
+           ~^^^^^^^^
+KeyError: 'seed'
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.050s
+
+FAILED (errors=1)

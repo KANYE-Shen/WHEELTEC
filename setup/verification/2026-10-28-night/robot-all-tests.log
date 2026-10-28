@@ -1,0 +1,31 @@
+test_future_sample_is_not_erased_by_a_fresh_last_sample (test_inspect_interfaces.G0ClockRegressionTests.test_future_sample_is_not_erased_by_a_fresh_last_sample) ... ok
+test_uninitialized_clock_cannot_be_reported_as_ready (test_inspect_interfaces.G0ClockRegressionTests.test_uninitialized_clock_cannot_be_reported_as_ready) ... ok
+test_backwards_zero_and_future_timestamps_fail (test_inspect_interfaces.StreamAssessmentTests.test_backwards_zero_and_future_timestamps_fail) ... ok
+test_fresh_monotonic_sensor_stream_is_usable (test_inspect_interfaces.StreamAssessmentTests.test_fresh_monotonic_sensor_stream_is_usable) ... ok
+test_frozen_clock_and_republished_tail_is_stale (test_inspect_interfaces.StreamAssessmentTests.test_frozen_clock_and_republished_tail_is_stale) ... ok
+test_nonfinite_scan_still_produces_failure_report (test_inspect_interfaces.StreamAssessmentTests.test_nonfinite_scan_still_produces_failure_report) ... ok
+test_publisher_without_messages_is_not_live (test_inspect_interfaces.StreamAssessmentTests.test_publisher_without_messages_is_not_live) ... ok
+test_republished_old_measurements_do_not_inflate_sensor_rate (test_inspect_interfaces.StreamAssessmentTests.test_republished_old_measurements_do_not_inflate_sensor_rate) ... ok
+test_stale_or_slow_data_does_not_pass (test_inspect_interfaces.StreamAssessmentTests.test_stale_or_slow_data_does_not_pass) ... ok
+test_airborne_gate_does_not_require_future_ground_braking_measurement (test_safety.SafetyTests.test_airborne_gate_does_not_require_future_ground_braking_measurement) ... ok
+test_authentication_and_launch_fail_closed (test_safety.SafetyTests.test_authentication_and_launch_fail_closed) ... ok
+test_boot_and_lost_heartbeat_latch_until_explicit_rearm (test_safety.SafetyTests.test_boot_and_lost_heartbeat_latch_until_explicit_rearm) ... ok
+test_robot_dimensions_require_the_shared_measured_calibration (test_safety.SafetyTests.test_robot_dimensions_require_the_shared_measured_calibration) ... ok
+test_timeout_estop_invalid_and_reverse_time_stop (test_safety.SafetyTests.test_timeout_estop_invalid_and_reverse_time_stop) ... ok
+test_does_not_overwrite_or_write_inside_source (test_timestamp_source_audit.TimestampAuditTests.test_does_not_overwrite_or_write_inside_source) ... ok
+test_frame_sequence_is_monotonic_across_second (test_timestamp_source_audit.TimestampAuditTests.test_frame_sequence_is_monotonic_across_second) ... ok
+test_half_second_does_not_round_seconds_up (test_timestamp_source_audit.TimestampAuditTests.test_half_second_does_not_round_seconds_up) ... ok
+test_identifies_all_three_exact_pinned_states (test_timestamp_source_audit.TimestampAuditTests.test_identifies_all_three_exact_pinned_states) ... ok
+test_integer_shift_retains_epoch_microseconds (test_timestamp_source_audit.TimestampAuditTests.test_integer_shift_retains_epoch_microseconds) ... ok
+test_mixed_source_is_not_called_fixed (test_timestamp_source_audit.TimestampAuditTests.test_mixed_source_is_not_called_fixed) ... ok
+test_modified_fixture_cannot_supply_candidate_code (test_timestamp_source_audit.TimestampAuditTests.test_modified_fixture_cannot_supply_candidate_code) ... ok
+test_prepare_preserves_source_and_emits_reviewable_diff (test_timestamp_source_audit.TimestampAuditTests.test_prepare_preserves_source_and_emits_reviewable_diff) ... ok
+test_rejects_invalid_time_fields (test_timestamp_source_audit.TimestampAuditTests.test_rejects_invalid_time_fields) ... ok
+test_rounding_monotonic_nsec_carries_at_second (test_timestamp_source_audit.TimestampAuditTests.test_rounding_monotonic_nsec_carries_at_second) ... ok
+test_timestamp_carries_fractional_epoch_shift (test_timestamp_source_audit.TimestampAuditTests.test_timestamp_carries_fractional_epoch_shift) ... ok
+test_unknown_or_incomplete_source_is_refused (test_timestamp_source_audit.TimestampAuditTests.test_unknown_or_incomplete_source_is_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 0.319s
+
+OK

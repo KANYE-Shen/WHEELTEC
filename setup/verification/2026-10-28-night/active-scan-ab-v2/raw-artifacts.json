@@ -1,0 +1,2177 @@
+{
+  "raw_root": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261028-active-scan-ab-v2",
+  "raw_retained": true,
+  "source_archive_matches": true,
+  "files": [
+    {
+      "path": "000_irregular_arc_seed0_angle0/bag/bag_0.db3",
+      "bytes": 1126400,
+      "sha256": "52fd1aeb8fbb901cd5dcd6998f3008fa62446ca7414033cdc8ee8080721dfaa2"
+    },
+    {
+      "path": "000_irregular_arc_seed0_angle0/bag/metadata.yaml",
+      "bytes": 4850,
+      "sha256": "b85538b6051604a0ef6977426de83665041d49f4fda6462d77568828408c5da4"
+    },
+    {
+      "path": "000_irregular_arc_seed0_angle0/bag-qos.yaml",
+      "bytes": 300,
+      "sha256": "0f2eda19f975306d65951f2cf8463d7f1ac61af70fbff053d061e5ee6c941744"
+    },
+    {
+      "path": "000_irregular_arc_seed0_angle0/bag.log",
+      "bytes": 2076,
+      "sha256": "fe115378fdf52b3974bcbc06e0b0baec4c53bace7162fe93d53e0f433fcfd648"
+    },
+    {
+      "path": "000_irregular_arc_seed0_angle0/explore.log",
+      "bytes": 842,
+      "sha256": "6f209e3b61e84fc8f71cee774af9594c4f6354655bd7931b7472d1fd43593ba2"
+    },
+    {
+      "path": "000_irregular_arc_seed0_angle0/launch.log",
+      "bytes": 41246,
+      "sha256": "a0528f02ed7c0e2b8ee5cc8cd6fb34b1af28d27571f553bea739348299055a15"
+    },
+    {
+      "path": "000_irregular_arc_seed0_angle0/map.data",
+      "bytes": 872787,
+      "sha256": "90c3459f2a7ca57a5c5053dcbe1ec02ce1ef1a0c5125cf7f9551a9c247a493af"
+    },
+    {
+      "path": "000_irregular_arc_seed0_angle0/map.exploration.json",
+      "bytes": 5516,
+      "sha256": "cb8a4deaa55c15e1befa5f8260703a28da5ac1cd4639407cab2644421b06843f"
+    },
+    {
+      "path": "000_irregular_arc_seed0_angle0/map.metadata.json",
+      "bytes": 477,
+      "sha256": "574d10e1d7e53cde1ec29a332fa55656ebf8731469fc488e9ead5da5e20eeb03"
+    },
+    {
+      "path": "000_irregular_arc_seed0_angle0/map.pgm",
+      "bytes": 10624,
+      "sha256": "8798bb416251fd67e301086ad4b3faae3710b8a0a391af8600b8281776845337"
+    },
+    {
+      "path": "000_irregular_arc_seed0_angle0/map.posegraph",
+      "bytes": 4295293,
+      "sha256": "6fb8a0b12bed58e51f7857fe7896701cfda827a3dcf6274544acebaca19c2ea5"
+    },
+    {
+      "path": "000_irregular_arc_seed0_angle0/map.yaml",
+      "bytes": 123,
+      "sha256": "f8f519f754585d5380f2a82792bf31f1ca47ec40535b418a3bb42203bebe7ec0"
+    },
+    {
+      "path": "000_irregular_arc_seed0_angle0/process.json",
+      "bytes": 580124,
+      "sha256": "9f613a94a47f794e4e109a1231d2940c4575b30aadbffdc40c0bb22ae223ffe1"
+    },
+    {
+      "path": "000_irregular_arc_seed0_angle0/realism/bridge.yaml",
+      "bytes": 902,
+      "sha256": "644447db1b0f444e8e832e8bebfa8c545cba0e1ac4e1b9f1b245f70179fd5b05"
+    },
+    {
+      "path": "000_irregular_arc_seed0_angle0/realism/manifest.json",
+      "bytes": 10794,
+      "sha256": "bce2a6f414dd164b6743cb80a34cc27206ef83389c6043c711f43b682732f76b"
+    },
+    {
+      "path": "000_irregular_arc_seed0_angle0/realism/model.sdf",
+      "bytes": 5322,
+      "sha256": "aec58e6e9f979f6152dcd6af1aeb73ab6f686eee70efd5291d65b2bd665c00c4"
+    },
+    {
+      "path": "000_irregular_arc_seed0_angle0/realism/nav2.yaml",
+      "bytes": 9428,
+      "sha256": "4c269a03f239f4065e8bc17794383797ac449d32144f44b68c889d4853bd16d0"
+    },
+    {
+      "path": "000_irregular_arc_seed0_angle0/realism/slam.yaml",
+      "bytes": 1891,
+      "sha256": "cbe0d3183acb3e943825613eaa1ed4cb90308ece6f9b95ff6272493697f4b3ca"
+    },
+    {
+      "path": "000_irregular_arc_seed0_angle0/realism/world.sdf",
+      "bytes": 24872,
+      "sha256": "cc3768eef19c63e054b55ece3a4fdb21cb11f35f17d1e2ae81ec8259f27969a9"
+    },
+    {
+      "path": "000_irregular_arc_seed0_angle0/resources.jsonl",
+      "bytes": 12644,
+      "sha256": "6fb98d4f3ca0c0cce876ec99ce6aed3d837aeb8b36873c8800945a168b9076e8"
+    },
+    {
+      "path": "000_irregular_arc_seed0_angle0/result.json",
+      "bytes": 63153,
+      "sha256": "fa10b140500b4a6426e8b7e5485842325a08a4aeb664846249adab9096b6b442"
+    },
+    {
+      "path": "000_irregular_arc_seed0_angle0/truth-reader-diagnostics.json",
+      "bytes": 246,
+      "sha256": "d985a0db1d0a2ac1b2bfa0cf7ce32483e291f03abc3b2f0d50d3b02557cd01da"
+    },
+    {
+      "path": "000_irregular_arc_seed0_angle0/truth-reader.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "000_irregular_arc_seed0_angle0/truth-samples.jsonl",
+      "bytes": 26255,
+      "sha256": "a517f92c5228920aaeec8351bf4bf2a63c5fe3f5662bb898ae9f53d5fe3502a1"
+    },
+    {
+      "path": "000_irregular_arc_seed0_angle0/truth.json",
+      "bytes": 28926,
+      "sha256": "53a24386794d5f96f0e13c7fb6a7885f2a259e3dd741d3408005e7cbf7f605d5"
+    },
+    {
+      "path": "000_irregular_arc_seed0_angle0-console.log",
+      "bytes": 63153,
+      "sha256": "fa10b140500b4a6426e8b7e5485842325a08a4aeb664846249adab9096b6b442"
+    },
+    {
+      "path": "001_irregular_arc_seed0_angle90/bag/bag_0.db3",
+      "bytes": 905216,
+      "sha256": "530994ab25a4782838d6eba360c7f5311bad8b5afd6dfa5466fdc912bcefb2ee"
+    },
+    {
+      "path": "001_irregular_arc_seed0_angle90/bag/metadata.yaml",
+      "bytes": 4850,
+      "sha256": "4ed8b1a2ca140fb651eac00778098197fe38c7650746b59f286d55940d01f4db"
+    },
+    {
+      "path": "001_irregular_arc_seed0_angle90/bag-qos.yaml",
+      "bytes": 300,
+      "sha256": "0f2eda19f975306d65951f2cf8463d7f1ac61af70fbff053d061e5ee6c941744"
+    },
+    {
+      "path": "001_irregular_arc_seed0_angle90/bag.log",
+      "bytes": 2077,
+      "sha256": "2c827db82da455a0261c605276987e6ee632eca2d694739eac52161c520e1ab8"
+    },
+    {
+      "path": "001_irregular_arc_seed0_angle90/explore.log",
+      "bytes": 957,
+      "sha256": "866dcb9822f3542be6837fe724fdd8ca9e61a0023967d09585735da272f30588"
+    },
+    {
+      "path": "001_irregular_arc_seed0_angle90/launch.log",
+      "bytes": 39999,
+      "sha256": "bb0f673cb81367f17ea639c9b32756550491103ba115b1250ce9102832037142"
+    },
+    {
+      "path": "001_irregular_arc_seed0_angle90/map.data",
+      "bytes": 676804,
+      "sha256": "f9b03c86a409af0ecf0677f3369f3f184289b49557142a966ef8f36d05927047"
+    },
+    {
+      "path": "001_irregular_arc_seed0_angle90/map.exploration.json",
+      "bytes": 6000,
+      "sha256": "028e5864a96e54663bbff2f6a0f03d7452f9b907f3f8bb8db683963bf0fb1a64"
+    },
+    {
+      "path": "001_irregular_arc_seed0_angle90/map.metadata.json",
+      "bytes": 479,
+      "sha256": "b284325fcf9a686f49d21e97816a1b174b45acd4623092c2c831f91789f7ded6"
+    },
+    {
+      "path": "001_irregular_arc_seed0_angle90/map.pgm",
+      "bytes": 10624,
+      "sha256": "1fa1c54b2c56e038c68ec0ed6182a7a9cdd033887fa84d1584b236377a67010c"
+    },
+    {
+      "path": "001_irregular_arc_seed0_angle90/map.posegraph",
+      "bytes": 4095440,
+      "sha256": "0a6496e50ee0f7bb44a1406cc058bd8ba0f6bca057794a1c974cdf759110e5b3"
+    },
+    {
+      "path": "001_irregular_arc_seed0_angle90/map.yaml",
+      "bytes": 123,
+      "sha256": "f8f519f754585d5380f2a82792bf31f1ca47ec40535b418a3bb42203bebe7ec0"
+    },
+    {
+      "path": "001_irregular_arc_seed0_angle90/process.json",
+      "bytes": 480052,
+      "sha256": "4cd82a7316991250320556670d77013a4844e5643a2e92ede16cdcbe0ba6d546"
+    },
+    {
+      "path": "001_irregular_arc_seed0_angle90/realism/bridge.yaml",
+      "bytes": 902,
+      "sha256": "644447db1b0f444e8e832e8bebfa8c545cba0e1ac4e1b9f1b245f70179fd5b05"
+    },
+    {
+      "path": "001_irregular_arc_seed0_angle90/realism/manifest.json",
+      "bytes": 10799,
+      "sha256": "947882352002f10311ae3ce406bcf6875724f1a5c10192ff51cb291d1c31cfe1"
+    },
+    {
+      "path": "001_irregular_arc_seed0_angle90/realism/model.sdf",
+      "bytes": 5322,
+      "sha256": "aec58e6e9f979f6152dcd6af1aeb73ab6f686eee70efd5291d65b2bd665c00c4"
+    },
+    {
+      "path": "001_irregular_arc_seed0_angle90/realism/nav2.yaml",
+      "bytes": 9428,
+      "sha256": "4c269a03f239f4065e8bc17794383797ac449d32144f44b68c889d4853bd16d0"
+    },
+    {
+      "path": "001_irregular_arc_seed0_angle90/realism/slam.yaml",
+      "bytes": 1891,
+      "sha256": "cbe0d3183acb3e943825613eaa1ed4cb90308ece6f9b95ff6272493697f4b3ca"
+    },
+    {
+      "path": "001_irregular_arc_seed0_angle90/realism/world.sdf",
+      "bytes": 24872,
+      "sha256": "cc3768eef19c63e054b55ece3a4fdb21cb11f35f17d1e2ae81ec8259f27969a9"
+    },
+    {
+      "path": "001_irregular_arc_seed0_angle90/resources.jsonl",
+      "bytes": 9582,
+      "sha256": "8177be275ac461d43ce643bab879fa86c198957f520e29c3da925b9d041188ed"
+    },
+    {
+      "path": "001_irregular_arc_seed0_angle90/result.json",
+      "bytes": 71100,
+      "sha256": "c3511fd25724007c6eada0e4adbe9193cfeb22322761520635c1469340445e2f"
+    },
+    {
+      "path": "001_irregular_arc_seed0_angle90/truth-reader-diagnostics.json",
+      "bytes": 246,
+      "sha256": "e47c6806289c6f558e425d1bd7d959e9a62dbcb9d991fe24e77ffeed05969cc5"
+    },
+    {
+      "path": "001_irregular_arc_seed0_angle90/truth-reader.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "001_irregular_arc_seed0_angle90/truth-samples.jsonl",
+      "bytes": 21207,
+      "sha256": "0b8450e696637e0a9a7628aa37d793751d4ab7c6cc02d34f6598d60ca39c3fcc"
+    },
+    {
+      "path": "001_irregular_arc_seed0_angle90/truth.json",
+      "bytes": 23878,
+      "sha256": "152d1b93f1771f90c03738decd2c17d7b440519b0c8c0c67090dc3c959d8d9c6"
+    },
+    {
+      "path": "001_irregular_arc_seed0_angle90-console.log",
+      "bytes": 71100,
+      "sha256": "c3511fd25724007c6eada0e4adbe9193cfeb22322761520635c1469340445e2f"
+    },
+    {
+      "path": "002_irregular_arc_seed0_angle180/bag/bag_0.db3",
+      "bytes": 770048,
+      "sha256": "73408c5a668e56d6aeb28c2b5b4ec83140d65f26fc99d0d29aa7fd14cbb07d37"
+    },
+    {
+      "path": "002_irregular_arc_seed0_angle180/bag/metadata.yaml",
+      "bytes": 4370,
+      "sha256": "589821cbe00924a68394e077c3a7f8e42f9258e819957080cd17888108fbf829"
+    },
+    {
+      "path": "002_irregular_arc_seed0_angle180/bag-qos.yaml",
+      "bytes": 300,
+      "sha256": "0f2eda19f975306d65951f2cf8463d7f1ac61af70fbff053d061e5ee6c941744"
+    },
+    {
+      "path": "002_irregular_arc_seed0_angle180/bag.log",
+      "bytes": 1771,
+      "sha256": "d99be057f472ad633b1c8429d55b3bc6ce8ff33f1859b77956426b1788f9fb0b"
+    },
+    {
+      "path": "002_irregular_arc_seed0_angle180/explore.log",
+      "bytes": 957,
+      "sha256": "f19c86ce492fcdb46a6359545231953ef21d77de06c7f2c76ca8f0cf07576561"
+    },
+    {
+      "path": "002_irregular_arc_seed0_angle180/launch.log",
+      "bytes": 40557,
+      "sha256": "02ffcacf64011ba876843c108ce2608ad606c8514d5351b559f02aa8e1822c1d"
+    },
+    {
+      "path": "002_irregular_arc_seed0_angle180/map.data",
+      "bytes": 437047,
+      "sha256": "57ce2fc879af3f34804801ffd26998d4204e0b01475ba169e6cbe9b34975a33e"
+    },
+    {
+      "path": "002_irregular_arc_seed0_angle180/map.exploration.json",
+      "bytes": 6003,
+      "sha256": "1685fb536577da659f1e210e2e6454e185c2a183097c4639f6ad173bfba45b6e"
+    },
+    {
+      "path": "002_irregular_arc_seed0_angle180/map.metadata.json",
+      "bytes": 484,
+      "sha256": "d93495ac4b5d4963357b3fe6e5d4c2aa0407cf624b88288be4d40b574ee1ccb0"
+    },
+    {
+      "path": "002_irregular_arc_seed0_angle180/map.pgm",
+      "bytes": 10624,
+      "sha256": "534b7ed26cf5520cc89824a293670e5d7dc075d88682a5d8995d850e90e4b6a4"
+    },
+    {
+      "path": "002_irregular_arc_seed0_angle180/map.posegraph",
+      "bytes": 3850425,
+      "sha256": "e8d308353fe0f875901a9966f14d1aad804e41343912092bcd5d5639cfbd522d"
+    },
+    {
+      "path": "002_irregular_arc_seed0_angle180/map.yaml",
+      "bytes": 123,
+      "sha256": "a4bd10d655bfc6c33e5d19517be0be00f93d3be5a5e868774f173f9d0ae1dab0"
+    },
+    {
+      "path": "002_irregular_arc_seed0_angle180/process.json",
+      "bytes": 372150,
+      "sha256": "1ba3a5006b4d7c8288c830da0781cddbc73b80d00746394b451c7e562efe3a8d"
+    },
+    {
+      "path": "002_irregular_arc_seed0_angle180/realism/bridge.yaml",
+      "bytes": 902,
+      "sha256": "644447db1b0f444e8e832e8bebfa8c545cba0e1ac4e1b9f1b245f70179fd5b05"
+    },
+    {
+      "path": "002_irregular_arc_seed0_angle180/realism/manifest.json",
+      "bytes": 10804,
+      "sha256": "70f9bf4580e13a0ba02bd99f92140388df3b367a655ab5c670b5c457059bf0ce"
+    },
+    {
+      "path": "002_irregular_arc_seed0_angle180/realism/model.sdf",
+      "bytes": 5322,
+      "sha256": "aec58e6e9f979f6152dcd6af1aeb73ab6f686eee70efd5291d65b2bd665c00c4"
+    },
+    {
+      "path": "002_irregular_arc_seed0_angle180/realism/nav2.yaml",
+      "bytes": 9428,
+      "sha256": "4c269a03f239f4065e8bc17794383797ac449d32144f44b68c889d4853bd16d0"
+    },
+    {
+      "path": "002_irregular_arc_seed0_angle180/realism/slam.yaml",
+      "bytes": 1891,
+      "sha256": "cbe0d3183acb3e943825613eaa1ed4cb90308ece6f9b95ff6272493697f4b3ca"
+    },
+    {
+      "path": "002_irregular_arc_seed0_angle180/realism/world.sdf",
+      "bytes": 24872,
+      "sha256": "cc3768eef19c63e054b55ece3a4fdb21cb11f35f17d1e2ae81ec8259f27969a9"
+    },
+    {
+      "path": "002_irregular_arc_seed0_angle180/resources.jsonl",
+      "bytes": 8375,
+      "sha256": "e7e2ac572ae934d57bb624f24c114a9b3ef9c9bfe9f4315dba40358f168731ce"
+    },
+    {
+      "path": "002_irregular_arc_seed0_angle180/result.json",
+      "bytes": 33969,
+      "sha256": "00d3102f7fa731ed95d081ad00793241f8dbca86b8a8d6632aadffab1f1984d3"
+    },
+    {
+      "path": "002_irregular_arc_seed0_angle180/truth-reader-diagnostics.json",
+      "bytes": 248,
+      "sha256": "fc42ff535b3339ca0e1d5ce7a0ad372dc60cfb5aff2179dd6690a1aece26e9e5"
+    },
+    {
+      "path": "002_irregular_arc_seed0_angle180/truth-reader.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "002_irregular_arc_seed0_angle180/truth-samples.jsonl",
+      "bytes": 18474,
+      "sha256": "cfccc03be7187171201ab40933b26e900f3927f3a23a16145446d24b6b016df6"
+    },
+    {
+      "path": "002_irregular_arc_seed0_angle180/truth.json",
+      "bytes": 21154,
+      "sha256": "526c9df3d6aa4b72d454b4949d2519e4cd098cb692970147af43a359e961f296"
+    },
+    {
+      "path": "002_irregular_arc_seed0_angle180-console.log",
+      "bytes": 33969,
+      "sha256": "00d3102f7fa731ed95d081ad00793241f8dbca86b8a8d6632aadffab1f1984d3"
+    },
+    {
+      "path": "003_irregular_arc_seed0_angle360/bag/bag_0.db3",
+      "bytes": 737280,
+      "sha256": "f2c5990c1120c6df4cfdc4ac95aba73ac6361741185d3e2c3b8a695305822d63"
+    },
+    {
+      "path": "003_irregular_arc_seed0_angle360/bag/metadata.yaml",
+      "bytes": 4370,
+      "sha256": "2ef2867af7c2cd72c93da766f791ff80c8df56ee9e6db3aa9328e7080dc583c3"
+    },
+    {
+      "path": "003_irregular_arc_seed0_angle360/bag-qos.yaml",
+      "bytes": 300,
+      "sha256": "0f2eda19f975306d65951f2cf8463d7f1ac61af70fbff053d061e5ee6c941744"
+    },
+    {
+      "path": "003_irregular_arc_seed0_angle360/bag.log",
+      "bytes": 1771,
+      "sha256": "b7ac2c6a0adf801910b2d346818f8a8db45c48db5e9d215bd612c840a921feec"
+    },
+    {
+      "path": "003_irregular_arc_seed0_angle360/explore.log",
+      "bytes": 957,
+      "sha256": "ae839301489f7eefcf0ee4a0697e87db1e20f888a62a2f9e614d89636bf59d0a"
+    },
+    {
+      "path": "003_irregular_arc_seed0_angle360/launch.log",
+      "bytes": 40945,
+      "sha256": "fa908a9ed29d560fe32d176ca87351f420bebc4ad0e223bee9da8c4d9ccada31"
+    },
+    {
+      "path": "003_irregular_arc_seed0_angle360/map.data",
+      "bytes": 480581,
+      "sha256": "906100f6970a855105e93978d2b7c10628d1bfb65ad2cc5b780504d98c65144e"
+    },
+    {
+      "path": "003_irregular_arc_seed0_angle360/map.exploration.json",
+      "bytes": 6003,
+      "sha256": "68825bd80df98ae7d308b7658aeb9eb665414a81ec84b4816ed1824617c253cd"
+    },
+    {
+      "path": "003_irregular_arc_seed0_angle360/map.metadata.json",
+      "bytes": 484,
+      "sha256": "c5de64ddd9bb68ba2d82c2003c557159e5e93890e4d53deaff3671aca1b25387"
+    },
+    {
+      "path": "003_irregular_arc_seed0_angle360/map.pgm",
+      "bytes": 10624,
+      "sha256": "5c6f68f256d724d9148ff23324e10bd82fb70308d00f069a731f223d93820375"
+    },
+    {
+      "path": "003_irregular_arc_seed0_angle360/map.posegraph",
+      "bytes": 3895131,
+      "sha256": "56198c0679ea82812616198b6cd5f200f4ea31685c968a7dc209eb254c7c5ca2"
+    },
+    {
+      "path": "003_irregular_arc_seed0_angle360/map.yaml",
+      "bytes": 123,
+      "sha256": "f8f519f754585d5380f2a82792bf31f1ca47ec40535b418a3bb42203bebe7ec0"
+    },
+    {
+      "path": "003_irregular_arc_seed0_angle360/process.json",
+      "bytes": 392769,
+      "sha256": "ac74badd72731b9ec8b1bf2118bb5428432e71cbaa7a2c65b2c4d46bc646da00"
+    },
+    {
+      "path": "003_irregular_arc_seed0_angle360/realism/bridge.yaml",
+      "bytes": 902,
+      "sha256": "644447db1b0f444e8e832e8bebfa8c545cba0e1ac4e1b9f1b245f70179fd5b05"
+    },
+    {
+      "path": "003_irregular_arc_seed0_angle360/realism/manifest.json",
+      "bytes": 10804,
+      "sha256": "e2b790e7ad0b6481826b49046266f2eafa27fbca34065a87dbc27d712753f17c"
+    },
+    {
+      "path": "003_irregular_arc_seed0_angle360/realism/model.sdf",
+      "bytes": 5322,
+      "sha256": "aec58e6e9f979f6152dcd6af1aeb73ab6f686eee70efd5291d65b2bd665c00c4"
+    },
+    {
+      "path": "003_irregular_arc_seed0_angle360/realism/nav2.yaml",
+      "bytes": 9428,
+      "sha256": "4c269a03f239f4065e8bc17794383797ac449d32144f44b68c889d4853bd16d0"
+    },
+    {
+      "path": "003_irregular_arc_seed0_angle360/realism/slam.yaml",
+      "bytes": 1891,
+      "sha256": "cbe0d3183acb3e943825613eaa1ed4cb90308ece6f9b95ff6272493697f4b3ca"
+    },
+    {
+      "path": "003_irregular_arc_seed0_angle360/realism/world.sdf",
+      "bytes": 24872,
+      "sha256": "cc3768eef19c63e054b55ece3a4fdb21cb11f35f17d1e2ae81ec8259f27969a9"
+    },
+    {
+      "path": "003_irregular_arc_seed0_angle360/resources.jsonl",
+      "bytes": 9232,
+      "sha256": "49bcbdf06fb0ce5c80bad87ddc1eac202ab39b332a904afc1931e5aa312ffe6a"
+    },
+    {
+      "path": "003_irregular_arc_seed0_angle360/result.json",
+      "bytes": 47083,
+      "sha256": "34b4e14a5ce7522457c0fcc7f7a081fc3ddf69f3707e301411556f879e2a5668"
+    },
+    {
+      "path": "003_irregular_arc_seed0_angle360/truth-reader-diagnostics.json",
+      "bytes": 248,
+      "sha256": "94336e0de24129d4ae31c84dfcd5779b0e83c5408c1b378efbb6914ff303e428"
+    },
+    {
+      "path": "003_irregular_arc_seed0_angle360/truth-reader.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "003_irregular_arc_seed0_angle360/truth-samples.jsonl",
+      "bytes": 17583,
+      "sha256": "3a15947a4a19b06921abec1d66b16a88b3147b687850a852325fb39b26835189"
+    },
+    {
+      "path": "003_irregular_arc_seed0_angle360/truth.json",
+      "bytes": 20138,
+      "sha256": "9d50aab1f12581f98f2a0625f64b27311f5de51e18cab36335dd65381910a993"
+    },
+    {
+      "path": "003_irregular_arc_seed0_angle360-console.log",
+      "bytes": 47083,
+      "sha256": "34b4e14a5ce7522457c0fcc7f7a081fc3ddf69f3707e301411556f879e2a5668"
+    },
+    {
+      "path": "004_irregular_arc_seed1_angle90/bag/bag_0.db3",
+      "bytes": 696320,
+      "sha256": "0366411a75f0f69254eaf942a87965b8ec7f51057c1db488470b9249a9be48e2"
+    },
+    {
+      "path": "004_irregular_arc_seed1_angle90/bag/metadata.yaml",
+      "bytes": 4548,
+      "sha256": "08e8443dbd269252b84fd78b7ae039733b77d3b55dd682ba1a17e2bb621117f2"
+    },
+    {
+      "path": "004_irregular_arc_seed1_angle90/bag-qos.yaml",
+      "bytes": 300,
+      "sha256": "0f2eda19f975306d65951f2cf8463d7f1ac61af70fbff053d061e5ee6c941744"
+    },
+    {
+      "path": "004_irregular_arc_seed1_angle90/bag.log",
+      "bytes": 2077,
+      "sha256": "c0a7935d3606ab97c3f5b4f1d73feac452bcd72a053901539cde933a145b4efb"
+    },
+    {
+      "path": "004_irregular_arc_seed1_angle90/explore.log",
+      "bytes": 957,
+      "sha256": "e581e1acba110a240f7385624eb5e6422630805c1c911d5c25b382ec3060942e"
+    },
+    {
+      "path": "004_irregular_arc_seed1_angle90/launch.log",
+      "bytes": 41595,
+      "sha256": "6bb44d1950a64e95588ca7ba0a916f6765e9ff9df409e11e584a2f81162eef0c"
+    },
+    {
+      "path": "004_irregular_arc_seed1_angle90/map.data",
+      "bytes": 480405,
+      "sha256": "9f4e3eaa6420122ecf74fee46156f136633b27778fa53bb65864f8ae7ac1f47d"
+    },
+    {
+      "path": "004_irregular_arc_seed1_angle90/map.exploration.json",
+      "bytes": 5996,
+      "sha256": "76b3b238ea89d5ca7c2ff6e93f2e506955697f9ee898ca4dd356080a6d5b17b6"
+    },
+    {
+      "path": "004_irregular_arc_seed1_angle90/map.metadata.json",
+      "bytes": 478,
+      "sha256": "0339fdd0cdded8fadbd954afaa4406dc8fec97c845300172371e2a662443768a"
+    },
+    {
+      "path": "004_irregular_arc_seed1_angle90/map.pgm",
+      "bytes": 10830,
+      "sha256": "8aa8b4e2d6d709decdff42cd455b641013292aaf9eefd18db14a62490ee1a8a3"
+    },
+    {
+      "path": "004_irregular_arc_seed1_angle90/map.posegraph",
+      "bytes": 3894523,
+      "sha256": "0a1386cbc7766f5050d14d3677541f610cb6816f1ccba150b77aa539338b20de"
+    },
+    {
+      "path": "004_irregular_arc_seed1_angle90/map.yaml",
+      "bytes": 123,
+      "sha256": "6ce7152c195f122dcee8f94462d2a03d8c61a41eadd7d7474a04aabde7767c92"
+    },
+    {
+      "path": "004_irregular_arc_seed1_angle90/process.json",
+      "bytes": 377188,
+      "sha256": "f7d60f254bfef5e9b99396b7efdcebf060082e8fef5f1eaa6f1182aa9796df41"
+    },
+    {
+      "path": "004_irregular_arc_seed1_angle90/realism/bridge.yaml",
+      "bytes": 902,
+      "sha256": "644447db1b0f444e8e832e8bebfa8c545cba0e1ac4e1b9f1b245f70179fd5b05"
+    },
+    {
+      "path": "004_irregular_arc_seed1_angle90/realism/manifest.json",
+      "bytes": 10799,
+      "sha256": "63ee06efbb19a47d6f94f4984cd3dd7892da778813b6c5e24726d39366d1b37b"
+    },
+    {
+      "path": "004_irregular_arc_seed1_angle90/realism/model.sdf",
+      "bytes": 5322,
+      "sha256": "aec58e6e9f979f6152dcd6af1aeb73ab6f686eee70efd5291d65b2bd665c00c4"
+    },
+    {
+      "path": "004_irregular_arc_seed1_angle90/realism/nav2.yaml",
+      "bytes": 9428,
+      "sha256": "4c269a03f239f4065e8bc17794383797ac449d32144f44b68c889d4853bd16d0"
+    },
+    {
+      "path": "004_irregular_arc_seed1_angle90/realism/slam.yaml",
+      "bytes": 1891,
+      "sha256": "cbe0d3183acb3e943825613eaa1ed4cb90308ece6f9b95ff6272493697f4b3ca"
+    },
+    {
+      "path": "004_irregular_arc_seed1_angle90/realism/world.sdf",
+      "bytes": 24869,
+      "sha256": "7ddffd2472ce74c51e32493715ec66df8af03c476c5146b31892a7390b4a04ce"
+    },
+    {
+      "path": "004_irregular_arc_seed1_angle90/resources.jsonl",
+      "bytes": 8374,
+      "sha256": "966513027d3bf1d6bf9c2072a446c950e1841a21cd2ec009055320b18eacecd6"
+    },
+    {
+      "path": "004_irregular_arc_seed1_angle90/result.json",
+      "bytes": 71166,
+      "sha256": "bc5e197a849a314a4f5a961544a597d8de8a4fda0055f699ba7cf3ff09fa21d6"
+    },
+    {
+      "path": "004_irregular_arc_seed1_angle90/truth-reader-diagnostics.json",
+      "bytes": 248,
+      "sha256": "368765cc3dbfcea7dae5d418fc3e607fd6522542de6c75f5c563211652122157"
+    },
+    {
+      "path": "004_irregular_arc_seed1_angle90/truth-reader.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "004_irregular_arc_seed1_angle90/truth-samples.jsonl",
+      "bytes": 16597,
+      "sha256": "ab9ffbdba49ef5729b613c98bebd0e1154d8f03ea8116e9b1f16308eae75b624"
+    },
+    {
+      "path": "004_irregular_arc_seed1_angle90/truth.json",
+      "bytes": 19274,
+      "sha256": "668b3323944adf73e486e9737497b7d6692a7d1dea99e2158223be816378e860"
+    },
+    {
+      "path": "004_irregular_arc_seed1_angle90-console.log",
+      "bytes": 71166,
+      "sha256": "bc5e197a849a314a4f5a961544a597d8de8a4fda0055f699ba7cf3ff09fa21d6"
+    },
+    {
+      "path": "005_irregular_arc_seed1_angle180/bag/bag_0.db3",
+      "bytes": 864256,
+      "sha256": "237530aa65d81569fee361e7bcc4ad5d115aadf6ad7a9f7144986c39f9805422"
+    },
+    {
+      "path": "005_irregular_arc_seed1_angle180/bag/metadata.yaml",
+      "bytes": 4850,
+      "sha256": "e8c072125ff1230e8acb9b5cbcccb3d82dee3a40c60d57872665df6e5c602e21"
+    },
+    {
+      "path": "005_irregular_arc_seed1_angle180/bag-qos.yaml",
+      "bytes": 300,
+      "sha256": "0f2eda19f975306d65951f2cf8463d7f1ac61af70fbff053d061e5ee6c941744"
+    },
+    {
+      "path": "005_irregular_arc_seed1_angle180/bag.log",
+      "bytes": 2078,
+      "sha256": "036743073142cd5b810a44e689fd988a898abf9535527473f2a2d752ab678c5d"
+    },
+    {
+      "path": "005_irregular_arc_seed1_angle180/explore.log",
+      "bytes": 957,
+      "sha256": "d51e897b9d48ba37627d000f9a12cbf80f0e5277230c5320669c64b9fa0e6463"
+    },
+    {
+      "path": "005_irregular_arc_seed1_angle180/launch.log",
+      "bytes": 41257,
+      "sha256": "ddc0533ca43f835d09c00196459b7945823cd6e66574556b479e3691b7f95313"
+    },
+    {
+      "path": "005_irregular_arc_seed1_angle180/map.data",
+      "bytes": 654589,
+      "sha256": "70129a29471da8a5aadc08659ad632874aa54a53fa7da1e08e34c16791d1486a"
+    },
+    {
+      "path": "005_irregular_arc_seed1_angle180/map.exploration.json",
+      "bytes": 5991,
+      "sha256": "a4e3133693b148116d13549cc3af1d3d845bdf2572f254b85b91ef7e9762064c"
+    },
+    {
+      "path": "005_irregular_arc_seed1_angle180/map.metadata.json",
+      "bytes": 482,
+      "sha256": "f0752e32620f3bf77521d39fa8383d993c2246e7ba2bb94eef391564145df02b"
+    },
+    {
+      "path": "005_irregular_arc_seed1_angle180/map.pgm",
+      "bytes": 10830,
+      "sha256": "b014ef547308e64e5915a7ce21f19353dce15a840a1f99227164ad58cdd5534b"
+    },
+    {
+      "path": "005_irregular_arc_seed1_angle180/map.posegraph",
+      "bytes": 4072315,
+      "sha256": "8a217325ecf155cc8a9fa4605a52de7f771b28235b7589a0b269183edfacc730"
+    },
+    {
+      "path": "005_irregular_arc_seed1_angle180/map.yaml",
+      "bytes": 123,
+      "sha256": "65e7eca4f3a50e6332e03f8fcd785df129e63b69e9d086e702c65aff800fd0c4"
+    },
+    {
+      "path": "005_irregular_arc_seed1_angle180/process.json",
+      "bytes": 460676,
+      "sha256": "90fa3435a2c02479cf140ce0e2c73aa08cc61f2ee0f499420699ffe72aeb04e2"
+    },
+    {
+      "path": "005_irregular_arc_seed1_angle180/realism/bridge.yaml",
+      "bytes": 902,
+      "sha256": "644447db1b0f444e8e832e8bebfa8c545cba0e1ac4e1b9f1b245f70179fd5b05"
+    },
+    {
+      "path": "005_irregular_arc_seed1_angle180/realism/manifest.json",
+      "bytes": 10804,
+      "sha256": "dbef3b6e64b1a6af27b2a7f5a8eda0eabe9b480c48a30207a885141aaba73ee2"
+    },
+    {
+      "path": "005_irregular_arc_seed1_angle180/realism/model.sdf",
+      "bytes": 5322,
+      "sha256": "aec58e6e9f979f6152dcd6af1aeb73ab6f686eee70efd5291d65b2bd665c00c4"
+    },
+    {
+      "path": "005_irregular_arc_seed1_angle180/realism/nav2.yaml",
+      "bytes": 9428,
+      "sha256": "4c269a03f239f4065e8bc17794383797ac449d32144f44b68c889d4853bd16d0"
+    },
+    {
+      "path": "005_irregular_arc_seed1_angle180/realism/slam.yaml",
+      "bytes": 1891,
+      "sha256": "cbe0d3183acb3e943825613eaa1ed4cb90308ece6f9b95ff6272493697f4b3ca"
+    },
+    {
+      "path": "005_irregular_arc_seed1_angle180/realism/world.sdf",
+      "bytes": 24869,
+      "sha256": "7ddffd2472ce74c51e32493715ec66df8af03c476c5146b31892a7390b4a04ce"
+    },
+    {
+      "path": "005_irregular_arc_seed1_angle180/resources.jsonl",
+      "bytes": 10543,
+      "sha256": "dba80ec8d77181f2bface042897fc1cb7216e75a41bc57b3aad8e2fdbab467f6"
+    },
+    {
+      "path": "005_irregular_arc_seed1_angle180/result.json",
+      "bytes": 71126,
+      "sha256": "70cd0b99a0a344d637cc41213180fa208054ad502c7d071e65d513ff07824321"
+    },
+    {
+      "path": "005_irregular_arc_seed1_angle180/truth-reader-diagnostics.json",
+      "bytes": 248,
+      "sha256": "d8327992515254d0b1941c306fbd6ae7707d95c3a9dadb5f2541432e23c5b0b1"
+    },
+    {
+      "path": "005_irregular_arc_seed1_angle180/truth-reader.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "005_irregular_arc_seed1_angle180/truth-samples.jsonl",
+      "bytes": 19666,
+      "sha256": "7adf7f5c7b51a8cfd56422befa9efff5fa502dec739b662a306b69087e0b637a"
+    },
+    {
+      "path": "005_irregular_arc_seed1_angle180/truth.json",
+      "bytes": 22345,
+      "sha256": "eeb3047f8717983e4f0de8e77ed3898e37c2b1441919bfbfd00662c10e46243e"
+    },
+    {
+      "path": "005_irregular_arc_seed1_angle180-console.log",
+      "bytes": 71126,
+      "sha256": "70cd0b99a0a344d637cc41213180fa208054ad502c7d071e65d513ff07824321"
+    },
+    {
+      "path": "006_irregular_arc_seed1_angle360/bag/bag_0.db3",
+      "bytes": 782336,
+      "sha256": "b171e86178e7dd2f675c46b2e4ab9bb2484feb29ec52b3b9729d1c14fc6d5e92"
+    },
+    {
+      "path": "006_irregular_arc_seed1_angle360/bag/metadata.yaml",
+      "bytes": 4370,
+      "sha256": "46ca0e83bbb810aaef6b5bd232f518fd438b1da5fd57646846bf5c663d2e7b7a"
+    },
+    {
+      "path": "006_irregular_arc_seed1_angle360/bag-qos.yaml",
+      "bytes": 300,
+      "sha256": "0f2eda19f975306d65951f2cf8463d7f1ac61af70fbff053d061e5ee6c941744"
+    },
+    {
+      "path": "006_irregular_arc_seed1_angle360/bag.log",
+      "bytes": 1771,
+      "sha256": "40bffae6bd1dfa61638fb101937bb6af3d3c9804183b47067477462ea461ed5b"
+    },
+    {
+      "path": "006_irregular_arc_seed1_angle360/explore.log",
+      "bytes": 957,
+      "sha256": "b5692f131dd1a17686f4f340aecb536bf8beac4f76f6958a662d2d92d89d79e9"
+    },
+    {
+      "path": "006_irregular_arc_seed1_angle360/launch.log",
+      "bytes": 40440,
+      "sha256": "0679d7034f585c0dc3ec3eccfab224009138f7f27842a6bda82d6f00929acf3d"
+    },
+    {
+      "path": "006_irregular_arc_seed1_angle360/map.data",
+      "bytes": 545658,
+      "sha256": "b465e65d9f66c9697a516adcb694d267219b3391e40e14bea078193d1cb240b1"
+    },
+    {
+      "path": "006_irregular_arc_seed1_angle360/map.exploration.json",
+      "bytes": 5998,
+      "sha256": "6cdb642a4bfc45d56ac0e445750dd08ad65d4951007fe1f2ee20ae5861fed511"
+    },
+    {
+      "path": "006_irregular_arc_seed1_angle360/map.metadata.json",
+      "bytes": 479,
+      "sha256": "15c829deadf2695034677e25b39265864e8d5b089e1edac5404308907fe0b2ce"
+    },
+    {
+      "path": "006_irregular_arc_seed1_angle360/map.pgm",
+      "bytes": 10830,
+      "sha256": "9a1f73540e4817b4a0958651c1be7ba009735c6e991231e8daaee475aba76813"
+    },
+    {
+      "path": "006_irregular_arc_seed1_angle360/map.posegraph",
+      "bytes": 3961210,
+      "sha256": "9cfbb60565ca916c723b3f1a98483ecc609d265a9875c062eaca175f7e46fb92"
+    },
+    {
+      "path": "006_irregular_arc_seed1_angle360/map.yaml",
+      "bytes": 123,
+      "sha256": "6ce7152c195f122dcee8f94462d2a03d8c61a41eadd7d7474a04aabde7767c92"
+    },
+    {
+      "path": "006_irregular_arc_seed1_angle360/process.json",
+      "bytes": 394929,
+      "sha256": "86b297301ebeb5163369f075736ec87219d65c2e3540e5f02390dd01dbfd4fb2"
+    },
+    {
+      "path": "006_irregular_arc_seed1_angle360/realism/bridge.yaml",
+      "bytes": 902,
+      "sha256": "644447db1b0f444e8e832e8bebfa8c545cba0e1ac4e1b9f1b245f70179fd5b05"
+    },
+    {
+      "path": "006_irregular_arc_seed1_angle360/realism/manifest.json",
+      "bytes": 10804,
+      "sha256": "497bd58aefa67bb6a85f41c5b45fd75833d28dfa4cd883c81e046514f1986d42"
+    },
+    {
+      "path": "006_irregular_arc_seed1_angle360/realism/model.sdf",
+      "bytes": 5322,
+      "sha256": "aec58e6e9f979f6152dcd6af1aeb73ab6f686eee70efd5291d65b2bd665c00c4"
+    },
+    {
+      "path": "006_irregular_arc_seed1_angle360/realism/nav2.yaml",
+      "bytes": 9428,
+      "sha256": "4c269a03f239f4065e8bc17794383797ac449d32144f44b68c889d4853bd16d0"
+    },
+    {
+      "path": "006_irregular_arc_seed1_angle360/realism/slam.yaml",
+      "bytes": 1891,
+      "sha256": "cbe0d3183acb3e943825613eaa1ed4cb90308ece6f9b95ff6272493697f4b3ca"
+    },
+    {
+      "path": "006_irregular_arc_seed1_angle360/realism/world.sdf",
+      "bytes": 24869,
+      "sha256": "7ddffd2472ce74c51e32493715ec66df8af03c476c5146b31892a7390b4a04ce"
+    },
+    {
+      "path": "006_irregular_arc_seed1_angle360/resources.jsonl",
+      "bytes": 7251,
+      "sha256": "43686054755a078f4e594b4011b50327e9872b676f007f6d7414755bfa32a374"
+    },
+    {
+      "path": "006_irregular_arc_seed1_angle360/result.json",
+      "bytes": 33887,
+      "sha256": "005a912ee60a45b3a53a0ace106e6e7e59ccf22edfdbd22495f55a3515fcdb4b"
+    },
+    {
+      "path": "006_irregular_arc_seed1_angle360/truth-reader-diagnostics.json",
+      "bytes": 248,
+      "sha256": "605db21fa491476e539dfadc8c0ff3f3ca777496a836839b27ef31703fc79f0a"
+    },
+    {
+      "path": "006_irregular_arc_seed1_angle360/truth-reader.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "006_irregular_arc_seed1_angle360/truth-samples.jsonl",
+      "bytes": 18580,
+      "sha256": "c9aa2e7f080dd8cf72fe05df990101792c57a345258373a97c86d9360d0d253e"
+    },
+    {
+      "path": "006_irregular_arc_seed1_angle360/truth.json",
+      "bytes": 21260,
+      "sha256": "ed7f109eaef7302dcbe25d6a050222891064105da3604ee26ef2380f9040b8f9"
+    },
+    {
+      "path": "006_irregular_arc_seed1_angle360-console.log",
+      "bytes": 33887,
+      "sha256": "005a912ee60a45b3a53a0ace106e6e7e59ccf22edfdbd22495f55a3515fcdb4b"
+    },
+    {
+      "path": "007_irregular_arc_seed1_angle0/bag/bag_0.db3",
+      "bytes": 880640,
+      "sha256": "d294324feaac269fd7291872be0f420f8a36663b96e2d4cd1f33d1825600f029"
+    },
+    {
+      "path": "007_irregular_arc_seed1_angle0/bag/metadata.yaml",
+      "bytes": 4850,
+      "sha256": "1aae09b412e5adb1950ca5741bea0cffa8395989a1610e83962b794d543db59a"
+    },
+    {
+      "path": "007_irregular_arc_seed1_angle0/bag-qos.yaml",
+      "bytes": 300,
+      "sha256": "0f2eda19f975306d65951f2cf8463d7f1ac61af70fbff053d061e5ee6c941744"
+    },
+    {
+      "path": "007_irregular_arc_seed1_angle0/bag.log",
+      "bytes": 2076,
+      "sha256": "983de002eec49d7e3dfcd6f44031e5a49841235cecea1f542a27d620a7c907f0"
+    },
+    {
+      "path": "007_irregular_arc_seed1_angle0/explore.log",
+      "bytes": 842,
+      "sha256": "303b3621e48df94cd7f7a4c7c9b456b55d52f2778674918aaff3d8e4af6a9128"
+    },
+    {
+      "path": "007_irregular_arc_seed1_angle0/launch.log",
+      "bytes": 40607,
+      "sha256": "a85a72c4e4106282e565d3aca28bd40eb3c9c35ef156ca51b49e57284806a298"
+    },
+    {
+      "path": "007_irregular_arc_seed1_angle0/map.data",
+      "bytes": 698075,
+      "sha256": "c3dae8d51322488be0a80ad66c4c52651311d04ec50278bbbe536259de0cc5e0"
+    },
+    {
+      "path": "007_irregular_arc_seed1_angle0/map.exploration.json",
+      "bytes": 5514,
+      "sha256": "0ea5afcf9ec3135399a3d428b0ccd034335eee5e1b58fcf924422ebbdd78df8a"
+    },
+    {
+      "path": "007_irregular_arc_seed1_angle0/map.metadata.json",
+      "bytes": 477,
+      "sha256": "f3e159f07ded5a4ff4e0f70384810018f765d7db2c02ceb2c8af6f13200ba209"
+    },
+    {
+      "path": "007_irregular_arc_seed1_angle0/map.pgm",
+      "bytes": 10830,
+      "sha256": "b014ef547308e64e5915a7ce21f19353dce15a840a1f99227164ad58cdd5534b"
+    },
+    {
+      "path": "007_irregular_arc_seed1_angle0/map.posegraph",
+      "bytes": 4116757,
+      "sha256": "ca11403a5e05cecb09aeedf9a336837eb1d3d05998d044d9dd4893f33e9eb2b7"
+    },
+    {
+      "path": "007_irregular_arc_seed1_angle0/map.yaml",
+      "bytes": 123,
+      "sha256": "65e7eca4f3a50e6332e03f8fcd785df129e63b69e9d086e702c65aff800fd0c4"
+    },
+    {
+      "path": "007_irregular_arc_seed1_angle0/process.json",
+      "bytes": 487292,
+      "sha256": "2af055c2845d8f214e7589d4279b74d63c240364ea41313526af02c9b7185dc5"
+    },
+    {
+      "path": "007_irregular_arc_seed1_angle0/realism/bridge.yaml",
+      "bytes": 902,
+      "sha256": "644447db1b0f444e8e832e8bebfa8c545cba0e1ac4e1b9f1b245f70179fd5b05"
+    },
+    {
+      "path": "007_irregular_arc_seed1_angle0/realism/manifest.json",
+      "bytes": 10794,
+      "sha256": "b96800a80f4963c6b5586fb737edefe8569fd60a76f409a6de36bccd698c5cf5"
+    },
+    {
+      "path": "007_irregular_arc_seed1_angle0/realism/model.sdf",
+      "bytes": 5322,
+      "sha256": "aec58e6e9f979f6152dcd6af1aeb73ab6f686eee70efd5291d65b2bd665c00c4"
+    },
+    {
+      "path": "007_irregular_arc_seed1_angle0/realism/nav2.yaml",
+      "bytes": 9428,
+      "sha256": "4c269a03f239f4065e8bc17794383797ac449d32144f44b68c889d4853bd16d0"
+    },
+    {
+      "path": "007_irregular_arc_seed1_angle0/realism/slam.yaml",
+      "bytes": 1891,
+      "sha256": "cbe0d3183acb3e943825613eaa1ed4cb90308ece6f9b95ff6272493697f4b3ca"
+    },
+    {
+      "path": "007_irregular_arc_seed1_angle0/realism/world.sdf",
+      "bytes": 24869,
+      "sha256": "7ddffd2472ce74c51e32493715ec66df8af03c476c5146b31892a7390b4a04ce"
+    },
+    {
+      "path": "007_irregular_arc_seed1_angle0/resources.jsonl",
+      "bytes": 9535,
+      "sha256": "655084de5c432abe7dc5897b8d5cea839b62bf3adf848686483e433b099756d9"
+    },
+    {
+      "path": "007_irregular_arc_seed1_angle0/result.json",
+      "bytes": 63084,
+      "sha256": "60f9e3c7d1548d09a9f865b31775b2d256430905109e176e181f869905225a23"
+    },
+    {
+      "path": "007_irregular_arc_seed1_angle0/truth-reader-diagnostics.json",
+      "bytes": 248,
+      "sha256": "0c614856829efcc8e14806c1c906ca726a054ac6160740c775930868d40cb754"
+    },
+    {
+      "path": "007_irregular_arc_seed1_angle0/truth-reader.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "007_irregular_arc_seed1_angle0/truth-samples.jsonl",
+      "bytes": 20275,
+      "sha256": "563b1295267073c983344cafee8ea5c8527139b4b4bb27166aa5a9c2d29f27c7"
+    },
+    {
+      "path": "007_irregular_arc_seed1_angle0/truth.json",
+      "bytes": 22950,
+      "sha256": "21f2dd5a7c5767ddb1963f1b33b0b77d7b102cc8c96dd66e10cf5b146de15104"
+    },
+    {
+      "path": "007_irregular_arc_seed1_angle0-console.log",
+      "bytes": 63084,
+      "sha256": "60f9e3c7d1548d09a9f865b31775b2d256430905109e176e181f869905225a23"
+    },
+    {
+      "path": "008_irregular_arc_seed2_angle180/bag/bag_0.db3",
+      "bytes": 716800,
+      "sha256": "337d5cf84c7ead882fbf4954a0ae65ae9a8723472e4de8ebf1525f716967899d"
+    },
+    {
+      "path": "008_irregular_arc_seed2_angle180/bag/metadata.yaml",
+      "bytes": 4850,
+      "sha256": "6de466048e93abcb9fca118c83444d25175b7c64c13d770449d8d716f2495028"
+    },
+    {
+      "path": "008_irregular_arc_seed2_angle180/bag-qos.yaml",
+      "bytes": 300,
+      "sha256": "0f2eda19f975306d65951f2cf8463d7f1ac61af70fbff053d061e5ee6c941744"
+    },
+    {
+      "path": "008_irregular_arc_seed2_angle180/bag.log",
+      "bytes": 2078,
+      "sha256": "29c24c567a19a0e0ee7279b4395420be3dce9f894f6b73178a80648e8f3aab44"
+    },
+    {
+      "path": "008_irregular_arc_seed2_angle180/explore.log",
+      "bytes": 957,
+      "sha256": "03a7e7e843326b1f307f32ef04151dda28e7ca14eeada5fb60a64ecc3184e97d"
+    },
+    {
+      "path": "008_irregular_arc_seed2_angle180/launch.log",
+      "bytes": 40610,
+      "sha256": "dc784aa92892aefd88eaa2cfefff878556f5c4fdb83fd648217ad7b4336d28e1"
+    },
+    {
+      "path": "008_irregular_arc_seed2_angle180/map.data",
+      "bytes": 458910,
+      "sha256": "37a650b5e88ccb114b9b8233f4dc13f158da40b9862d6fa07a4d38c5935e6482"
+    },
+    {
+      "path": "008_irregular_arc_seed2_angle180/map.exploration.json",
+      "bytes": 5995,
+      "sha256": "e3ee80e78cf7b041b4ff177e5323a1c22de0f913e77a5ce80c656c9f0f3c58ee"
+    },
+    {
+      "path": "008_irregular_arc_seed2_angle180/map.metadata.json",
+      "bytes": 483,
+      "sha256": "998a849c7a1a5f86a6dc26bb6eb57548c4ba7733e7a5c608a4414f06c6c9067a"
+    },
+    {
+      "path": "008_irregular_arc_seed2_angle180/map.pgm",
+      "bytes": 10419,
+      "sha256": "7a47e5c6f70b82cc4eb53749efea30652cd0eb12a2347dfc5ef2f48d024b74a7"
+    },
+    {
+      "path": "008_irregular_arc_seed2_angle180/map.posegraph",
+      "bytes": 3873198,
+      "sha256": "b4e1fc073108809b07c51389ce0e30a117f50d281cb65b8f3f083b453ca01375"
+    },
+    {
+      "path": "008_irregular_arc_seed2_angle180/map.yaml",
+      "bytes": 122,
+      "sha256": "7011fb3e9853a0b4d4a9259adf6c334d86de9639008c0940467bab9d1f5efe82"
+    },
+    {
+      "path": "008_irregular_arc_seed2_angle180/process.json",
+      "bytes": 393646,
+      "sha256": "fe1ca00d051aa93ce809bb6dde6dc7b2418179b815afc26f9953718665a90a42"
+    },
+    {
+      "path": "008_irregular_arc_seed2_angle180/realism/bridge.yaml",
+      "bytes": 902,
+      "sha256": "644447db1b0f444e8e832e8bebfa8c545cba0e1ac4e1b9f1b245f70179fd5b05"
+    },
+    {
+      "path": "008_irregular_arc_seed2_angle180/realism/manifest.json",
+      "bytes": 10804,
+      "sha256": "3e74b11ee20fb8c581d4aab8846a61090f8d221348f1eff8757da2f55cf9e3e2"
+    },
+    {
+      "path": "008_irregular_arc_seed2_angle180/realism/model.sdf",
+      "bytes": 5322,
+      "sha256": "aec58e6e9f979f6152dcd6af1aeb73ab6f686eee70efd5291d65b2bd665c00c4"
+    },
+    {
+      "path": "008_irregular_arc_seed2_angle180/realism/nav2.yaml",
+      "bytes": 9428,
+      "sha256": "4c269a03f239f4065e8bc17794383797ac449d32144f44b68c889d4853bd16d0"
+    },
+    {
+      "path": "008_irregular_arc_seed2_angle180/realism/slam.yaml",
+      "bytes": 1891,
+      "sha256": "cbe0d3183acb3e943825613eaa1ed4cb90308ece6f9b95ff6272493697f4b3ca"
+    },
+    {
+      "path": "008_irregular_arc_seed2_angle180/realism/world.sdf",
+      "bytes": 24873,
+      "sha256": "8f1c0322632a5e890dd69677742bf5f93b9654446770a2b6458e91ae3735922f"
+    },
+    {
+      "path": "008_irregular_arc_seed2_angle180/resources.jsonl",
+      "bytes": 8347,
+      "sha256": "0cdf838f059e8dd6007eda27932e5a8ad1de46a454b81541f70b9e7d2309ee91"
+    },
+    {
+      "path": "008_irregular_arc_seed2_angle180/result.json",
+      "bytes": 71128,
+      "sha256": "932f5e38769e1db408a0a99828973023ed8e4ac8bb79d062bb606e3c06529e6d"
+    },
+    {
+      "path": "008_irregular_arc_seed2_angle180/truth-reader-diagnostics.json",
+      "bytes": 248,
+      "sha256": "ccd802cbb7123f5407bae152289a83f734fc1aaa1f1a48e096d9af3813bd561f"
+    },
+    {
+      "path": "008_irregular_arc_seed2_angle180/truth-reader.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "008_irregular_arc_seed2_angle180/truth-samples.jsonl",
+      "bytes": 17461,
+      "sha256": "c9795ec985378d630857514cf2c162127a70962f93ba0739e523ffaca25bf0cb"
+    },
+    {
+      "path": "008_irregular_arc_seed2_angle180/truth.json",
+      "bytes": 20005,
+      "sha256": "2019e32738c5a46df4597f7b9ef249da998f531cf6ee8a4c271562b4d3924f9d"
+    },
+    {
+      "path": "008_irregular_arc_seed2_angle180-console.log",
+      "bytes": 71128,
+      "sha256": "932f5e38769e1db408a0a99828973023ed8e4ac8bb79d062bb606e3c06529e6d"
+    },
+    {
+      "path": "009_irregular_arc_seed2_angle360/bag/bag_0.db3",
+      "bytes": 798720,
+      "sha256": "09485ab8037d971016258bed636e2e7f2a2f91af4b03fb5304c5a2ef61278e6c"
+    },
+    {
+      "path": "009_irregular_arc_seed2_angle360/bag/metadata.yaml",
+      "bytes": 4548,
+      "sha256": "fe5202d5f5373ea0e7daa09bea7d613411511b5e526af6bd299c8edc71b95796"
+    },
+    {
+      "path": "009_irregular_arc_seed2_angle360/bag-qos.yaml",
+      "bytes": 300,
+      "sha256": "0f2eda19f975306d65951f2cf8463d7f1ac61af70fbff053d061e5ee6c941744"
+    },
+    {
+      "path": "009_irregular_arc_seed2_angle360/bag.log",
+      "bytes": 2078,
+      "sha256": "bd14a50381d64f739a12dfe8a27f286330a29a2ec50d5484a55c46f61ec48a4f"
+    },
+    {
+      "path": "009_irregular_arc_seed2_angle360/explore.log",
+      "bytes": 956,
+      "sha256": "953777a6a4d848556948e5c3ec9260268de502e9f2c6a3e5baf98bf08a573c6f"
+    },
+    {
+      "path": "009_irregular_arc_seed2_angle360/launch.log",
+      "bytes": 40845,
+      "sha256": "648ca5fc34eb53e4dac293886acbc8ffd6df1aded94cc7acc69791e4ebbb7e97"
+    },
+    {
+      "path": "009_irregular_arc_seed2_angle360/map.data",
+      "bytes": 589544,
+      "sha256": "75718b51db6228f3789d1f3e7aea5daf432cdd2f33570169c1dba5c59703fc44"
+    },
+    {
+      "path": "009_irregular_arc_seed2_angle360/map.exploration.json",
+      "bytes": 5991,
+      "sha256": "587624c54885172cb623174ea94652c97c9f06f416ad55b6570a157842ff4f09"
+    },
+    {
+      "path": "009_irregular_arc_seed2_angle360/map.metadata.json",
+      "bytes": 480,
+      "sha256": "cf179d1709716babec032097cd9fce4eaf1c87b7fbbe865144ce85793cbba19b"
+    },
+    {
+      "path": "009_irregular_arc_seed2_angle360/map.pgm",
+      "bytes": 10419,
+      "sha256": "2938d1263412ea91a1c0c6e292b961ccc70efd45a7479a5430c612607a952e64"
+    },
+    {
+      "path": "009_irregular_arc_seed2_angle360/map.posegraph",
+      "bytes": 4006484,
+      "sha256": "1ce693a04a55518e4cc9457e42c77389291f0731f56b8e33c64baad4b09e1c55"
+    },
+    {
+      "path": "009_irregular_arc_seed2_angle360/map.yaml",
+      "bytes": 123,
+      "sha256": "e7612f2161841e8502662fb3e6dad29b037c04250f9d23ca2d003585b91d0f88"
+    },
+    {
+      "path": "009_irregular_arc_seed2_angle360/process.json",
+      "bytes": 415823,
+      "sha256": "d6174eb882db19c52e87adabc4fc53f69e08f575143a5cb9b097760878d3b3a5"
+    },
+    {
+      "path": "009_irregular_arc_seed2_angle360/realism/bridge.yaml",
+      "bytes": 902,
+      "sha256": "644447db1b0f444e8e832e8bebfa8c545cba0e1ac4e1b9f1b245f70179fd5b05"
+    },
+    {
+      "path": "009_irregular_arc_seed2_angle360/realism/manifest.json",
+      "bytes": 10804,
+      "sha256": "2bb579e6303da69ff97231ec9ebb3eeb9e0ab9808c55d15ded0e9f93407e81f5"
+    },
+    {
+      "path": "009_irregular_arc_seed2_angle360/realism/model.sdf",
+      "bytes": 5322,
+      "sha256": "aec58e6e9f979f6152dcd6af1aeb73ab6f686eee70efd5291d65b2bd665c00c4"
+    },
+    {
+      "path": "009_irregular_arc_seed2_angle360/realism/nav2.yaml",
+      "bytes": 9428,
+      "sha256": "4c269a03f239f4065e8bc17794383797ac449d32144f44b68c889d4853bd16d0"
+    },
+    {
+      "path": "009_irregular_arc_seed2_angle360/realism/slam.yaml",
+      "bytes": 1891,
+      "sha256": "cbe0d3183acb3e943825613eaa1ed4cb90308ece6f9b95ff6272493697f4b3ca"
+    },
+    {
+      "path": "009_irregular_arc_seed2_angle360/realism/world.sdf",
+      "bytes": 24873,
+      "sha256": "8f1c0322632a5e890dd69677742bf5f93b9654446770a2b6458e91ae3735922f"
+    },
+    {
+      "path": "009_irregular_arc_seed2_angle360/resources.jsonl",
+      "bytes": 9436,
+      "sha256": "c1601bec39691752054ca1ef27c282a51b7b7278a388a2aacf3c568d13f52f08"
+    },
+    {
+      "path": "009_irregular_arc_seed2_angle360/result.json",
+      "bytes": 53166,
+      "sha256": "5e1b054b77777c0450fb84dccdd44d4b2608c48c1928840b00819474bcd5210e"
+    },
+    {
+      "path": "009_irregular_arc_seed2_angle360/truth-reader-diagnostics.json",
+      "bytes": 248,
+      "sha256": "4790ba8a015235138925847fe38d0337626af6f2916c01cfbd6214cc7d093a0b"
+    },
+    {
+      "path": "009_irregular_arc_seed2_angle360/truth-reader.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "009_irregular_arc_seed2_angle360/truth-samples.jsonl",
+      "bytes": 19531,
+      "sha256": "51dfc495c17bcb5e7a4426c9d847d76238a20c9155a4bdec3fbc97c649e97107"
+    },
+    {
+      "path": "009_irregular_arc_seed2_angle360/truth.json",
+      "bytes": 22196,
+      "sha256": "112cc55554adb34be6a508c49e133ae3443c4e98952bc5bd3804d2bf9a6cbbb6"
+    },
+    {
+      "path": "009_irregular_arc_seed2_angle360-console.log",
+      "bytes": 53166,
+      "sha256": "5e1b054b77777c0450fb84dccdd44d4b2608c48c1928840b00819474bcd5210e"
+    },
+    {
+      "path": "010_irregular_arc_seed2_angle0/bag/bag_0.db3",
+      "bytes": 1019904,
+      "sha256": "f06e5f3d80a1b23328971276db5bf0edffc7883fb826a652192d8df85ea0ef56"
+    },
+    {
+      "path": "010_irregular_arc_seed2_angle0/bag/metadata.yaml",
+      "bytes": 4548,
+      "sha256": "5a9820c65c952ea394011abcefba9097135cd47ffc3abf53f0a70a601c9b22c3"
+    },
+    {
+      "path": "010_irregular_arc_seed2_angle0/bag-qos.yaml",
+      "bytes": 300,
+      "sha256": "0f2eda19f975306d65951f2cf8463d7f1ac61af70fbff053d061e5ee6c941744"
+    },
+    {
+      "path": "010_irregular_arc_seed2_angle0/bag.log",
+      "bytes": 2076,
+      "sha256": "296ec77bdb2613478ea47805b2209d724706da49c8d6f066523b073059bd59fe"
+    },
+    {
+      "path": "010_irregular_arc_seed2_angle0/explore.log",
+      "bytes": 842,
+      "sha256": "419fd915a007c2ab75ea51db8d81c47e58171d51cc95f606099a8a66444bddb1"
+    },
+    {
+      "path": "010_irregular_arc_seed2_angle0/launch.log",
+      "bytes": 42193,
+      "sha256": "a455c510d1f48c703a8210440371867b53c88c5778c5e46986765e12a1af23d2"
+    },
+    {
+      "path": "010_irregular_arc_seed2_angle0/map.data",
+      "bytes": 764064,
+      "sha256": "fc3433015cb96e6b69d6498c1c7747a65cb90ea3baa02b70f1a391cf49e0164d"
+    },
+    {
+      "path": "010_irregular_arc_seed2_angle0/map.exploration.json",
+      "bytes": 5509,
+      "sha256": "8b6f467c02ce0ae1b7d797231d5ab4d8760ff6125b46a1f0ff7685d3288a0a95"
+    },
+    {
+      "path": "010_irregular_arc_seed2_angle0/map.metadata.json",
+      "bytes": 476,
+      "sha256": "13006494b071fce2b744dd29d6eada6b9a6f4ca5f92523f67fe9837117ceb318"
+    },
+    {
+      "path": "010_irregular_arc_seed2_angle0/map.pgm",
+      "bytes": 10419,
+      "sha256": "3d47b6adfed0cfd0ee8f741309a31e615f1506332338ff082762ecfb928265f3"
+    },
+    {
+      "path": "010_irregular_arc_seed2_angle0/map.posegraph",
+      "bytes": 4184828,
+      "sha256": "9fa793b0006d856d545a630c10010ba8c5bbe7bad7ead7459e5d5b1816c24db3"
+    },
+    {
+      "path": "010_irregular_arc_seed2_angle0/map.yaml",
+      "bytes": 123,
+      "sha256": "e7612f2161841e8502662fb3e6dad29b037c04250f9d23ca2d003585b91d0f88"
+    },
+    {
+      "path": "010_irregular_arc_seed2_angle0/process.json",
+      "bytes": 543898,
+      "sha256": "c72469353556351e48c91ec81ad2a95046185916aee1e575b2fee1f9db92b307"
+    },
+    {
+      "path": "010_irregular_arc_seed2_angle0/realism/bridge.yaml",
+      "bytes": 902,
+      "sha256": "644447db1b0f444e8e832e8bebfa8c545cba0e1ac4e1b9f1b245f70179fd5b05"
+    },
+    {
+      "path": "010_irregular_arc_seed2_angle0/realism/manifest.json",
+      "bytes": 10794,
+      "sha256": "3ec117b9201e28c24e54e2ecd7f3f7db6534131229dd4a9994055903ce59a3ef"
+    },
+    {
+      "path": "010_irregular_arc_seed2_angle0/realism/model.sdf",
+      "bytes": 5322,
+      "sha256": "aec58e6e9f979f6152dcd6af1aeb73ab6f686eee70efd5291d65b2bd665c00c4"
+    },
+    {
+      "path": "010_irregular_arc_seed2_angle0/realism/nav2.yaml",
+      "bytes": 9428,
+      "sha256": "4c269a03f239f4065e8bc17794383797ac449d32144f44b68c889d4853bd16d0"
+    },
+    {
+      "path": "010_irregular_arc_seed2_angle0/realism/slam.yaml",
+      "bytes": 1891,
+      "sha256": "cbe0d3183acb3e943825613eaa1ed4cb90308ece6f9b95ff6272493697f4b3ca"
+    },
+    {
+      "path": "010_irregular_arc_seed2_angle0/realism/world.sdf",
+      "bytes": 24873,
+      "sha256": "8f1c0322632a5e890dd69677742bf5f93b9654446770a2b6458e91ae3735922f"
+    },
+    {
+      "path": "010_irregular_arc_seed2_angle0/resources.jsonl",
+      "bytes": 10729,
+      "sha256": "e92552fc39347bbf393a0d7d9036bf512c860ba0149033ce272f40b9aa3b24d7"
+    },
+    {
+      "path": "010_irregular_arc_seed2_angle0/result.json",
+      "bytes": 60284,
+      "sha256": "019169793f1cf503fe064be3c094f3e1ba2dfd1cd4ef98dc4946e947acce9838"
+    },
+    {
+      "path": "010_irregular_arc_seed2_angle0/truth-reader-diagnostics.json",
+      "bytes": 248,
+      "sha256": "bc4dc79ee0e715480ac3e852d51271986fd01fcac2a91e95739f12b0aaf8ff5e"
+    },
+    {
+      "path": "010_irregular_arc_seed2_angle0/truth-reader.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "010_irregular_arc_seed2_angle0/truth-samples.jsonl",
+      "bytes": 24225,
+      "sha256": "f1727040df52a877b53689c24361bdbd51af252f7e65a4a40a0acb6aeeddd10e"
+    },
+    {
+      "path": "010_irregular_arc_seed2_angle0/truth.json",
+      "bytes": 26886,
+      "sha256": "f9fbc128497ccbf1792adeb136a61fd284de9be4f947360c6d0e5641bc625716"
+    },
+    {
+      "path": "010_irregular_arc_seed2_angle0-console.log",
+      "bytes": 60284,
+      "sha256": "019169793f1cf503fe064be3c094f3e1ba2dfd1cd4ef98dc4946e947acce9838"
+    },
+    {
+      "path": "011_irregular_arc_seed2_angle90/bag/bag_0.db3",
+      "bytes": 839680,
+      "sha256": "fa0a7f53938e7f2e29d4f7f818df92f0727ab913d6aa908040c6998cf78cf8c3"
+    },
+    {
+      "path": "011_irregular_arc_seed2_angle90/bag/metadata.yaml",
+      "bytes": 4850,
+      "sha256": "5dcb6bf31a0033c7e826d0bd932b1115070346f00a9d0cb15eee3216f328ef5f"
+    },
+    {
+      "path": "011_irregular_arc_seed2_angle90/bag-qos.yaml",
+      "bytes": 300,
+      "sha256": "0f2eda19f975306d65951f2cf8463d7f1ac61af70fbff053d061e5ee6c941744"
+    },
+    {
+      "path": "011_irregular_arc_seed2_angle90/bag.log",
+      "bytes": 2077,
+      "sha256": "ad86aac40733d18102ed10271c49a07e8b59597661e62d26fe0edb8c36fccd52"
+    },
+    {
+      "path": "011_irregular_arc_seed2_angle90/explore.log",
+      "bytes": 955,
+      "sha256": "0f54dba759e5d687ff285ae9f7537e23f65f0c28a74ba7aa10ba8594f64ad2bf"
+    },
+    {
+      "path": "011_irregular_arc_seed2_angle90/launch.log",
+      "bytes": 41350,
+      "sha256": "cd363ee9892c394f316ba925e5b5d7f49c9ab7547bf997619ff31bb2bea1a3c3"
+    },
+    {
+      "path": "011_irregular_arc_seed2_angle90/map.data",
+      "bytes": 611407,
+      "sha256": "30793777cbaee922c9e65d6d1f923c9f48889a6f9711417321bf6afd14e97d2e"
+    },
+    {
+      "path": "011_irregular_arc_seed2_angle90/map.exploration.json",
+      "bytes": 5990,
+      "sha256": "ef73706200d0a04c8a7f36fc0c850371daf35921e6f273779da6e87bd2c1669c"
+    },
+    {
+      "path": "011_irregular_arc_seed2_angle90/map.metadata.json",
+      "bytes": 478,
+      "sha256": "5555ab5e0ae76414f98ef3a0c9fa10a3f35595c39d643b2de87414b95e0de61e"
+    },
+    {
+      "path": "011_irregular_arc_seed2_angle90/map.pgm",
+      "bytes": 10419,
+      "sha256": "c7faaf4317adf5eed3a0170636019f99b9de3021f784422ace3659ced3fbb93f"
+    },
+    {
+      "path": "011_irregular_arc_seed2_angle90/map.posegraph",
+      "bytes": 4028825,
+      "sha256": "616f4a67326a80a6bed3efcb3f38c5af61ed33d5bc64bdc23d678282a4204f41"
+    },
+    {
+      "path": "011_irregular_arc_seed2_angle90/map.yaml",
+      "bytes": 123,
+      "sha256": "e7612f2161841e8502662fb3e6dad29b037c04250f9d23ca2d003585b91d0f88"
+    },
+    {
+      "path": "011_irregular_arc_seed2_angle90/process.json",
+      "bytes": 456338,
+      "sha256": "f978998c40dde15a2f5d424424ed2f865b1b5d49ff8b67e51bcf25a385cbed01"
+    },
+    {
+      "path": "011_irregular_arc_seed2_angle90/realism/bridge.yaml",
+      "bytes": 902,
+      "sha256": "644447db1b0f444e8e832e8bebfa8c545cba0e1ac4e1b9f1b245f70179fd5b05"
+    },
+    {
+      "path": "011_irregular_arc_seed2_angle90/realism/manifest.json",
+      "bytes": 10799,
+      "sha256": "657601d54da8e2e63a873955c35ac2ec98efc9ec06fb3714790b039ba5d5e45f"
+    },
+    {
+      "path": "011_irregular_arc_seed2_angle90/realism/model.sdf",
+      "bytes": 5322,
+      "sha256": "aec58e6e9f979f6152dcd6af1aeb73ab6f686eee70efd5291d65b2bd665c00c4"
+    },
+    {
+      "path": "011_irregular_arc_seed2_angle90/realism/nav2.yaml",
+      "bytes": 9428,
+      "sha256": "4c269a03f239f4065e8bc17794383797ac449d32144f44b68c889d4853bd16d0"
+    },
+    {
+      "path": "011_irregular_arc_seed2_angle90/realism/slam.yaml",
+      "bytes": 1891,
+      "sha256": "cbe0d3183acb3e943825613eaa1ed4cb90308ece6f9b95ff6272493697f4b3ca"
+    },
+    {
+      "path": "011_irregular_arc_seed2_angle90/realism/world.sdf",
+      "bytes": 24873,
+      "sha256": "8f1c0322632a5e890dd69677742bf5f93b9654446770a2b6458e91ae3735922f"
+    },
+    {
+      "path": "011_irregular_arc_seed2_angle90/resources.jsonl",
+      "bytes": 9530,
+      "sha256": "1679614005dc6547144f8b16e492c2caf4e9f0e8e0a19fffca7709bdb2d863cc"
+    },
+    {
+      "path": "011_irregular_arc_seed2_angle90/result.json",
+      "bytes": 68207,
+      "sha256": "39bc907532228bc398ba67743e0989e98e93a9b49c4818000ced09358f70c064"
+    },
+    {
+      "path": "011_irregular_arc_seed2_angle90/truth-reader-diagnostics.json",
+      "bytes": 248,
+      "sha256": "bcc693f655c8c3fa3fda55973722de05964166965ef62a3b42a8a921b6e69aa3"
+    },
+    {
+      "path": "011_irregular_arc_seed2_angle90/truth-reader.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "011_irregular_arc_seed2_angle90/truth-samples.jsonl",
+      "bytes": 19944,
+      "sha256": "f404c6eca672102008ff2e64ef3b98ea77ecce12af221f096187703af78bdfbf"
+    },
+    {
+      "path": "011_irregular_arc_seed2_angle90/truth.json",
+      "bytes": 22605,
+      "sha256": "9847acf3d5128229bf146757fca7ab235d648f5fef7208a14b900340282a3f9a"
+    },
+    {
+      "path": "011_irregular_arc_seed2_angle90-console.log",
+      "bytes": 68207,
+      "sha256": "39bc907532228bc398ba67743e0989e98e93a9b49c4818000ced09358f70c064"
+    },
+    {
+      "path": "012_irregular_arc_seed3_angle360/bag/bag_0.db3",
+      "bytes": 790528,
+      "sha256": "c0266a9f022ce823f4aa761eb6470cf8e73adad333abd7a2a894be3b6e59edb8"
+    },
+    {
+      "path": "012_irregular_arc_seed3_angle360/bag/metadata.yaml",
+      "bytes": 4850,
+      "sha256": "f7955414ebf3b3453e358a383c8e4b07dc78e3101f66a1cb076c4990d4b30a1d"
+    },
+    {
+      "path": "012_irregular_arc_seed3_angle360/bag-qos.yaml",
+      "bytes": 300,
+      "sha256": "0f2eda19f975306d65951f2cf8463d7f1ac61af70fbff053d061e5ee6c941744"
+    },
+    {
+      "path": "012_irregular_arc_seed3_angle360/bag.log",
+      "bytes": 2078,
+      "sha256": "98f651e63b1fb4ff3f50c40e98c244c01b09484d09519b3a013222d8d2dc71dc"
+    },
+    {
+      "path": "012_irregular_arc_seed3_angle360/explore.log",
+      "bytes": 956,
+      "sha256": "1db895551dfe1098720275e3641693de0b7e7a23064856fc9482d7abea27434c"
+    },
+    {
+      "path": "012_irregular_arc_seed3_angle360/launch.log",
+      "bytes": 42132,
+      "sha256": "8261ffcc447439c855bf01207e0af323df6501a56f147c994efed42aa891a112"
+    },
+    {
+      "path": "012_irregular_arc_seed3_angle360/map.data",
+      "bytes": 524211,
+      "sha256": "0d1bc7b4b88e60d76e0f6dd949c0aeadb6dc3ce07de525372b8184bc867d30ed"
+    },
+    {
+      "path": "012_irregular_arc_seed3_angle360/map.exploration.json",
+      "bytes": 6209,
+      "sha256": "7bfb0da6759d785ceb3dc5d85cb40c4e67a8a747ec3229dbc7aba9adac3f0fe5"
+    },
+    {
+      "path": "012_irregular_arc_seed3_angle360/map.metadata.json",
+      "bytes": 478,
+      "sha256": "d91aa4d920a58e24147d67d37f21685b5914583239e46354a516c0d69a4d6e5d"
+    },
+    {
+      "path": "012_irregular_arc_seed3_angle360/map.pgm",
+      "bytes": 10830,
+      "sha256": "240c91a290af72d03a95631c5adf9e0bfe352f8e493fb14897fd5727bdfbb0ec"
+    },
+    {
+      "path": "012_irregular_arc_seed3_angle360/map.posegraph",
+      "bytes": 3939285,
+      "sha256": "e94c0bab3c4ba590a84297912c7fab959f48ade123aad2bdfec2cae09080b123"
+    },
+    {
+      "path": "012_irregular_arc_seed3_angle360/map.yaml",
+      "bytes": 123,
+      "sha256": "e128cf963b93390cf26540783120ae2516a5073e0d98abbf357b7ff1c659db52"
+    },
+    {
+      "path": "012_irregular_arc_seed3_angle360/process.json",
+      "bytes": 422825,
+      "sha256": "cda7ee3163adaf448e13c754856b71bb7b381c84eab795f1dcb81d78c3f4e289"
+    },
+    {
+      "path": "012_irregular_arc_seed3_angle360/realism/bridge.yaml",
+      "bytes": 902,
+      "sha256": "644447db1b0f444e8e832e8bebfa8c545cba0e1ac4e1b9f1b245f70179fd5b05"
+    },
+    {
+      "path": "012_irregular_arc_seed3_angle360/realism/manifest.json",
+      "bytes": 10804,
+      "sha256": "48a2f0ea8d5d82bdbfd8d3fd0628250f756eabcb35c4d27a108e0e4a991c3daf"
+    },
+    {
+      "path": "012_irregular_arc_seed3_angle360/realism/model.sdf",
+      "bytes": 5322,
+      "sha256": "aec58e6e9f979f6152dcd6af1aeb73ab6f686eee70efd5291d65b2bd665c00c4"
+    },
+    {
+      "path": "012_irregular_arc_seed3_angle360/realism/nav2.yaml",
+      "bytes": 9428,
+      "sha256": "4c269a03f239f4065e8bc17794383797ac449d32144f44b68c889d4853bd16d0"
+    },
+    {
+      "path": "012_irregular_arc_seed3_angle360/realism/slam.yaml",
+      "bytes": 1891,
+      "sha256": "cbe0d3183acb3e943825613eaa1ed4cb90308ece6f9b95ff6272493697f4b3ca"
+    },
+    {
+      "path": "012_irregular_arc_seed3_angle360/realism/world.sdf",
+      "bytes": 24871,
+      "sha256": "a1b65dd3a306fd35d72dedb8bfd9d933e7b4831713ad8714f5ffa207420e00d7"
+    },
+    {
+      "path": "012_irregular_arc_seed3_angle360/resources.jsonl",
+      "bytes": 9542,
+      "sha256": "b6a483a843f237032214035b7bae818a911b6f7ed925717c883a6ceb191ce762"
+    },
+    {
+      "path": "012_irregular_arc_seed3_angle360/result.json",
+      "bytes": 72436,
+      "sha256": "2f378a41fc3d1f4199461f3e1095c389ea3fbae23bf3206041926d037dba26bd"
+    },
+    {
+      "path": "012_irregular_arc_seed3_angle360/truth-reader-diagnostics.json",
+      "bytes": 248,
+      "sha256": "018e487ba6e1dd8e44fa6a8e739fed1e312115102a276779a8e3e3cb3b540e2f"
+    },
+    {
+      "path": "012_irregular_arc_seed3_angle360/truth-reader.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "012_irregular_arc_seed3_angle360/truth-samples.jsonl",
+      "bytes": 19083,
+      "sha256": "1a186d2d362dd9ac58a413733ca06689ba019a5a1ad3389b995b8ef5de63b392"
+    },
+    {
+      "path": "012_irregular_arc_seed3_angle360/truth.json",
+      "bytes": 21744,
+      "sha256": "248c2a7f780758ef44fe324af79408be10513dc5c602edf3a793491ebdfe5c0a"
+    },
+    {
+      "path": "012_irregular_arc_seed3_angle360-console.log",
+      "bytes": 72436,
+      "sha256": "2f378a41fc3d1f4199461f3e1095c389ea3fbae23bf3206041926d037dba26bd"
+    },
+    {
+      "path": "013_irregular_arc_seed3_angle0/bag/bag_0.db3",
+      "bytes": 1007616,
+      "sha256": "fa976767b16666d7d7c96cc892caf5b8df3ad5294d0a38d3825cad2fd776982f"
+    },
+    {
+      "path": "013_irregular_arc_seed3_angle0/bag/metadata.yaml",
+      "bytes": 4850,
+      "sha256": "9378f56b51a108f05f6028eedbde2beef42743536e3453d5660b2dc9822aee74"
+    },
+    {
+      "path": "013_irregular_arc_seed3_angle0/bag-qos.yaml",
+      "bytes": 300,
+      "sha256": "0f2eda19f975306d65951f2cf8463d7f1ac61af70fbff053d061e5ee6c941744"
+    },
+    {
+      "path": "013_irregular_arc_seed3_angle0/bag.log",
+      "bytes": 2076,
+      "sha256": "53b836e96a55081e6f763d63274ef05d62de2f3329bdc0482fa911cc36d460df"
+    },
+    {
+      "path": "013_irregular_arc_seed3_angle0/explore.log",
+      "bytes": 841,
+      "sha256": "91c247bcaac7e054d03bcbefdd6830ab1d3182feb3b7b454dd48fa431a303935"
+    },
+    {
+      "path": "013_irregular_arc_seed3_angle0/launch.log",
+      "bytes": 42122,
+      "sha256": "c59e3ae3677d6e3e1425c702fe5b22910fec250b958419d72ed576114459d633"
+    },
+    {
+      "path": "013_irregular_arc_seed3_angle0/map.data",
+      "bytes": 742217,
+      "sha256": "de90838f4ea3a85cb7f4bdd3625e66b36594f185dba34e2e255742bd30767213"
+    },
+    {
+      "path": "013_irregular_arc_seed3_angle0/map.exploration.json",
+      "bytes": 5504,
+      "sha256": "b8503020200c5dcf07c412b7ebd9966fe754a6744c138d8f2ace0df61179430b"
+    },
+    {
+      "path": "013_irregular_arc_seed3_angle0/map.metadata.json",
+      "bytes": 475,
+      "sha256": "11712d8bb94aca9b216be71c8219316888e090b5834f3b6412b435385578dcf1"
+    },
+    {
+      "path": "013_irregular_arc_seed3_angle0/map.pgm",
+      "bytes": 10830,
+      "sha256": "5773582f73ad5ae90577f1144859e7020327b95589dcd6f95194c0894d9d07fb"
+    },
+    {
+      "path": "013_irregular_arc_seed3_angle0/map.posegraph",
+      "bytes": 4162287,
+      "sha256": "dde4794052c1a4dda9c8e122ee51f4b92e9100af76d97a04cb9cf5a174f89f01"
+    },
+    {
+      "path": "013_irregular_arc_seed3_angle0/map.yaml",
+      "bytes": 123,
+      "sha256": "947fd21cc1b4004fa3397b7c5fd769b89f385ebcabcba13023043ed7ff21b6e2"
+    },
+    {
+      "path": "013_irregular_arc_seed3_angle0/process.json",
+      "bytes": 551397,
+      "sha256": "bc8b7eebb8fed9a61d2dbc4de9fff6a3acfec5b87bbc2bbe4909d982110928ec"
+    },
+    {
+      "path": "013_irregular_arc_seed3_angle0/realism/bridge.yaml",
+      "bytes": 902,
+      "sha256": "644447db1b0f444e8e832e8bebfa8c545cba0e1ac4e1b9f1b245f70179fd5b05"
+    },
+    {
+      "path": "013_irregular_arc_seed3_angle0/realism/manifest.json",
+      "bytes": 10794,
+      "sha256": "563d4a3da606cbba8e19ff1c7532538f9b867d13de3119f032b957922d2db032"
+    },
+    {
+      "path": "013_irregular_arc_seed3_angle0/realism/model.sdf",
+      "bytes": 5322,
+      "sha256": "aec58e6e9f979f6152dcd6af1aeb73ab6f686eee70efd5291d65b2bd665c00c4"
+    },
+    {
+      "path": "013_irregular_arc_seed3_angle0/realism/nav2.yaml",
+      "bytes": 9428,
+      "sha256": "4c269a03f239f4065e8bc17794383797ac449d32144f44b68c889d4853bd16d0"
+    },
+    {
+      "path": "013_irregular_arc_seed3_angle0/realism/slam.yaml",
+      "bytes": 1891,
+      "sha256": "cbe0d3183acb3e943825613eaa1ed4cb90308ece6f9b95ff6272493697f4b3ca"
+    },
+    {
+      "path": "013_irregular_arc_seed3_angle0/realism/world.sdf",
+      "bytes": 24871,
+      "sha256": "a1b65dd3a306fd35d72dedb8bfd9d933e7b4831713ad8714f5ffa207420e00d7"
+    },
+    {
+      "path": "013_irregular_arc_seed3_angle0/resources.jsonl",
+      "bytes": 10690,
+      "sha256": "31727d3a9e6ff65d31e7ad458b3f4c046e8493925f18c66592cc3dc35b771dd9"
+    },
+    {
+      "path": "013_irregular_arc_seed3_angle0/result.json",
+      "bytes": 60299,
+      "sha256": "851256f0fdaa62acc95671b1d8ea5f258f2eeaf974af9c62006bcd800885cd2e"
+    },
+    {
+      "path": "013_irregular_arc_seed3_angle0/truth-reader-diagnostics.json",
+      "bytes": 248,
+      "sha256": "664bda7bc04eb6aa7ac5c152fa3754ca16fceb6b613eb7c65b7182c016fb6e70"
+    },
+    {
+      "path": "013_irregular_arc_seed3_angle0/truth-reader.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "013_irregular_arc_seed3_angle0/truth-samples.jsonl",
+      "bytes": 23404,
+      "sha256": "b226b9fc77579320739eee2c44187397cf9453adae6cd98cb5415eaaa4181c8e"
+    },
+    {
+      "path": "013_irregular_arc_seed3_angle0/truth.json",
+      "bytes": 26080,
+      "sha256": "e138f89df6eb74ab5d922d4b5237447e8d368c2a84d9dc5686efa399e249074a"
+    },
+    {
+      "path": "013_irregular_arc_seed3_angle0-console.log",
+      "bytes": 60299,
+      "sha256": "851256f0fdaa62acc95671b1d8ea5f258f2eeaf974af9c62006bcd800885cd2e"
+    },
+    {
+      "path": "014_irregular_arc_seed3_angle90/bag/bag_0.db3",
+      "bytes": 778240,
+      "sha256": "5c64da8713c71c6a156aa5803d92ed46930b19ce0c2f68800b74e36f4118eb99"
+    },
+    {
+      "path": "014_irregular_arc_seed3_angle90/bag/metadata.yaml",
+      "bytes": 4850,
+      "sha256": "f04cb276c89d510bef51c01c5348c5a8f122460d815f0cf4fb4e864d05f74d17"
+    },
+    {
+      "path": "014_irregular_arc_seed3_angle90/bag-qos.yaml",
+      "bytes": 300,
+      "sha256": "0f2eda19f975306d65951f2cf8463d7f1ac61af70fbff053d061e5ee6c941744"
+    },
+    {
+      "path": "014_irregular_arc_seed3_angle90/bag.log",
+      "bytes": 2077,
+      "sha256": "f6c3227270b8bc7b1b1a44adaf79e611e6200a3126da6aabb4f28df9d0ab0d97"
+    },
+    {
+      "path": "014_irregular_arc_seed3_angle90/explore.log",
+      "bytes": 957,
+      "sha256": "ab2918fa6008040d961bf49065a564a18627071a5ca8c1e9096b5fbc24545298"
+    },
+    {
+      "path": "014_irregular_arc_seed3_angle90/launch.log",
+      "bytes": 40840,
+      "sha256": "ce5580dd741a969140e1a56ee9260218840a8362a78886da6d396d2ba7830e6a"
+    },
+    {
+      "path": "014_irregular_arc_seed3_angle90/map.data",
+      "bytes": 502364,
+      "sha256": "b282d68e0b733f0fcce9a435db88ddd83108f467657f7774ffa75c652c1ab5e5"
+    },
+    {
+      "path": "014_irregular_arc_seed3_angle90/map.exploration.json",
+      "bytes": 6210,
+      "sha256": "0f06af7f3a89097e048c7e770fd9ee8e77b7093f9fd26bef5581da6d3fc68e08"
+    },
+    {
+      "path": "014_irregular_arc_seed3_angle90/map.metadata.json",
+      "bytes": 478,
+      "sha256": "a0167102f9cd45e273205d2123c0804122b8cab4ae6f2a633f7ac2eb0897db46"
+    },
+    {
+      "path": "014_irregular_arc_seed3_angle90/map.pgm",
+      "bytes": 10830,
+      "sha256": "b05af1ac45f7cb6872aa64e3c0d6d8e407825d15e29d1c4c96f995536f760da6"
+    },
+    {
+      "path": "014_irregular_arc_seed3_angle90/map.posegraph",
+      "bytes": 3916960,
+      "sha256": "9152806fc29a9a9fd4169a7a7c72a7e4e5c4c1ae3bd5f65b03a7a0b31996d7f2"
+    },
+    {
+      "path": "014_irregular_arc_seed3_angle90/map.yaml",
+      "bytes": 123,
+      "sha256": "e128cf963b93390cf26540783120ae2516a5073e0d98abbf357b7ff1c659db52"
+    },
+    {
+      "path": "014_irregular_arc_seed3_angle90/process.json",
+      "bytes": 422008,
+      "sha256": "de642ec19ac2443074d28c5d102762a70b390dfeb6d4587efec349727259f10f"
+    },
+    {
+      "path": "014_irregular_arc_seed3_angle90/realism/bridge.yaml",
+      "bytes": 902,
+      "sha256": "644447db1b0f444e8e832e8bebfa8c545cba0e1ac4e1b9f1b245f70179fd5b05"
+    },
+    {
+      "path": "014_irregular_arc_seed3_angle90/realism/manifest.json",
+      "bytes": 10799,
+      "sha256": "2b23ab3bba8fdc64422249db7a9f0c61dc1e855bce9fd65695cef0169c99fde0"
+    },
+    {
+      "path": "014_irregular_arc_seed3_angle90/realism/model.sdf",
+      "bytes": 5322,
+      "sha256": "aec58e6e9f979f6152dcd6af1aeb73ab6f686eee70efd5291d65b2bd665c00c4"
+    },
+    {
+      "path": "014_irregular_arc_seed3_angle90/realism/nav2.yaml",
+      "bytes": 9428,
+      "sha256": "4c269a03f239f4065e8bc17794383797ac449d32144f44b68c889d4853bd16d0"
+    },
+    {
+      "path": "014_irregular_arc_seed3_angle90/realism/slam.yaml",
+      "bytes": 1891,
+      "sha256": "cbe0d3183acb3e943825613eaa1ed4cb90308ece6f9b95ff6272493697f4b3ca"
+    },
+    {
+      "path": "014_irregular_arc_seed3_angle90/realism/world.sdf",
+      "bytes": 24871,
+      "sha256": "a1b65dd3a306fd35d72dedb8bfd9d933e7b4831713ad8714f5ffa207420e00d7"
+    },
+    {
+      "path": "014_irregular_arc_seed3_angle90/resources.jsonl",
+      "bytes": 9358,
+      "sha256": "9ef0ce31c71897594b6ac4b42bb8120198964305aa59ee12bbcf3463d5a38299"
+    },
+    {
+      "path": "014_irregular_arc_seed3_angle90/result.json",
+      "bytes": 72309,
+      "sha256": "9542af3f29167d6816755a984364c9cf0022b5d798373d047c0c09065b2f2388"
+    },
+    {
+      "path": "014_irregular_arc_seed3_angle90/truth-reader-diagnostics.json",
+      "bytes": 248,
+      "sha256": "f497d27f1dcab6042390fba090ea88878ce728d389ac53fefcab68db498e0364"
+    },
+    {
+      "path": "014_irregular_arc_seed3_angle90/truth-reader.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "014_irregular_arc_seed3_angle90/truth-samples.jsonl",
+      "bytes": 18962,
+      "sha256": "bb7a623470002ede7ae1a4f13c22862ceadefbc2cc8e1d7b0b2970e8c1614762"
+    },
+    {
+      "path": "014_irregular_arc_seed3_angle90/truth.json",
+      "bytes": 21512,
+      "sha256": "5d822bb86118c9a92b8c3cb6d16a99a990bcd95ed851f3f50a98d9245092016f"
+    },
+    {
+      "path": "014_irregular_arc_seed3_angle90-console.log",
+      "bytes": 72309,
+      "sha256": "9542af3f29167d6816755a984364c9cf0022b5d798373d047c0c09065b2f2388"
+    },
+    {
+      "path": "015_irregular_arc_seed3_angle180/bag/bag_0.db3",
+      "bytes": 851968,
+      "sha256": "1b0212e366434370310251a0b645d570dbe6feac1491ea8958a7a51fa7e93b04"
+    },
+    {
+      "path": "015_irregular_arc_seed3_angle180/bag/metadata.yaml",
+      "bytes": 4850,
+      "sha256": "3c5cdd84ff3673b2f39033f243c9acc84cffd83d7319b187b697f0145fa1e425"
+    },
+    {
+      "path": "015_irregular_arc_seed3_angle180/bag-qos.yaml",
+      "bytes": 300,
+      "sha256": "0f2eda19f975306d65951f2cf8463d7f1ac61af70fbff053d061e5ee6c941744"
+    },
+    {
+      "path": "015_irregular_arc_seed3_angle180/bag.log",
+      "bytes": 2078,
+      "sha256": "e3b11519cea6f6a1f52a1db496fa3f0d06fb93f426a71728f2987a920ccbe7bf"
+    },
+    {
+      "path": "015_irregular_arc_seed3_angle180/explore.log",
+      "bytes": 956,
+      "sha256": "d0d6cceaf5d63490cc906e69a71aff102ff1fd4c6dbbeee0956b4954a3062041"
+    },
+    {
+      "path": "015_irregular_arc_seed3_angle180/launch.log",
+      "bytes": 41914,
+      "sha256": "1402c57f3fa73e3560fa3b083f1e12c65a115699183cb10343cde1a12ae63f58"
+    },
+    {
+      "path": "015_irregular_arc_seed3_angle180/map.data",
+      "bytes": 589720,
+      "sha256": "6b6394e87f732e1ed4f89e5fb0638b6118300ed1bf1333442cbcfe95361204d8"
+    },
+    {
+      "path": "015_irregular_arc_seed3_angle180/map.exploration.json",
+      "bytes": 6206,
+      "sha256": "85c4943065ef70c5b067afbd6d7892e88a6eb09ddb367b4326a29f1fe1fa4ce3"
+    },
+    {
+      "path": "015_irregular_arc_seed3_angle180/map.metadata.json",
+      "bytes": 480,
+      "sha256": "c02893122464c9f1a7de09972911319954c4c3cc29f6491d3cd1660d7a6031f4"
+    },
+    {
+      "path": "015_irregular_arc_seed3_angle180/map.pgm",
+      "bytes": 10830,
+      "sha256": "4e2c6947a9f760db5f5afa041f90334fbdab311d8af08af752018b1f871258e8"
+    },
+    {
+      "path": "015_irregular_arc_seed3_angle180/map.posegraph",
+      "bytes": 4006660,
+      "sha256": "45f058c7ac63cc09fee62ef6e04b963f4f0f9b32fc749d4da618e1f2f4878bda"
+    },
+    {
+      "path": "015_irregular_arc_seed3_angle180/map.yaml",
+      "bytes": 123,
+      "sha256": "947fd21cc1b4004fa3397b7c5fd769b89f385ebcabcba13023043ed7ff21b6e2"
+    },
+    {
+      "path": "015_irregular_arc_seed3_angle180/process.json",
+      "bytes": 458162,
+      "sha256": "a81550838e048202e1f355e650b2125eb903b6af23304f50cac4a46ab91bd7ed"
+    },
+    {
+      "path": "015_irregular_arc_seed3_angle180/realism/bridge.yaml",
+      "bytes": 902,
+      "sha256": "644447db1b0f444e8e832e8bebfa8c545cba0e1ac4e1b9f1b245f70179fd5b05"
+    },
+    {
+      "path": "015_irregular_arc_seed3_angle180/realism/manifest.json",
+      "bytes": 10804,
+      "sha256": "1c31078bd7be2ae69be810c3a958287af109a9a76fa272fc98350b21765e38a2"
+    },
+    {
+      "path": "015_irregular_arc_seed3_angle180/realism/model.sdf",
+      "bytes": 5322,
+      "sha256": "aec58e6e9f979f6152dcd6af1aeb73ab6f686eee70efd5291d65b2bd665c00c4"
+    },
+    {
+      "path": "015_irregular_arc_seed3_angle180/realism/nav2.yaml",
+      "bytes": 9428,
+      "sha256": "4c269a03f239f4065e8bc17794383797ac449d32144f44b68c889d4853bd16d0"
+    },
+    {
+      "path": "015_irregular_arc_seed3_angle180/realism/slam.yaml",
+      "bytes": 1891,
+      "sha256": "cbe0d3183acb3e943825613eaa1ed4cb90308ece6f9b95ff6272493697f4b3ca"
+    },
+    {
+      "path": "015_irregular_arc_seed3_angle180/realism/world.sdf",
+      "bytes": 24871,
+      "sha256": "a1b65dd3a306fd35d72dedb8bfd9d933e7b4831713ad8714f5ffa207420e00d7"
+    },
+    {
+      "path": "015_irregular_arc_seed3_angle180/resources.jsonl",
+      "bytes": 9554,
+      "sha256": "4ec3b49ad46b76aa8af9c96870492e4384cba3d6f6991ddb020338a1f2ff3560"
+    },
+    {
+      "path": "015_irregular_arc_seed3_angle180/result.json",
+      "bytes": 69468,
+      "sha256": "0dc70b775af91f056fc909474910fed54a624493feafaca7cb17b76890db037f"
+    },
+    {
+      "path": "015_irregular_arc_seed3_angle180/truth-reader-diagnostics.json",
+      "bytes": 248,
+      "sha256": "81a8a5b247804172bdce5ba56303dd87efd22da2a80189315de3ea211686febf"
+    },
+    {
+      "path": "015_irregular_arc_seed3_angle180/truth-reader.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "015_irregular_arc_seed3_angle180/truth-samples.jsonl",
+      "bytes": 19814,
+      "sha256": "d8e963bc301a8dd1e2cec3a956f68fc2b2e8470d98f3e725fcc3bf49096abf53"
+    },
+    {
+      "path": "015_irregular_arc_seed3_angle180/truth.json",
+      "bytes": 22489,
+      "sha256": "0dbdaf8d885387e728e01902753a312f97f7a63b8dbb1de5f6b3163c0f6311f2"
+    },
+    {
+      "path": "015_irregular_arc_seed3_angle180-console.log",
+      "bytes": 69468,
+      "sha256": "0dc70b775af91f056fc909474910fed54a624493feafaca7cb17b76890db037f"
+    },
+    {
+      "path": "016_irregular_arc_seed4_angle0/bag/bag_0.db3",
+      "bytes": 24576,
+      "sha256": "d869705bbcac37e482b3ee7151f93e1f4326f5afc734314a1016a6591effc66b"
+    },
+    {
+      "path": "016_irregular_arc_seed4_angle0/bag/metadata.yaml",
+      "bytes": 477,
+      "sha256": "c5960408e648424652849405c9814a280dcea34e5b2877655f7045a832c78717"
+    },
+    {
+      "path": "016_irregular_arc_seed4_angle0/bag-qos.yaml",
+      "bytes": 300,
+      "sha256": "0f2eda19f975306d65951f2cf8463d7f1ac61af70fbff053d061e5ee6c941744"
+    },
+    {
+      "path": "016_irregular_arc_seed4_angle0/bag.log",
+      "bytes": 939,
+      "sha256": "d0d72f81359718780ba96f7aa3f3a8977161d53333ce204bc291d515e932204c"
+    },
+    {
+      "path": "016_irregular_arc_seed4_angle0/launch.log",
+      "bytes": 43972,
+      "sha256": "b6b931a1419d3f9fb94668a995d24269cdc4ac70e745e57ddef6f818ec0b27bf"
+    },
+    {
+      "path": "016_irregular_arc_seed4_angle0/process.json",
+      "bytes": 859,
+      "sha256": "77f3ca12897280859051761f095a18ec129199609c850782b142e591772839fc"
+    },
+    {
+      "path": "016_irregular_arc_seed4_angle0/realism/bridge.yaml",
+      "bytes": 902,
+      "sha256": "644447db1b0f444e8e832e8bebfa8c545cba0e1ac4e1b9f1b245f70179fd5b05"
+    },
+    {
+      "path": "016_irregular_arc_seed4_angle0/realism/manifest.json",
+      "bytes": 10794,
+      "sha256": "c95714dfe5c2a08224ecfc7dc9e3e7cf9f8553c3c7dba199c2ada6576711f284"
+    },
+    {
+      "path": "016_irregular_arc_seed4_angle0/realism/model.sdf",
+      "bytes": 5322,
+      "sha256": "aec58e6e9f979f6152dcd6af1aeb73ab6f686eee70efd5291d65b2bd665c00c4"
+    },
+    {
+      "path": "016_irregular_arc_seed4_angle0/realism/nav2.yaml",
+      "bytes": 9428,
+      "sha256": "4c269a03f239f4065e8bc17794383797ac449d32144f44b68c889d4853bd16d0"
+    },
+    {
+      "path": "016_irregular_arc_seed4_angle0/realism/slam.yaml",
+      "bytes": 1891,
+      "sha256": "cbe0d3183acb3e943825613eaa1ed4cb90308ece6f9b95ff6272493697f4b3ca"
+    },
+    {
+      "path": "016_irregular_arc_seed4_angle0/realism/world.sdf",
+      "bytes": 24872,
+      "sha256": "23b14cd9057662fa46b75b141f23d7a8d8e13e48eb98dad369b4c73ad01e6478"
+    },
+    {
+      "path": "016_irregular_arc_seed4_angle0/truth-reader-diagnostics.json",
+      "bytes": 252,
+      "sha256": "9399628b40b5f67aa4354b98d21283960c8e398607ab71d0b1113c7a735b9ec1"
+    },
+    {
+      "path": "016_irregular_arc_seed4_angle0/truth-reader.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "016_irregular_arc_seed4_angle0/truth-samples.jsonl",
+      "bytes": 888270,
+      "sha256": "332ea7e19e0f9f79d5b8234ca6038b821097eb263e14d4186589cab5623dd1ae"
+    },
+    {
+      "path": "016_irregular_arc_seed4_angle0-console.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "plan.json",
+      "bytes": 19849,
+      "sha256": "5766fc2473ad179517ee4245ef134fabf01395de7d968384c33619b3bc96106f"
+    },
+    {
+      "path": "summary.json",
+      "bytes": 110114,
+      "sha256": "eefb5b811e281d4229c5b32ab2d833a09c36ce4ab25eae62a9b1c7e620485c16"
+    }
+  ]
+}

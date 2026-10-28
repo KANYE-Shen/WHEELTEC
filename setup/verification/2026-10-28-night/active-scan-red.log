@@ -1,0 +1,21 @@
+test_active_scan (unittest.loader._FailedTest.test_active_scan) ... ERROR
+
+======================================================================
+ERROR: test_active_scan (unittest.loader._FailedTest.test_active_scan)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_active_scan
+Traceback (most recent call last):
+  File "D:\Python\Lib\unittest\loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\unittest\loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "D:\����c��\WHEELTEC\src\wheeltec_explore\test\test_active_scan.py", line 5, in <module>
+    from wheeltec_explore.active_scan import rotation_clearance, choose_scan, ScanBudget
+ModuleNotFoundError: No module named 'wheeltec_explore.active_scan'
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)

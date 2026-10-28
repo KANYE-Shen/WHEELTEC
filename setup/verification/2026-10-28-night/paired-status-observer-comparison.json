@@ -1,0 +1,120 @@
+{
+  "complete_old_prefix_trials": 16,
+  "old_missing": 2,
+  "new_missing": 0,
+  "interrupted_v2_attempt_retained_separately": true,
+  "pairs": [
+    {
+      "scenario": "irregular_arc",
+      "seed": 0,
+      "angle": 0.0,
+      "old_terminal_received": true,
+      "new_terminal_received": true
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 0,
+      "angle": 90.0,
+      "old_terminal_received": true,
+      "new_terminal_received": true
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 0,
+      "angle": 180.0,
+      "old_terminal_received": false,
+      "new_terminal_received": true
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 0,
+      "angle": 360.0,
+      "old_terminal_received": true,
+      "new_terminal_received": true
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 1,
+      "angle": 90.0,
+      "old_terminal_received": true,
+      "new_terminal_received": true
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 1,
+      "angle": 180.0,
+      "old_terminal_received": true,
+      "new_terminal_received": true
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 1,
+      "angle": 360.0,
+      "old_terminal_received": false,
+      "new_terminal_received": true
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 1,
+      "angle": 0.0,
+      "old_terminal_received": true,
+      "new_terminal_received": true
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 2,
+      "angle": 180.0,
+      "old_terminal_received": true,
+      "new_terminal_received": true
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 2,
+      "angle": 360.0,
+      "old_terminal_received": true,
+      "new_terminal_received": true
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 2,
+      "angle": 0.0,
+      "old_terminal_received": true,
+      "new_terminal_received": true
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 2,
+      "angle": 90.0,
+      "old_terminal_received": true,
+      "new_terminal_received": true
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 3,
+      "angle": 360.0,
+      "old_terminal_received": true,
+      "new_terminal_received": true
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 3,
+      "angle": 0.0,
+      "old_terminal_received": true,
+      "new_terminal_received": true
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 3,
+      "angle": 90.0,
+      "old_terminal_received": true,
+      "new_terminal_received": true
+    },
+    {
+      "scenario": "irregular_arc",
+      "seed": 3,
+      "angle": 180.0,
+      "old_terminal_received": true,
+      "new_terminal_received": true
+    }
+  ]
+}

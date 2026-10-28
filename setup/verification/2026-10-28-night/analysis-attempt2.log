@@ -1,0 +1,1 @@
+Diagnostic first assumed every trial reached explorer. Two v1 runs never started Explorer: Nav2 did not become active. Their missing map.exploration.json must count as missing, never be silently skipped or treated as a safe refusal. Added explicit empty artifact handling; original result/failure remains unchanged.

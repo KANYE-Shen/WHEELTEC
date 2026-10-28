@@ -1,0 +1,40 @@
+test_cleanup_retains_pending_until_response_and_confirms_cancel (test_active_scan_lifecycle_ros.ScanLifecycleTests) ... ok
+test_health_exception_during_pending_response_cancels_late_acceptance (test_active_scan_lifecycle_ros.ScanLifecycleTests) ... ok
+test_rejection_is_not_motion_success (test_active_scan_lifecycle_ros.ScanLifecycleTests) ... ok
+test_response_timeout_cancels_late_acceptance (test_active_scan_lifecycle_ros.ScanLifecycleTests) ... ok
+test_success_clears_live_handle (test_active_scan_lifecycle_ros.ScanLifecycleTests) ... ok
+test_tf_loss_cancels_active_action (test_active_scan_lifecycle_ros.ScanLifecycleTests) ... ok
+test_unconfirmed_pending_response_fails_closed (test_active_scan_lifecycle_ros.ScanLifecycleTests) ... ok
+test_unknown_envelope_never_sends_spin (test_active_scan_lifecycle_ros.ScanLifecycleTests) ... ok
+test_default_does_not_require_an_evaluator (test_active_scan_lifecycle_ros.StatusObserverTests) ... ERROR
+test_invalid_reader_requirement_fails (test_active_scan_lifecycle_ros.StatusObserverTests) ... ERROR
+test_recorded_run_waits_for_both_status_readers (test_active_scan_lifecycle_ros.StatusObserverTests) ... ERROR
+
+======================================================================
+ERROR: test_default_does_not_require_an_evaluator (test_active_scan_lifecycle_ros.StatusObserverTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/d/虚拟c盘/WHEELTEC/simulation/test_active_scan_lifecycle_ros.py", line 95, in test_default_does_not_require_an_evaluator
+    self.assertTrue(Explorer.wait_status_observers(node))
+AttributeError: type object 'Explorer' has no attribute 'wait_status_observers'
+
+======================================================================
+ERROR: test_invalid_reader_requirement_fails (test_active_scan_lifecycle_ros.StatusObserverTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/d/虚拟c盘/WHEELTEC/simulation/test_active_scan_lifecycle_ros.py", line 99, in test_invalid_reader_requirement_fails
+    with self.assertRaises(ValueError):Explorer.wait_status_observers(node)
+AttributeError: type object 'Explorer' has no attribute 'wait_status_observers'
+
+======================================================================
+ERROR: test_recorded_run_waits_for_both_status_readers (test_active_scan_lifecycle_ros.StatusObserverTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/d/虚拟c盘/WHEELTEC/simulation/test_active_scan_lifecycle_ros.py", line 90, in test_recorded_run_waits_for_both_status_readers
+    self.assertFalse(Explorer.wait_status_observers(node))
+AttributeError: type object 'Explorer' has no attribute 'wait_status_observers'
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.070s
+
+FAILED (errors=3)

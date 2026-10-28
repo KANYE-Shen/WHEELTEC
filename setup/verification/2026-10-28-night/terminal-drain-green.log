@@ -1,0 +1,10 @@
+test_exit_status_drain_uses_wall_deadline_not_twenty_callbacks (test_outcomes.OutcomeTests.test_exit_status_drain_uses_wall_deadline_not_twenty_callbacks) ... ok
+test_launch_child_sigkill_is_not_a_clean_shutdown (test_outcomes.OutcomeTests.test_launch_child_sigkill_is_not_a_clean_shutdown) ... ok
+test_missing_exit_status_drain_is_bounded_and_not_success (test_outcomes.OutcomeTests.test_missing_exit_status_drain_is_bounded_and_not_success) ... ok
+test_rc2_requires_a_confirmed_terminal_and_clean_shutdown (test_outcomes.OutcomeTests.test_rc2_requires_a_confirmed_terminal_and_clean_shutdown) ... ok
+test_viewpoint_strategy_is_explicit_and_recordable (test_outcomes.OutcomeTests.test_viewpoint_strategy_is_explicit_and_recordable) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK

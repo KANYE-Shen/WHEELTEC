@@ -1,0 +1,23 @@
+test_deduplicates_raw_compressed_using_monotonic_arrival (console.tests.test_data.ReceiveFrequencyTests.test_deduplicates_raw_compressed_using_monotonic_arrival) ... ERROR
+test_frequency_requires_two_distinct_samples (console.tests.test_data.ReceiveFrequencyTests.test_frequency_requires_two_distinct_samples) ... ERROR
+
+======================================================================
+ERROR: test_deduplicates_raw_compressed_using_monotonic_arrival (console.tests.test_data.ReceiveFrequencyTests.test_deduplicates_raw_compressed_using_monotonic_arrival)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\虚拟c盘\WHEELTEC\console\tests\test_data.py", line 57, in test_deduplicates_raw_compressed_using_monotonic_arrival
+    from console.target.data import distinct_receive_hz
+ImportError: cannot import name 'distinct_receive_hz' from 'console.target.data' (D:\虚拟c盘\WHEELTEC\console\target\data.py)
+
+======================================================================
+ERROR: test_frequency_requires_two_distinct_samples (console.tests.test_data.ReceiveFrequencyTests.test_frequency_requires_two_distinct_samples)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\虚拟c盘\WHEELTEC\console\tests\test_data.py", line 61, in test_frequency_requires_two_distinct_samples
+    from console.target.data import distinct_receive_hz
+ImportError: cannot import name 'distinct_receive_hz' from 'console.target.data' (D:\虚拟c盘\WHEELTEC\console\target\data.py)
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.001s
+
+FAILED (errors=2)

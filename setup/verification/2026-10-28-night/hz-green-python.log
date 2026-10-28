@@ -1,0 +1,14 @@
+test_live_video_with_bad_stamp_is_explicitly_not_measurement_fresh (console.tests.test_data.CameraReceptionTests.test_live_video_with_bad_stamp_is_explicitly_not_measurement_fresh) ... ok
+test_stopped_video_expires_even_if_ros_time_pauses (console.tests.test_data.CameraReceptionTests.test_stopped_video_expires_even_if_ros_time_pauses) ... ok
+test_grid_rejects_shape_and_preserves_unknown (console.tests.test_data.DataTests.test_grid_rejects_shape_and_preserves_unknown) ... ok
+test_image_encoding_rejects_unsupported (console.tests.test_data.DataTests.test_image_encoding_rejects_unsupported) ... ok
+test_invalid_ranges_preserve_beam_positions (console.tests.test_data.DataTests.test_invalid_ranges_preserve_beam_positions) ... ok
+test_zero_future_and_receive_stale_are_rejected (console.tests.test_data.FreshnessTests.test_zero_future_and_receive_stale_are_rejected) ... ok
+test_deduplicates_raw_compressed_using_monotonic_arrival (console.tests.test_data.ReceiveFrequencyTests.test_deduplicates_raw_compressed_using_monotonic_arrival) ... ok
+test_frequency_requires_two_distinct_samples (console.tests.test_data.ReceiveFrequencyTests.test_frequency_requires_two_distinct_samples) ... ok
+test_paused_ros_clock_does_not_keep_dynamic_tf_alive (console.tests.test_data.TFChainTests.test_paused_ros_clock_does_not_keep_dynamic_tf_alive) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.000s
+
+OK

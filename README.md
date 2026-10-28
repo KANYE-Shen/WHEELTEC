@@ -8,9 +8,9 @@ GitHub 仓库：[KANYE-Shen/WHEELTEC](https://github.com/KANYE-Shen/WHEELTEC)。
 
 ## 当前进度
 
-更新：2026-10-28（夜间离线修复与仿真回归进行中）。
+更新：2026-10-29（10月28日晚实测与离线回归）。
 
-本地夜间不规则边界实验：新增遮挡感知视点试验接口，保留原默认；正式on双方0/10，名义off严格退出审计原10/10、候选5/10（原始汇总6/10），未证明整体可靠性提高。这是上一轮结果；本轮按用户授权准备分项推送。见[完整本地报告](setup/verification/2026-10-27-irregular-frontier-results.md)。
+本地夜间不规则边界实验：新增遮挡感知视点试验接口，保留原默认；正式on双方0/10，名义off严格退出审计原10/10、候选5/10（原始汇总6/10），未证明整体可靠性提高。这是上一轮结果；本轮代码和实测证据已按用户授权推送工作分支。见[完整本地报告](setup/verification/2026-10-27-irregular-frontier-results.md)。
 
 - 基础环境已安装：WSL2、Ubuntu 22.04、ROS2 Humble、Gazebo Fortress、RViz、Nav2、SLAM Toolbox。
 - 已检查 ROS 消息收发、仿真时钟、模拟激光数据以及 Gazebo/RViz 图形窗口。
@@ -31,7 +31,7 @@ GitHub 仓库：[KANYE-Shen/WHEELTEC](https://github.com/KANYE-Shen/WHEELTEC)。
 
 新版 AGENTS.md 已按用户附件原样替换，旧版保存在本轮验证目录。实车原始记录见 [G0记录](setup/verification/2026-10-28-g0/sensors-on-v1/README.md)，相机画面修复见 [专项报告](setup/verification/2026-10-28-camera-flicker/README.md)。相机接收频率与采集时间健康分开显示；源时间异常仍告警，断流仍标记过期。Hz 栏修复仅完成离线回放，尚未部署到断开的实车。
 
-新阶段优先验证安全主动观测：默认关闭，仅隔离仿真允许；完整旋转扫掠范围不能证明为已知空闲时拒绝旋转。四档角度同种子对照、G0时间戳候选的复现命令和未验证项见 [夜间交接记录](setup/verification/2026-10-28-night/README.md)。单元测试或拒绝运动检查不能算作完整探索通过。
+新阶段优先验证安全主动观测：默认关闭，仅隔离仿真允许；完整旋转扫掠范围不能证明为已知空闲时拒绝旋转。最终四档角度同种子对照为0/40，首目标0/40，未证明成功率提高。相机Hz离线专项7/7，源驱动修复和本车部署仍待下次G0。复现命令和未验证项见 [夜间交接记录](setup/verification/2026-10-28-night/README.md)。单元测试或拒绝运动检查不能算作完整探索通过。
 
 ## 网页调试与控制终端
 

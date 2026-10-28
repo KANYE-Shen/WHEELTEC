@@ -1,0 +1,111 @@
+{
+  "planned_trials": 40,
+  "summary_rows": 16,
+  "attempted": 17,
+  "successes": 0,
+  "partial": true,
+  "attempts": [
+    {
+      "run": "000_irregular_arc_seed0_angle0",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "001_irregular_arc_seed0_angle90",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "002_irregular_arc_seed0_angle180",
+      "result_present": true,
+      "success": false,
+      "error": "RuntimeError('Explorer exited before terminal status; see explore.log')"
+    },
+    {
+      "run": "003_irregular_arc_seed0_angle360",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "004_irregular_arc_seed1_angle90",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "005_irregular_arc_seed1_angle180",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "006_irregular_arc_seed1_angle360",
+      "result_present": true,
+      "success": false,
+      "error": "RuntimeError('Explorer exited before terminal status; see explore.log')"
+    },
+    {
+      "run": "007_irregular_arc_seed1_angle0",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "008_irregular_arc_seed2_angle180",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "009_irregular_arc_seed2_angle360",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "010_irregular_arc_seed2_angle0",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "011_irregular_arc_seed2_angle90",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "012_irregular_arc_seed3_angle360",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "013_irregular_arc_seed3_angle0",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "014_irregular_arc_seed3_angle90",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "015_irregular_arc_seed3_angle180",
+      "result_present": true,
+      "success": false,
+      "error": "rosbag missing required messages or unreadable"
+    },
+    {
+      "run": "016_irregular_arc_seed4_angle0",
+      "result_present": false,
+      "success": false,
+      "error": "missing result; interrupted attempt"
+    }
+  ]
+}

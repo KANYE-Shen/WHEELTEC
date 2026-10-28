@@ -1,0 +1,10 @@
+{
+  "scope": "Offline static geometry audit, not truth-fed control or real chassis measurement",
+  "model_projection_max_radius_m": 0.2936409372005205,
+  "nav2_footprint_max_radius_m": 0.2936409372005205,
+  "active_scan_radius_m": 0.35,
+  "sdf_contained": true,
+  "nav2_contained": true,
+  "margin_from_nav2_m": 0.0563590627994795,
+  "measured_real_robot_geometry": false
+}
