@@ -1,0 +1,13 @@
+{
+  "task_name": "WHEELTEC-G0-Offline-20261029-0300",
+  "state": "Ready",
+  "trigger": "2026-10-29T03:00:00+08:00",
+  "next_run": "2026-10-29T03:00:00.0000000+08:00",
+  "action": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+  "arguments": "-NoLogo -NoProfile -NonInteractive -WindowStyle Hidden -Command \"& 'D:\\Python\\python.exe' 'D:\\虚拟c盘\\WHEELTEC\\setup\\automation\\continue_g0_night.py'\"",
+  "run_level": "Limited",
+  "wake_to_run": true,
+  "actual_scheduled_execution_verified": false,
+  "permission_mode": "existing chat queue; no approval or sandbox override",
+  "checked_at": "2026-10-28T22:13:19.5199221+08:00"
+}
