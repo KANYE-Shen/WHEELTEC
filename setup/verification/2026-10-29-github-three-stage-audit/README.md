@@ -55,3 +55,5 @@
 后续agent先读当前README/PLAN/三阶段清单，再查轮次索引和replay buffer，不能从旧夜间提示或历史PID自动启动任务。GitHub默认分支与工作分支的交付代码SHA、提交记录及远端文件核对见publication.json；核验回执作为独立记录提交，不改算法或准入行为。
 
 原始证据按字节保留，包含Windows日志的CRLF和失败输出；Git whitespace检查只针对业务源码/当前说明，避免为了格式检查重写证据。全量原始换行提示不作为运行时故障或任务通过依据。
+
+发布核验已完成：交付版本56d26eb同时推送main及工作分支；GitHub API递归树核对9项核心文件blob均一致，失败result.json/explore.log在Git中的原始字节SHA与源记录相符。逐文件API核验曾遇临时EOF，失败另存publication-first-failure.json；改为一次Git树请求后成功。publication.json保留交付代码版本，随后本回执独立提交。

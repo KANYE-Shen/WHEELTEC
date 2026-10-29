@@ -1,0 +1,6 @@
+{
+  "phase": "post-push read-only GitHub API verification",
+  "error": "unexpected EOF while reading robot/config/robot.json at delivery commit 56d26eb",
+  "effect": "push already succeeded; verification receipt not emitted; no robot operation",
+  "next": "verify core blob hashes from one recursive Git tree request to reduce independent network calls"
+}

@@ -1,0 +1,67 @@
+{
+  "verified_utc": "2026-10-29T04:21:14.864831+00:00",
+  "delivery_commit": "56d26ebad6c77825843d89dda6c41e74e6b56837",
+  "remote_branches_at_verification": {
+    "main": "56d26ebad6c77825843d89dda6c41e74e6b56837",
+    "work/irregular-frontiers-20261027": "56d26ebad6c77825843d89dda6c41e74e6b56837"
+  },
+  "verified_files": {
+    "README.md": {
+      "expected_blob": "1b3351484ad6daefc120761691b875587a73ff6d",
+      "github_blob": "1b3351484ad6daefc120761691b875587a73ff6d",
+      "matches": true
+    },
+    "PLAN.md": {
+      "expected_blob": "e5f0c91ea043f93922fd4243091076e638a04337",
+      "github_blob": "e5f0c91ea043f93922fd4243091076e638a04337",
+      "matches": true
+    },
+    "AGENTS.md": {
+      "expected_blob": "8dbf80c6293e6bc61577132dc1ea2f23e51bcd82",
+      "github_blob": "8dbf80c6293e6bc61577132dc1ea2f23e51bcd82",
+      "matches": true
+    },
+    "robot/准入关卡.md": {
+      "expected_blob": "677a61f1ecfa4385c95b774aac9aa301e6f14398",
+      "github_blob": "677a61f1ecfa4385c95b774aac9aa301e6f14398",
+      "matches": true
+    },
+    "robot/preflight.py": {
+      "expected_blob": "047a2c72156be553ca2446c09cb5fc3feb7c1806",
+      "github_blob": "047a2c72156be553ca2446c09cb5fc3feb7c1806",
+      "matches": true
+    },
+    "robot/config/robot.json": {
+      "expected_blob": "d07fd5a2cc5889e2d4bf1dfd01fe8344c5723e47",
+      "github_blob": "d07fd5a2cc5889e2d4bf1dfd01fe8344c5723e47",
+      "matches": true
+    },
+    "robot/launch/robot.launch.py": {
+      "expected_blob": "f5aa74b0edc710d86c9aa430ab00cbe733124ef2",
+      "github_blob": "f5aa74b0edc710d86c9aa430ab00cbe733124ef2",
+      "matches": true
+    },
+    "console/target/adapter.py": {
+      "expected_blob": "10e96c0cb1e773bdbb7ad24162ec114773b1a9cf",
+      "github_blob": "10e96c0cb1e773bdbb7ad24162ec114773b1a9cf",
+      "matches": true
+    },
+    "replay buffer/20261029-irregular-arc-seed0-startup-assumed/result.json": {
+      "expected_blob": "33bef9a5277ff9e48fba90211cae6564b6a0def8",
+      "github_blob": "33bef9a5277ff9e48fba90211cae6564b6a0def8",
+      "matches": true
+    }
+  },
+  "failure_evidence_raw_git_bytes_match_source_sha256": {
+    "result.json": true,
+    "explore.log": true
+  },
+  "tests_passed": 224,
+  "tests_total": 224,
+  "consistency_checks": "17/17",
+  "preserved_evidence_files": 1042,
+  "robot_motion_started": false,
+  "stage_one_completed": false,
+  "success": true,
+  "receipt_note": "This receipt is committed after verification; the receipt commit does not change delivered runtime or workflow."
+}
