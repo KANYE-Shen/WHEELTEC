@@ -1,0 +1,36 @@
+test_cleanup_retains_pending_until_response_and_confirms_cancel (test_active_scan_lifecycle_ros.ScanLifecycleTests) ... ok
+test_confirmed_startup_assumption_skips_both_clearance_rechecks (test_active_scan_lifecycle_ros.ScanLifecycleTests) ... FAIL
+test_health_exception_during_pending_response_cancels_late_acceptance (test_active_scan_lifecycle_ros.ScanLifecycleTests) ... ok
+test_midtask_does_not_use_startup_assumption (test_active_scan_lifecycle_ros.ScanLifecycleTests) ... ok
+test_prior_attempt_consumes_startup_exception_even_without_goal (test_active_scan_lifecycle_ros.ScanLifecycleTests) ... ok
+test_rejection_is_not_motion_success (test_active_scan_lifecycle_ros.ScanLifecycleTests) ... ok
+test_response_timeout_cancels_late_acceptance (test_active_scan_lifecycle_ros.ScanLifecycleTests) ... ok
+test_startup_exception_does_not_disable_tf_loss_cancellation (test_active_scan_lifecycle_ros.ScanLifecycleTests) ... ok
+test_success_clears_live_handle (test_active_scan_lifecycle_ros.ScanLifecycleTests) ... ok
+test_tf_loss_cancels_active_action (test_active_scan_lifecycle_ros.ScanLifecycleTests) ... ok
+test_unconfirmed_pending_response_fails_closed (test_active_scan_lifecycle_ros.ScanLifecycleTests) ... ok
+test_unknown_envelope_never_sends_spin (test_active_scan_lifecycle_ros.ScanLifecycleTests) ... ok
+test_default_does_not_require_an_evaluator (test_active_scan_lifecycle_ros.StatusObserverTests) ... ok
+test_invalid_reader_requirement_fails (test_active_scan_lifecycle_ros.StatusObserverTests) ... ok
+test_recorded_run_waits_for_both_status_readers (test_active_scan_lifecycle_ros.StatusObserverTests) ... ok
+
+======================================================================
+FAIL: test_confirmed_startup_assumption_skips_both_clearance_rechecks (test_active_scan_lifecycle_ros.ScanLifecycleTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/d/虚拟c盘/WHEELTEC/simulation/test_active_scan_lifecycle_ros.py", line 88, in test_confirmed_startup_assumption_skips_both_clearance_rechecks
+    self.assertEqual(Explorer.active_observe(node,(0.,0.,0.),True),(True,'succeeded'))
+  File "/mnt/d/虚拟c盘/WHEELTEC/src/wheeltec_explore/wheeltec_explore/node.py", line 241, in active_observe
+    if fresh_pose is None or not rotation_clearance(self.grid(),fresh_pose,self.config['robot_radius'])['safe']:
+  File "/usr/lib/python3.10/unittest/mock.py", line 1114, in __call__
+    return self._mock_call(*args, **kwargs)
+  File "/usr/lib/python3.10/unittest/mock.py", line 1118, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+  File "/usr/lib/python3.10/unittest/mock.py", line 1173, in _execute_mock_call
+    raise effect
+AssertionError: startup should not evaluate clearance
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.105s
+
+FAILED (failures=1)

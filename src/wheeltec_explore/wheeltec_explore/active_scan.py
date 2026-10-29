@@ -34,14 +34,22 @@ def _angle_delta(a,b):
     return math.atan2(math.sin(a-b),math.cos(a-b))
 
 
-def choose_scan(grid, pose, radius, angle_deg, fov_deg, horizon=2.):
+def choose_scan(grid, pose, radius, angle_deg, fov_deg, horizon=2., *, assume_start_safe=False):
     """Choose one finite rotation by newly exposed unknown-ray directions.
 
     This predicts opportunity, never map completion or physical resolution.
     """
     if not 0 < angle_deg <= 360 or not 0 < fov_deg <= 360 or horizon <= 0:
         raise ValueError('Invalid observation angle/FOV/horizon')
+    if assume_start_safe:
+        if not math.isfinite(radius) or radius <= 0 or not all(math.isfinite(x) for x in pose):
+            raise ValueError('Finite pose and positive radius required')
+        # User-declared simulation initial condition, never measured free space.
+        return dict(safe=True, reason='initial_rotation_assumed_safe',
+                    clearance_source='assumed_start', clearance_proven=False,
+                    checked_cells=0, angle_rad=2*math.pi, expected_new_directions=None)
     report=rotation_clearance(grid,pose,radius)
+    report.update(clearance_source='estimated_map',clearance_proven=report['safe'])
     report.update(angle_rad=None,expected_new_directions=0)
     if not report['safe']:
         return report
@@ -96,3 +104,8 @@ class ScanBudget:
 
 def simulation_observation_allowed(use_sim_time, localhost_only, board_model):
     return bool(use_sim_time and localhost_only == '1' and not board_model.strip('\x00\n '))
+
+
+def startup_assumption_allowed(initial, enabled, previous_scans, navigation_goals):
+    """One startup-only exception; runtime additionally enforces simulation isolation."""
+    return bool(initial and enabled and not previous_scans and not navigation_goals)

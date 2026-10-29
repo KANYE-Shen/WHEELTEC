@@ -18,17 +18,17 @@ class ScanLifecycleTests(unittest.TestCase):
   handle=NS(accepted=True,cancel_goal_async=Mock(return_value=finished(None)),
             get_result_async=Mock(return_value=result or finished(NS(status=4))))
   future=accepted if accepted is not None else finished(handle)
-  node=NS(config=dict(DEFAULTS,active_scan_angle_deg=90.),report={},grid=lambda:None,
+  node=NS(config=dict(DEFAULTS,active_scan_angle_deg=90.),report={'goals':[]},grid=lambda:None,
           ros_seconds=lambda:10.,started_ros=0.,map_updates=1,wait_reason=None,
           status=Mock(),position=Mock(return_value=(0.,0.,0.)),wait=Mock(return_value=True),
           spin_action=NS(server_is_ready=lambda:True,send_goal_async=Mock(return_value=future)),
           active_goal=None,active_result=None,require_health=lambda:True,cancel_active=Mock(return_value=True))
   return node,handle,future
 
- def observe(self,node,plan=None):
+ def observe(self,node,plan=None,initial=True):
   selected=plan or dict(safe=True,angle_rad=1.57,reason='new_direction_opportunity')
   with patch('wheeltec_explore.node.choose_scan',return_value=selected),patch('wheeltec_explore.node.rotation_clearance',return_value={'safe':True}),patch('wheeltec_explore.node.rclpy.ok',return_value=True),patch('wheeltec_explore.node.rclpy.spin_once'):
-   return Explorer.active_observe(node,(0.,0.,0.),True)
+   return Explorer.active_observe(node,(0.,0.,0.),initial)
 
  def test_unknown_envelope_never_sends_spin(self):
   node,_,_=self.node()
@@ -80,6 +80,30 @@ class ScanLifecycleTests(unittest.TestCase):
   node.get_logger=lambda:Mock()
   self.assertFalse(Explorer.cancel_active(node))
   self.assertIsNotNone(node.pending_action)
+
+
+ def test_confirmed_startup_assumption_skips_both_clearance_rechecks(self):
+  node,_,_=self.node();node.config['initial_rotation_assumed_safe']=True
+  with patch('wheeltec_explore.node.rclpy.ok',return_value=True),patch('wheeltec_explore.node.choose_scan',return_value=dict(safe=True,angle_rad=6.283,reason='initial_rotation_assumed_safe')),patch('wheeltec_explore.node.rotation_clearance',side_effect=AssertionError('startup should not evaluate clearance')) as clearance:
+   self.assertEqual(Explorer.active_observe(node,(0.,0.,0.),True),(True,'succeeded'))
+   clearance.assert_not_called()
+  self.assertTrue(node.report['active_scans'][0]['initial_assumption_used'])
+ def test_startup_exception_does_not_disable_tf_loss_cancellation(self):
+  pending=Future();node,_,_=self.node(result=pending)
+  node.config['initial_rotation_assumed_safe']=True;node.position.side_effect=[(0.,0.,0.),None]
+  self.assertEqual(self.observe(node),(False,'active_scan_tf_unavailable'))
+  node.cancel_active.assert_called_once()
+ def test_midtask_does_not_use_startup_assumption(self):
+  node,_,_=self.node();node.config['initial_rotation_assumed_safe']=True
+  with patch('wheeltec_explore.node.choose_scan',return_value=dict(safe=False,angle_rad=None,reason='unknown_swept_space')) as choose:
+   self.assertEqual(Explorer.active_observe(node,(0.,0.,0.),False),(False,'active_scan_clearance_unproven'))
+  self.assertFalse(choose.call_args.kwargs.get('assume_start_safe',False))
+  node.spin_action.send_goal_async.assert_not_called()
+ def test_prior_attempt_consumes_startup_exception_even_without_goal(self):
+  node,_,_=self.node();node.config['initial_rotation_assumed_safe']=True;node.report['active_scans']=[{'motion_requested':False}]
+  with patch('wheeltec_explore.node.choose_scan',return_value=dict(safe=False,angle_rad=None,reason='unknown_swept_space')) as choose:
+   Explorer.active_observe(node,(0.,0.,0.),True)
+  self.assertFalse(choose.call_args.kwargs.get('assume_start_safe',False))
 
 class StatusObserverTests(unittest.TestCase):
  def test_recorded_run_waits_for_both_status_readers(self):

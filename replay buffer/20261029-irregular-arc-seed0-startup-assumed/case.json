@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "kind": "simulation_failure",
+  "scenario": "irregular_arc",
+  "seed": 0,
+  "source_report": "setup/verification/2026-10-29-startup-assumption/README.md",
+  "source_run": "/home/wheeltec/wheeltec_sim_ws/data/runs/20261029-startup-assumption-view-v1/candidate-seed0",
+  "source_manifest": "setup/verification/2026-10-29-startup-assumption/source.json",
+  "result_success": false,
+  "reason": "active_scan_no_information_gain",
+  "motion_requested": true,
+  "navigation_goals": 6,
+  "initial_rotation_assumed_safe": true,
+  "evaluation_only": true,
+  "evidence_sha256": {
+    "result.json": "ddd72a742920ec967273c0357c74b8ad52aed85b8c15b283d369e1e5fd19a317",
+    "explore.log": "d4f3caf8f60719fa21a111bf8004ad016f1be3ec5c7c157d06e6c7bc6a2c4057"
+  },
+  "reproduction_argv_reference": "setup/verification/2026-10-29-startup-assumption/live-start.json",
+  "hypotheses": [
+    "Map contour error and missing contour need isolated diagnosis; no parameter change proposed here."
+  ],
+  "repair_attempts_for_contour": 0
+}

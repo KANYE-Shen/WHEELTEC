@@ -3,3 +3,10 @@
 *.ps1 text eol=crlf
 *.png binary
 *.pgm binary
+
+# Preserve newly archived verification bytes and checksum manifests
+setup/verification/2026-10-29-startup-assumption/** -text
+setup/verification/2026-10-29-three-stage-workflow/** -text
+setup/verification/2026-10-29-browser-replays/** -text
+setup/verification/2026-10-29-github-three-stage-audit/** -text
+"replay buffer/**" -text

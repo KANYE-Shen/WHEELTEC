@@ -1,0 +1,21 @@
+test_replay_buffer (unittest.loader._FailedTest.test_replay_buffer) ... ERROR
+
+======================================================================
+ERROR: test_replay_buffer (unittest.loader._FailedTest.test_replay_buffer)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_replay_buffer
+Traceback (most recent call last):
+  File "D:\Python\Lib\unittest\loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Python\Lib\unittest\loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "D:\����c��\WHEELTEC\setup\test_replay_buffer.py", line 5, in <module>
+    from replay_buffer import archive_case, verify_case
+ModuleNotFoundError: No module named 'replay_buffer'
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)

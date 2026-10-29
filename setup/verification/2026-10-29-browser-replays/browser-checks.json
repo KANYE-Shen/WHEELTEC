@@ -1,0 +1,74 @@
+{
+  "passed": 12,
+  "total": 12,
+  "results": [
+    {
+      "name": "latest-failure",
+      "check": "real recorded frames render",
+      "passed": true,
+      "detail": {
+        "frames": 12
+      }
+    },
+    {
+      "name": "latest-failure",
+      "check": "recorded assessment preserved",
+      "passed": true
+    },
+    {
+      "name": "latest-failure",
+      "check": "timeline changes displayed time",
+      "passed": true
+    },
+    {
+      "name": "latest-failure",
+      "check": "laser layer toggles",
+      "passed": true
+    },
+    {
+      "name": "latest-failure",
+      "check": "play advances timeline",
+      "passed": true
+    },
+    {
+      "name": "latest-failure",
+      "check": "no browser runtime errors",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "historical-reference",
+      "check": "real recorded frames render",
+      "passed": true,
+      "detail": {
+        "frames": 234
+      }
+    },
+    {
+      "name": "historical-reference",
+      "check": "recorded assessment preserved",
+      "passed": true
+    },
+    {
+      "name": "historical-reference",
+      "check": "timeline changes displayed time",
+      "passed": true
+    },
+    {
+      "name": "historical-reference",
+      "check": "laser layer toggles",
+      "passed": true
+    },
+    {
+      "name": "historical-reference",
+      "check": "play advances timeline",
+      "passed": true
+    },
+    {
+      "name": "historical-reference",
+      "check": "no browser runtime errors",
+      "passed": true,
+      "detail": []
+    }
+  ]
+}

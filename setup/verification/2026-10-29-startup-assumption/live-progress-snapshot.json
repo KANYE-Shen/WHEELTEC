@@ -1,0 +1,91 @@
+{
+  "frames": 221,
+  "last_sim_time": 110.432,
+  "state": "incomplete",
+  "reason": "active_scan_no_information_gain",
+  "goals": [
+    {
+      "target": [
+        1.092229283441497,
+        1.7964116918014161
+      ],
+      "success": true,
+      "result": "4"
+    },
+    {
+      "target": [
+        2.1922292998327744,
+        2.1964116977618806
+      ],
+      "success": true,
+      "result": "4"
+    },
+    {
+      "target": [
+        2.3422293020679485,
+        1.8964116932915323
+      ],
+      "success": true,
+      "result": "4"
+    },
+    {
+      "target": [
+        2.2922293013228905,
+        1.5880222723081565
+      ],
+      "success": true,
+      "result": "4"
+    },
+    {
+      "target": [
+        3.2922293162240517,
+        2.7475224239411897
+      ],
+      "success": true,
+      "result": "4"
+    },
+    {
+      "target": [
+        3.1421402465225774,
+        1.0353375814958952
+      ],
+      "success": true,
+      "result": "4"
+    }
+  ],
+  "active_scans": [
+    {
+      "plan": {
+        "safe": true,
+        "reason": "initial_rotation_assumed_safe",
+        "clearance_source": "assumed_start",
+        "clearance_proven": false,
+        "checked_cells": 0,
+        "angle_rad": 6.283185307179586,
+        "expected_new_directions": null
+      },
+      "started_ros": 3.502,
+      "motion_requested": true,
+      "initial_assumption_used": true,
+      "observed_rotation_rad": 7.003791918126383,
+      "elapsed_ros": 9.454,
+      "success": true,
+      "reason": "succeeded"
+    },
+    {
+      "plan": {
+        "safe": true,
+        "reason": "no_expected_gain",
+        "checked_cells": 187,
+        "clearance_source": "estimated_map",
+        "clearance_proven": true,
+        "angle_rad": null,
+        "expected_new_directions": 0
+      },
+      "started_ros": 89.112,
+      "motion_requested": false,
+      "initial_assumption_used": false
+    }
+  ],
+  "not_final_acceptance": true
+}

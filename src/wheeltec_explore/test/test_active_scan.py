@@ -55,3 +55,26 @@ class ActiveScanSafetyTests(unittest.TestCase):
         self.assertFalse(budget.take())
 
 if __name__=='__main__':unittest.main()
+
+class StartupAssumptionTests(unittest.TestCase):
+    def test_startup_assumption_skips_unknown_and_returns_full_turn(self):
+        grid=room();grid.data[:]=[-1]*len(grid.data)
+        import inspect
+        self.assertIn('assume_start_safe',inspect.signature(choose_scan).parameters)
+        result=choose_scan(grid,(0,0,0),.35,90,270,assume_start_safe=True)
+        self.assertAlmostEqual(result['angle_rad'],2*math.pi)
+        self.assertEqual(result['clearance_source'],'assumed_start')
+        self.assertFalse(result['clearance_proven'])
+        self.assertEqual(result['checked_cells'],0)
+    def test_exception_requires_first_call_before_any_navigation(self):
+        import wheeltec_explore.active_scan as policy
+        startup_assumption_allowed=getattr(policy,'startup_assumption_allowed',None)
+        self.assertTrue(callable(startup_assumption_allowed),'startup permission policy missing')
+        self.assertTrue(startup_assumption_allowed(True,True,[],[]))
+        self.assertFalse(startup_assumption_allowed(True,False,[],[]))
+        self.assertFalse(startup_assumption_allowed(False,True,[],[]))
+        self.assertFalse(startup_assumption_allowed(True,True,[{}],[]))
+        self.assertFalse(startup_assumption_allowed(True,True,[],[{}]))
+    def test_regular_scan_still_rejects_unknown(self):
+        grid=room();grid.data[:]=[-1]*len(grid.data)
+        self.assertFalse(choose_scan(grid,(0,0,0),.35,360,270)['safe'])

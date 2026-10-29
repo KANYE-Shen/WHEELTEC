@@ -1,0 +1,34 @@
+[
+  {
+    "name": "latest-failure",
+    "source": "\\\\wsl.localhost\\WHEELTEC-Ubuntu-22.04\\home\\wheeltec\\wheeltec_sim_ws\\data\\runs\\20261028-active-scan-ab-v3\\003_irregular_arc_seed0_angle360",
+    "port": 8778,
+    "url": "http://127.0.0.1:8778/replay.html",
+    "pid": null,
+    "http_status": 200,
+    "html_bytes": 514086,
+    "source_process_sha256": "30558d4b7b2dd2b0c4226aa7480ad3d2d0df5582ec0bcf42d913210d947c1a8d",
+    "source_result_sha256": "dc5f70a834dab8e85b16d77c1a7de0860f32a65252dc4147d78f17126d322789",
+    "frames": 12,
+    "maps": 5,
+    "success": false,
+    "read_only": true,
+    "live": false
+  },
+  {
+    "name": "historical-reference",
+    "source": "\\\\wsl.localhost\\WHEELTEC-Ubuntu-22.04\\home\\wheeltec\\wheeltec_sim_ws\\data\\runs\\20261023-validation-suite-final\\l_shape-spawn1",
+    "port": 8779,
+    "url": "http://127.0.0.1:8779/replay.html",
+    "pid": 37988,
+    "http_status": 200,
+    "html_bytes": 10684623,
+    "source_process_sha256": "a59932a7d54d8d00b5fd5bef91bc701ca19aeab4186148646d27b6e661aa2b98",
+    "source_result_sha256": "df47e8527a904d896bc07ccad7a5020bb8d14909129d9f47159eca80b783bd38",
+    "frames": 234,
+    "maps": 109,
+    "success": true,
+    "read_only": true,
+    "live": false
+  }
+]

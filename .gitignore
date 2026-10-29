@@ -14,3 +14,7 @@ console/frontend/playwright-report/
 .venv/
 .env
 *.token
+
+# Reproducible local replay exports; original ROS evidence and receipts stay indexed
+/setup/verification/2026-10-29-browser-replays/historical-reference/replay.html
+/setup/verification/2026-10-29-browser-replays/latest-failure/replay.html

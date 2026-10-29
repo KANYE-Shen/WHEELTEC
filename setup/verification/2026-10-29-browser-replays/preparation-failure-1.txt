@@ -1,0 +1,1 @@
+Initial display preparation used default Windows GBK when re-reading UTF-8 process JSON; UnicodeDecodeError after first read-only server started. Original simulation files unchanged. Corrected all reads to explicit UTF-8 and verified embedded data before reusing first generated page.

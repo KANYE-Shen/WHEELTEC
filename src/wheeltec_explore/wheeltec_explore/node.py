@@ -23,7 +23,7 @@ from sensor_msgs.msg import LaserScan
 from tf2_ros import Buffer, TransformListener, TransformException
 
 from .defaults import DEFAULTS
-from .active_scan import choose_scan, rotation_clearance, ScanBudget, simulation_observation_allowed
+from .active_scan import choose_scan, rotation_clearance, ScanBudget, simulation_observation_allowed, startup_assumption_allowed
 from .health import MapHealth, MapUnstableError
 from .frontiers import Grid, select_frontiers
 from .policy import RetryBook, completion_state, observation_fresh
@@ -53,7 +53,7 @@ class Explorer(Node):
         angle = self.config['active_scan_angle_deg']
         if not math.isfinite(angle) or not 0 <= angle <= 360:
             raise ValueError('Active scan angle must be between 0 and 360 degrees')
-        if angle:
+        if angle or self.config['initial_rotation_assumed_safe']:
             board = Path('/proc/device-tree/model')
             model = board.read_text() if board.exists() else ''
             if not simulation_observation_allowed(self.get_parameter('use_sim_time').value,
@@ -227,9 +227,13 @@ class Explorer(Node):
 
     def active_observe(self, pose, initial=False):
         """One bounded simulation observation; all motion stays in Nav2's Spin action."""
+        assumed = startup_assumption_allowed(initial,self.config['initial_rotation_assumed_safe'],
+                                             self.report.get('active_scans',[]),self.report.get('goals',[]))
         plan = choose_scan(self.grid(),pose,self.config['robot_radius'],
-                           self.config['active_scan_angle_deg'],self.config['active_scan_fov_deg'])
-        event = dict(plan=plan,started_ros=self.ros_seconds(),motion_requested=False)
+                           self.config['active_scan_angle_deg'],self.config['active_scan_fov_deg'],
+                           assume_start_safe=assumed)
+        event = dict(plan=plan,started_ros=self.ros_seconds(),motion_requested=False,
+                     initial_assumption_used=assumed)
         self.report.setdefault('active_scans',[]).append(event)
         self.status('initial_observation' if initial else 'active_scan',plan['reason'])
         if plan['angle_rad'] is None:
@@ -238,7 +242,7 @@ class Explorer(Node):
             return False,'active_scan_server_unavailable'
         # Recheck after waiting: the map used for permission cannot be an old snapshot.
         fresh_pose = self.position()
-        if fresh_pose is None or not rotation_clearance(self.grid(),fresh_pose,self.config['robot_radius'])['safe']:
+        if fresh_pose is None or (not assumed and not rotation_clearance(self.grid(),fresh_pose,self.config['robot_radius'])['safe']):
             return False,'active_scan_clearance_lost'
         goal = Spin.Goal()
         goal.target_yaw = float(plan['angle_rad'])
@@ -282,7 +286,7 @@ class Explorer(Node):
                 break
             travelled += math.atan2(math.sin(current[2]-previous[2]),math.cos(current[2]-previous[2]))
             previous = current
-            if not rotation_clearance(self.grid(),current,self.config['robot_radius'])['safe']:
+            if not assumed and not rotation_clearance(self.grid(),current,self.config['robot_radius'])['safe']:
                 reason = 'active_scan_clearance_lost'
                 break
             if self.ros_seconds()-start_time >= self.config['active_scan_timeout']:
@@ -363,6 +367,12 @@ class Explorer(Node):
         self.require_health()
         start = self.position()
         self.report['start_pose'] = list(start)
+        if self.config['initial_rotation_assumed_safe'] and self.spin_action is not None:
+            success, reason = self.active_observe(start,initial=True)
+            if not success:
+                self.status('incomplete',reason,map_saved=False,returned=False,
+                            manual_intervention_required=True)
+                return 2
         self.status('exploring','Selecting reachable frontiers')
         stable_empty, attempts, latest_result = 0,0,None
         forced_reason = ''

@@ -25,6 +25,7 @@ def parse_arguments(argv=None):
     parser.add_argument('--realism',choices=['on','off'],default='on')
     parser.add_argument('--viewpoint-strategy',choices=['centroid','visibility'],default='centroid')
     parser.add_argument('--active-scan-angle',type=float,choices=[0.,90.,180.,360.],default=0.)
+    parser.add_argument('--initial-rotation-assumed-safe',action='store_true',help='Simulation-only one-time startup 360 degree assumption; later scans retain clearance checks')
     parser.add_argument('--seed',type=int,default=0)
     parser.add_argument('--noise-scale',type=float,default=1.)
     parser.add_argument('--task-timeout',type=float,default=300.0,help='Explorer ROS-time budget before saving and returning')
@@ -173,6 +174,7 @@ def main(argv=None):
     result={'success':False,'run_dir':str(run),'ros_domain_id':domain,
             'scenario':scene['id'],'spawn_index':args.spawn,'spawn':spawn,
             'viewpoint_strategy':args.viewpoint_strategy,'active_scan_angle_deg':args.active_scan_angle,
+            'initial_rotation_assumed_safe':args.initial_rotation_assumed_safe,
             'realism_mode':args.realism,'seed':args.seed,'noise_scale':args.noise_scale,
             'real_robot_admission_ready':False,
             'task_timeout_ros_seconds':args.task_timeout,'record_requested':args.record,
@@ -274,6 +276,7 @@ def main(argv=None):
                                 '--ros-args','-p','use_sim_time:=true','-p','map_output:='+str(run/'map'),
                                 '-p','update_latest:=false','-p','frontier_viewpoint_strategy:='+args.viewpoint_strategy,
                                 '-p','active_scan_angle_deg:='+str(args.active_scan_angle),
+                                '-p','initial_rotation_assumed_safe:='+str(args.initial_rotation_assumed_safe).lower(),
                                 '-p','expected_status_observers:='+str(2 if args.record else 1),
                                 '-p','task_timeout:='+str(args.task_timeout),
                                 '-p','goal_timeout:=75.0','-p','reference_yaw_rad:=0.0','-p','max_goals:=60',

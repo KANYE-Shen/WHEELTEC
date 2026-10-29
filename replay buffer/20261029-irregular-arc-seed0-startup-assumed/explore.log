@@ -1,0 +1,14 @@
+[INFO] [1793243501.070223375] [wheeltec_explore]: {"state": "starting", "reason": "Waiting for SLAM map, robot transform and Nav2", "elapsed_wall_seconds": 0.0}
+[INFO] [1793243501.821081665] [wheeltec_explore]: {"state": "initial_observation", "reason": "initial_rotation_assumed_safe", "elapsed_wall_seconds": 1.06}
+[INFO] [1793243512.066716867] [wheeltec_explore]: {"state": "exploring", "reason": "Selecting reachable frontiers", "elapsed_wall_seconds": 11.29}
+[INFO] [1793243512.263541697] [wheeltec_explore]: {"state": "exploring", "reason": "Navigating to a frontier approach", "elapsed_wall_seconds": 11.49}
+[INFO] [1793243525.141512043] [wheeltec_explore]: {"state": "exploring", "reason": "Navigating to a frontier approach", "elapsed_wall_seconds": 24.36}
+[INFO] [1793243533.169169106] [wheeltec_explore]: {"state": "exploring", "reason": "Navigating to a frontier approach", "elapsed_wall_seconds": 32.39}
+[INFO] [1793243539.142020656] [wheeltec_explore]: {"state": "exploring", "reason": "Navigating to a frontier approach", "elapsed_wall_seconds": 38.36}
+[INFO] [1793243544.141357334] [wheeltec_explore]: {"state": "exploring", "reason": "Navigating to a frontier approach", "elapsed_wall_seconds": 43.37}
+[INFO] [1793243579.131371496] [wheeltec_explore]: {"state": "exploring", "reason": "Navigating to a frontier approach", "elapsed_wall_seconds": 77.57}
+[INFO] [1793243591.215206895] [wheeltec_explore]: {"state": "active_scan", "reason": "no_expected_gain", "elapsed_wall_seconds": 89.65}
+[INFO] [1793243591.309390767] [wheeltec_explore]: {"state": "saving", "reason": "Saving occupancy grid and SLAM pose graph", "elapsed_wall_seconds": 89.75}
+[INFO] [1793243591.554289017] [wheeltec_explore]: {"state": "returning", "reason": "Returning to the exploration start position", "elapsed_wall_seconds": 89.98}
+[INFO] [1793243612.981255953] [wheeltec_explore]: {"state": "incomplete", "reason": "active_scan_no_information_gain", "elapsed_wall_seconds": 110.61}
+[ros2run]: Process exited with failure 2

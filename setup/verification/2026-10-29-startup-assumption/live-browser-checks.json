@@ -1,0 +1,37 @@
+[
+  {
+    "name": "actual running capture advances",
+    "passed": true,
+    "before": {
+      "index": 208,
+      "frameCount": 209,
+      "follow": true,
+      "playing": false,
+      "selectedTime": 104.5,
+      "mission": "returning",
+      "mapIndex": 107,
+      "trajectoryPoints": 208,
+      "freshness": "receiving"
+    },
+    "after": {
+      "index": 220,
+      "frameCount": 221,
+      "follow": true,
+      "playing": false,
+      "selectedTime": 110.432,
+      "mission": "incomplete",
+      "mapIndex": 113,
+      "trajectoryPoints": 220,
+      "freshness": "receiving"
+    }
+  },
+  {
+    "name": "map or scan rendered",
+    "passed": true
+  },
+  {
+    "name": "no browser runtime errors",
+    "passed": true,
+    "errors": []
+  }
+]
