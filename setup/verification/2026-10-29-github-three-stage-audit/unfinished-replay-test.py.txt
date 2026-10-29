@@ -1,0 +1,47 @@
+import json
+from pathlib import Path
+import tempfile
+import unittest
+from replay_buffer import archive_case, verify_case
+
+class ReplayBufferTests(unittest.TestCase):
+ def setUp(self):
+  self.temp=tempfile.TemporaryDirectory();self.addCleanup(self.temp.cleanup)
+  self.root=Path(self.temp.name);self.source=self.root/'source';self.source.mkdir()
+  self.buffer=self.root/'buffer'
+ def save(self,value):
+  p=self.source/'result.json';p.write_bytes(json.dumps(value).encode()+b'\r\n');return p
+ def test_failure_copies_exact_bytes_and_verifies(self):
+  p=self.save({'success':False,'explorer':{'state':'incomplete','active_scans':[]}})
+  case=archive_case(self.source,self.buffer,'case-1',{'seed':0})
+  self.assertEqual((case/'evidence/result.json').read_bytes(),p.read_bytes())
+  self.assertTrue(verify_case(case)['valid'])
+  d=json.loads((case/'case.json').read_text());self.assertEqual(d['action_outcome'],'not_requested')
+ def test_success_is_not_relabelled_failure(self):
+  self.save({'success':True})
+  with self.assertRaises(ValueError):archive_case(self.source,self.buffer,'success',{})
+ def test_missing_result_is_retained_as_attempt(self):
+  (self.source/'console.log').write_text('interrupted')
+  c=archive_case(self.source,self.buffer,'partial',{'interrupted':True})
+  d=json.loads((c/'case.json').read_text());self.assertEqual(d['outcome'],'missing_result')
+  self.assertTrue(d['attempt']['interrupted'])
+ def test_repeated_id_cannot_overwrite(self):
+  self.save({'success':False});archive_case(self.source,self.buffer,'same',{})
+  with self.assertRaises(FileExistsError):archive_case(self.source,self.buffer,'same',{})
+ def test_path_traversal_is_rejected(self):
+  self.save({'success':False})
+  with self.assertRaises(ValueError):archive_case(self.source,self.buffer,'../escape',{})
+ def test_tampering_is_detected(self):
+  self.save({'success':False});c=archive_case(self.source,self.buffer,'tamper',{})
+  (c/'evidence/result.json').write_text('{}');self.assertFalse(verify_case(c)['valid'])
+ def test_unsuccessful_requested_action_is_distinguished(self):
+  self.save({'success':False,'explorer':{'active_scans':[{'motion_requested':True,'success':False}]}})
+  c=archive_case(self.source,self.buffer,'requested',{})
+  self.assertEqual(json.loads((c/'case.json').read_text())['action_outcome'],'requested')
+ def test_local_artifact_symlink_cannot_import_external_secret(self):
+  self.save({'success':False});secret=self.root/'private';secret.write_text('private')
+  try:(self.source/'console.log').symlink_to(secret)
+  except OSError:self.skipTest('OS symlink privilege unavailable')
+  with self.assertRaises(ValueError):archive_case(self.source,self.buffer,'linked',{})
+
+if __name__=='__main__':unittest.main()

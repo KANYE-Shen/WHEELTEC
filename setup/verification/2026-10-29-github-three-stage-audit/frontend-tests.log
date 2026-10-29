@@ -1,0 +1,13 @@
+
+> wheeltec-console@1.0.0 test
+> vitest run src
+
+
+ RUN  v4.1.12 D:/虚拟c盘/WHEELTEC/console/frontend
+
+
+ Test Files  2 passed (2)
+      Tests  11 passed (11)
+   Start at  12:08:17
+   Duration  568ms (transform 567ms, setup 0ms, import 630ms, tests 6ms, environment 0ms)
+

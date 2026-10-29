@@ -1,0 +1,677 @@
+[
+  {
+    "path": "AGENTS.md",
+    "line": 40,
+    "text": "## 四、分阶段算法优化规划（尚未实现）"
+  },
+  {
+    "path": "AGENTS.md",
+    "line": 42,
+    "text": "### P0：安全主动旋转扫描（下一轮优先）"
+  },
+  {
+    "path": "AGENTS.md",
+    "line": 81,
+    "text": "- **2026-10-29按用户指令采用三阶段，替代旧G0–G5；agent建议的G6–G9已取消。** 阶段一为连接后的订阅确认、安全验证与校准，阶段二为人工参考建图及SLAM Toolbox/Nav2验证，阶段三为自主探索建图。详细清单、停止和回滚见 `robot/准入关卡.md`。"
+  },
+  {
+    "path": "PLAN.md",
+    "line": 13,
+    "text": "原G0–G2合并至阶段一，原G3/G4合并至阶段二，原G5归阶段三；新增G6–G9建议取消。当前阶段一尚未完成，流程变更不构成实车运动授权。各阶段执行范围、停止/回滚和原验收门限见[现行准入清单](robot/准入关卡.md)。人工地图是对照，不替代卷尺等独立测量。以下带日期历史记录里的旧编号仅供追溯。"
+  },
+  {
+    "path": "PLAN.md",
+    "line": 17,
+    "text": "2026-10-28 最新状态：实车只读传感器采样已执行，G0未通过；用户随后断开实车。本轮授权离线修复相机Hz显示、准备G0补齐方案、优先验证新版AGENTS的P0安全主动观测，并将代码和今晚实测证据推送工作分支。更早章节的“未连接/不推送”为当时约束，由本段更新。G1及运动仍未获准；源时间戳、系统时钟、odom/TF和物理测量待现场补采。"
+  },
+  {
+    "path": "PLAN.md",
+    "line": 19,
+    "text": "实施顺序：相机接收Hz与时间健康解耦 → G0严格检查及驱动候选离线审计 → P0仿真安全扫掠/观测预算 → 同种子0/90/180/360对照 → 按证据决定P1/P2，不盲调SLAM或改动RGB-D。详见 [本轮计划](docs/superpowers/plans/2026-10-28-offline-night.md) 和 [夜间交接](setup/verification/2026-10-28-night/README.md)。"
+  },
+  {
+    "path": "PLAN.md",
+    "line": 83,
+    "text": "网页终端已交付。按用户最新授权，本轮只研究和验证不规则弧形、波浪边界与细边框下的前沿视点；物理参数保持待测，不连接实车，不推送仓库。先用成熟论文/源码核实方法，再做同布局、同起点、同种子的单变量A/B。原安全距离、完成判据、现实化参数与独立验收门限不变。当前可见视点策略显式选择 visibility，默认 centroid 保留；不以算法层可见率代替完整探索成功率。研究与实施见 [研究记录](setup/verification/2026-10-27-irregular-frontier-research.md) 和 [实施计划](docs/superpowers/plans/2026-10-27-irregular-frontiers.md)。"
+  },
+  {
+    "path": "PLAN.md",
+    "line": 85,
+    "text": "本机已登记2026-10-28 04:00（香港时间）未完成续作检查；完成则静默，活跃任务不重复启动，依赖电脑开机联网并保持登录。实车G0–G5及书面确认要求继续生效。"
+  },
+  {
+    "path": "PLAN.md",
+    "line": 89,
+    "text": "本夜结论：保留原默认centroid，新增visibility仅供显式试验。合成60对单步收益提高；历史ROS快照39提高/3退化/7持平，16缺录。正式realism=on仍双方0/10；名义off对照经统一退出审计，原策略功能通过10/10、候选5/10（原始汇总为6/10，保留），不能宣称整体成功率提高。完整失败、保存地图评分与后续限制见上述结果报告；本地修改未推送，实车关卡未通过。"
+  },
+  {
+    "path": "PLAN.md",
+    "line": 93,
+    "text": "用户已连接热点并授权准备适配器。192.168.0.100的SSH身份与既有记录一致；车端独立只读适配器已启动，本机8766网页通过SSH连接，WebSocket实测connected=true、kind=robot、control.enabled=false。密码及令牌未写入报告或仓库；车端令牌按0600保存。当前scan/camera/odom/map均无消息，没有启动传感器驱动、底盘、安全控制或自主任务。G0尚未通过，不以网页连接代替现场核查；下一步先完成G0检查和对应书面确认，运动关卡不变。证据见 setup/verification/2026-10-28-robot-console-readonly.json。"
+  },
+  {
+    "path": "PLAN.md",
+    "line": 95,
+    "text": "2026-10-28 G0执行更新：已收到“通过关卡0”并完成首次15秒只读采样；实际接口检查未通过（scan/odom各0消息、0发布者、无TF链），另发现车端系统时间2000年。原始失败保留，不启动底盘或运动，不据此进入G1。只读网页仍连接；下一步的独立传感器启动与校时须明确处理G0现有约束。证据见setup/verification/2026-10-28-g0/summary.json及2026-10-28-debug-g0-no-sensor-publishers.md。"
+  },
+  {
+    "path": "PLAN.md",
+    "line": 98,
+    "text": "2026-10-28 更新：用户明确授权“启动，此后完成G0实测”后，仅启动独立相机和激光驱动。激光15秒检查151消息、约10.02Hz、时间戳递增；相机持续收到，但原始时间戳周期性约0.8秒未来跳变。网页闪烁已修复，真实只读相机专项7/7、后端27/27、前端6/6；不等于旧仿真全套验收通过。见[相机报告](setup/verification/2026-10-28-camera-flicker/README.md)。odom/TF仍缺失、系统时钟仍2000年，G0未通过；未启动底盘、SLAM、Nav2或运动。历史失败均保留。"
+  },
+  {
+    "path": "PLAN.md",
+    "line": 100,
+    "text": "2026-10-29凌晨结果：P0仅实现默认关闭的仿真原型；最终0/40、首目标0/40，37 incomplete、3 map_unstable，未通过任务验收。状态订阅握手消除本批次终态漏收；Tf消费者滞后与安全空间未知保留待排查。相机Hz/告警离线7/7；G0候选未部署，实车准入不推进。原v1/v2及smoke全部保留，详见夜间最终记录。"
+  },
+  {
+    "path": "README.md",
+    "line": 19,
+    "text": "原G0–G2合并至阶段一，原G3/G4合并至阶段二，原G5归阶段三；新增G6–G9建议取消。当前阶段一尚未完成，流程变更不构成实车运动授权。各阶段执行范围、停止/回滚和原验收门限见[现行准入清单](robot/准入关卡.md)。人工地图是对照，不替代卷尺等独立测量。以下带日期历史记录里的旧编号仅供追溯。"
+  },
+  {
+    "path": "README.md",
+    "line": 38,
+    "text": "- 2026-10-28 已执行只读实车采样：雷达约10.02Hz，静止有效录包60.775秒/610条；相机有画面但采集时间戳异常，里程计与TF未齐。G0未通过，未授权轮子运动。当前实车已断开，继续离线验证。"
+  },
+  {
+    "path": "README.md",
+    "line": 44,
+    "text": "新版 AGENTS.md 已按用户附件原样替换，旧版保存在本轮验证目录。实车原始记录见 [G0记录](setup/verification/2026-10-28-g0/sensors-on-v1/README.md)，相机画面修复见 [专项报告](setup/verification/2026-10-28-camera-flicker/README.md)。相机接收频率与采集时间健康分开显示；源时间异常仍告警，断流仍标记过期。Hz 栏修复仅完成离线回放，尚未部署到断开的实车。"
+  },
+  {
+    "path": "README.md",
+    "line": 46,
+    "text": "新阶段优先验证安全主动观测：默认关闭，仅隔离仿真允许；完整旋转扫掠范围不能证明为已知空闲时拒绝旋转。最终四档角度同种子对照为0/40，首目标0/40，未证明成功率提高。相机Hz离线专项7/7，源驱动修复和本车部署仍待下次G0。复现命令和未验证项见 [夜间交接记录](setup/verification/2026-10-28-night/README.md)。单元测试或拒绝运动检查不能算作完整探索通过。"
+  },
+  {
+    "path": "README.md",
+    "line": 177,
+    "text": "| 2026-10-27 | 更新现实化闭环、残余前沿分类、心跳丢失停车及 G0–G5 书面准入约定；未开展实车运动。 |"
+  },
+  {
+    "path": "README.md",
+    "line": 187,
+    "text": "网页终端已交付。按用户最新授权，本轮只研究和验证不规则弧形、波浪边界与细边框下的前沿视点；物理参数保持待测，不连接实车，不推送仓库。先用成熟论文/源码核实方法，再做同布局、同起点、同种子的单变量A/B。原安全距离、完成判据、现实化参数与独立验收门限不变。当前可见视点策略显式选择 visibility，默认 centroid 保留；不以算法层可见率代替完整探索成功率。研究与实施见 [研究记录](setup/verification/2026-10-27-irregular-frontier-research.md) 和 [实施计划](docs/superpowers/plans/2026-10-27-irregular-frontiers.md)。"
+  },
+  {
+    "path": "README.md",
+    "line": 189,
+    "text": "本机已登记2026-10-28 04:00（香港时间）未完成续作检查；完成则静默，活跃任务不重复启动，依赖电脑开机联网并保持登录。实车G0–G5及书面确认要求继续生效。"
+  },
+  {
+    "path": "README.md",
+    "line": 193,
+    "text": "本夜结论：保留原默认centroid，新增visibility仅供显式试验。合成60对单步收益提高；历史ROS快照39提高/3退化/7持平，16缺录。正式realism=on仍双方0/10；名义off对照经统一退出审计，原策略功能通过10/10、候选5/10（原始汇总为6/10，保留），不能宣称整体成功率提高。完整失败、保存地图评分与后续限制见上述结果报告；本地修改未推送，实车关卡未通过。"
+  },
+  {
+    "path": "README.md",
+    "line": 197,
+    "text": "用户已连接热点并授权准备适配器。192.168.0.100的SSH身份与既有记录一致；车端独立只读适配器已启动，本机8766网页通过SSH连接，WebSocket实测connected=true、kind=robot、control.enabled=false。密码及令牌未写入报告或仓库；车端令牌按0600保存。当前scan/camera/odom/map均无消息，没有启动传感器驱动、底盘、安全控制或自主任务。G0尚未通过，不以网页连接代替现场核查；下一步先完成G0检查和对应书面确认，运动关卡不变。证据见 setup/verification/2026-10-28-robot-console-readonly.json。"
+  },
+  {
+    "path": "README.md",
+    "line": 199,
+    "text": "2026-10-28 G0执行更新：已收到“通过关卡0”并完成首次15秒只读采样；实际接口检查未通过（scan/odom各0消息、0发布者、无TF链），另发现车端系统时间2000年。原始失败保留，不启动底盘或运动，不据此进入G1。只读网页仍连接；下一步的独立传感器启动与校时须明确处理G0现有约束。证据见setup/verification/2026-10-28-g0/summary.json及2026-10-28-debug-g0-no-sensor-publishers.md。"
+  },
+  {
+    "path": "README.md",
+    "line": 202,
+    "text": "2026-10-28 更新：用户明确授权“启动，此后完成G0实测”后，仅启动独立相机和激光驱动。激光15秒检查151消息、约10.02Hz、时间戳递增；相机持续收到，但原始时间戳周期性约0.8秒未来跳变。网页闪烁已修复，真实只读相机专项7/7、后端27/27、前端6/6；不等于旧仿真全套验收通过。见[相机报告](setup/verification/2026-10-28-camera-flicker/README.md)。odom/TF仍缺失、系统时钟仍2000年，G0未通过；未启动底盘、SLAM、Nav2或运动。历史失败均保留。"
+  },
+  {
+    "path": "console/README.md",
+    "line": 124,
+    "text": "安全审查补充：实车只读模式不创建底盘停止能力，不能把“释放网页租约”当作底盘停车确认。只读时软件停车按钮禁用，空格不发送底盘请求；维护PTY拒绝开启。配置并通过对应关卡的安全链后，PTY必须等待最终watchdog在停止请求之后新的、未解锁的状态确认且输出仍独占；缺失确认则保持关闭。完整Shell仍是账户权限。此限制来自已批准计划的“维护终端启用前先停车”，不能用未验证的停止能力绕过；实车仍未连接。补强增加了先失败后通过的HTTP/WS回归，后端共25/25。最近完整真实仿真为补强前9/12；补强后完成单元回归与构建，真实watchdog确认分支未经实车验证，不把旧仿真结果称为该分支的实测证明。"
+  },
+  {
+    "path": "console/frontend/package-lock.json",
+    "line": 85,
+    "text": "      \"integrity\": \"sha512-gZbepsdh3WDtgZKWL+vTPh71LSBrm/Y4/QDZBVCcYfmeTEEuoOYwlSy+G1StfJg+/Zy550u/3TATbm7qDbbMtg==\","
+  },
+  {
+    "path": "console/frontend/package-lock.json",
+    "line": 129,
+    "text": "      \"integrity\": \"sha512-ejHwrQQYcm9xnTivShn2IDOlIzInN34AXskvq9QicvCtEzq1Vzclu/tKF8Jq1Cg8JG2GL6/EmjgsCT7lXepE3g==\","
+  },
+  {
+    "path": "console/frontend/package-lock.json",
+    "line": 161,
+    "text": "      \"integrity\": \"sha512-G7sHYigPY17oO5SYWnfD/0MTBwVR781S/JI643e/JhUYgVgWE/61SoW3NH9KWUKyKq5LVh3npif99Wkt6j86Jw==\","
+  },
+  {
+    "path": "console/frontend/package-lock.json",
+    "line": 215,
+    "text": "      \"integrity\": \"sha512-OZ6+oaK7GMyg3IfCpj8JOmn8n+w2rJbDT0LLfVDTLb1ZFeKDh3AiNELgCMUw175IJHSkLl74hG0M0VLsvx+gag==\","
+  },
+  {
+    "path": "console/frontend/package-lock.json",
+    "line": 328,
+    "text": "      \"integrity\": \"sha512-kXXoiPVVGQcnIYGOeaovwOURpniDBpSq4A03qkQ+BMQqtGG6HYap3xne9C1O1yo4TR3qxlCX5IqqmX6fFo2Lqg==\","
+  },
+  {
+    "path": "console/frontend/package-lock.json",
+    "line": 345,
+    "text": "      \"integrity\": \"sha512-5YfKeeI8qWfBZIX+u2xZC3Zlb3Os/gLS2sbEKM+I4ZOcsWmHS2WLysCcQZDAFRslDUU5Oiq44gf6PYN1vGwG5A==\","
+  },
+  {
+    "path": "console/frontend/package-lock.json",
+    "line": 430,
+    "text": "      \"integrity\": \"sha512-78XJTJkvPs0kz2w61301PJjXl4g7q3JqiYMZ/M/yVI73EHBrCRTgkhu9oqG7vPqq+a/yadEW8aD+agKlk5xrmg==\","
+  },
+  {
+    "path": "console/frontend/package-lock.json",
+    "line": 764,
+    "text": "      \"integrity\": \"sha512-LI9u/+laYG4Ds1TDKSJW2YPrIlcVYOwi2fUC6xB43lueCjgxV4lffOCZCtYFiH6TNOX+tQKXx97T4IKHbhyHEQ==\","
+  },
+  {
+    "path": "console/frontend/package-lock.json",
+    "line": 874,
+    "text": "      \"integrity\": \"sha512-zkZrXYwNlIcSUmcwY2DpsaDHr0XjVUeQHCuSunG3eQD7/5Wn/DvI7OMUE8NRRweK87yG8ebJ1xGOzmwpMsbZQA==\","
+  },
+  {
+    "path": "console/frontend/package-lock.json",
+    "line": 1100,
+    "text": "      \"integrity\": \"sha512-qDgtS6juN3/k97y4kcD6XLFpXEo4f6CnG8lTOGYwlhrUYTrMyhN0WHdZCPAW5rqS0MqQG7qI7dxnjugt6QB39Q==\","
+  },
+  {
+    "path": "console/frontend/package-lock.json",
+    "line": 1235,
+    "text": "      \"integrity\": \"sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==\","
+  },
+  {
+    "path": "console/frontend/package-lock.json",
+    "line": 1256,
+    "text": "      \"integrity\": \"sha512-ufFd2Xi92OAVPYsy+P4n7/U7e68fex0+Ee8gSG9KX7eo084CWiQ4sdxktvdl0bOPupXtVJPY19zk6EwWqUQ8lg==\","
+  },
+  {
+    "path": "console/frontend/package-lock.json",
+    "line": 1266,
+    "text": "      \"integrity\": \"sha512-h/NUaSyG5EyxBIp8YRxo4RMe2/qQgvyowRwVMzhYhBCONbW8PUsg4lkFMrhgZhUe5z3L3MiLDuvyJ/CaPa2A8A==\","
+  },
+  {
+    "path": "console/frontend/package-lock.json",
+    "line": 1332,
+    "text": "      \"integrity\": \"sha512-La0KD0vGkVkSk6K+piWDKRUyg8Rl5iAIKRMH0vMJI0Eg47bq1eOxmoObAaQG37WMW9MSyk7Cs8EIWwJC1PtzKA==\","
+  },
+  {
+    "path": "console/frontend/package-lock.json",
+    "line": 1411,
+    "text": "      \"integrity\": \"sha512-NKlVKCr5QnCe8jijdMnmkpHHU+WTqiLFR6G0pHji9uRjXK9xJl1k1nTw6F3pOOj2PDcsDt2GKQMI7wIsaT491w==\","
+  },
+  {
+    "path": "console/frontend/package-lock.json",
+    "line": 1425,
+    "text": "      \"integrity\": \"sha512-ko1y1Qgb/slzQ9mr+b89Cuqud8WG1TKtsPD8r7ZUBdvVOGt85Af2HwCqHujrhwJq95hs/9RM7fcAPg57o1vlzw==\","
+  },
+  {
+    "path": "console/frontend/package-lock.json",
+    "line": 1504,
+    "text": "      \"integrity\": \"sha512-khTmKu5NGYTotqcYo8Bew2k4RAE9PuXRSFRXG2lQBrCEQHyeQ/vX6gKMxfokwywBsLiXZMnHsmWMG1pnO8J7uQ==\","
+  },
+  {
+    "path": "console/frontend/package-lock.json",
+    "line": 1538,
+    "text": "      \"integrity\": \"sha512-LFUqIIAwpzsIuevnKnsR9qnStBcgzPShTX61lBwN9uFkkf8o8zLiebEjbW8AYtZiF+1YKDWfdt/pWDtMuG8Xwg==\","
+  },
+  {
+    "path": "console/frontend/package-lock.json",
+    "line": 1657,
+    "text": "      \"integrity\": \"sha512-WUj2qlxaQtO4g6Pq5c29GTcWGDyd8itL8zTlipgECz3JesAiiOKotd8JU6otB3PACgG6xkJUyVhboMS+bje/jA==\","
+  },
+  {
+    "path": "console/frontend/package-lock.json",
+    "line": 1677,
+    "text": "      \"integrity\": \"sha512-KfYbmpRm0VbLjEvVa9yGwCi9GI34xvi7A/HXYWQO65CSD2u3MczUJSuwXKFIxlGsgBQizV9q5J9NHj4VG0n+pA==\","
+  },
+  {
+    "path": "console/frontend/package-lock.json",
+    "line": 1783,
+    "text": "      \"integrity\": \"sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==\","
+  },
+  {
+    "path": "console/frontend/package-lock.json",
+    "line": 1790,
+    "text": "      \"integrity\": \"sha512-uKdg2G3GNCKQn9byYOpxbGqrT2fGO5KRt5J/8b3pok8rT6qxGWF6hxMyJiEYtAf+FVyYuD9hRaDqX5uPFYJ4ZQ==\","
+  },
+  {
+    "path": "console/frontend/package-lock.json",
+    "line": 1892,
+    "text": "      \"integrity\": \"sha512-LJlKCCAUFKOuZxipUdYw1NzIITEsPcgyOG9LkvRJvuKj/bRzbuRY0ARXvL0pWGpsZvn8jku+LMep2eU0seHp8g==\","
+  },
+  {
+    "path": "console/frontend/package-lock.json",
+    "line": 1942,
+    "text": "      \"integrity\": \"sha512-z6F7K9bV85EfseRCp2bzrpyQ0Gkw1uLoCel9XBVWPg/TjRj94SkJzUTGfOa4bs7iJvBWtQG0Wq7wnI0syw3EBQ==\","
+  },
+  {
+    "path": "console/frontend/package-lock.json",
+    "line": 2004,
+    "text": "      \"integrity\": \"sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==\","
+  },
+  {
+    "path": "console/frontend/package-lock.json",
+    "line": 2331,
+    "text": "      \"integrity\": \"sha512-a4UGQaWPH59mOXUYnAG2ewncQS4i4F43Tv3JoAM+s2VDAmS9NsK8GpDMLrCHPksFT7h3K6TOoUNn2pb7RoXx4g==\","
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-27-irregular-frontiers.md",
+    "line": 3,
+    "text": "> 执行方式：executing-plans。用户已授权夜间连续研究、实现、验证；本地分支，不推送，不接实车。"
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-27-irregular-frontiers.md",
+    "line": 20,
+    "text": "- [x] 更新 README/PLAN/AGENTS、调试与结果报告，保留全部失败和原始批次；审核与本地提交，不推送。"
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-27-irregular-frontiers.md",
+    "line": 37,
+    "text": "本轮完成：候选未获得闭环收益，默认centroid保留；正式on双方0/10，off严格10/10对5/10（raw6/10保留）；84项回归通过，45份真实仿真试验含失败全部保留。未推送、未连接实车。"
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-28-offline-night.md",
+    "line": 3,
+    "text": "目标：修复相机Hz栏；完成G0可离线修复和明确待验方案；按新版AGENTS的P0优先实现安全主动观测并做单变量仿真A/B；实测证据与更改分项提交推送。实车已断开，不尝试连接或运动。"
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-28-offline-night.md",
+    "line": 7,
+    "text": "- [x] G0：审计时间戳换秒、系统时钟、odom/TF及检查工具；写离线回归和修复/部署步骤，不伪造实际通过。"
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-28-offline-night.md",
+    "line": 13,
+    "text": "各步产物写setup/verification/2026-10-28-night/并更新轮次索引。原始批次新编号，不重跑覆盖。G0缺硬件数据不能离线声称验收完成；不进入G1。"
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-28-offline-night.md",
+    "line": 17,
+    "text": "最终40/40已完成、0/40成功，不提升或部署候选。所有失败及部分批次已归档；最终推送核验后完成离线交付。物理G0、正向旋转与sim-to-real仍未验证。"
+  },
+  {
+    "path": "docs/superpowers/plans/2026-10-28-offline-night.md",
+    "line": 19,
+    "text": "离线交付已完成并远端核验；task.completed只结束本轮离线工作，不代表G0或算法独立验收通过。未验证项与原始失败按最终报告保留。"
+  },
+  {
+    "path": "robot/2026-10-28-实车准入补充.md",
+    "line": 3,
+    "text": "本轮实车已经断开，以下为下次现场准备，不是启动或运动授权。G0仍未通过；G1–G5仍须逐关书面确认。现有原准入流程见robot/准入关卡.md。"
+  },
+  {
+    "path": "robot/2026-10-28-实车准入补充.md",
+    "line": 5,
+    "text": "## G0：只读补采清单"
+  },
+  {
+    "path": "robot/2026-10-28-实车准入补充.md",
+    "line": 11,
+    "text": "| 相机 | 持续接收、源stamp无倒退/未来、raw/compressed同帧一致 | 源时间不合格即G0失败；画面按接收时间显示不替代此项 |"
+  },
+  {
+    "path": "robot/2026-10-28-实车准入补充.md",
+    "line": 20,
+    "text": "G0回滚：本轮只读检查无配置变更，退出检查器并保留新文件即可；任何后续维护都先备份原安装/启动方式，失败恢复原overlay/参数并重新采样。恢复旧版不等于G0通过。网络断开时不自动重连、重启或恢复控制。"
+  },
+  {
+    "path": "robot/2026-10-28-实车准入补充.md",
+    "line": 26,
+    "text": "目前主动观测A/B尚未证明任务成功率提升。完整扫掠范围有未知格时，P0应停止并请求人工介入；当前实车不建议进入G1，更不建议自主探索。后续需要先取得真实有效FOV、足迹和已有安全空间证据，才决定仿真模型是否应调整。不要把轮子离地、人工手扶或“附近看着空”当作软件已证明可旋转。"
+  },
+  {
+    "path": "robot/2026-10-28-实车准入补充.md",
+    "line": 28,
+    "text": "G1/G2阶段的硬件watchdog、急停、链路失效、速度/加速度/制动与yaw校准仍按原关卡清单，由人在现场操作；本文件不提供启动底盘或转轮命令。每关交付检查、预期值、停止与回滚后等待对应“通过关卡N”。"
+  },
+  {
+    "path": "robot/README.md",
+    "line": 9,
+    "text": "阶段一：连接订阅、安全验证和校准；阶段二：人工参考建图、SLAM Toolbox/Nav2验证；阶段三：自主探索建图。完整范围、读数及停止/回滚见[准入清单](准入关卡.md)。当前阶段一未完成，无新运动批准。旧G6–G9建议已取消，历史编号不作为现行待办。"
+  },
+  {
+    "path": "robot/README.md",
+    "line": 64,
+    "text": "安全审查补充：实车只读模式不创建底盘停止能力，不能把“释放网页租约”当作底盘停车确认。只读时软件停车按钮禁用，空格不发送底盘请求；维护PTY拒绝开启。配置并通过对应关卡的安全链后，PTY必须等待最终watchdog在停止请求之后新的、未解锁的状态确认且输出仍独占；缺失确认则保持关闭。完整Shell仍是账户权限。此限制来自已批准计划的“维护终端启用前先停车”，不能用未验证的停止能力绕过；实车仍未连接。补强增加了先失败后通过的HTTP/WS回归，后端共25/25。最近完整真实仿真为补强前9/12；补强后完成单元回归与构建，真实watchdog确认分支未经实车验证，不把旧仿真结果称为该分支的实测证明。"
+  },
+  {
+    "path": "robot/calibration/2026-10-27.json",
+    "line": 20,
+    "text": "        \"basis\": \"Engineering assumption pending G0-G2 measurements\","
+  },
+  {
+    "path": "robot/calibration/2026-10-27.json",
+    "line": 30,
+    "text": "        \"basis\": \"Engineering assumption pending G0-G2 measurements\","
+  },
+  {
+    "path": "robot/calibration/2026-10-27.json",
+    "line": 40,
+    "text": "        \"basis\": \"Engineering assumption pending G0-G2 measurements\","
+  },
+  {
+    "path": "robot/calibration/2026-10-27.json",
+    "line": 50,
+    "text": "        \"basis\": \"Engineering assumption pending G0-G2 measurements\","
+  },
+  {
+    "path": "robot/calibration/2026-10-27.json",
+    "line": 60,
+    "text": "        \"basis\": \"Engineering assumption pending G0-G2 measurements\","
+  },
+  {
+    "path": "robot/calibration/2026-10-27.json",
+    "line": 70,
+    "text": "        \"basis\": \"Engineering assumption pending G0-G2 measurements\","
+  },
+  {
+    "path": "robot/calibration/2026-10-27.json",
+    "line": 80,
+    "text": "        \"basis\": \"Engineering assumption pending G0-G2 measurements\","
+  },
+  {
+    "path": "robot/calibration/2026-10-27.json",
+    "line": 90,
+    "text": "        \"basis\": \"Engineering assumption pending G0-G2 measurements\","
+  },
+  {
+    "path": "robot/calibration/2026-10-27.json",
+    "line": 122,
+    "text": "        \"basis\": \"Engineering assumption pending G0-G2 measurements\","
+  },
+  {
+    "path": "robot/calibration/2026-10-27.json",
+    "line": 132,
+    "text": "        \"basis\": \"Engineering assumption pending G0-G2 measurements\","
+  },
+  {
+    "path": "robot/calibration/2026-10-27.json",
+    "line": 154,
+    "text": "        \"basis\": \"Engineering assumption pending G0-G2 measurements\","
+  },
+  {
+    "path": "robot/calibration/2026-10-27.json",
+    "line": 164,
+    "text": "        \"basis\": \"Engineering assumption pending G0-G2 measurements\","
+  },
+  {
+    "path": "robot/calibration/2026-10-27.json",
+    "line": 174,
+    "text": "        \"basis\": \"Engineering assumption pending G0-G2 measurements\","
+  },
+  {
+    "path": "robot/calibration/2026-10-27.json",
+    "line": 184,
+    "text": "        \"basis\": \"Engineering assumption pending G0-G2 measurements\","
+  },
+  {
+    "path": "robot/calibration/2026-10-27.json",
+    "line": 194,
+    "text": "        \"basis\": \"Engineering assumption pending G0-G2 measurements\","
+  },
+  {
+    "path": "robot/calibration/2026-10-27.json",
+    "line": 204,
+    "text": "        \"basis\": \"Engineering assumption pending G0-G2 measurements\","
+  },
+  {
+    "path": "robot/calibration/2026-10-27.json",
+    "line": 214,
+    "text": "        \"basis\": \"Engineering assumption pending G0-G2 measurements\","
+  },
+  {
+    "path": "robot/calibration/2026-10-27.json",
+    "line": 224,
+    "text": "        \"basis\": \"Engineering assumption pending G0-G2 measurements\","
+  },
+  {
+    "path": "robot/calibration/2026-10-27.json",
+    "line": 256,
+    "text": "        \"basis\": \"Engineering assumption pending G0-G2 measurements\","
+  },
+  {
+    "path": "robot/calibration/2026-10-27.json",
+    "line": 266,
+    "text": "        \"basis\": \"Engineering assumption pending G0-G2 measurements\","
+  },
+  {
+    "path": "robot/calibration/2026-10-27.json",
+    "line": 276,
+    "text": "        \"basis\": \"Engineering assumption pending G0-G2 measurements\","
+  },
+  {
+    "path": "robot/calibration/2026-10-27.json",
+    "line": 286,
+    "text": "        \"basis\": \"Engineering assumption pending G0-G2 measurements\","
+  },
+  {
+    "path": "robot/calibration/2026-10-27.json",
+    "line": 296,
+    "text": "        \"basis\": \"Engineering assumption pending G0-G2 measurements\","
+  },
+  {
+    "path": "robot/calibration/2026-10-27.json",
+    "line": 306,
+    "text": "        \"basis\": \"Engineering assumption pending G0-G2 measurements\","
+  },
+  {
+    "path": "robot/calibration/2026-10-27.json",
+    "line": 316,
+    "text": "        \"basis\": \"Engineering assumption pending G0-G2 measurements\","
+  },
+  {
+    "path": "robot/calibration/2026-10-27.json",
+    "line": 326,
+    "text": "        \"basis\": \"Engineering assumption pending G0-G2 measurements\","
+  },
+  {
+    "path": "robot/calibration/2026-10-27.json",
+    "line": 336,
+    "text": "        \"basis\": \"Engineering assumption pending G0-G2 measurements\","
+  },
+  {
+    "path": "robot/test_inspect_interfaces.py",
+    "line": 88,
+    "text": "class G0ClockRegressionTests(unittest.TestCase):"
+  },
+  {
+    "path": "robot/test_safety.py",
+    "line": 96,
+    "text": "        with self.assertRaises(ValueError):self.check(1,'通过关卡1')"
+  },
+  {
+    "path": "robot/准入关卡.md",
+    "line": 3,
+    "text": "更新：2026-10-29，按用户最新指令取代旧G0–G5流程；agent新增G6–G9建议已取消。当前阶段一尚未完成，三个阶段均未验收通过。流程重排不构成本次实车运动授权。"
+  },
+  {
+    "path": "robot/准入关卡.md",
+    "line": 7,
+    "text": "每阶段先交付检查清单、预期读数、允许操作、速度/时限、停止条件和回滚办法，取得用户对具体实测范围的明确书面确认后执行；阶段结束另记验收结果。物理操作由现场操作者执行。阶段一内连续完成订阅、安全和校准，不再设旧G0/G1/G2三个独立关卡，但必须先静止确认、再验证停车、最后低速校准。未通过前项就停止后续操作。"
+  },
+  {
+    "path": "robot/现场测量表.md",
+    "line": 25,
+    "text": "## 2026-10-28 首次G0只读采样（未通过）"
+  },
+  {
+    "path": "robot/现场测量表.md",
+    "line": 27,
+    "text": "- 授权：用户回复“通过关卡0”；仅允许本轮只读核查，不等于接口验收合格，也不批准G1。"
+  },
+  {
+    "path": "robot/现场测量表.md",
+    "line": 37,
+    "text": "仅相机/激光驱动启动，底盘未启动。15秒扫描151条、10.02Hz、0重复/倒退/零时间戳，frame=laser、540束；消息range_min=0.15、range_max=50只是驱动声明，不作实测量程。检查CPU忙碌20.7%、可用内存6043MiB。odom仍0消息/0发布者，无TF，未发现IMU话题。USB相机持续收到，源时间戳每秒出现约0.8秒未来跳变，未校准；网页画面与告警已验证。G0未通过。激光bag与哈希见setup/verification/2026-10-28-g0/sensors-on-v1/；轮径、轮距等仍未测。"
+  },
+  {
+    "path": "setup/STATUS.md",
+    "line": 139,
+    "text": "实车只读工具在Gazebo录包和延迟TF测试上通过；尚未连接实车，车体参数和地瓜派运行负载留待现场测量。当前批次结果、测试证据与数据路径统一见 [陌生房间验证记录](verification/unknown_rooms/README.md)。这里的过程网页尚未合并进原SSH监看网页，真实环境迁移仍按 robot/README.md 推进。"
+  },
+  {
+    "path": "setup/automation/g0-night-continuation.md",
+    "line": 1,
+    "text": "这是用户要求的2026-10-29 03:00香港时间一次性额度耗尽续作。仅原任务未完成且因额度停止时继续；完成或仍在工作则静默保持。先读AGENTS.md、setup/verification/轮次索引.md、2026-10-28-night/task.json和本轮计划/报告，核对当前工作区及真实进程，不重复已完成试验。用户已断开实车，不再连接/部署/运动，不自行批准关卡。继续相机Hz栏离线修复、G0软件修复与待验清单、安全主动扫描P0仿真和同种子单变量A/B；未知区不能当旋转净空，不改门限或真值隔离。保留失败及原始批次。按最新授权分项提交推送今晚实测证据及相关工作分支，先做凭据检查。每轮写记录，完整目标未达成不写completed，不创建额外自动化。"
+  },
+  {
+    "path": "setup/automation/irregular-frontiers-continuation.md",
+    "line": 2,
+    "text": "若status=completed则静默退出；status=blocked且同一症状三次修复无效或需要实车/关卡输入则不绕过，保留报告并停止；若检测到当前agent的最近5分钟心跳或活动相同批次，避免双写，不启动重复仿真。继续未完成的研究、最小单变量实现、同种子A/B和验证报告，绝不能凭猜放宽门限、删失败或挑最好批次。不连接、部署或控制实车，不通过任何G0–G5关卡，不通过SSH绕过。物理参数待测，assumed不能写measured；Gazebo真值只评估，不接入探索/导航。只优化不规则边界下的前沿处理；不改SLAM回环、噪声、安全膨胀或地图分辨率来换通过。"
+  },
+  {
+    "path": "setup/automation/irregular-frontiers-continuation.md",
+    "line": 3,
+    "text": "本轮暂不推送git、不开PR、不发布网页、不发外部消息。允许在本地提交独立变更，保留所有失败及Linux原始批次；若无法完整验证，清楚标注未验证并写未完成项。任务完成更新task.json状态completed及本地中文报告，包含原始论文/源码依据、改动、命令、源码和配置哈希、每格>=5种子配对结果/成功率/Wilson区间/性能/安全和质量限制；不将纯栅格/离线前沿用例通过率冒充Gazebo完整导航或实车成功率。不要再创建后续自动化。"
+  },
+  {
+    "path": "simulation/config/realism.yaml",
+    "line": 18,
+    "text": "      basis: Engineering assumption pending G0-G2 measurements"
+  },
+  {
+    "path": "simulation/config/realism.yaml",
+    "line": 26,
+    "text": "      basis: Engineering assumption pending G0-G2 measurements"
+  },
+  {
+    "path": "simulation/config/realism.yaml",
+    "line": 34,
+    "text": "      basis: Engineering assumption pending G0-G2 measurements"
+  },
+  {
+    "path": "simulation/config/realism.yaml",
+    "line": 42,
+    "text": "      basis: Engineering assumption pending G0-G2 measurements"
+  },
+  {
+    "path": "simulation/config/realism.yaml",
+    "line": 50,
+    "text": "      basis: Engineering assumption pending G0-G2 measurements"
+  },
+  {
+    "path": "simulation/config/realism.yaml",
+    "line": 58,
+    "text": "      basis: Engineering assumption pending G0-G2 measurements"
+  },
+  {
+    "path": "simulation/config/realism.yaml",
+    "line": 66,
+    "text": "      basis: Engineering assumption pending G0-G2 measurements"
+  },
+  {
+    "path": "simulation/config/realism.yaml",
+    "line": 74,
+    "text": "      basis: Engineering assumption pending G0-G2 measurements"
+  },
+  {
+    "path": "simulation/config/realism.yaml",
+    "line": 99,
+    "text": "      basis: Engineering assumption pending G0-G2 measurements"
+  },
+  {
+    "path": "simulation/config/realism.yaml",
+    "line": 107,
+    "text": "      basis: Engineering assumption pending G0-G2 measurements"
+  },
+  {
+    "path": "simulation/config/realism.yaml",
+    "line": 124,
+    "text": "      basis: Engineering assumption pending G0-G2 measurements"
+  },
+  {
+    "path": "simulation/config/realism.yaml",
+    "line": 132,
+    "text": "      basis: Engineering assumption pending G0-G2 measurements"
+  },
+  {
+    "path": "simulation/config/realism.yaml",
+    "line": 140,
+    "text": "      basis: Engineering assumption pending G0-G2 measurements"
+  },
+  {
+    "path": "simulation/config/realism.yaml",
+    "line": 148,
+    "text": "      basis: Engineering assumption pending G0-G2 measurements"
+  },
+  {
+    "path": "simulation/config/realism.yaml",
+    "line": 156,
+    "text": "      basis: Engineering assumption pending G0-G2 measurements"
+  },
+  {
+    "path": "simulation/config/realism.yaml",
+    "line": 164,
+    "text": "      basis: Engineering assumption pending G0-G2 measurements"
+  },
+  {
+    "path": "simulation/config/realism.yaml",
+    "line": 172,
+    "text": "      basis: Engineering assumption pending G0-G2 measurements"
+  },
+  {
+    "path": "simulation/config/realism.yaml",
+    "line": 180,
+    "text": "      basis: Engineering assumption pending G0-G2 measurements"
+  },
+  {
+    "path": "simulation/config/realism.yaml",
+    "line": 205,
+    "text": "      basis: Engineering assumption pending G0-G2 measurements"
+  },
+  {
+    "path": "simulation/config/realism.yaml",
+    "line": 213,
+    "text": "      basis: Engineering assumption pending G0-G2 measurements"
+  },
+  {
+    "path": "simulation/config/realism.yaml",
+    "line": 221,
+    "text": "      basis: Engineering assumption pending G0-G2 measurements"
+  },
+  {
+    "path": "simulation/config/realism.yaml",
+    "line": 229,
+    "text": "      basis: Engineering assumption pending G0-G2 measurements"
+  },
+  {
+    "path": "simulation/config/realism.yaml",
+    "line": 237,
+    "text": "      basis: Engineering assumption pending G0-G2 measurements"
+  },
+  {
+    "path": "simulation/config/realism.yaml",
+    "line": 245,
+    "text": "      basis: Engineering assumption pending G0-G2 measurements"
+  },
+  {
+    "path": "simulation/config/realism.yaml",
+    "line": 253,
+    "text": "      basis: Engineering assumption pending G0-G2 measurements"
+  },
+  {
+    "path": "simulation/config/realism.yaml",
+    "line": 261,
+    "text": "      basis: Engineering assumption pending G0-G2 measurements"
+  },
+  {
+    "path": "simulation/config/realism.yaml",
+    "line": 269,
+    "text": "      basis: Engineering assumption pending G0-G2 measurements"
+  },
+  {
+    "path": "simulation/算法与陌生环境验证.md",
+    "line": 40,
+    "text": "推荐先把 RL 放在“下一步去哪里探索”这一层：输入当前地图、位置、已访问区域，输出一个探索目标，仍由 SLAM Toolbox 建图、Nav2 行驶。奖励可考虑新增正确观测面积、耗时、路程和碰撞；与现有前沿探索在相同测试房间比较。这是后续研究方案，尚未实现。"
+  },
+  {
+    "path": "src/wheeltec_explore/README.md",
+    "line": 47,
+    "text": "## 不规则边界视点试验（本地，未推送）"
+  },
+  {
+    "path": "部署说明.md",
+    "line": 68,
+    "text": "2026-10-27车端静态交付和G0–G5清单见[robot/README.md](robot/README.md)；仿真75次基线及20次噪声扫描均未通过，尚无实车准入依据，见[回归报告](setup/verification/2026-10-27-regression-results.md)。"
+  }
+]

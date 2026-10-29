@@ -1,0 +1,2 @@
+First validation launch failed before any test ran: PowerShell-generated shell script had CRLF (set: pipefail\r invalid option). Local .venv/Scripts/python.exe does not exist; use verified installed Python. No ROS tests or robot nodes started.
+Initial static audit: 16/17, calibration raw-file bytes differ from Git blob only through existing text/eol=lf conversion. Neither profile is modified in git status. Corrected audit to compare Git clean-filter hashes; initial checks retained in checks-first-failure.json.

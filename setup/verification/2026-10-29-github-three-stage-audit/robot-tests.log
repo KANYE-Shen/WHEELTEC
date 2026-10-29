@@ -1,0 +1,40 @@
+test_future_sample_is_not_erased_by_a_fresh_last_sample (test_inspect_interfaces.G0ClockRegressionTests) ... ok
+test_uninitialized_clock_cannot_be_reported_as_ready (test_inspect_interfaces.G0ClockRegressionTests) ... ok
+test_backwards_zero_and_future_timestamps_fail (test_inspect_interfaces.StreamAssessmentTests) ... ok
+test_fresh_monotonic_sensor_stream_is_usable (test_inspect_interfaces.StreamAssessmentTests) ... ok
+test_frozen_clock_and_republished_tail_is_stale (test_inspect_interfaces.StreamAssessmentTests) ... ok
+test_nonfinite_scan_still_produces_failure_report (test_inspect_interfaces.StreamAssessmentTests) ... ok
+test_publisher_without_messages_is_not_live (test_inspect_interfaces.StreamAssessmentTests) ... ok
+test_republished_old_measurements_do_not_inflate_sensor_rate (test_inspect_interfaces.StreamAssessmentTests) ... ok
+test_stale_or_slow_data_does_not_pass (test_inspect_interfaces.StreamAssessmentTests) ... ok
+test_airborne_gate_does_not_require_future_ground_braking_measurement (test_safety.SafetyTests) ... ok
+test_authentication_and_launch_fail_closed (test_safety.SafetyTests) ... ok
+test_boot_and_lost_heartbeat_latch_until_explicit_rearm (test_safety.SafetyTests) ... ok
+test_robot_dimensions_require_the_shared_measured_calibration (test_safety.SafetyTests) ... ok
+test_timeout_estop_invalid_and_reverse_time_stop (test_safety.SafetyTests) ... ok
+test_each_new_stage_accepts_only_explicit_matching_record (test_safety.ThreeStageApprovalTests) ... ok
+test_foreign_protocol_is_rejected (test_safety.ThreeStageApprovalTests) ... ok
+test_old_approval_is_not_reinterpreted_as_new_stage (test_safety.ThreeStageApprovalTests) ... ok
+test_only_three_stages_are_valid (test_safety.ThreeStageApprovalTests) ... ok
+test_stage_one_can_collect_missing_ground_calibration (test_safety.ThreeStageApprovalTests) ... ok
+test_stage_three_requires_complete_measurement (test_safety.ThreeStageApprovalTests) ... ok
+test_stage_two_requires_braking (test_safety.ThreeStageApprovalTests) ... ok
+test_stage_two_requires_completed_calibration (test_safety.ThreeStageApprovalTests) ... ok
+test_wrong_stage_record_and_negative_sentence_are_rejected (test_safety.ThreeStageApprovalTests) ... ok
+test_does_not_overwrite_or_write_inside_source (test_timestamp_source_audit.TimestampAuditTests) ... ok
+test_frame_sequence_is_monotonic_across_second (test_timestamp_source_audit.TimestampAuditTests) ... ok
+test_half_second_does_not_round_seconds_up (test_timestamp_source_audit.TimestampAuditTests) ... ok
+test_identifies_all_three_exact_pinned_states (test_timestamp_source_audit.TimestampAuditTests) ... ok
+test_integer_shift_retains_epoch_microseconds (test_timestamp_source_audit.TimestampAuditTests) ... ok
+test_mixed_source_is_not_called_fixed (test_timestamp_source_audit.TimestampAuditTests) ... ok
+test_modified_fixture_cannot_supply_candidate_code (test_timestamp_source_audit.TimestampAuditTests) ... ok
+test_prepare_preserves_source_and_emits_reviewable_diff (test_timestamp_source_audit.TimestampAuditTests) ... ok
+test_rejects_invalid_time_fields (test_timestamp_source_audit.TimestampAuditTests) ... ok
+test_rounding_monotonic_nsec_carries_at_second (test_timestamp_source_audit.TimestampAuditTests) ... ok
+test_timestamp_carries_fractional_epoch_shift (test_timestamp_source_audit.TimestampAuditTests) ... ok
+test_unknown_or_incomplete_source_is_refused (test_timestamp_source_audit.TimestampAuditTests) ... ok
+
+----------------------------------------------------------------------
+Ran 35 tests in 4.069s
+
+OK

@@ -6,7 +6,7 @@ from preflight import validate
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__); parser.add_argument('--config',type=Path,required=True)
-    parser.add_argument('--gate',type=int,choices=[1,2,3,4,5],default=1)
+    parser.add_argument('--gate',type=int,choices=[1,2,3],default=1)
     args,ros_args=parser.parse_known_args(); config=validate(json.loads(args.config.read_text()),required_gate=args.gate)
     import rclpy
     from rclpy.node import Node

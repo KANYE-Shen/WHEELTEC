@@ -44,10 +44,17 @@ python3 -m unittest discover -s /mnt/d/虚拟c盘/WHEELTEC/src/wheeltec_explore/
 2026-10-27：状态 JSON 增加 residual_counts 与 residual_frontiers。分类为 reachable_unexplored、footprint_excluded、multiview_observed；footprint_excluded 要求已测障碍阻挡附近全部可能中心，未知格本身不构成证明。后两类可产生 completed_with_residual_frontiers，保存、返回、最小面积和独立几何评分仍需分别通过。rc=2 且有终态、无强杀和残留进程时属于任务未通过，不再附加异常退出。新增0.6/0.8米凹袋与静态阴影回归；本轮 baseline0 的单次名义 A/B 两边均未通过，不是多种子准入数据。
 
 
-## 不规则边界视点试验（本地，未推送）
+## 不规则边界视点试验（默认关闭的候选策略）
 
 保留原 centroid 默认。参数 `frontier_viewpoint_strategy:=visibility` 开启遮挡感知视点：从原安全可达候选中选取48个确定性候选，最多96个前沿格样本，用包含角点接触的保守射线检测已知自由空间，再按可见前沿与路径距离选点，朝向一个实际可见格。`viewpoint_candidate_budget` 和 `viewpoint_frontier_budget` 可配置，属于工程预算。八连通前沿簇保持不变，不把不规则物体拟合成填满的矩形，不改变0.35m安全半径、未知格膨胀或完成门限。
 
 在已启动的隔离仿真中使用 `ros2 run wheeltec_explore explore --ros-args -p use_sim_time:=true -p frontier_viewpoint_strategy:=visibility`；不要与已有探索器并行运行。自动验证入口为 `python3 simulation/check_exploration.py --scenario irregular_frame --viewpoint-strategy visibility --realism on --record --output ~/wheeltec_sim_ws/data/runs/NEW-visibility`（从仓库目录执行，必须新目录）。这不是实车运动授权。
 
-状态 JSON 的 `viewpoint_diagnostics` 记录候选总数/评估数、前沿样本数、预算是否用尽及可见样本数；采样没有可见目标时保持 reachable_unexplored，不作为 footprint_excluded 或 completed 的证明。LOS仅表示当前地图几何无遮挡，不保证真实雷达FOV、量程或新信息量。完整数据及限制见根目录最新夜间结果报告。
+状态 JSON 的 `viewpoint_diagnostics` 记录候选总数/评估数、前沿样本数、预算是否用尽及可见样本数；采样没有可见目标时保持 reachable_unexplored，不作为 footprint_excluded 或 completed 的证明。LOS仅表示当前地图几何无遮挡，不保证真实雷达FOV、量程或新信息量。完整数据及限制见[不规则前沿报告](../../setup/verification/2026-10-27-irregular-frontier-results.md)。
+
+
+## 主动观测与实车阶段
+
+`active_scan_angle_deg` 默认0，`initial_rotation_assumed_safe` 默认false。主动观测仅用于已隔离的仿真：须同时启用非零 `active_scan_angle_deg`（本次360）和起点例外参数；启用起点例外时，首次导航前一次完整旋转记录为 `assumed_start`、`clearance_proven=false`，不修改未知格；途中旋转仍检查完整扫掠净空，保留健康、取消和超时约束。新单种子演示有6个成功目标但严格0/1，见[证据](../../setup/verification/2026-10-29-startup-assumption/README.md)。没有新的多种子A/B结论。
+
+实车只按[三阶段清单](../../robot/准入关卡.md)执行；阶段三才使用自主探索，仿真起点例外不能用于实车。上面的 `use_sim_time:=true` 命令是仿真命令，不能复制为实车启动方式。实车map→odom只能由当前SLAM或AMCL之一发布。

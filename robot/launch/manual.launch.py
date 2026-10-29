@@ -39,7 +39,7 @@ def configure(context):
     c.update(base_frame_id=config['base_frame'],
              odom_frame_id=config['odom_frame'], use_sim_time=False)
     c['scan']['topic'] = config['scan_topic']
-    # G1/G2 braking is still being measured; this margin is not a stopping-distance claim.
+    # Stage-one braking is still being measured; this margin is not a stopping-distance claim.
     braking = config.get('measured_braking_distance_m') or 0.
     margin = braking+safety['obstacle_margin_m']
     x = max(abs(v[0]) for v in footprint)+margin
@@ -63,4 +63,4 @@ def configure(context):
 
 
 def generate_launch_description():
-    return LaunchDescription([DeclareLaunchArgument('hardware', default_value=str(ROOT/'config/robot.json')), DeclareLaunchArgument('gate', default_value='1', choices=['1', '2', '3']), OpaqueFunction(function=configure)])
+    return LaunchDescription([DeclareLaunchArgument('hardware', default_value=str(ROOT/'config/robot.json')), DeclareLaunchArgument('gate', default_value='1', choices=['1', '2']), OpaqueFunction(function=configure)])

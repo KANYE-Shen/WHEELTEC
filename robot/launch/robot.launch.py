@@ -15,7 +15,7 @@ from preflight import validate,calibrated_geometry
 
 def configure(context):
     explore=LaunchConfiguration('explore').perform(context)=='true'
-    config=validate(json.loads(Path(LaunchConfiguration('hardware').perform(context)).read_text()),required_gate=5 if explore else 4)
+    config=validate(json.loads(Path(LaunchConfiguration('hardware').perform(context)).read_text()),required_gate=3 if explore else 2)
     nav=yaml.safe_load((ROOT/'config/nav2.yaml').read_text())
     calibration=json.loads(Path(config['calibration_file']).read_text())
     footprint,radius=calibrated_geometry(calibration); polygon=json.dumps(footprint)
@@ -64,7 +64,7 @@ def configure(context):
     actions.append(Node(package='nav2_lifecycle_manager',executable='lifecycle_manager',name='lifecycle_manager_map_saver',parameters=[{'use_sim_time':False,'autostart':True,'node_names':['map_saver']}],output='screen'))
     if LaunchConfiguration('explore').perform(context)=='true':
         actions.append(Node(package='wheeltec_explore',executable='explore',parameters=[{'use_sim_time':False,'base_frame':config['base_frame'],'odom_frame':config['odom_frame'],'robot_radius':radius}],output='screen'))
-    watchdog=ExecuteProcess(cmd=['python3',str(ROOT/'watchdog.py'),'--config',LaunchConfiguration('hardware').perform(context),'--gate','5' if explore else '4'],output='screen')
+    watchdog=ExecuteProcess(cmd=['python3',str(ROOT/'watchdog.py'),'--config',LaunchConfiguration('hardware').perform(context),'--gate','3' if explore else '2'],output='screen')
     actions.append(watchdog)
     # A critical process exit shuts down this owned stack; independent driver expiry
     # remains mandatory because SIGKILL/power loss cannot publish a final zero.

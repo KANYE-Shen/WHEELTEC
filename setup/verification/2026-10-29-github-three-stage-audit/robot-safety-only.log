@@ -1,0 +1,19 @@
+test_airborne_gate_does_not_require_future_ground_braking_measurement (test_safety.SafetyTests) ... ok
+test_authentication_and_launch_fail_closed (test_safety.SafetyTests) ... ok
+test_boot_and_lost_heartbeat_latch_until_explicit_rearm (test_safety.SafetyTests) ... ok
+test_robot_dimensions_require_the_shared_measured_calibration (test_safety.SafetyTests) ... ok
+test_timeout_estop_invalid_and_reverse_time_stop (test_safety.SafetyTests) ... ok
+test_each_new_stage_accepts_only_explicit_matching_record (test_safety.ThreeStageApprovalTests) ... ok
+test_foreign_protocol_is_rejected (test_safety.ThreeStageApprovalTests) ... ok
+test_old_approval_is_not_reinterpreted_as_new_stage (test_safety.ThreeStageApprovalTests) ... ok
+test_only_three_stages_are_valid (test_safety.ThreeStageApprovalTests) ... ok
+test_stage_one_can_collect_missing_ground_calibration (test_safety.ThreeStageApprovalTests) ... ok
+test_stage_three_requires_complete_measurement (test_safety.ThreeStageApprovalTests) ... ok
+test_stage_two_requires_braking (test_safety.ThreeStageApprovalTests) ... ok
+test_stage_two_requires_completed_calibration (test_safety.ThreeStageApprovalTests) ... ok
+test_wrong_stage_record_and_negative_sentence_are_rejected (test_safety.ThreeStageApprovalTests) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.748s
+
+OK

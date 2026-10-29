@@ -1,0 +1,26 @@
+{
+  "checks": {
+    "exactly_three_real_stages": true,
+    "no_g6_g9_task_file": true,
+    "hardware_remains_unverified": true,
+    "approval_remains_null": true,
+    "current_approval_protocol": true,
+    "manual_launch_only_first_two_stages": true,
+    "full_launch_stage_mapping": true,
+    "adapter_only_three_stages": true,
+    "watchdog_only_three_stages": true,
+    "legacy_plans_explicitly_historical": true,
+    "calibration_values_and_source_bytes_preserved": false,
+    "all_protected_evidence_unchanged": true,
+    "current_local_document_links_resolve": true,
+    "bounded_odom_check": true,
+    "independent_manual_reference": true,
+    "no_unimplemented_test_discovery_stub": true,
+    "no_unreviewed_credential_candidates": true
+  },
+  "passed": 16,
+  "total": 17,
+  "protected_files": 1042,
+  "protected_mismatches": [],
+  "broken_links": []
+}

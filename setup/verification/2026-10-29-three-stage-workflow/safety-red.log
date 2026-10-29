@@ -1,0 +1,97 @@
+test_airborne_gate_does_not_require_future_ground_braking_measurement (test_safety.SafetyTests.test_airborne_gate_does_not_require_future_ground_braking_measurement) ... ERROR
+test_authentication_and_launch_fail_closed (test_safety.SafetyTests.test_authentication_and_launch_fail_closed) ... ok
+test_boot_and_lost_heartbeat_latch_until_explicit_rearm (test_safety.SafetyTests.test_boot_and_lost_heartbeat_latch_until_explicit_rearm) ... ok
+test_robot_dimensions_require_the_shared_measured_calibration (test_safety.SafetyTests.test_robot_dimensions_require_the_shared_measured_calibration) ... ok
+test_timeout_estop_invalid_and_reverse_time_stop (test_safety.SafetyTests.test_timeout_estop_invalid_and_reverse_time_stop) ... ok
+test_each_new_stage_accepts_only_explicit_matching_record (test_safety.ThreeStageApprovalTests.test_each_new_stage_accepts_only_explicit_matching_record) ... 
+  test_each_new_stage_accepts_only_explicit_matching_record (test_safety.ThreeStageApprovalTests.test_each_new_stage_accepts_only_explicit_matching_record) (stage=1) ... ERROR
+  test_each_new_stage_accepts_only_explicit_matching_record (test_safety.ThreeStageApprovalTests.test_each_new_stage_accepts_only_explicit_matching_record) (stage=2) ... ERROR
+  test_each_new_stage_accepts_only_explicit_matching_record (test_safety.ThreeStageApprovalTests.test_each_new_stage_accepts_only_explicit_matching_record) (stage=3) ... ERROR
+test_foreign_protocol_is_rejected (test_safety.ThreeStageApprovalTests.test_foreign_protocol_is_rejected) ... ok
+test_old_approval_is_not_reinterpreted_as_new_stage (test_safety.ThreeStageApprovalTests.test_old_approval_is_not_reinterpreted_as_new_stage) ... FAIL
+test_only_three_stages_are_valid (test_safety.ThreeStageApprovalTests.test_only_three_stages_are_valid) ... ok
+test_stage_one_can_collect_missing_ground_calibration (test_safety.ThreeStageApprovalTests.test_stage_one_can_collect_missing_ground_calibration) ... ERROR
+test_stage_three_requires_complete_measurement (test_safety.ThreeStageApprovalTests.test_stage_three_requires_complete_measurement) ... ok
+test_stage_two_requires_braking (test_safety.ThreeStageApprovalTests.test_stage_two_requires_braking) ... ok
+test_stage_two_requires_completed_calibration (test_safety.ThreeStageApprovalTests.test_stage_two_requires_completed_calibration) ... ok
+test_wrong_stage_record_and_negative_sentence_are_rejected (test_safety.ThreeStageApprovalTests.test_wrong_stage_record_and_negative_sentence_are_rejected) ... ok
+
+======================================================================
+ERROR: test_airborne_gate_does_not_require_future_ground_braking_measurement (test_safety.SafetyTests.test_airborne_gate_does_not_require_future_ground_braking_measurement)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\����c��\WHEELTEC\robot\test_safety.py", line 48, in test_airborne_gate_does_not_require_future_ground_braking_measurement
+    self.assertIs(validate(config,required_gate=1),config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\����c��\WHEELTEC\robot\preflight.py", line 45, in validate
+    raise ValueError('Human gate approval record is missing; an agent must never create it')
+ValueError: Human gate approval record is missing; an agent must never create it
+
+======================================================================
+ERROR: test_each_new_stage_accepts_only_explicit_matching_record (test_safety.ThreeStageApprovalTests.test_each_new_stage_accepts_only_explicit_matching_record) (stage=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\����c��\WHEELTEC\robot\test_safety.py", line 94, in test_each_new_stage_accepts_only_explicit_matching_record
+    with self.subTest(stage=stage):self.assertTrue(self.check(stage,self.record(stage),complete=True,braking=.1))
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\����c��\WHEELTEC\robot\test_safety.py", line 81, in check
+    return validate(c,required_gate=stage)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\����c��\WHEELTEC\robot\preflight.py", line 45, in validate
+    raise ValueError('Human gate approval record is missing; an agent must never create it')
+ValueError: Human gate approval record is missing; an agent must never create it
+
+======================================================================
+ERROR: test_each_new_stage_accepts_only_explicit_matching_record (test_safety.ThreeStageApprovalTests.test_each_new_stage_accepts_only_explicit_matching_record) (stage=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\����c��\WHEELTEC\robot\test_safety.py", line 94, in test_each_new_stage_accepts_only_explicit_matching_record
+    with self.subTest(stage=stage):self.assertTrue(self.check(stage,self.record(stage),complete=True,braking=.1))
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\����c��\WHEELTEC\robot\test_safety.py", line 81, in check
+    return validate(c,required_gate=stage)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\����c��\WHEELTEC\robot\preflight.py", line 45, in validate
+    raise ValueError('Human gate approval record is missing; an agent must never create it')
+ValueError: Human gate approval record is missing; an agent must never create it
+
+======================================================================
+ERROR: test_each_new_stage_accepts_only_explicit_matching_record (test_safety.ThreeStageApprovalTests.test_each_new_stage_accepts_only_explicit_matching_record) (stage=3)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\����c��\WHEELTEC\robot\test_safety.py", line 94, in test_each_new_stage_accepts_only_explicit_matching_record
+    with self.subTest(stage=stage):self.assertTrue(self.check(stage,self.record(stage),complete=True,braking=.1))
+                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\����c��\WHEELTEC\robot\test_safety.py", line 81, in check
+    return validate(c,required_gate=stage)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\����c��\WHEELTEC\robot\preflight.py", line 45, in validate
+    raise ValueError('Human gate approval record is missing; an agent must never create it')
+ValueError: Human gate approval record is missing; an agent must never create it
+
+======================================================================
+ERROR: test_stage_one_can_collect_missing_ground_calibration (test_safety.ThreeStageApprovalTests.test_stage_one_can_collect_missing_ground_calibration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\����c��\WHEELTEC\robot\test_safety.py", line 85, in test_stage_one_can_collect_missing_ground_calibration
+    self.assertTrue(self.check(1,self.record(1)))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\����c��\WHEELTEC\robot\test_safety.py", line 81, in check
+    return validate(c,required_gate=stage)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\����c��\WHEELTEC\robot\preflight.py", line 45, in validate
+    raise ValueError('Human gate approval record is missing; an agent must never create it')
+ValueError: Human gate approval record is missing; an agent must never create it
+
+======================================================================
+FAIL: test_old_approval_is_not_reinterpreted_as_new_stage (test_safety.ThreeStageApprovalTests.test_old_approval_is_not_reinterpreted_as_new_stage)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "D:\����c��\WHEELTEC\robot\test_safety.py", line 96, in test_old_approval_is_not_reinterpreted_as_new_stage
+    with self.assertRaises(ValueError):self.check(1,'ͨ���ؿ�1')
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.164s
+
+FAILED (failures=1, errors=5)

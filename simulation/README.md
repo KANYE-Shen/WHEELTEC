@@ -26,7 +26,7 @@ python3 /mnt/d/虚拟c盘/WHEELTEC/simulation/run_room.py gui:=false rviz:=false
 
 ## 场景选择与过程记录
 
-双击自主入口后选择5种布局（原房间、L形、家具、弯通道、凹角）和起点0/1/2。Windows非交互重复：
+双击自主入口后选择7种布局（原房间、L形、家具、弯通道、凹角、不规则弧形、不规则边框）和起点0/1/2。Windows非交互重复：
 
 ```powershell
 .\simulation\Start-Room.ps1 -Explore -Scenario l_shape -Spawn 2

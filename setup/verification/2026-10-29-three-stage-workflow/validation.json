@@ -1,0 +1,17 @@
+{
+  "checks": {
+    "exactly_three_stage_sections": true,
+    "proposal_removed": true,
+    "hardware_still_unverified": true,
+    "approval_record_still_null": true,
+    "new_protocol": true,
+    "thresholds_preserved": true,
+    "bounded_odom_check": true,
+    "reference_map_independent_measurement": true,
+    "original_evidence_and_algorithm_unchanged": true
+  },
+  "protected_files": 947,
+  "protected_mismatches": [],
+  "passed": 9,
+  "total": 9
+}

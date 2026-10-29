@@ -1,0 +1,50 @@
+Arguments (pass arguments as '<name>:=<value>'):
+
+    'hardware':
+        no description given
+        (default: '/mnt/d/虚拟c盘/WHEELTEC/robot/config/robot.json')
+
+    'gate':
+        One of: ['1', '2']
+        (default: '1')
+Arguments (pass arguments as '<name>:=<value>'):
+
+    'hardware':
+        no description given
+        (default: '/mnt/d/虚拟c盘/WHEELTEC/robot/config/robot.json')
+
+    'explore':
+        One of: ['true', 'false']
+        (default: 'false')
+usage: watchdog.py [-h] --config CONFIG [--gate {1,2,3}]
+
+Robot command gate. Do not run without the corresponding human gate approval.
+
+options:
+  -h, --help       show this help message and exit
+  --config CONFIG
+  --gate {1,2,3}
+usage: adapter.py [-h] --kind {robot,simulation} [--port PORT] --token-file
+                  TOKEN_FILE [--scan-topic SCAN_TOPIC]
+                  [--camera-topic CAMERA_TOPIC] [--map-topic MAP_TOPIC]
+                  [--odom-topic ODOM_TOPIC] [--base-frame BASE_FRAME]
+                  [--map-frame MAP_FRAME] [--enable-simulation-control]
+                  [--robot-config ROBOT_CONFIG] [--gate {1,2,3}]
+
+Target-side ROS adapter. No drivers, SLAM or navigation are started here. Run
+from repository root: python3 -m console.target.adapter --help
+
+options:
+  -h, --help            show this help message and exit
+  --kind {robot,simulation}
+  --port PORT
+  --token-file TOKEN_FILE
+  --scan-topic SCAN_TOPIC
+  --camera-topic CAMERA_TOPIC
+  --map-topic MAP_TOPIC
+  --odom-topic ODOM_TOPIC
+  --base-frame BASE_FRAME
+  --map-frame MAP_FRAME
+  --enable-simulation-control
+  --robot-config ROBOT_CONFIG
+  --gate {1,2,3}

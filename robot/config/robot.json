@@ -10,7 +10,7 @@
   "driver_command_type": null,
   "driver_timeout_verified_s": null,
   "approval_record": null,
-  "required_approval": "通过关卡1",
+  "required_approval": "允许阶段一实测",
   "safety": {
     "operator_timeout_s": null,
     "command_timeout_s": 0.5,
@@ -21,5 +21,6 @@
   "status": "unconfigured; no launch authorization",
   "measured_braking_distance_m": null,
   "calibration_file": null,
-  "odom_topic": null
+  "odom_topic": null,
+  "admission_protocol": "three-stage-20261029"
 }

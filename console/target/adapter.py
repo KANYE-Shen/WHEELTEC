@@ -31,7 +31,7 @@ def main():
     parser.add_argument('--map-frame', default='map')
     parser.add_argument('--enable-simulation-control', action='store_true')
     parser.add_argument('--robot-config', type=Path)
-    parser.add_argument('--gate', type=int, choices=[1, 2, 3, 4, 5], default=1)
+    parser.add_argument('--gate', type=int, choices=[1, 2, 3], default=1)
     args, ros_args = parser.parse_known_args()
     import platform
     if args.enable_simulation_control and not simulation_authorized(os.environ, platform.machine()):
