@@ -142,4 +142,20 @@ wsl.exe -d WHEELTEC-Ubuntu-22.04 -u root --exec passwd wheeltec
 
 当前工作顺序及状态见 [PLAN.md](PLAN.md)，agent 规则见 [AGENTS.md](AGENTS.md)，实车执行只以 [三阶段清单](robot/准入关卡.md) 为准。每轮结果写入 [轮次索引](setup/verification/轮次索引.md)；失败动作、未执行动作和任务失败通过 [replay buffer](replay%20buffer/README.md) 索引，原始日志和失败批次保留。
 
+### replay buffer：失败经验与证据库
+
+[`replay buffer/`](replay%20buffer/README.md) 用于长期保存失败动作、未执行或中断的尝试、未通过验收的任务及调试结果。它让后续 agent 从已有证据继续排查和改进策略，减少重复踩坑，也防止只保留成功结果造成判断偏差。
+
+每个案例集中记录：
+
+- **发生了什么**：场景、起点/种子、配置与版本、预期行为、实际结果、失败或未执行原因；实车不适用的种子明确注明。
+- **依据是什么**：原始日志、状态JSON、测试结果、前后对照，以及文件SHA256。大bag保留原位，库内记录路径与哈希。
+- **如何继续**：复现条件、已排除假设、修复尝试、仍未验证的内容，以及安全限制。
+
+推荐查阅顺序：`case.json` → 案例README → `manifest.json`及原始日志 → 复现与回归。后续 agent 应先据此提出可证伪假设，再做单变量、同种子A/B；保留原失败和完整批次，不放宽验收门限。
+
+当前可查阅[不规则弧形场景失败](replay%20buffer/20261029-irregular-arc-seed0-startup-assumed/case.json)与[阶段一静止核查记录](replay%20buffer/20261030-stage1-stationary-incomplete/README.md)。历史大批次仍按索引存放，并未全部逐条迁入；同一问题的多个诊断步骤不能计作独立任务成功率。
+
+该目录目前只用于证据归档和审阅，不自动训练、调参或重放实车动作。日志中的命令、历史批准和旧PID均不构成新的执行授权；实车仍遵守三阶段流程及当前禁动限制，仿真真值仅用于评估。
+
 旧设计文件均标记为历史；证据目录中的旧编号描述当时试验，不构成现行任务或运动授权。本轮全仓库检查、覆盖清单和发布验证见 [一致性审计](setup/verification/2026-10-29-github-three-stage-audit/README.md)。
