@@ -1,0 +1,19 @@
+{
+  "source": "D:\\虚拟c盘\\WHEELTEC\\setup\\verification\\2026-10-30-stage1-stationary-v2\\usb-vendor-source",
+  "state": "unknown",
+  "files": {
+    "include/usb_cam/usb_cam.hpp": {
+      "sha256": "571a298e6f738f5b191f0e0abdbcb2521540037a0b58d65db7d8ec3f4db4e7ec"
+    },
+    "include/usb_cam/utils.hpp": {
+      "sha256": "5233db74a76bd6c82e3d5f3830fd48ab3851724ce4b71d52756945ad2a92c80f"
+    },
+    "src/usb_cam.cpp": {
+      "sha256": "4b83265acfcbe9dadd89f1c209db56147ad2aba86350bd57d2325732f128da4c"
+    }
+  },
+  "scope": "three timestamp-bearing files only; not full release or installed binary",
+  "can_prepare_review_bundle": false,
+  "deployment_ready": false,
+  "real_robot_verified": false
+}

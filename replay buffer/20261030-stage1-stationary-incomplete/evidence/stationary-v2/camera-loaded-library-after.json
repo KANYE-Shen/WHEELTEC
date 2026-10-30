@@ -1,0 +1,5 @@
+{
+  "stdout": "[{\"pid\": 25140, \"command\": \"/home/wheeltec/.wheeltec-console/stationary-20261030-v2/camera-overlay/install/usb_cam/lib/usb_cam/usb_cam_node_exe --ros-args -r __node:=usb_cam --params-file /home/wheeltec/.wheeltec-console/stationary-20261030-v2/camera-overlay/install/usb_cam/share/usb_cam/config/params.yaml --params-file /tmp/launch_params_meie2i5c \", \"usb_libraries\": [\"/home/wheeltec/.wheeltec-console/stationary-20261030-v2/camera-overlay/install/usb_cam/lib/libusb_cam.so\", \"/home/wheeltec/.wheeltec-console/stationary-20261030-v2/camera-overlay/install/usb_cam/lib/libusb_cam_node.so\"]}]\n",
+  "stderr": "",
+  "exit": 0
+}

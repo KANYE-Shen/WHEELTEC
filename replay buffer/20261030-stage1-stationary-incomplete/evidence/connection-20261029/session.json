@@ -1,0 +1,9 @@
+{
+  "at_utc": "2026-10-29T07:02:41.853589+00:00",
+  "phase": "stationary_connection_only",
+  "interface_observed": "HITWH-WEB",
+  "robot_profile_host": "192.168.0.100",
+  "robot_motion_commands_sent": false,
+  "gateway_was_running": false,
+  "gateway_started_pid": 34796
+}

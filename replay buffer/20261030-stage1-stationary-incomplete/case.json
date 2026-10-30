@@ -1,0 +1,142 @@
+{
+  "version": 1,
+  "kind": "stationary_admission_failure",
+  "source_report": "replay buffer/20261030-stage1-stationary-incomplete/README.md",
+  "motion_requested": false,
+  "motion_executed": false,
+  "phase_one_passed": false,
+  "reasons": [
+    "camera_capture_stamp_future_and_backwards",
+    "odom_tf_producers_not_started_due_no_motion_boundary"
+  ],
+  "source_data": "replay buffer/20261030-stage1-stationary-incomplete/evidence/stationary-v2/sensor-statistics.json",
+  "hardware_failure_confirmed": false,
+  "repair_attempts_for_camera": 1,
+  "notes": "No wheel command recorded or replayable here; topic existence is not publisher availability.",
+  "camera_timestamp_overlay_observation": {
+    "before_backwards": 62,
+    "after_backwards": 0,
+    "before_future": 940,
+    "after_future": 0
+  },
+  "camera_deployment_first_stop_failed": true,
+  "original_source_report": "setup/verification/2026-10-30-stage1-stationary-v2/README.md",
+  "attempts": [
+    {
+      "id": "connection-20261029",
+      "outcome": "not_connected",
+      "evidence": [
+        "evidence/connection-20261029/session.json"
+      ],
+      "note": "Only campus network observed in this snapshot; not robot admission and no wheel commands."
+    },
+    {
+      "id": "collector-syntax",
+      "outcome": "failed_before_remote_execution",
+      "evidence": [
+        "evidence/connection-v1/collector-first-failure.log"
+      ],
+      "note": "Python quoting error; corrected before remote sampling."
+    },
+    {
+      "id": "interfaces-empty",
+      "outcome": "failed_interface_check",
+      "evidence": [
+        "evidence/connection-v1/interface-check.json",
+        "evidence/connection-v1/summary.json"
+      ],
+      "note": "15.045 seconds with scan/camera/odom message counts all zero, no TF and implausible year-2000 clock."
+    },
+    {
+      "id": "adapter-cold-start",
+      "outcome": "recovered_with_raw_error_gap",
+      "evidence": [
+        "evidence/connection-v1/README.md",
+        "evidence/connection-v1/adapter-start-first-failure.log"
+      ],
+      "note": "Prior report describes short readiness-window failure. Available named log contains eventual ready line, not original connection-refused traceback. Do not claim original exception is preserved."
+    },
+    {
+      "id": "source-collection-filter",
+      "outcome": "failed_missing_source_audit",
+      "evidence": [
+        "evidence/stationary-v2/usb-source-audit.json",
+        "evidence/stationary-v2/usb-source-locations.json"
+      ],
+      "note": "Empty download due usb_cam-ros2 directory-name filter; independent vendor retrieval followed. Unknown upstream fingerprints are not proof of hardware fault."
+    },
+    {
+      "id": "camera-source-time",
+      "outcome": "observed_then_improved",
+      "evidence": [
+        "evidence/stationary-v2/sensor-statistics.json",
+        "evidence/stationary-v2/sensor-statistics-after.json"
+      ],
+      "before": {
+        "messages": 1876,
+        "future_over_150ms": 940,
+        "backwards": 62
+      },
+      "after": {
+        "messages": 1948,
+        "future_over_150ms": 0,
+        "backwards": 0
+      },
+      "note": "Same camera configuration, sequential observation; scene immobility not independently attested, no motion performance or sim-to-real claim."
+    },
+    {
+      "id": "vendor-arithmetic",
+      "outcome": "red_then_green",
+      "evidence": [
+        "evidence/stationary-v2/vendor-timestamp-red.json",
+        "evidence/stationary-v2/vendor-timestamp-green.json"
+      ],
+      "before": {
+        "passed": 2,
+        "total": 11
+      },
+      "after": {
+        "passed": 11,
+        "total": 11
+      }
+    },
+    {
+      "id": "camera-stop-sigint",
+      "outcome": "failed_first_switch_then_recovered",
+      "evidence": [
+        "evidence/stationary-v2/camera-switch-command.json",
+        "evidence/stationary-v2/camera-stop-diagnosis.json",
+        "evidence/stationary-v2/camera-switch-v2-command.json"
+      ],
+      "note": "Original nohup parent ignored SIGINT; aborted duplicate launch. Verified camera child processes exited before replacement; no process-group or base action."
+    },
+    {
+      "id": "browser-managed-view",
+      "outcome": "red_then_green",
+      "evidence": [
+        "evidence/stationary-v2/browser-before/results.json",
+        "evidence/stationary-v2/browser-final/results.json"
+      ],
+      "before": {
+        "passed": 2,
+        "total": 7
+      },
+      "after": {
+        "passed": 7,
+        "total": 7
+      },
+      "note": "Interface behavior only, not robot task success."
+    },
+    {
+      "id": "odom-tf-unavailable",
+      "outcome": "diagnosed_and_paused",
+      "evidence": [
+        "evidence/stationary-v2/odom-tf-conclusion.json"
+      ],
+      "note": "Zero publishers, producer processes not started. Cause identified within 10-minute limit; hardware feedback still unverified, base not launched."
+    }
+  ],
+  "manifest": "manifest.json",
+  "raw_bags_uploaded": false,
+  "no_auto_execution": true
+}

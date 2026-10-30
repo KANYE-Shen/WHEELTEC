@@ -1,0 +1,39 @@
+{
+  "connected": true,
+  "kind": "robot",
+  "control_enabled": false,
+  "verified_via": "actual gateway WebSocket",
+  "reused_deployment": "/home/wheeltec/.wheeltec-console/readonly-20261028T213303",
+  "streams": {
+    "scan": {
+      "stamp": null,
+      "age": null,
+      "hz": 0.0,
+      "fresh": false
+    },
+    "map": {
+      "stamp": null,
+      "age": null,
+      "hz": 0.0,
+      "fresh": false
+    },
+    "odom": {
+      "stamp": null,
+      "age": null,
+      "hz": 0.0,
+      "fresh": false
+    },
+    "camera": {
+      "stamp": null,
+      "age": null,
+      "hz": 0.0,
+      "fresh": false,
+      "receive_age": null,
+      "receiving": false
+    }
+  },
+  "motion_commands_sent": 0,
+  "drivers_started": false,
+  "system_time_changed": false,
+  "initial_probe_failed": "cold adapter startup exceeded first readiness window; log later confirmed control=False; no second adapter started"
+}

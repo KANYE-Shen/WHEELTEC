@@ -1,0 +1,17 @@
+{
+  "recorded_utc": "2026-10-30T09:12:05.039207+00:00",
+  "user_instruction": "不要启动轮胎，现在的小车位置很危险",
+  "allowed_scope": "SSH connection and passive sensor subscriptions only",
+  "prohibited": [
+    "base or motor driver startup",
+    "velocity publication including test commands",
+    "teleoperation",
+    "navigation or exploration",
+    "wheel and braking calibration"
+  ],
+  "motion_commands_sent_this_round": 0,
+  "remote_inspection_started": true,
+  "reason": "SSH authentication unavailable; helper failed local syntax check before execution",
+  "inspection_result": "one stationary sample completed; failed interface readiness",
+  "wheel_prohibition_still_active": true
+}

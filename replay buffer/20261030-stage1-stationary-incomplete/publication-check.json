@@ -1,0 +1,15 @@
+{
+  "at_utc": "2026-10-30T09:53:58.006479+00:00",
+  "evidence_copies_byte_identical": 75,
+  "sha256_matches": 75,
+  "attempts": 10,
+  "required_evidence_links_valid": true,
+  "arithmetic_test_regeneration_identical": [
+    "before",
+    "after"
+  ],
+  "credential_or_private_key_matches": 0,
+  "includes_raw_bags": false,
+  "motion_executed": false,
+  "phase_one_passed": false
+}

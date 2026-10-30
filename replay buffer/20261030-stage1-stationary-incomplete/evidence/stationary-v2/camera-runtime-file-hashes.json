@@ -1,0 +1,5 @@
+{
+  "stdout": "[{\"path\": \"/home/wheeltec/wheeltec_ros2/build/usb_cam/libusb_cam.so\", \"sha256\": \"f0456de28ade98623ff1ff411dc0978251e688a81d532d4088c84732e5ed6e5b\"}, {\"path\": \"/home/wheeltec/.wheeltec-console/stationary-20261030-v2/camera-overlay/install/usb_cam/lib/libusb_cam.so\", \"sha256\": \"9df4651cc317ffcbfbe647fbf84feefaf0c88b23a26e84e67385d6184960fc5a\"}, {\"path\": \"/home/wheeltec/wheeltec_ros2/install/usb_cam/share/usb_cam/config/params.yaml\", \"sha256\": \"3b3b210ad2076caebfd4596d28444a7b4b949546f69c328550739a24966d1431\"}, {\"path\": \"/home/wheeltec/.wheeltec-console/stationary-20261030-v2/camera-overlay/install/usb_cam/share/usb_cam/config/params.yaml\", \"sha256\": \"3b3b210ad2076caebfd4596d28444a7b4b949546f69c328550739a24966d1431\"}]\n",
+  "stderr": "",
+  "exit": 0
+}

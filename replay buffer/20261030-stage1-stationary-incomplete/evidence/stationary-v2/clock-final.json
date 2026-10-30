@@ -1,0 +1,8 @@
+{
+  "computer_epoch_before": 1793353525.85088,
+  "computer_epoch_after": 1793353525.9257636,
+  "remote_epoch": 1793353525.6657207,
+  "offset_from_midpoint_seconds": -0.22260117530822754,
+  "ntp_verified": false,
+  "reboot_persistence_verified": false
+}

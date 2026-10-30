@@ -7,3 +7,5 @@
 - 历史G0：../setup/verification/2026-10-28-g0/。原始bag留车端或Linux，索引记录路径/哈希，不迁移、覆盖或伪造。
 
 查阅顺序：case.json→原始结果/日志→source_report→源码哈希和复现参数。评估真值仅用于评分，不能作为定位/规划/探索输入。失败修复另开记录、写失败回归并保留前后批次。本目录没有运动或ROS发布接口。
+
+- [20261030-stage1-stationary-incomplete/](20261030-stage1-stationary-incomplete/README.md)：10条观察/尝试，包含连接、空接口、源时间、算术回归、相机首次切换、网页先失败回归和odom/TF未运行证据；原始副本及SHA256清单已入库，大bag保留原位。阶段一未通过，没有请求或执行车轮动作。

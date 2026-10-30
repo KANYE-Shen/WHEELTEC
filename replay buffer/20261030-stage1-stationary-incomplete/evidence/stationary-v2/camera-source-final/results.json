@@ -1,0 +1,211 @@
+{
+  "host_utc": "2026-10-30T09:45:36.301Z",
+  "source": "live robot ROS camera with timestamp-only overlay; faults injected only in isolated browser",
+  "motion_commands": 0,
+  "live": {
+    "frames": 960,
+    "blank": 0,
+    "visible": 960,
+    "placeholders": 0,
+    "revokedDisplayed": 0,
+    "requests": [
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      },
+      {
+        "status": 200
+      }
+    ]
+  },
+  "checks": [
+    {
+      "name": "live ROS video has no blank/placeholder frames or HTTP failures",
+      "passed": true
+    },
+    {
+      "name": "displayed blob URLs survive until replacement",
+      "passed": true
+    },
+    {
+      "name": "corrected capture timestamps remain healthy in live state",
+      "passed": true
+    },
+    {
+      "name": "HTTP video failure hides image; recovery resumes it",
+      "passed": true
+    },
+    {
+      "name": "video reception loss hides cached image",
+      "passed": true
+    },
+    {
+      "name": "slow requests stay serialized",
+      "passed": true
+    },
+    {
+      "name": "browser offline hides video; reconnect resumes without control",
+      "passed": true
+    }
+  ],
+  "passed": 7,
+  "total": 7
+}

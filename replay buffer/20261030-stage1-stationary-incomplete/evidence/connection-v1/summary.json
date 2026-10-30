@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-30",
+  "network_connected": true,
+  "ssh_authenticated": true,
+  "ssh_fingerprint_matches_saved": true,
+  "credential_source": "User explicitly authorized reading the local project manual; credential value omitted",
+  "web_connected": true,
+  "web_control_enabled": false,
+  "motion_commands_sent": 0,
+  "drivers_started": false,
+  "time_changed": false,
+  "interface_check_passed": false,
+  "sampling_seconds": 15.0450944050001,
+  "stream_message_counts": {
+    "scan": 0,
+    "odom": 0,
+    "camera": 0
+  },
+  "tf_available": false,
+  "system_clock_plausible": false,
+  "stage_one_complete": false,
+  "physical_motion_calibration": "prohibited by user; not executed"
+}

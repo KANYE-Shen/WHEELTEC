@@ -1,0 +1,8 @@
+{
+  "exit": 0,
+  "stdout": "Fri Oct 30 09:23:50 AM UTC 2026\n",
+  "stderr": "",
+  "computer_epoch_requested": 1793352230.435871,
+  "changes_clock_only": true,
+  "motion_commands_sent": 0
+}

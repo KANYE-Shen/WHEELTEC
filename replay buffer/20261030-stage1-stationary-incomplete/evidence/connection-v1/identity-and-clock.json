@@ -1,0 +1,6 @@
+{
+  "exit": 0,
+  "stdout": "{\"epoch\": 946686160.6439679, \"hostname\": \"wheeltec\", \"architecture\": \"aarch64\", \"user\": \"wheeltec\"}\n",
+  "stderr": "",
+  "computer_epoch_at_receipt": 1793351703.1581564
+}

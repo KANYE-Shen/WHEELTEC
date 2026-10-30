@@ -1,0 +1,56 @@
+{
+  "kind": "robot",
+  "streams": {
+    "scan": {
+      "stamp": 1793353525.7645864,
+      "age": 0.020613431930541992,
+      "hz": 10.020643965880163,
+      "fresh": true
+    },
+    "map": {
+      "stamp": null,
+      "age": null,
+      "hz": 0.0,
+      "fresh": false
+    },
+    "odom": {
+      "stamp": null,
+      "age": null,
+      "hz": 0.0,
+      "fresh": false
+    },
+    "camera": {
+      "stamp": 1793353525.730288,
+      "age": 0.05491185188293457,
+      "hz": 30.0030004727663,
+      "fresh": true,
+      "receive_age": 0.002749216000211163,
+      "receiving": true
+    }
+  },
+  "pose": null,
+  "laser_pose": null,
+  "control": {
+    "owner": null,
+    "reason": "read_only",
+    "target": [
+      0.0,
+      0.0
+    ],
+    "output": [
+      0.0,
+      0.0
+    ],
+    "ready": false,
+    "enabled": false,
+    "watchdog": null,
+    "watchdog_fresh": false,
+    "watchdog_revision": 0,
+    "command_timeout": 0.5,
+    "heartbeat_timeout": 0.5,
+    "limits": [
+      0.1,
+      0.3
+    ]
+  }
+}

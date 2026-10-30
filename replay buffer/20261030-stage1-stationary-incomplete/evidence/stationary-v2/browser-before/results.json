@@ -1,0 +1,42 @@
+{
+  "source": "live robot ROS through existing authenticated gateway; no mock data",
+  "checks": [
+    {
+      "name": "SSH connection form and credential fields removed",
+      "passed": false,
+      "error": "Error: expect(locator).toHaveCount(expected) failed\n\nLocator:  getByRole('button', { name: '连接设置', exact: true })\nExpected: 0\nReceived: 1\nTimeout:  5000ms\n\nCall log:\n  - Expect \"to.have.count\" with timeout 5000ms\n  - waiting for getByRole('button', { name: '连接设置', exact: true })\n    9 × locator resolved to 1 element\n      - unexpected value \"1\"\n"
+    },
+    {
+      "name": "real robot connection and live scan remain read-only",
+      "passed": true
+    },
+    {
+      "name": "plus and minus control zoom",
+      "passed": false,
+      "error": "Error: expect(locator).toHaveText(expected) failed\n\nLocator: getByLabel('视图缩放比例')\nExpected: \"100%\"\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"to.have.text\" with timeout 5000ms\n  - waiting for getByLabel('视图缩放比例')\n"
+    },
+    {
+      "name": "wheel scroll does not zoom radar",
+      "passed": false,
+      "error": "Error: expect(locator).toHaveText(expected) failed\n\nLocator: getByLabel('视图缩放比例')\nExpected: \"100%\"\nTimeout: 1000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"to.have.text\" with timeout 1000ms\n  - waiting for getByLabel('视图缩放比例')\n"
+    },
+    {
+      "name": "drag and reset remain available",
+      "passed": false,
+      "error": "TimeoutError: locator.click: Timeout 1500ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '放大视图', exact: true })\u001b[22m\n"
+    },
+    {
+      "name": "zoom stays bounded and limits disable controls",
+      "passed": false,
+      "error": "TimeoutError: locator.isDisabled: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '放大视图', exact: true })\u001b[22m\n"
+    },
+    {
+      "name": "browser has no runtime errors or control requests",
+      "passed": true
+    }
+  ],
+  "passed": 2,
+  "total": 7,
+  "errors": [],
+  "forbidden_control_requests": 0
+}

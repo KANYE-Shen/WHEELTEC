@@ -1,0 +1,5 @@
+{
+  "stdout": "{\"epoch\": 946686631.7353088, \"camera_mode\": \"usb\", \"lidar_type\": \"ls_N10Plus_uart\", \"x10\": {\"lidar_port\": \"/dev/wheeltec_lidar\", \"angle_disable_min\": [15000], \"angle_disable_max\": [18000]}, \"usb_cam\": \"/home/wheeltec/wheeltec_ros2/install/usb_cam/share/usb_cam\", \"robot_share\": \"/home/wheeltec/wheeltec_ros2/install/turn_on_wheeltec_robot/share/turn_on_wheeltec_robot\", \"rtc_devices\": [\"/dev/rtc\", \"/dev/rtc0\"]}\n",
+  "stderr": "",
+  "exit": 0
+}

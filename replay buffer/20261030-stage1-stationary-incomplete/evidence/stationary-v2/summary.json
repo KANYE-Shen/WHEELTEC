@@ -1,0 +1,102 @@
+{
+  "date": "2026-10-30",
+  "phase": 1,
+  "phase_passed": false,
+  "motion_prohibited": true,
+  "base_driver_started": false,
+  "velocity_published": false,
+  "time_sync": "wall clock corrected; NTP/reboot persistence unverified",
+  "odom_tf": {
+    "available": false,
+    "publisher_count": 0,
+    "root_cause": "Required base driver, EKF and model TF publishers not running",
+    "hardware_fault_confirmed": false,
+    "bounded_diagnostic_graph_seconds": 18.390999999988708,
+    "start": "2026-10-30T09:33:23.102148+00:00",
+    "finish": "2026-10-30T09:37:13.090513+00:00",
+    "within_ten_minutes": true
+  },
+  "before": {
+    "scan": {
+      "messages": 626,
+      "effective_seconds": 62.37491648200012,
+      "hz": 10.020053496670569,
+      "future_samples_over_150ms": 0,
+      "stale_samples_over_1s": 0,
+      "backwards_stamps": 0,
+      "duplicate_stamps": 0,
+      "age_min_s": 0.0017321109771728516,
+      "age_max_s": 0.010799169540405273
+    },
+    "camera": {
+      "messages": 1876,
+      "effective_seconds": 62.62783104300024,
+      "hz": 29.938766340361138,
+      "future_samples_over_150ms": 940,
+      "stale_samples_over_1s": 0,
+      "backwards_stamps": 62,
+      "duplicate_stamps": 0,
+      "age_min_s": -0.8524603843688965,
+      "age_max_s": 0.15446949005126953
+    }
+  },
+  "after": {
+    "scan": {
+      "messages": 651,
+      "effective_seconds": 64.8731081750002,
+      "hz": 10.0195600039168,
+      "future_samples_over_150ms": 0,
+      "stale_samples_over_1s": 0,
+      "backwards_stamps": 0,
+      "duplicate_stamps": 0,
+      "age_min_s": 0.001596212387084961,
+      "age_max_s": 0.01005411148071289
+    },
+    "camera": {
+      "messages": 1948,
+      "effective_seconds": 64.95991459199968,
+      "hz": 29.97233004736414,
+      "future_samples_over_150ms": 0,
+      "stale_samples_over_1s": 0,
+      "backwards_stamps": 0,
+      "duplicate_stamps": 0,
+      "age_min_s": 0.05506277084350586,
+      "age_max_s": 0.062042236328125
+    }
+  },
+  "camera_candidate": {
+    "arithmetic_before_passed": 2,
+    "arithmetic_after_passed": 11,
+    "arithmetic_total": 11,
+    "package_build_exit": 0,
+    "original_vendor_install_preserved": true,
+    "manual_overlay_active": true,
+    "permanent_boot_install": false
+  },
+  "web": {
+    "url": "http://127.0.0.1:8766",
+    "ssh_form_removed": true,
+    "backend_authentication_preserved": true,
+    "wheel_zoom_removed": true,
+    "browser_final": "browser-final/results.json",
+    "camera_final": "camera-source-final/results.json",
+    "frontend_tests": {
+      "passed": 11,
+      "total": 11
+    },
+    "gateway_transport_tests": {
+      "passed": 8,
+      "total": 8
+    }
+  },
+  "unverified": [
+    "Physical stopping, watchdog, emergency stop and motor timeout",
+    "Hardware serial feedback and odometry accuracy",
+    "Measured chassis dimensions, laser extrinsics, physical valid FOV and range",
+    "Physical laser noise calibration and simulation gap",
+    "SLAM/Nav2/exploration full board load",
+    "Time synchronization after reboot and long-running clock drift"
+  ],
+  "active_simulation_profile_changed": false,
+  "pushed": false
+}

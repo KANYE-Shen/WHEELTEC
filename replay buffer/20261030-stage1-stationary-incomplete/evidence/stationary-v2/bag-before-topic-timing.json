@@ -1,0 +1,5 @@
+{
+  "stdout": "[{\"topic\": \"/scan\", \"messages\": 697, \"span_s\": 69.458600254}, {\"topic\": \"/rosout\", \"messages\": 6, \"span_s\": 0.000368709}]\n",
+  "stderr": "",
+  "exit": 0
+}

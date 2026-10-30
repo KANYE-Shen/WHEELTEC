@@ -1,0 +1,127 @@
+{
+  "version": 1,
+  "read_only": true,
+  "simulation": false,
+  "interface_check_passed": false,
+  "deployment_ready": false,
+  "physical_motion_tests": "not_run",
+  "output": "/home/wheeltec/.wheeltec-console/inspect-20261030T091503Z/interfaces.json",
+  "manual_checks_required": [
+    "measured chassis kinematics and dimensions",
+    "laser extrinsics",
+    "wheel/steering calibration",
+    "odometry accuracy",
+    "braking distance",
+    "low-speed supervised navigation and actual RDK load"
+  ],
+  "clock": {
+    "wall_epoch": 946686168.9286717,
+    "plausible_utc": false,
+    "synchronization_verified": false,
+    "reference": "UTC lower-bound diagnostic only"
+  },
+  "started_at": "2000-01-01T08:22:48+0800",
+  "resources_before": {
+    "architecture": "aarch64",
+    "ros_distro": "humble",
+    "memory_total_mib": 7080,
+    "memory_available_mib": 6331,
+    "board_model": "D-Robotics RDK X5 V1.0"
+  },
+  "duration_wall_seconds": 15.0450944050001,
+  "streams": {
+    "scan": {
+      "future_samples": 0,
+      "stale_at_receipt_samples": 0,
+      "messages": 0,
+      "wall_hz": null,
+      "measurement_wall_hz": null,
+      "duplicate_stamps": 0,
+      "distinct_measurements": 0,
+      "minimum_hz": 5,
+      "receive_age_seconds": null,
+      "measurement_age_seconds": null,
+      "stamp_age_seconds": null,
+      "backwards_stamps": 0,
+      "zero_stamps": 0,
+      "passed": false,
+      "topic": "/scan",
+      "publishers": 0
+    },
+    "odom": {
+      "future_samples": 0,
+      "stale_at_receipt_samples": 0,
+      "messages": 0,
+      "wall_hz": null,
+      "measurement_wall_hz": null,
+      "duplicate_stamps": 0,
+      "distinct_measurements": 0,
+      "minimum_hz": 10,
+      "receive_age_seconds": null,
+      "measurement_age_seconds": null,
+      "stamp_age_seconds": null,
+      "backwards_stamps": 0,
+      "zero_stamps": 0,
+      "passed": false,
+      "topic": "/odom",
+      "publishers": 0
+    },
+    "camera": {
+      "future_samples": 0,
+      "stale_at_receipt_samples": 0,
+      "messages": 0,
+      "wall_hz": null,
+      "measurement_wall_hz": null,
+      "duplicate_stamps": 0,
+      "distinct_measurements": 0,
+      "minimum_hz": 1.0,
+      "receive_age_seconds": null,
+      "measurement_age_seconds": null,
+      "stamp_age_seconds": null,
+      "backwards_stamps": 0,
+      "zero_stamps": 0,
+      "passed": false,
+      "topic": "/image_raw",
+      "publishers": 0
+    }
+  },
+  "ros_topics_and_types": {
+    "/image_raw": [
+      "sensor_msgs/msg/Image"
+    ],
+    "/odom": [
+      "nav_msgs/msg/Odometry"
+    ],
+    "/parameter_events": [
+      "rcl_interfaces/msg/ParameterEvent"
+    ],
+    "/rosout": [
+      "rcl_interfaces/msg/Log"
+    ],
+    "/scan": [
+      "sensor_msgs/msg/LaserScan"
+    ],
+    "/tf": [
+      "tf2_msgs/msg/TFMessage"
+    ],
+    "/tf_static": [
+      "tf2_msgs/msg/TFMessage"
+    ]
+  },
+  "ros_node_names": [
+    "wheeltec_readonly_interface_check"
+  ],
+  "imu_topic_candidates": [],
+  "imu_hardware_confirmed": false,
+  "scan": {},
+  "tf_at_last_scan_stamp": [],
+  "tf_lookup_failed_attempts_at_sample_end": 0,
+  "resources_after": {
+    "architecture": "aarch64",
+    "ros_distro": "humble",
+    "memory_total_mib": 7080,
+    "memory_available_mib": 6305,
+    "board_model": "D-Robotics RDK X5 V1.0"
+  },
+  "host_cpu_busy_percent_during_check": 5.1
+}

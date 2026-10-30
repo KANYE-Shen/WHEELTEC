@@ -1,0 +1,5 @@
+{
+  "stdout": "{\"files\": [{\"path\": \"/home/wheeltec/.wheeltec-console/stationary-20261030-v2/camera-after-bag/camera-after-bag_0.db3\", \"bytes\": 4132864, \"sha256\": \"01fab9d3a6040c52aa0374bd64045b3ee0faad1633b8b2f57a2b89bdefe32620\"}, {\"path\": \"/home/wheeltec/.wheeltec-console/stationary-20261030-v2/camera-after-bag/metadata.yaml\", \"bytes\": 3936, \"sha256\": \"24b925e4da13adbcd186574aa89f398ec857482ba410642853c6557d017a3878\"}], \"topics\": [{\"topic\": \"/scan\", \"messages\": 694, \"span_s\": 69.156158716}, {\"topic\": \"/rosout\", \"messages\": 8, \"span_s\": 0.000468126}, {\"topic\": \"/camera_info\", \"messages\": 2078, \"span_s\": 69.229537428}]}\n",
+  "stderr": "",
+  "exit": 0
+}

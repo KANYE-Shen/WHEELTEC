@@ -1,0 +1,4 @@
+  File "D:\–Èƒ‚c≈Ã\WHEELTEC\setup\verification\2026-10-30-stage1-connection-v1\collect_stationary.py", line 33
+    info=run(ssh,"python3 -c 'import json,time,os,platform; print(json.dumps(dict(epoch=time.time(),hostname=platform.node(),architecture=platform.machine(),user=os.environ.get("USER"))))'")
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?

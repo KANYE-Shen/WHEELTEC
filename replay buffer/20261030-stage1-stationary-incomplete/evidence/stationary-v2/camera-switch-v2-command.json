@@ -1,0 +1,5 @@
+{
+  "stdout": "{\"pid\": 25007, \"command\": \"source /opt/ros/humble/setup.bash && source /home/wheeltec/wheeltec_ros2/install/setup.bash && source /home/wheeltec/.wheeltec-console/stationary-20261030-v2/camera-overlay/install/local_setup.bash && exec ros2 launch turn_on_wheeltec_robot wheeltec_camera.launch.py\", \"original_install_unchanged\": true, \"no_base_actions\": true, \"rollback\": \"Stop only this camera launch after ownership check, then relaunch the original camera-only command from camera-start.json.\"}\n",
+  "stderr": "",
+  "exit": 0
+}

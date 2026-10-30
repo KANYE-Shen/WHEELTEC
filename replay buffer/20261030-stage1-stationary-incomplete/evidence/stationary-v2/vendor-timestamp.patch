@@ -1,0 +1,93 @@
+--- a/include/usb_cam/utils.hpp
++++ b/include/usb_cam/utils.hpp
+@@ -87,6 +87,21 @@
+ }
+ 
+ 
++// Preserve microsecond offset; integer seconds lose the boot-time fraction.
++inline time_t get_epoch_time_shift_us()
++{
++  struct timeval epoch_time;
++  struct timespec monotonic_time;
++  gettimeofday(&epoch_time, NULL);
++  clock_gettime(CLOCK_MONOTONIC, &monotonic_time);
++  const int64_t epoch_us = static_cast<int64_t>(epoch_time.tv_sec) * 1000000 +
++    epoch_time.tv_usec;
++  const int64_t monotonic_us = static_cast<int64_t>(monotonic_time.tv_sec) * 1000000 +
++    monotonic_time.tv_nsec / 1000;
++  return static_cast<time_t>(epoch_us - monotonic_us);
++}
++
++
+ inline int xioctl(int fd, int request, void * arg)
+ {
+   int r;
+--- a/include/usb_cam/usb_cam.hpp
++++ b/include/usb_cam/usb_cam.hpp
+@@ -253,7 +253,7 @@
+ 
+   inline time_t get_epoch_time_shift()
+   {
+-    return m_epoch_time_shift;
++    return m_epoch_time_shift_us / 1000000;
+   }
+ 
+   inline std::vector<capture_format_t> supported_formats()
+@@ -345,7 +345,7 @@
+   int64_t m_buffer_time_s;
+   bool m_is_capturing;
+   int m_framerate;
+-  const time_t m_epoch_time_shift;
++  const time_t m_epoch_time_shift_us;
+   std::vector<capture_format_t> m_supported_formats;
+ };
+ 
+--- a/src/usb_cam.cpp
++++ b/src/usb_cam.cpp
+@@ -63,7 +63,7 @@
+   m_avframe(NULL), m_avcodec(NULL), m_avoptions(NULL),
+   m_avcodec_context(NULL),
+   m_is_capturing(false), m_framerate(0),
+-  m_epoch_time_shift(usb_cam::utils::get_epoch_time_shift()), m_supported_formats()
++  m_epoch_time_shift_us(usb_cam::utils::get_epoch_time_shift_us()), m_supported_formats()
+ {}
+ 
+ UsbCam::~UsbCam()
+@@ -133,11 +133,13 @@
+       }
+ 
+       // Get timestamp from V4L2 image buffer
+-      m_buffer_time_s =
+-        buf.timestamp.tv_sec + static_cast<int64_t>(round(buf.timestamp.tv_usec / 1000000.0));
+-
+-      m_image.stamp.tv_sec = static_cast<time_t>(round(m_buffer_time_s)) + m_epoch_time_shift;
+-      m_image.stamp.tv_nsec = static_cast<int64_t>(buf.timestamp.tv_usec * 1000.0);
++      {
++      m_buffer_time_s = buf.timestamp.tv_sec;
++      const int64_t mmap_frame_us = static_cast<int64_t>(buf.timestamp.tv_sec) * 1000000 +
++        buf.timestamp.tv_usec + m_epoch_time_shift_us;
++      m_image.stamp.tv_sec = static_cast<time_t>(mmap_frame_us / 1000000);
++      m_image.stamp.tv_nsec = (mmap_frame_us % 1000000) * 1000;
++      }
+ 
+       assert(buf.index < m_number_of_buffers);
+       process_image(m_buffers[buf.index].start, m_image.data, buf.bytesused);
+@@ -162,11 +164,13 @@
+         }
+       }
+ 
+-      m_buffer_time_s =
+-        buf.timestamp.tv_sec + static_cast<int64_t>(round(buf.timestamp.tv_usec / 1000000.0));
+-
+-      m_image.stamp.tv_sec = static_cast<time_t>(round(m_buffer_time_s)) + m_epoch_time_shift;
+-      m_image.stamp.tv_nsec = static_cast<int64_t>(buf.timestamp.tv_usec / 1000.0);
++      {
++      m_buffer_time_s = buf.timestamp.tv_sec;
++      const int64_t userptr_frame_us = static_cast<int64_t>(buf.timestamp.tv_sec) * 1000000 +
++        buf.timestamp.tv_usec + m_epoch_time_shift_us;
++      m_image.stamp.tv_sec = static_cast<time_t>(userptr_frame_us / 1000000);
++      m_image.stamp.tv_nsec = (userptr_frame_us % 1000000) * 1000;
++      }
+ 
+       for (i = 0; i < m_number_of_buffers; ++i) {
+         if (buf.m.userptr == reinterpret_cast<uint64_t>(m_buffers[i].start) && \

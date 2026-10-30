@@ -1,0 +1,5 @@
+{
+  "stdout": "",
+  "stderr": "Traceback (most recent call last):\n  File \"/home/wheeltec/.wheeltec-console/stationary-20261030-v2/switch_camera_only.py\", line 17, in <module>\n    else:raise RuntimeError('Owned camera launch did not exit; do not start duplicate')\nRuntimeError: Owned camera launch did not exit; do not start duplicate\n",
+  "exit": 1
+}

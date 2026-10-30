@@ -1,0 +1,46 @@
+{
+  "started_at": "2026-10-30T09:33:23.102148+00:00",
+  "limit_seconds": 600,
+  "no_base_start": true,
+  "no_velocity_publication": true,
+  "graph": {
+    "stdout": "/camera/color/image_raw [sensor_msgs/msg/Image]\n/camera/color/image_raw/compressed [sensor_msgs/msg/CompressedImage]\n/camera/depth/image_raw [sensor_msgs/msg/Image]\n/camera/depth/image_raw/compressed [sensor_msgs/msg/CompressedImage]\n/camera_info [sensor_msgs/msg/CameraInfo]\n/image_raw [sensor_msgs/msg/Image]\n/image_raw/compressed [sensor_msgs/msg/CompressedImage]\n/image_raw/compressedDepth [sensor_msgs/msg/CompressedImage]\n/image_raw/theora [theora_image_transport/msg/Packet]\n/map [nav_msgs/msg/OccupancyGrid]\n/odom [nav_msgs/msg/Odometry]\n/parameter_events [rcl_interfaces/msg/ParameterEvent]\n/rosout [rcl_interfaces/msg/Log]\n/safety/status [std_msgs/msg/String]\n/scan [sensor_msgs/msg/LaserScan]\n/tf [tf2_msgs/msg/TFMessage]\n/tf_static [tf2_msgs/msg/TFMessage]\n/x10/lslidar_driver_node/transition_event [lifecycle_msgs/msg/TransitionEvent]\n/x10/lslidar_point_cloud [sensor_msgs/msg/PointCloud2]\n/x10/motor_control [std_msgs/msg/Int8]\n/x10/time_topic [std_msgs/msg/Float64]\nType: nav_msgs/msg/Odometry\n\nPublisher count: 0\n\nSubscription count: 1\n\nNode name: wheeltec_console_adapter\nNode namespace: /\nTopic type: nav_msgs/msg/Odometry\nEndpoint type: SUBSCRIPTION\nGID: 01.0f.02.0a.e1.22.0b.7b.00.00.00.00.00.00.15.04.00.00.00.00.00.00.00.00\nQoS profile:\n  Reliability: BEST_EFFORT\n  History (Depth): UNKNOWN\n  Durability: VOLATILE\n  Lifespan: Infinite\n  Deadline: Infinite\n  Liveliness: AUTOMATIC\n  Liveliness lease duration: Infinite\n\nType: tf2_msgs/msg/TFMessage\n\nPublisher count: 0\n\nSubscription count: 2\n\nNode name: wheeltec_console_adapter\nNode namespace: /\nTopic type: tf2_msgs/msg/TFMessage\nEndpoint type: SUBSCRIPTION\nGID: 01.0f.02.0a.e1.22.0b.7b.00.00.00.00.00.00.11.04.00.00.00.00.00.00.00.00\nQoS profile:\n  Reliability: RELIABLE\n  History (Depth): UNKNOWN\n  Durability: VOLATILE\n  Lifespan: Infinite\n  Deadline: Infinite\n  Liveliness: AUTOMATIC\n  Liveliness lease duration: Infinite\n\nNode name: wheeltec_console_adapter\nNode namespace: /\nTopic type: tf2_msgs/msg/TFMessage\nEndpoint type: SUBSCRIPTION\nGID: 01.0f.02.0a.e1.22.0b.7b.00.00.00.00.00.00.1a.04.00.00.00.00.00.00.00.00\nQoS profile:\n  Reliability: BEST_EFFORT\n  History (Depth): UNKNOWN\n  Durability: VOLATILE\n  Lifespan: Infinite\n  Deadline: Infinite\n  Liveliness: AUTOMATIC\n  Liveliness lease duration: Infinite\n\n",
+    "stderr": "",
+    "exit": 0
+  },
+  "processes": {
+    "stdout": "   8929 python3         python3 -m console.target.adapter --kind robot --token-file /home/wheeltec/.wheeltec-console/adapter.token\n  12416 ros2            /usr/bin/python3 /opt/ros/humble/bin/ros2 launch turn_on_wheeltec_robot wheeltec_camera.launch.py\n  12545 usb_cam_node_ex /home/wheeltec/wheeltec_ros2/install/usb_cam/lib/usb_cam/usb_cam_node_exe --ros-args -r __node:=usb_cam --params-file /home/wheeltec/wheeltec_ros2/install/usb_cam/share/usb_cam/config/params.yaml --params-file /tmp/launch_params_cqfm738t\n  13171 ros2            /usr/bin/python3 /opt/ros/humble/bin/ros2 launch turn_on_wheeltec_robot wheeltec_lidar.launch.py\n  13388 lslidar_driver_ /home/wheeltec/wheeltec_ros2/install/lslidar_driver/lib/lslidar_driver/lslidar_driver_node --ros-args -r __node:=lslidar_driver_node -r __ns:=/x10 --params-file /tmp/launch_params_fm_yu908\n",
+    "stderr": "",
+    "exit": 0
+  },
+  "ports": {
+    "stdout": "lrwxrwxrwx 1 root root         6 Jun  4  2025 /dev/RgbCam -> video0\ncrwxrwxrwx 1 root dialout 166, 0 Jun  4  2025 /dev/ttyACM0\ncrwxrwxrwx 1 root dialout 166, 1 Jan  1  2000 /dev/ttyACM1\nlrwxrwxrwx 1 root root         7 Jun  4  2025 /dev/wheeltec_controller -> ttyACM1\nlrwxrwxrwx 1 root root         7 Jun  4  2025 /dev/wheeltec_lidar -> ttyACM0\n",
+    "stderr": "",
+    "exit": 2
+  },
+  "base_sources": {
+    "stdout": "/home/wheeltec/wheeltec_ros2/src/turn_on_wheeltec_robot/src/wheeltec_robot.cpp\n",
+    "stderr": "",
+    "exit": 0
+  },
+  "base_launch": {
+    "stdout": "/home/wheeltec/wheeltec_ros2/install/turn_on_wheeltec_robot/share/turn_on_wheeltec_robot/launch/__pycache__/turn_on_wheeltec_robot.launch.cpython-310.pyc\n/home/wheeltec/wheeltec_ros2/install/turn_on_wheeltec_robot/share/turn_on_wheeltec_robot/launch/__pycache__/robot_mode_description.launch.cpython-310.pyc\n",
+    "stderr": "",
+    "exit": 0
+  },
+  "elapsed_seconds": 18.390999999988708,
+  "completed_at": "2026-10-30T09:37:13.090513+00:00",
+  "result": "unavailable_publisher_chain_not_running",
+  "cause_proven": true,
+  "reason": "Vendor odom producer wheeltec_robot_node, robot_localization EKF and robot model TF publishers are not running. Only isolated sensor drivers and read-only adapter are running. Topic presence is caused by subscribers, not publishers.",
+  "hardware_health": "unverified; controller symlink existence does not verify serial feedback",
+  "scope": "robot ROS graph observed over SSH; desktop gateway consumes data over SSH and does not run a second robot ROS stack",
+  "stopped_after_root_cause": true,
+  "evidence": [
+    "vendor-base-wheeltec_robot.cpp:761",
+    "vendor-base_serial.launch.py",
+    "vendor-base-launch.py",
+    "vendor-wheeltec_ekf.launch.py",
+    "vendor-robot_mode_description.launch.py"
+  ]
+}

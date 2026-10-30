@@ -1,0 +1,5 @@
+{
+  "stdout": "FAIL fractional epoch offset\nFAIL branch 0 before half-second correct offset\nFAIL branch 0 half-second no extra second\nFAIL branch 0 subsecond carry\nFAIL branch 0 rollover monotonic\nFAIL branch 1 before half-second correct offset\nFAIL branch 1 half-second no extra second\nFAIL branch 1 subsecond carry\nFAIL branch 1 rollover monotonic\nchecks=11 failures=9\n",
+  "stderr": "",
+  "exit": 1
+}

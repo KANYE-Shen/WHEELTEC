@@ -1,0 +1,22 @@
+{
+  "source": "D:\\虚拟c盘\\WHEELTEC\\setup\\verification\\2026-10-30-stage1-stationary-v2\\usb-source",
+  "state": "unknown",
+  "files": {
+    "include/usb_cam/usb_cam.hpp": {
+      "sha256": null,
+      "error": "[Errno 2] No such file or directory: 'D:\\\\虚拟c盘\\\\WHEELTEC\\\\setup\\\\verification\\\\2026-10-30-stage1-stationary-v2\\\\usb-source\\\\include\\\\usb_cam\\\\usb_cam.hpp'"
+    },
+    "include/usb_cam/utils.hpp": {
+      "sha256": null,
+      "error": "[Errno 2] No such file or directory: 'D:\\\\虚拟c盘\\\\WHEELTEC\\\\setup\\\\verification\\\\2026-10-30-stage1-stationary-v2\\\\usb-source\\\\include\\\\usb_cam\\\\utils.hpp'"
+    },
+    "src/usb_cam.cpp": {
+      "sha256": null,
+      "error": "[Errno 2] No such file or directory: 'D:\\\\虚拟c盘\\\\WHEELTEC\\\\setup\\\\verification\\\\2026-10-30-stage1-stationary-v2\\\\usb-source\\\\src\\\\usb_cam.cpp'"
+    }
+  },
+  "scope": "three timestamp-bearing files only; not full release or installed binary",
+  "can_prepare_review_bundle": false,
+  "deployment_ready": false,
+  "real_robot_verified": false
+}

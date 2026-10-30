@@ -1,0 +1,27 @@
+[
+  {
+    "remote": "/home/wheeltec/wheeltec_ros2/src/usb_cam-ros2/src/usb_cam.cpp",
+    "local": "setup\\verification\\2026-10-30-stage1-stationary-v2\\usb-vendor-source\\src\\usb_cam.cpp",
+    "sha256": "4b83265acfcbe9dadd89f1c209db56147ad2aba86350bd57d2325732f128da4c"
+  },
+  {
+    "remote": "/home/wheeltec/wheeltec_ros2/src/usb_cam-ros2/include/usb_cam/usb_cam.hpp",
+    "local": "setup\\verification\\2026-10-30-stage1-stationary-v2\\usb-vendor-source\\include\\usb_cam\\usb_cam.hpp",
+    "sha256": "571a298e6f738f5b191f0e0abdbcb2521540037a0b58d65db7d8ec3f4db4e7ec"
+  },
+  {
+    "remote": "/home/wheeltec/wheeltec_ros2/src/usb_cam-ros2/include/usb_cam/utils.hpp",
+    "local": "setup\\verification\\2026-10-30-stage1-stationary-v2\\usb-vendor-source\\include\\usb_cam\\utils.hpp",
+    "sha256": "5233db74a76bd6c82e3d5f3830fd48ab3851724ce4b71d52756945ad2a92c80f"
+  },
+  {
+    "remote": "/home/wheeltec/wheeltec_ros2/src/usb_cam-ros2/package.xml",
+    "local": "setup\\verification\\2026-10-30-stage1-stationary-v2\\usb-vendor-source\\package.xml",
+    "sha256": "1e282e54afc2b44d3dc0fe7fc9f547325d8783bdaf0596b3baf380fe61636602"
+  },
+  {
+    "remote": "/home/wheeltec/wheeltec_ros2/src/usb_cam-ros2/CMakeLists.txt",
+    "local": "setup\\verification\\2026-10-30-stage1-stationary-v2\\usb-vendor-source\\CMakeLists.txt",
+    "sha256": "fcbb8ab4556fa4b438e361fdf67b3cd8fdc241af7b4d10e7bf17f02ddd08e73b"
+  }
+]

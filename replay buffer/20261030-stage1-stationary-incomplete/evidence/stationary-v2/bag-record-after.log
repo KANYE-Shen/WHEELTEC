@@ -1,0 +1,12 @@
+stdin is not a terminal device. Keyboard handling disabled.[INFO] [1793353380.382971275] [rosbag2_recorder]: Press SPACE for pausing/resuming
+[INFO] [1793353380.392295469] [rosbag2_storage]: Opened database '/home/wheeltec/.wheeltec-console/stationary-20261030-v2/camera-after-bag/camera-after-bag_0.db3' for READ_WRITE.
+[INFO] [1793353380.397454317] [rosbag2_recorder]: Listening for topics...
+[INFO] [1793353380.397481525] [rosbag2_recorder]: Event publisher thread: Starting
+[INFO] [1793353380.418250585] [rosbag2_recorder]: Subscribed to topic '/scan'
+[INFO] [1793353380.429083533] [rosbag2_recorder]: Subscribed to topic '/rosout'
+[INFO] [1793353380.435730677] [rosbag2_recorder]: Subscribed to topic '/camera_info'
+[INFO] [1793353380.436209637] [rosbag2_recorder]: Recording...
+[INFO] [1793353380.445454872] [rosbag2_recorder]: All requested topics are subscribed. Stopping discovery...
+[INFO] [1793353449.706989391] [rosbag2_cpp]: Writing remaining messages from cache to the bag. It may take a while
+[INFO] [1793353449.711628988] [rosbag2_recorder]: Event publisher thread: Exiting
+[INFO] [1793353449.712053989] [rosbag2_recorder]: Recording stopped

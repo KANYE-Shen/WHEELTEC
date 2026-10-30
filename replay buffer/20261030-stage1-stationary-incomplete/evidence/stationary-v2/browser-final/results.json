@@ -1,0 +1,37 @@
+{
+  "source": "live robot ROS through existing authenticated gateway; no mock data",
+  "checks": [
+    {
+      "name": "SSH connection form and credential fields removed",
+      "passed": true
+    },
+    {
+      "name": "real robot connection and live scan remain read-only",
+      "passed": true
+    },
+    {
+      "name": "plus and minus control zoom",
+      "passed": true
+    },
+    {
+      "name": "wheel scroll does not zoom radar",
+      "passed": true
+    },
+    {
+      "name": "drag and reset remain available",
+      "passed": true
+    },
+    {
+      "name": "zoom stays bounded and limits disable controls",
+      "passed": true
+    },
+    {
+      "name": "browser has no runtime errors or control requests",
+      "passed": true
+    }
+  ],
+  "passed": 7,
+  "total": 7,
+  "errors": [],
+  "forbidden_control_requests": 0
+}

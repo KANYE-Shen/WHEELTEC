@@ -1,0 +1,456 @@
+{
+  "version": 1,
+  "preservation": "Original source files are unchanged; evidence copies are byte-identical. Existing historical batches are not replaced.",
+  "files": [
+    {
+      "file": "evidence/connection-v1/README.md",
+      "source_file": "setup/verification/2026-10-30-stage1-connection-v1/README.md",
+      "bytes": 4141,
+      "sha256": "3afd158697d8535c1535f3fc42aab3427ba49b318562fbfb0dc1310afdad4f07"
+    },
+    {
+      "file": "evidence/connection-v1/summary.json",
+      "source_file": "setup/verification/2026-10-30-stage1-connection-v1/summary.json",
+      "bytes": 713,
+      "sha256": "794d040e5bfb927f4f9eb275fd66be5cf17db0f6a95af0ff5a5ddb54bd4437cd"
+    },
+    {
+      "file": "evidence/connection-v1/collector-first-failure.log",
+      "source_file": "setup/verification/2026-10-30-stage1-connection-v1/collector-first-failure.log",
+      "bytes": 546,
+      "sha256": "53a3f729f0d85e8d8b420386cb0d59ae3b776c3c938bd234ad6a2f35e2f146df"
+    },
+    {
+      "file": "evidence/connection-v1/collector-status.json",
+      "source_file": "setup/verification/2026-10-30-stage1-connection-v1/collector-status.json",
+      "bytes": 205,
+      "sha256": "cdc4d1d74744b1003b3fc1b7fcc05cf1fb8b16264cce215d02c91e6dade92ffc"
+    },
+    {
+      "file": "evidence/connection-v1/adapter-start-first-failure.log",
+      "source_file": "setup/verification/2026-10-30-stage1-connection-v1/adapter-start-first-failure.log",
+      "bytes": 48,
+      "sha256": "a344380193f2a8346386615c2e9c0a1a98af20cea7670378fcd7bd80270717dd"
+    },
+    {
+      "file": "evidence/connection-v1/MOTION_PROHIBITED.json",
+      "source_file": "setup/verification/2026-10-30-stage1-connection-v1/MOTION_PROHIBITED.json",
+      "bytes": 727,
+      "sha256": "3deb9fe4c396559726c3e3d4fde5ff05e8d3fa4793e48abe3ebe8a9b008e73b5"
+    },
+    {
+      "file": "evidence/connection-v1/interface-check.json",
+      "source_file": "setup/verification/2026-10-30-stage1-connection-v1/interface-check.json",
+      "bytes": 3330,
+      "sha256": "e6896ce4e941e09c95b1c3e5da887e2afa0c7863a70f802a204898d2385751d6"
+    },
+    {
+      "file": "evidence/connection-v1/inspect-command.json",
+      "source_file": "setup/verification/2026-10-30-stage1-connection-v1/inspect-command.json",
+      "bytes": 3847,
+      "sha256": "a40d408c3d185de6e6bcc6122bf7f440b20f4d588d9ceb53e8c1f76a7a501e0f"
+    },
+    {
+      "file": "evidence/connection-v1/identity-and-clock.json",
+      "source_file": "setup/verification/2026-10-30-stage1-connection-v1/identity-and-clock.json",
+      "bytes": 218,
+      "sha256": "a1711599e5212edda8f5257290d4472b1963f61815f541c95ffcd0902806fb03"
+    },
+    {
+      "file": "evidence/connection-v1/web-connection.json",
+      "source_file": "setup/verification/2026-10-30-stage1-connection-v1/web-connection.json",
+      "bytes": 940,
+      "sha256": "d87f2bf06bcaed02b673ee6ba8e139bdfa755f399598921c1d2c57e101923f04"
+    },
+    {
+      "file": "evidence/connection-20261029/session.json",
+      "source_file": "setup/verification/2026-10-29-stage1-connection-v1/session.json",
+      "bytes": 280,
+      "sha256": "c0cf74980d4e30f740209ec572b778eedec14948a1802579b86b7201248fa202"
+    },
+    {
+      "file": "evidence/stationary-v2/summary.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/summary.json",
+      "bytes": 3232,
+      "sha256": "bccf9f75437949f344720b8039cb78ed0e23e6a97c92d95cbee6c6ae509c2755"
+    },
+    {
+      "file": "evidence/stationary-v2/sensor-statistics.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/sensor-statistics.json",
+      "bytes": 313837,
+      "sha256": "6ccb7d9b548741296988a8a7e32b230aa6b643a64c8ae9701f3e13b1388cb489"
+    },
+    {
+      "file": "evidence/stationary-v2/sensor-statistics-after.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/sensor-statistics-after.json",
+      "bytes": 323918,
+      "sha256": "9648881c0d1df799e25ee7414375c9cd361d4d5b6c3cea8ad21810835d467e4e"
+    },
+    {
+      "file": "evidence/stationary-v2/clock-before.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/clock-before.json",
+      "bytes": 125,
+      "sha256": "69e24b8708265dd87eb6829f8982027557356ea4d9d1aa28d54d57efdb879ecd"
+    },
+    {
+      "file": "evidence/stationary-v2/clock-set-result.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/clock-set-result.json",
+      "bytes": 195,
+      "sha256": "967ab25e6a2f23b2b5fe56b3bd8b2b33b0b33c7b3c0133ebcb7ff6dac09f5732"
+    },
+    {
+      "file": "evidence/stationary-v2/clock-after.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/clock-after.json",
+      "bytes": 352,
+      "sha256": "ab4b1eadc89d83b1eafb52dd6f9e57641de7127f6a6e6972c972b0ec3bf52cac"
+    },
+    {
+      "file": "evidence/stationary-v2/clock-final.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/clock-final.json",
+      "bytes": 259,
+      "sha256": "9eb68b16cfaf31587cf6f4c677b828123057a9414480c20d213ca64bfd10c5d1"
+    },
+    {
+      "file": "evidence/stationary-v2/odom-tf-bounded-diagnosis-v2.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/odom-tf-bounded-diagnosis-v2.json",
+      "bytes": 4525,
+      "sha256": "e7ba8f1041c58d3c091a96139d85c480f0910872b6ec22d798e575c16c6431fe"
+    },
+    {
+      "file": "evidence/stationary-v2/odom-tf-conclusion.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/odom-tf-conclusion.json",
+      "bytes": 5394,
+      "sha256": "ab481f5e06a9eb14ef7c42fc53ae183b40fd452ff910f0ca5212f8e4fed5d52f"
+    },
+    {
+      "file": "evidence/stationary-v2/camera-switch-command.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/camera-switch-command.json",
+      "bytes": 360,
+      "sha256": "aad0d7fd3526037090f195ab8e2af594d8c094d911dccb808961bde764cff496"
+    },
+    {
+      "file": "evidence/stationary-v2/camera-stop-diagnosis.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/camera-stop-diagnosis.json",
+      "bytes": 1439,
+      "sha256": "5b204e3de5cbc55516fa5da6a8aab33dc2c0c5e9deeef993f8123f5877cf3a74"
+    },
+    {
+      "file": "evidence/stationary-v2/camera-switch-v2-command.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/camera-switch-v2-command.json",
+      "bytes": 561,
+      "sha256": "6fffafd1560c392cc4be986147e2c15d1b540485fe27b4e35e3d9b2d05eb42b2"
+    },
+    {
+      "file": "evidence/stationary-v2/camera-switch-result.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/camera-switch-result.json",
+      "bytes": 506,
+      "sha256": "5c5af3db1f9bb642dc9368f962f8c729175feb60c3da638c8b3010f69dca32a4"
+    },
+    {
+      "file": "evidence/stationary-v2/camera-loaded-library-after.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/camera-loaded-library-after.json",
+      "bytes": 658,
+      "sha256": "f7ac86fc2bc03209669511e31d63b47e0753326a88e11c8f67614b4ea135c527"
+    },
+    {
+      "file": "evidence/stationary-v2/camera-runtime-file-hashes.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/camera-runtime-file-hashes.json",
+      "bytes": 809,
+      "sha256": "5b87c4f2e77e8267a8495b2a17768c3e268b6b7634c5e4f6db08e8e2fe4b54cc"
+    },
+    {
+      "file": "evidence/stationary-v2/camera-build-result.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/camera-build-result.json",
+      "bytes": 51,
+      "sha256": "35766c1f1588cb189f35577c2834c7d14f582f2a0a18bc88506ff8a2f7e729bb"
+    },
+    {
+      "file": "evidence/stationary-v2/camera-build.log",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/camera-build.log",
+      "bytes": 92,
+      "sha256": "2836f363df051c5fa0fe4d0f421d35987e718618f7cc8a8065b0fd4e6156ccfc"
+    },
+    {
+      "file": "evidence/stationary-v2/camera-candidate.log",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/camera-candidate.log",
+      "bytes": 4005,
+      "sha256": "f4b1453074fcb60e712df99aa4b219c6d35ac75d8771396ab5a5bcc8b2278825"
+    },
+    {
+      "file": "evidence/stationary-v2/camera.log",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/camera.log",
+      "bytes": 3963,
+      "sha256": "507d51bac1a4dc74ec11b86019c49102ad631b8214ed508015f23b971e029ca1"
+    },
+    {
+      "file": "evidence/stationary-v2/lidar.log",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/lidar.log",
+      "bytes": 1580,
+      "sha256": "9a4d43e5203dbab0f3746e07fcae16be5b8426489291984dd78b6e0ada45ee7b"
+    },
+    {
+      "file": "evidence/stationary-v2/usb-source-audit.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/usb-source-audit.json",
+      "bytes": 1109,
+      "sha256": "0c6b1e57f7e913f5464454ab522c4eb8b0fcf06ae30ba7cad6b3d53aab22b58f"
+    },
+    {
+      "file": "evidence/stationary-v2/usb-source-locations.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/usb-source-locations.json",
+      "bytes": 402,
+      "sha256": "b6629ee926892ce8d966c73b676c466220b1f83d40dec6e1556249caa91188c7"
+    },
+    {
+      "file": "evidence/stationary-v2/usb-source-manifest.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/usb-source-manifest.json",
+      "bytes": 662,
+      "sha256": "5c3011ee142895e07a3c95acd4cda61d75e288d811737aac8abf1f5724d2ac6c"
+    },
+    {
+      "file": "evidence/stationary-v2/usb-vendor-audit.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/usb-vendor-audit.json",
+      "bytes": 725,
+      "sha256": "b65febb7d5fdfec9874a34ad3ee5cab000ae8465bef8b57f26534e73b1b82115"
+    },
+    {
+      "file": "evidence/stationary-v2/usb-vendor-source-manifest.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/usb-vendor-source-manifest.json",
+      "bytes": 1437,
+      "sha256": "42d9969b480e63094b6942bbbb0eb644263d1adabe5911feebd89166a8e5b5ed"
+    },
+    {
+      "file": "evidence/stationary-v2/vendor-patch-manifest.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/vendor-patch-manifest.json",
+      "bytes": 646,
+      "sha256": "515541a7701e3c7f904903c5cb8e1e49314d0680983be32e0073c9addb14463a"
+    },
+    {
+      "file": "evidence/stationary-v2/vendor-timestamp.patch",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/vendor-timestamp.patch",
+      "bytes": 3330,
+      "sha256": "d376cc5015dd1e83c851d01429f6006fbc44546159c693655ccde81cdc74693b"
+    },
+    {
+      "file": "evidence/stationary-v2/vendor-timestamp-red.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/vendor-timestamp-red.json",
+      "bytes": 417,
+      "sha256": "18355f23e5c9fa12a5dfdad97e2c29ef028e24e5209882398ad9a89d2b6133d1"
+    },
+    {
+      "file": "evidence/stationary-v2/vendor-timestamp-green.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/vendor-timestamp-green.json",
+      "bytes": 73,
+      "sha256": "3776ac5fc322cc10d02b0e6ca263165501635e54a3a04c51d989752cc1edfee8"
+    },
+    {
+      "file": "evidence/stationary-v2/vendor-before-test.cpp",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/vendor-before-test.cpp",
+      "bytes": 3509,
+      "sha256": "800418f5058cb179391c9eb18d8bde5ee431e73e962b9a3159551bf058f2dd61"
+    },
+    {
+      "file": "evidence/stationary-v2/vendor-after-test.cpp",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/vendor-after-test.cpp",
+      "bytes": 3569,
+      "sha256": "ddb3a675700eb2c9df184ffb07f9e97528434fc133aed3fe146a9293e205004e"
+    },
+    {
+      "file": "evidence/stationary-v2/generate_vendor_timestamp_test.py",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/generate_vendor_timestamp_test.py",
+      "bytes": 2640,
+      "sha256": "ecd42d9d81a853104b3daeb8b60d07075fa058a918db5be0472521278c847de9"
+    },
+    {
+      "file": "evidence/stationary-v2/sensor_statistics.py",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/sensor_statistics.py",
+      "bytes": 3114,
+      "sha256": "eef21e1db15ad9e30ed816b3aea1359eb775af58d6d3a0654442c8981629ba03"
+    },
+    {
+      "file": "evidence/stationary-v2/bag-metadata.yaml",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/bag-metadata.yaml",
+      "bytes": 3171,
+      "sha256": "91b08b0560a85d26a69b2e80d3441c3028ba8e65e3a38a3cab8838426ed812db"
+    },
+    {
+      "file": "evidence/stationary-v2/bag-sha256.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/bag-sha256.json",
+      "bytes": 278,
+      "sha256": "d8cae546b8000b8325a8c773d0a38cccf3dc6e35bb1d35d3ec46d1c044ec6581"
+    },
+    {
+      "file": "evidence/stationary-v2/bag-before-topic-timing.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/bag-before-topic-timing.json",
+      "bytes": 190,
+      "sha256": "b4d2407f5898f80d355ab49e125cdda18e56f6b22a358ad67edb678b15aba4ba"
+    },
+    {
+      "file": "evidence/stationary-v2/bag-metadata-after.yaml",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/bag-metadata-after.yaml",
+      "bytes": 3936,
+      "sha256": "24b925e4da13adbcd186574aa89f398ec857482ba410642853c6557d017a3878"
+    },
+    {
+      "file": "evidence/stationary-v2/bag-after-manifest.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/bag-after-manifest.json",
+      "bytes": 712,
+      "sha256": "f530ba662564d3717b385aa62d994c5a645d8d2bcf00a20179d2e798a86341c0"
+    },
+    {
+      "file": "evidence/stationary-v2/bag-record.log",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/bag-record.log",
+      "bytes": 970,
+      "sha256": "e5805a5bdb364b463b3393be2089272854b62ebb750b452991d8db358ab2881a"
+    },
+    {
+      "file": "evidence/stationary-v2/bag-record-after.log",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/bag-record-after.log",
+      "bytes": 1158,
+      "sha256": "f770859694196a635ceb0f99f363be05f9a68007a0b310187200a1cbff1ec083"
+    },
+    {
+      "file": "evidence/stationary-v2/acquisition-result.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/acquisition-result.json",
+      "bytes": 49,
+      "sha256": "73bd4a23a9dccf10aefff1ee7059bd3e06bb58eb076a33e1cef6aa29e8d3110f"
+    },
+    {
+      "file": "evidence/stationary-v2/acquisition-result-after.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/acquisition-result-after.json",
+      "bytes": 49,
+      "sha256": "73bd4a23a9dccf10aefff1ee7059bd3e06bb58eb076a33e1cef6aa29e8d3110f"
+    },
+    {
+      "file": "evidence/stationary-v2/adapter-final-state.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/adapter-final-state.json",
+      "bytes": 1058,
+      "sha256": "f772473dc2d3a5f13847cabf70a033f3729e9008e2d9ca9309d88cdafe2fe729"
+    },
+    {
+      "file": "evidence/stationary-v2/selected-hardware-config.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/selected-hardware-config.json",
+      "bytes": 498,
+      "sha256": "b278660cac18fe055c65c169fd377490510c13621896f98781e896f4994db6ca"
+    },
+    {
+      "file": "evidence/stationary-v2/vendor-base-wheeltec_robot.cpp",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/vendor-base-wheeltec_robot.cpp",
+      "bytes": 41971,
+      "sha256": "c96da6f956f3568f0ba2fe3de2c151c41127fe5a0b3f386f1213c5b3609ee55d"
+    },
+    {
+      "file": "evidence/stationary-v2/vendor-base_serial.launch.py",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/vendor-base_serial.launch.py",
+      "bytes": 6129,
+      "sha256": "4c837587df69912a51a8b996f2099cde4d72aa0784f4f863f5df1aef48711d2e"
+    },
+    {
+      "file": "evidence/stationary-v2/vendor-base-launch.py",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/vendor-base-launch.py",
+      "bytes": 2580,
+      "sha256": "24162aa3c2bb285c929746805d0ff8671833f7fa775d6b88e2737b6b4e2a79a5"
+    },
+    {
+      "file": "evidence/stationary-v2/vendor-wheeltec_ekf.launch.py",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/vendor-wheeltec_ekf.launch.py",
+      "bytes": 2769,
+      "sha256": "f779f108cb64d5284039e4b166f8480615540ca63125a8db37aafb4506e8285c"
+    },
+    {
+      "file": "evidence/stationary-v2/vendor-robot_mode_description.launch.py",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/vendor-robot_mode_description.launch.py",
+      "bytes": 6625,
+      "sha256": "14bd4a36c9c1d125e621bdba04739419082febe438b2c7a7a448629af773ffb7"
+    },
+    {
+      "file": "evidence/stationary-v2/credential-scan.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/credential-scan.json",
+      "bytes": 168,
+      "sha256": "845d6e17dda7bc9f9de2f96cf3b5182b0d207053ef06d118289e08c5e82227fe"
+    },
+    {
+      "file": "evidence/stationary-v2/browser-before/results.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/browser-before/results.json",
+      "bytes": 2191,
+      "sha256": "9489c926d0427c91322a8ee49fae9609f9b479692879758cebbf8b77255b8951"
+    },
+    {
+      "file": "evidence/stationary-v2/browser-after/results.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/browser-after/results.json",
+      "bytes": 833,
+      "sha256": "00fa439175855f73f67ba770c7f60db95fa3f040b3751c82859bbccd37c35fac"
+    },
+    {
+      "file": "evidence/stationary-v2/browser-final/results.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/browser-final/results.json",
+      "bytes": 833,
+      "sha256": "00fa439175855f73f67ba770c7f60db95fa3f040b3751c82859bbccd37c35fac"
+    },
+    {
+      "file": "evidence/stationary-v2/camera-ui-regression/results.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/camera-ui-regression/results.json",
+      "bytes": 3189,
+      "sha256": "cf4c945f06df45c445d926bb1957c103a7e3aef7c06842ca469f887d2cfdad38"
+    },
+    {
+      "file": "evidence/stationary-v2/camera-source-final/results.json",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/camera-source-final/results.json",
+      "bytes": 3222,
+      "sha256": "1022d6daadc44220e83f8fd34e13b4de2ae6d6577a61845f61ed0d42f4478b3b"
+    },
+    {
+      "file": "evidence/stationary-v2/usb-vendor-source/include/usb_cam/utils.hpp",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/usb-vendor-source/include/usb_cam/utils.hpp",
+      "bytes": 3446,
+      "sha256": "5233db74a76bd6c82e3d5f3830fd48ab3851724ce4b71d52756945ad2a92c80f"
+    },
+    {
+      "file": "evidence/stationary-v2/usb-vendor-source/include/usb_cam/usb_cam.hpp",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/usb-vendor-source/include/usb_cam/usb_cam.hpp",
+      "bytes": 9447,
+      "sha256": "571a298e6f738f5b191f0e0abdbcb2521540037a0b58d65db7d8ec3f4db4e7ec"
+    },
+    {
+      "file": "evidence/stationary-v2/usb-vendor-source/src/usb_cam.cpp",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/usb-vendor-source/src/usb_cam.cpp",
+      "bytes": 22891,
+      "sha256": "4b83265acfcbe9dadd89f1c209db56147ad2aba86350bd57d2325732f128da4c"
+    },
+    {
+      "file": "evidence/stationary-v2/usb-vendor-candidate/include/usb_cam/utils.hpp",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/usb-vendor-candidate/include/usb_cam/utils.hpp",
+      "bytes": 3998,
+      "sha256": "d75f52ba389e30d56e0bb893092daa17c757b9fe43c79f6a07364f62aa1557b0"
+    },
+    {
+      "file": "evidence/stationary-v2/usb-vendor-candidate/include/usb_cam/usb_cam.hpp",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/usb-vendor-candidate/include/usb_cam/usb_cam.hpp",
+      "bytes": 9463,
+      "sha256": "02ca42f2d5dc31e1c0cd40b8bbf52176e2f531eb8183773702234e1aba55182c"
+    },
+    {
+      "file": "evidence/stationary-v2/usb-vendor-candidate/src/usb_cam.cpp",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/usb-vendor-candidate/src/usb_cam.cpp",
+      "bytes": 23002,
+      "sha256": "439850b38671770b8fb44113a3d79ab2cec2c720d62f5a7dabde92b9b35fac5f"
+    },
+    {
+      "file": "reports/2026-10-30-debug-camera-source-time.md",
+      "source_file": "setup/verification/2026-10-30-debug-camera-source-time.md",
+      "bytes": 2790,
+      "sha256": "3089c594da6fef3da11d297611d7d92722e2f1c92cf367c65f329c9dd3269646"
+    },
+    {
+      "file": "reports/2026-10-30-debug-odom-tf-producers.md",
+      "source_file": "setup/verification/2026-10-30-debug-odom-tf-producers.md",
+      "bytes": 2051,
+      "sha256": "e71d8f0de53b5fbaed1398ca2e00a7bb451775389e828252eaf4c34eb48ba0d0"
+    },
+    {
+      "file": "reports/original-round-report.md",
+      "source_file": "setup/verification/2026-10-30-stage1-stationary-v2/README.md",
+      "bytes": 7379,
+      "sha256": "4177fbf68fd7df999c4c97289a9dd183518750c90c43317f2994ae8e31af83df"
+    }
+  ]
+}
