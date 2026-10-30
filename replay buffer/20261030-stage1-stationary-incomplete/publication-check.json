@@ -11,5 +11,11 @@
   "credential_or_private_key_matches": 0,
   "includes_raw_bags": false,
   "motion_executed": false,
-  "phase_one_passed": false
+  "phase_one_passed": false,
+  "raw_evidence_whitespace_check": {
+    "passed": false,
+    "warning_count": 873,
+    "evidence": "raw-evidence-whitespace-check.json",
+    "raw_bytes_preserved": true
+  }
 }

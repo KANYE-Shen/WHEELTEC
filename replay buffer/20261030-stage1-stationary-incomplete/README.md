@@ -36,3 +36,5 @@ g++ -std=c++14 /tmp/wheeltec-vendor-before.cpp -o /tmp/wheeltec-vendor-before
 原始bag仍在车端`/home/wheeltec/.wheeltec-console/stationary-20261030-v2/`：原包stationary-scan-bag（697条scan/69.4586s），后包camera-after-bag（694条scan、2078条camera_info）。[原包哈希](evidence/stationary-v2/bag-sha256.json)、[后包哈希](evidence/stationary-v2/bag-after-manifest.json)及两份metadata保留。此处没有上传大bag或原始图像像素，camera_info不是完整图像bag；逐帧header统计另见sensor-statistics*.json。
 
 未打包SSH凭据、适配器令牌、私钥、SSH连接助手、网页截图或相机画面。源证据复制时逐字节验证，发布清单见manifest；旧报告里的链接不一定随本包发布，本README和case列出的证据均已随包保存。
+
+原始证据包含既有CRLF、尾随空格和源码格式问题，Git空白检查有告警；为保持原始字节及SHA256未做格式化。告警数量和路径见[检查记录](raw-evidence-whitespace-check.json)。本次没有运行或修改这些底盘/厂商代码。
