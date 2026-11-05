@@ -16,6 +16,27 @@ def calibrated_geometry(profile):
     return polygon,math.hypot(length,width)/2+margin
 
 
+def planning_geometry(profile, config):
+    """Existing StopZone plus a separate planning margin; physical body is unchanged.
+
+    The circular explorer must clear every corner of the planning polygon at
+    every heading. Nav2 uses the same radius; collision_monitor keeps its original
+    stop envelope. No braking measurement is manufactured by the fallback.
+    """
+    body, _ = calibrated_geometry(profile)
+    safety = config['safety']
+    braking = config.get('measured_braking_distance_m')
+    margin = (braking if braking is not None else
+              safety['max_linear_m_s']*safety['command_timeout_s'])+safety['obstacle_margin_m']
+    x = max(abs(p[0]) for p in body)+margin
+    y = max(abs(p[1]) for p in body)+margin
+    stop = [[x,y],[x,-y],[-x,-y],[-x,y]]
+    extra = profile['parameters']['geometry']['safety_margin_m']['value']
+    footprint = [[x+extra,y+extra],[x+extra,-y-extra],
+                 [-x-extra,-y-extra],[-x-extra,y+extra]]
+    return stop, footprint, math.hypot(x+extra,y+extra)
+
+
 ADMISSION_PROTOCOL = 'three-stage-20261029'
 STAGE_NAMES = {1:'一',2:'二',3:'三'}
 
@@ -55,4 +76,39 @@ def validate(config,required_gate=1):
     required = {'流程版本:'+ADMISSION_PROTOCOL,'允许阶段'+STAGE_NAMES[required_gate]+'实测'}
     if not required.issubset(lines):
         raise ValueError('Explicit current-protocol human stage approval is missing')
+    return config
+
+
+def validate_runtime(config, required_gate=1):
+    """Explicit supervised use does not certify calibration or measured braking."""
+    if config.get('admission_protocol') != 'supervised-live-session-v1':
+        return validate(config, required_gate)
+    if type(required_gate) is not int or required_gate not in STAGE_NAMES:
+        raise ValueError('Invalid runtime stage')
+    authorization = config.get('operator_authorization', {})
+    scope = 'autonomy' if required_gate == 3 else 'manual'
+    if not authorization.get('request') or scope not in authorization.get('scope', []):
+        raise ValueError('Explicit operator runtime authorization required')
+    if config.get('measured_kinematics') != 'differential':
+        raise ValueError('Differential chassis confirmation required')
+    for key in ('base_frame','odom_frame','scan_frame','scan_topic','odom_topic','driver_command_topic'):
+        if not isinstance(config.get(key),str) or not config[key]:
+            raise ValueError('Missing live ROS interface: '+key)
+    if config.get('driver_command_type') != 'geometry_msgs/msg/Twist' or config['driver_command_topic'].startswith('/safety/'):
+        raise ValueError('Invalid final driver command interface')
+    calibration=Path(config.get('calibration_file',''))
+    if not calibration.is_file():
+        raise ValueError('Reported full-body dimensions required')
+    calibrated_geometry(json.loads(calibration.read_text(encoding='utf-8')))
+    safety=config.get('safety',{})
+    bounds={'max_linear_m_s':.1,'max_yaw_rad_s':.3,'command_timeout_s':.5,'operator_timeout_s':1.,'obstacle_margin_m':.5}
+    for key,upper in bounds.items():
+        value=safety.get(key)
+        if type(value) not in (int,float) or not math.isfinite(value) or not 0 < value <= upper:
+            raise ValueError('Invalid live safety value: '+key)
+    expiry=config.get('driver_command_expiry_s')
+    if type(expiry) not in (int,float) or not 0 < expiry <= safety['command_timeout_s']:
+        raise ValueError('Driver command expiry required')
+    if safety['obstacle_margin_m'] < safety['max_linear_m_s']*safety['command_timeout_s']+.05-1e-9:
+        raise ValueError('Live obstacle margin too small')
     return config

@@ -86,3 +86,28 @@ class ArmHandshake:
         elif self.state == 'active' and not armed:
             self.state = 'final_watchdog_hold'
         return self.state if self.state in ('watchdog_arm_failed', 'final_watchdog_hold') else None
+
+
+def takeover_blocker(mode, fresh, armed):
+    """Manual admission requires a fresh held source and disarmed final gate."""
+    if not fresh:
+        return 'command_selector_unavailable'
+    if mode != 'hold' or armed is not False:
+        return 'Press Space to stop before claiming manual control'
+    return None
+
+
+def manual_command_blocker(mode, ready, linear, angular):
+    if not (linear or angular):
+        return None
+    if mode != 'manual':
+        return 'Waiting for manual source acknowledgment'
+    if not ready:
+        return 'Final watchdog not armed; keep zero until acknowledged'
+    return None
+
+def require_control_epoch(received, current):
+    if received is None:
+        raise ValueError('页面控制版本已更新，请按 Ctrl+F5 刷新后重试')
+    if type(received) is not int or received != current:
+        raise ValueError('stale_control_epoch')

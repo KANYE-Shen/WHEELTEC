@@ -46,6 +46,8 @@ export type State = {
     kind: string;
   } | null;
   kind: "robot" | "simulation";
+  task?: { mode: "remote" | "starting" | "autonomous"; error: string };
+  map_reset?: { busy: boolean; error: string; sequence: number };
   clock: number;
   connected: boolean;
   maintenance: boolean;
@@ -58,6 +60,9 @@ export type State = {
   logs: Log[];
   camera_error?: string;
   control: {
+    gear?: number;
+    epoch?: number;
+    selection_mode?: string | null;
     mine: boolean;
     ready: boolean;
     reason: string;
@@ -67,7 +72,7 @@ export type State = {
     command_timeout: number;
     heartbeat_timeout: number;
     limits: [number, number];
-    watchdog: unknown;
+    watchdog: { armed?: boolean; reason?: string } | null;
     watchdog_fresh: boolean;
     watchdog_revision: number;
   };

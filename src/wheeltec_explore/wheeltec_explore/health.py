@@ -46,22 +46,36 @@ class MapHealth:
     def scan(self, stamp, received): self._stream('scan',stamp,received)
     def slam(self, alive): self.slam_alive=alive
 
-    def transform(self, stamp, received, pose):
+    def transform(self, stamp, received, pose, reference_xy=(0.,0.), reference_stamp=None):
         if received <= 0:
             return
         if not all(math.isfinite(v) for v in pose):
             self.faults['nonfinite_transform']={'stamp':stamp}
             return
+        if not all(math.isfinite(v) for v in reference_xy):
+            self.faults['nonfinite_transform_reference']={'stamp':stamp}
+            return
         previous=self.previous_transform
         if previous and stamp > previous[0]:
-            delta=math.dist(pose[:2],previous[1][:2])
+            # Apply both map corrections to the SAME current odom point. The
+            # translation of the odom origin depends on where that origin was
+            # chosen; it is not the robot's localization displacement.
+            x,y=reference_xy
+            def corrected(p):
+                c,s=math.cos(p[2]),math.sin(p[2])
+                return (p[0]+c*x-s*y,p[1]+s*x+c*y)
+            delta=math.dist(corrected(pose),corrected(previous[1]))
             angle=abs(math.atan2(math.sin(pose[2]-previous[1][2]),math.cos(pose[2]-previous[1][2])))
             self.max_translation_jump=max(self.max_translation_jump,delta)
             self.max_rotation_jump=max(self.max_rotation_jump,angle)
             for key,value,limit in (('map_to_odom_translation_jump',delta,'jump_translation'),
                                     ('map_to_odom_rotation_jump',angle,'jump_rotation')):
                 if value > self.limits[limit]:
-                    self.faults.setdefault(key,{'stamp':stamp,'magnitude':value,'limit':self.limits[limit]})
+                    self.faults.setdefault(key,dict(stamp=stamp,received=received,
+                        magnitude=value,limit=self.limits[limit],
+                        previous_stamp=previous[0],previous_pose=previous[1],current_pose=pose,
+                        reference_xy=reference_xy,reference_stamp=reference_stamp,
+                        origin_translation_delta_m=math.dist(pose[:2],previous[1][:2])))
         self._stream('tf',stamp,received)
         if previous is None or stamp > previous[0]: self.previous_transform=(stamp,pose)
 

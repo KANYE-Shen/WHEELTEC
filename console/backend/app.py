@@ -54,7 +54,8 @@ class Session:
         with self.lock:
             if not self.ssh:
                 raise ValueError('Not connected')
-            return self.ssh.request('GET' if body is None else 'POST', path, b'' if body is None else json.dumps(body).encode(), self.token)
+            ssh, token = self.ssh, self.token
+        return ssh.request('GET' if body is None else 'POST', path, b'' if body is None else json.dumps(body).encode(), token)
 
     def stop(self):
         try:
@@ -191,6 +192,16 @@ async def connect(request: Request):
             400, 'Connection failed: verify fingerprint, credentials and adapter configuration')
 
 
+@app.post('/api/v1/task')
+async def task_command(request: Request):
+    body = await request.json()
+    if body.get('action') not in ('explore', 'remote', 'stop', 'reset_map'):
+        raise ValueError('未知任务操作')
+    if session.maintenance and body['action'] in ('explore', 'reset_map'):
+        raise ValueError('请先关闭维护终端，再执行自主探索或地图重置')
+    return json.loads(await asyncio.to_thread(session.request, '/task', {'action': body['action']}))
+
+
 @app.post('/api/v1/disconnect')
 async def disconnect():
     await asyncio.to_thread(session.close)
@@ -243,7 +254,7 @@ async def events(ws: WebSocket):
                 try:
                     body = d.get('data', {})
                     body['owner'] = owner
-                    if body.get('action') not in ('claim', 'command', 'stop', 'release'):
+                    if body.get('action') not in ('claim', 'command', 'stop', 'release', 'heartbeat', 'gear'):
                         raise ValueError('Unknown action')
                     if session.maintenance and body['action'] not in ('stop', 'release'):
                         raise ValueError('Maintenance terminal active')

@@ -12,7 +12,7 @@ from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from preflight import validate, calibrated_geometry
+from preflight import validate_runtime as validate, calibrated_geometry
 
 
 def configure(context):
@@ -55,6 +55,7 @@ def configure(context):
                     name='collision_monitor', parameters=[str(collision_path)], output='screen'),
                Node(package='nav2_lifecycle_manager', executable='lifecycle_manager', name='lifecycle_manager_manual', parameters=[
                     {'use_sim_time': False, 'autostart': True, 'node_names': ['velocity_smoother', 'collision_monitor']}], output='screen'),
+               ExecuteProcess(cmd=['python3', str(ROOT/'command_selector.py'), '--config', hardware], output='screen'),
                ExecuteProcess(cmd=['python3', str(ROOT/'watchdog.py'), '--config', hardware, '--gate', str(gate)], output='screen')]
     for action in list(actions):
         actions.insert(0, RegisterEventHandler(OnProcessExit(target_action=action, on_exit=[EmitEvent(

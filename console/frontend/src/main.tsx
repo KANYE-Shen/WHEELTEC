@@ -1,32 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
 import { createRoot } from "react-dom/client";
 import { api, socket } from "./api";
-import type { State, Profile, Log } from "./protocol";
+import type { State, Log } from "./protocol";
 import { MapView } from "./MapView";
 import { TerminalView } from "./TerminalView";
 import { velocity, editable, controlStatus } from "./control";
 import { getPanels } from "./panels";
 import { streamReadout } from "./streamReadout";
 import "./style.css";
-const blank: Profile = {
-  name: "WSL 仿真",
-  kind: "simulation",
-  host: "127.0.0.1",
-  port: 2222,
-  username: "wheeltec",
-  fingerprint: "",
-  key_file: "",
-  adapter_port: 8767,
-  desktop_port: 6080,
-};
 function App() {
   const [state, setState] = useState<State | null>(null),
     [connected, setConnected] = useState(false),
-    [profiles, setProfiles] = useState<Record<string, Profile>>({}),
-    [profile, setProfile] = useState<Profile>(blank),
-    [settings, setSettings] = useState(true),
-    [password, setPassword] = useState(""),
-    [token, setToken] = useState(""),
     [error, setError] = useState(""),
     [terminal, setTerminal] = useState(false),
     [desktop, setDesktop] = useState(false),
@@ -39,6 +23,7 @@ function App() {
     [cameraUrl, setCameraUrl] = useState(""),
     [cameraFailed, setCameraFailed] = useState(false),
     [cameraStampWarning, setCameraStampWarning] = useState(false);
+  const pendingManual = useRef<{ keys: Set<string>; until: number; sent: boolean; waitingRemote?: boolean } | null>(null);
   const logBox = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!paused && logBox.current)
@@ -55,22 +40,28 @@ function App() {
   const send = (action: string, extra: object = {}) => {
     if (ws.current?.readyState === 1)
       ws.current.send(
-        JSON.stringify({ type: "control", data: { action, ...extra } }),
+        JSON.stringify({ type: "control", data: { action, ...extra, ...(["claim", "command"].includes(action) ? { epoch: current.current?.control.epoch ?? 0 } : {}) } }),
       );
+  };
+  const claimPending = () => {
+    const pending = pendingManual.current, s = current.current;
+    if (!pending || pending.sent || pending.waitingRemote || !pending.keys.size ||
+        Date.now() > pending.until || Date.now()-lastGood.current >= 800 ||
+        !s?.control.enabled || (s.task?.mode && s.task.mode !== "remote")) return;
+    if (s.kind === "robot" &&
+        (s.control.selection_mode !== "hold" || s.control.watchdog?.armed !== false)) return;
+    pending.sent = true;
+    send("claim");
   };
   const stop = () => {
     keys.current.clear();
-    if (current.current?.control.enabled) send("stop");
+    pendingManual.current = null;
+    send("stop");
+    api("task", { action: "stop" }).catch((e) => setError(e.message));
   };
   useEffect(() => {
     let active = true,
       retry: ReturnType<typeof setTimeout>;
-    fetch("/bootstrap")
-      .then(() => api<Record<string, Profile>>("profiles"))
-      .then((p) => {
-        if (active) setProfiles(p);
-      })
-      .catch((e) => setError(e.message));
     const open = () => {
       if (!active) return;
       const s = socket("events");
@@ -78,8 +69,19 @@ function App() {
       s.onmessage = (e) => {
         const m = JSON.parse(e.data);
         if (m.type === "state") {
-          if (!m.data.control.mine || !m.data.control.ready)
-            keys.current.clear();
+          current.current = m.data;
+          if (pendingManual.current) {
+            if (Date.now() > pendingManual.current.until) {
+              keys.current.clear(); pendingManual.current = null;
+            } else if (!pendingManual.current.waitingRemote &&
+                       (!m.data.task?.mode || m.data.task.mode === "remote") &&
+                       m.data.control.mine && m.data.control.ready) {
+              keys.current = new Set(pendingManual.current.keys);
+              pendingManual.current = null;
+              const [linear, angular] = velocity(keys.current, m.data.control.gear ?? 1, m.data.control.limits);
+              send("command", { linear, angular });
+            } else claimPending();
+          } else if (m.data.task?.mode === "autonomous" || m.data.task?.mode === "starting" || !m.data.control.mine || !m.data.control.ready) keys.current.clear();
           if (m.data.streams.camera?.receiving && !m.data.streams.camera.fresh)
             setCameraStampWarning(true);
           setState(m.data);
@@ -93,19 +95,22 @@ function App() {
         } else if (m.type === "offline") {
           if (!pause.current && m.data.logs) setLogs(m.data.logs);
           setConnected(false);
-          keys.current.clear();
+          keys.current.clear(); pendingManual.current = null;
         } else if (m.type === "error") {
-          setError(m.data.reason);
+          if (m.data.reason !== "stale_control_epoch") setError(m.data.reason);
           keys.current.clear();
+          if (m.data.reason === "stale_control_epoch" && pendingManual.current && Date.now() <= pendingManual.current.until)
+            pendingManual.current.sent = false;
+          else pendingManual.current = null;
         }
       };
       s.onclose = () => {
         setConnected(false);
-        keys.current.clear();
+        keys.current.clear(); pendingManual.current = null;
         retry = setTimeout(open, 1500);
       };
     };
-    fetch("/bootstrap").then(open);
+    fetch("/bootstrap").then(open).catch((e) => setError(e.message));
     const timer = setInterval(() => setNow(Date.now()), 200);
     return () => {
       active = false;
@@ -156,46 +161,78 @@ function App() {
   }, [cameraUrl]);
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
-      const target = e.target as HTMLElement;
-      if (editable(target.tagName, target.isContentEditable) || terminal)
-        return;
       const k = e.key.toLowerCase();
-      if (e.repeat && k !== " ") return;
-      if (k === " ") {
-        e.preventDefault();
-        stop();
-        return;
+      // Space is global, including input fields and the maintenance terminal.
+      if (k === " " || e.code === "Space") {
+        e.preventDefault(); e.stopImmediatePropagation(); stop(); return;
       }
-      if (!"wasd".includes(k) || k.length !== 1) return;
-      if (!current.current?.control.mine || !current.current.control.ready)
-        return;
+      const target = e.target as HTMLElement;
+      if (editable(target.tagName, target.isContentEditable) || terminal || e.repeat) return;
+      if (!"wasd".includes(k) || k.length !== 1 || !current.current?.control.enabled) return;
+      if (current.current.map_reset?.busy || Date.now()-lastGood.current >= 800) return;
       e.preventDefault();
+      const autonomous = current.current.task?.mode === "autonomous" || current.current.task?.mode === "starting";
+      if (autonomous) {
+        if (!pendingManual.current) {
+          const pending = { keys: new Set<string>(), until: Date.now()+3000, sent: false, waitingRemote: true };
+          pendingManual.current = pending;
+          // The existing task endpoint cancels navigation and parks first. Never
+          // claim or publish motion until its response AND fresh hold/disarm state.
+          api("task", { action: "remote" }).then(() => {
+            if (pendingManual.current === pending) {
+              pending.waitingRemote = false; claimPending();
+            }
+          }).catch((e) => {
+            if (pendingManual.current === pending) pendingManual.current = null;
+            setError(e.message);
+          });
+        }
+        pendingManual.current.keys.add(k); return;
+      }
+      if (!current.current.control.mine || !current.current.control.ready) {
+        if (!pendingManual.current)
+          pendingManual.current = { keys: new Set(), until: Date.now()+3000, sent: false };
+        pendingManual.current.keys.add(k); claimPending(); return;
+      }
       keys.current.add(k);
-      const [linear, angular] = velocity(keys.current);
+      const [linear, angular] = velocity(keys.current, current.current.control.gear ?? 1, current.current.control.limits);
       send("command", { linear, angular });
     };
     const up = (e: KeyboardEvent) => {
       const k = e.key.toLowerCase();
-      if (keys.current.delete(k)) {
-        const [linear, angular] = velocity(keys.current);
+      pendingManual.current?.keys.delete(k);
+      if (pendingManual.current && !pendingManual.current.keys.size) pendingManual.current = null;
+      if (keys.current.delete(k) && current.current?.control.mine && current.current.control.ready) {
+        const [linear, angular] = velocity(keys.current, current.current.control.gear ?? 1, current.current.control.limits);
         send("command", { linear, angular });
       }
     };
-    const blur = () => stop();
+    const autonomous = () => current.current?.task?.mode === "autonomous" || current.current?.task?.mode === "starting";
+    const blur = () => {
+      if (!autonomous() || pendingManual.current || current.current?.control.mine) stop();
+    };
+    const pagehide = () => stop();
     const hidden = () => {
       if (document.hidden) stop();
     };
     const focus = (e: FocusEvent) => {
       const el = e.target as HTMLElement;
-      if (editable(el.tagName, el.isContentEditable)) stop();
+      if (editable(el.tagName, el.isContentEditable) && (!autonomous() || pendingManual.current)) stop();
     };
-    window.addEventListener("keydown", down);
+    window.addEventListener("keydown", down, true);
     window.addEventListener("keyup", up);
     window.addEventListener("blur", blur);
     document.addEventListener("visibilitychange", hidden);
     document.addEventListener("focusin", focus);
-    window.addEventListener("pagehide", blur);
+    window.addEventListener("pagehide", pagehide);
     const timer = setInterval(() => {
+      // Only a live, visible operator page supplies the robot watchdog heartbeat.
+      // This does not renew a manual lease or arm/resume a held watchdog.
+      if (!current.current?.control.mine && current.current?.kind === 'robot' &&
+          current.current.control.enabled &&
+          !current.current.maintenance && (document.hasFocus() || autonomous()) &&
+          !document.hidden && !terminal && Date.now() - lastGood.current < 800)
+        send('heartbeat');
       if (
         current.current?.control.mine &&
         document.hasFocus() &&
@@ -203,18 +240,20 @@ function App() {
         !terminal &&
         Date.now() - lastGood.current < 800
       ) {
-        const [linear, angular] = velocity(keys.current);
+        const [linear, angular] = current.current.control.ready
+          ? velocity(keys.current, current.current.control.gear ?? 1, current.current.control.limits)
+          : [0, 0];
         send("command", { linear, angular });
       }
-    }, 100);
+    }, 200);
     return () => {
       clearInterval(timer);
-      window.removeEventListener("keydown", down);
+      window.removeEventListener("keydown", down, true);
       window.removeEventListener("keyup", up);
       window.removeEventListener("blur", blur);
       document.removeEventListener("visibilitychange", hidden);
       document.removeEventListener("focusin", focus);
-      window.removeEventListener("pagehide", blur);
+      window.removeEventListener("pagehide", pagehide);
     };
   }, [terminal]);
   const run = async (fn: () => Promise<unknown>) => {
@@ -228,13 +267,6 @@ function App() {
       setBusy(false);
     }
   };
-  const connect = () =>
-    run(async () => {
-      await api("connect", { profile, password, adapter_token: token });
-      setPassword("");
-      setToken("");
-      setSettings(false);
-    });
   const healthy = connected && now - lastReceive < 1000;
   const list = logs.filter((l) =>
     `${l.name} ${l.message}`.toLowerCase().includes(filter.toLowerCase()),
@@ -268,12 +300,11 @@ function App() {
           <span className={`dot ${healthy ? "live" : ""}`} />
           <span>{healthy ? "数据通道在线" : "未连接 / 数据通道离线"}</span>
           <span className={`badge ${state?.kind === "robot" ? "real" : ""}`}>
-            {state?.kind === "robot" ? "实车" : "仿真"}
+            {!healthy ? "未连接" : state?.kind === "robot" ? "实车" : "仿真"}
           </span>
         </div>
-        <button onClick={() => setSettings(!settings)}>连接设置</button>
         <button
-          disabled={!connected}
+          disabled={!connected || busy}
           onClick={() =>
             run(async () => {
               stop();
@@ -325,16 +356,15 @@ function App() {
               <h1>运行监看与调试</h1>
               <p>
                 {healthy
-                  ? (state?.connection?.name || profile.name) +
+                  ? (state?.connection?.name || "当前目标") +
                     " · " +
-                    (state?.connection?.host || profile.host)
-                  : "连接目标主机后查看实时 ROS 数据"}
+                    (state?.connection?.host || "")
+                  : "等待后台连接小车或仿真环境；无需在网页填写密码或令牌"}
               </p>
             </div>
             <button
               className="stop"
-              disabled={!healthy || !state?.control.enabled}
-              title="只读状态不能发送底盘停车指令；现场使用硬件急停"
+              title="停止自主任务并切回远程接管等待"
               onClick={stop}
               aria-label="软件停车"
             >
@@ -346,154 +376,6 @@ function App() {
               {error}
               <button onClick={() => setError("")}>关闭</button>
             </div>
-          )}
-          {settings && (
-            <section className="panel settings">
-              <div className="panel-head">
-                <h2>SSH 连接</h2>
-                <span>凭据仅保留在当前会话内存</span>
-              </div>
-              <div className="form-grid">
-                <label>
-                  已存配置
-                  <select
-                    onChange={(e) => {
-                      const p = profiles[e.target.value];
-                      if (p) setProfile(p);
-                    }}
-                  >
-                    <option value="">选择配置</option>
-                    {Object.keys(profiles).map((n) => (
-                      <option key={n}>{n}</option>
-                    ))}
-                  </select>
-                </label>
-                {(
-                  [
-                    "name",
-                    "host",
-                    "username",
-                    "port",
-                    "adapter_port",
-                    "desktop_port",
-                    "key_file",
-                  ] as const
-                ).map((k) => (
-                  <label key={k}>
-                    {
-                      {
-                        name: "配置名称",
-                        host: "SSH 地址",
-                        username: "SSH 用户",
-                        port: "SSH 端口",
-                        adapter_port: "目标适配器端口",
-                        desktop_port: "noVNC 端口",
-                        key_file: "本机私钥路径（可选）",
-                      }[k]
-                    }
-                    <input
-                      aria-label={k}
-                      value={profile[k]}
-                      onChange={(e) =>
-                        setProfile({
-                          ...profile,
-                          [k]: [
-                            "port",
-                            "adapter_port",
-                            "desktop_port",
-                          ].includes(k)
-                            ? Number(e.target.value)
-                            : e.target.value,
-                        })
-                      }
-                    />
-                  </label>
-                ))}
-                <label>
-                  目标类型
-                  <select
-                    value={profile.kind}
-                    onChange={(e) =>
-                      setProfile({
-                        ...profile,
-                        kind: e.target.value as Profile["kind"],
-                      })
-                    }
-                  >
-                    <option value="simulation">WSL / 仿真</option>
-                    <option value="robot">真实小车 · 默认只读</option>
-                  </select>
-                </label>
-                <label className="wide">
-                  SSH SHA256 指纹
-                  <input
-                    aria-label="fingerprint"
-                    value={profile.fingerprint}
-                    onChange={(e) =>
-                      setProfile({ ...profile, fingerprint: e.target.value })
-                    }
-                  />
-                </label>
-                <label>
-                  SSH 密码（或使用密钥）
-                  <input
-                    aria-label="password"
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    autoComplete="off"
-                  />
-                </label>
-                <label>
-                  适配器访问令牌
-                  <input
-                    aria-label="adapter_token"
-                    type="password"
-                    value={token}
-                    onChange={(e) => setToken(e.target.value)}
-                    autoComplete="off"
-                  />
-                </label>
-              </div>
-              <p className="hint">
-                先在目标主机核对 SSH
-                指纹，再填入。探测结果本身不能证明主机身份。
-              </p>
-              <div className="actions">
-                <button
-                  disabled={busy}
-                  onClick={() =>
-                    run(async () => {
-                      const p = await api<{ fingerprint: string }>("probe", {
-                        host: profile.host,
-                        port: profile.port,
-                      });
-                      setProfile({ ...profile, fingerprint: p.fingerprint });
-                    })
-                  }
-                >
-                  探测主机指纹
-                </button>
-                <button
-                  disabled={busy}
-                  onClick={() =>
-                    run(async () => {
-                      await api("profiles", profile);
-                      setProfiles(await api("profiles"));
-                    })
-                  }
-                >
-                  保存非敏感配置
-                </button>
-                <button
-                  className="primary"
-                  disabled={busy || !profile.fingerprint || !token}
-                  onClick={connect}
-                >
-                  {busy ? "处理中…" : "连接目标"}
-                </button>
-              </div>
-            </section>
           )}
           <div className="metrics">
             {["scan", "odom", "map", "camera"].map((key, i) => {
@@ -529,7 +411,11 @@ function App() {
                 <h2>空间视图</h2>
                 <span>占据栅格 · 雷达 · 估计位姿</span>
               </div>
-              <MapView state={healthy ? state : null} />
+              <MapView state={healthy ? state : null} resetDisabled={!healthy || busy || terminal || !!state?.maintenance}
+                onReset={() => run(async () => {
+                  keys.current.clear(); pendingManual.current = null;
+                  await api("task", { action: "reset_map" });
+                })} />
             </section>
             <div className="right-column">
               <section className="panel camera-panel">
@@ -572,6 +458,8 @@ function App() {
                       healthy,
                       Boolean(state?.control.enabled),
                       Boolean(state?.control.mine),
+                      state?.task?.mode,
+                      state?.control.watchdog?.armed,
                     )}
                   </span>
                 </div>
@@ -589,19 +477,19 @@ function App() {
                     <p>
                       W/S 前后 · A/D 转向
                       <br />
-                      空格停车 · 失焦释放
+                      WASD 接管并按住行驶，松键停车；Space 停止探索
                     </p>
                   </div>
                 </div>
                 <div className="control-readings">
                   <span>
-                    目标{" "}
+                    手动目标{" "}
                     {(healthy ? state?.control.target : undefined)
                       ?.map((v) => v.toFixed(2))
                       .join(" / ") || "—"}
                   </span>
                   <span>
-                    输出{" "}
+                    手动输出{" "}
                     {(healthy ? state?.control.output : undefined)
                       ?.map((v) => v.toFixed(2))
                       .join(" / ") || "—"}
@@ -621,7 +509,7 @@ function App() {
                   <br />
                   命令 / 心跳超时 {state?.control.command_timeout ?? 0.5}s /{" "}
                   {state?.control.heartbeat_timeout ?? 0.5}s<br />
-                  状态：{state?.control.reason || "未连接"}
+                  状态：{state?.control.reason || (healthy ? "数据在线" : "未连接")}
                   <br />
                   最终看门狗：
                   {state?.control.watchdog
@@ -632,32 +520,29 @@ function App() {
                     ? "软件停车不能替代硬件急停"
                     : "只读不发送底盘停车指令；现场使用硬件急停"}
                 </p>
-                <button
-                  className="primary full"
-                  disabled={
-                    !healthy ||
-                    !state?.control.enabled ||
-                    terminal ||
-                    state?.maintenance ||
-                    state?.control.mine
-                  }
-                  onClick={() => {
-                    keys.current.clear();
-                    send("claim");
-                  }}
-                >
-                  取得手动控制权
-                </button>
-                <button
-                  className="full"
-                  disabled={!state?.control.mine}
-                  onClick={() => {
-                    keys.current.clear();
-                    send("release");
-                  }}
-                >
-                  释放控制权
-                </button>
+                <p className="hint" aria-label="当前控制模式">
+                  当前：{state?.task?.mode === "autonomous" ? "自主探索" : state?.task?.mode === "starting" ? "正在启动探索" : "远程接管 · 等待 WASD"}
+                </p>
+                {state?.task?.error && <p role="alert" className="hint">{state.task.error}</p>}
+                <div className="task-actions">
+                  <button className="primary" disabled={!healthy || busy || terminal || state?.maintenance || state?.map_reset?.busy || state?.task?.mode === "autonomous" || state?.task?.mode === "starting"}
+                    onClick={() => run(async () => {
+                      keys.current.clear(); pendingManual.current = null;
+                      await api("task", { action: "explore" });
+                    })}>自主探索</button>
+                  <button disabled={!healthy} onClick={() => {
+                    stop(); setTerminal(false);
+                    api("task", { action: "remote" }).catch((e) => setError(e.message));
+                  }}>远程接管</button>
+                </div>
+                <div className="task-actions" aria-label="速度挡位">
+                  <button aria-label="降低速度挡位" disabled={!healthy || (state?.control.gear ?? 1) === 0}
+                    onClick={() => send("gear", { delta: -1 })}>−</button>
+                  <span>{["低挡", "中挡", "高挡"][state?.control.gear ?? 1]} ·
+                    {((state?.control.limits[0] ?? .1) * [.3, .6, 1][state?.control.gear ?? 1]).toFixed(2)} m/s</span>
+                  <button aria-label="提高速度挡位" disabled={!healthy || (state?.control.gear ?? 1) === 2}
+                    onClick={() => send("gear", { delta: 1 })}>＋</button>
+                </div>
               </section>
             </div>
           </div>

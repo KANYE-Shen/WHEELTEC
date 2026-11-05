@@ -26,3 +26,6 @@ python3 robot/calibration/bag_statistics.py --real-stats /新目录/real-static.
 本轮仿真静止bag只有约6s，工具冒烟检查可用，不能替代现场60s采集。实车gap当前未验证。
 
 2026-10-27.json 和由它生成的 realism.yaml 内 `G0-G2` 仅为当时来源说明，现由阶段一涵盖；保留原文件与哈希，不为改编号重生成数值。新的实测校准文件必须引用现行阶段和真实证据。
+
+
+2026-10-30.json为部分ROS接口观测：540束、约10.02005 Hz有实车采样证据，其余物理参数保留assumed，calibration_complete=false。仅生成verification目录的realism.partial.yaml预览，未覆盖活动仿真配置；相机独立overlay后源时间约65秒专项正常，见当轮报告。没有独立静止/物理注释，不把诊断方差或无回波比例写成噪声/丢包校准。

@@ -27,6 +27,15 @@ class ResidualTests(unittest.TestCase):
         self.assertEqual(getattr(result,'residual_counts',{}).get('footprint_excluded'),1)
         self.assertEqual(result.unreachable_clusters,0)
 
+    def test_extra_planning_clearance_does_not_prove_physical_exclusion(self):
+        import inspect
+        self.assertIn('footprint_exclusion_radius',inspect.signature(select_frontiers).parameters)
+        result=select_frontiers(pocket(.8),(.8,1.2),robot_radius=.478,
+                                footprint_exclusion_radius=.35)
+        self.assertFalse(result.goals)
+        self.assertEqual(result.residual_counts['footprint_excluded'],0)
+        self.assertGreater(result.unreachable_clusters,0)
+
     def test_wide_pocket_still_requires_exploration(self):
         result=select_frontiers(pocket(.8),(.8,1.2))
         self.assertTrue(result.goals)

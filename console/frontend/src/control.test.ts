@@ -20,8 +20,25 @@ describe("control status truthfulness", () => {
     expect(controlStatus(false, true, true)).toBe("控制状态离线"));
   it("read only never claims parking or ownership", () =>
     expect(controlStatus(true, false, false)).toBe("只读模式"));
+  it("autonomy is not mislabeled as parking", () => {
+    expect(controlStatus(true, true, false, "autonomous", true)).toBe("自主探索中");
+    expect(controlStatus(true, true, false, "autonomous", false)).toBe("自主探索 · 保护停车");
+    expect(controlStatus(true, true, false, "starting")).toBe("正在启动探索");
+  });
   it("online manual ownership and held release are distinct", () => {
     expect(controlStatus(true, true, true)).toBe("持有控制权");
     expect(controlStatus(true, true, false)).toBe("停车保持");
+  });
+});
+
+
+describe("three speed gears", () => {
+  it("uses low, middle and high limits", () => {
+    expect(velocity(new Set(["w", "a"]), 0)).toEqual([.03, .09]);
+    expect(velocity(new Set(["w", "a"]), 1)).toEqual([.06, .18]);
+    expect(velocity(new Set(["w", "a"]), 2)).toEqual([.1, .3]);
+  });
+  it("respects a lower actual robot limit", () => {
+    expect(velocity(new Set(["w"]), 1, [.05, .2])).toEqual([.03, 0]);
   });
 });

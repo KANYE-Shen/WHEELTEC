@@ -1,0 +1,47 @@
+{
+  "case_id": "20261101-autonomy-map-correction-reference",
+  "task_id": "1793520313357531076",
+  "state": "failed",
+  "terminal": "map_unstable",
+  "direct_reason": "map_to_odom_translation_jump",
+  "elapsed_wall_seconds": 65.19,
+  "reported_origin_jump_m": 0.6110581630524714,
+  "limit_m": 0.5,
+  "failed_task_complete_tf_pair_available": false,
+  "failed_task_false_positive_confirmed": null,
+  "confirmed_defect": "translation jump metric depends on odometry origin",
+  "evidence": "stationary raw TF pair plus equivalent-coordinate A/B; actual health_tick red/green regressions",
+  "fix_status": "deployed_while_parked",
+  "local_tests": {
+    "passed": 61
+  },
+  "candidate_stationary": {
+    "seconds": 115.11721535200013,
+    "health_samples": 526,
+    "counts": {
+      "driver": 5648,
+      "odom": 2300,
+      "watchdog": 1015
+    },
+    "failure": null
+  },
+  "deployed_stationary": {
+    "seconds": 30.108623363999868,
+    "health_samples": 108,
+    "counts": {
+      "driver": 1481,
+      "odom": 565,
+      "watchdog": 269
+    },
+    "failure": null
+  },
+  "full_autonomous_validation": "pending_user_web_start",
+  "navigation_goals_sent_by_agent": 0,
+  "watchdog_at_failure_historical_timeout_detail": "unavailable",
+  "remote_backup": "/home/wheeltec/.wheeltec-console/trial-20261031/correction-reference-fix-1793521150751857000",
+  "remaining_observations": [
+    "stationary odom TF yaw drift",
+    "Nav2 repeated planning failures during original task"
+  ],
+  "source_report": "../../setup/verification/2026-11-01-debug-map-correction-reference.md"
+}

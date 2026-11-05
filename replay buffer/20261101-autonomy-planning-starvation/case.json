@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "date": "2026-11-01",
+  "symptom": "autonomy exits shortly after selecting frontiers",
+  "original_task": "/home/wheeltec/.wheeltec-console/tasks/1793519625938414301",
+  "outcome": "map_unstable; goals empty; map not saved; not returned",
+  "cause": "CPU candidate selection starves ROS callback processing",
+  "source_report": "../../setup/verification/2026-11-01-debug-planning-starvation.md",
+  "regression": {
+    "local_tests_passed": 52,
+    "same_map_before": "scan_stale,tf_stale",
+    "same_map_after": "healthy; 29 goals; no navigation sent"
+  },
+  "motion_tested_by_agent": false,
+  "full_autonomous_success_verified": false,
+  "rosbag": null,
+  "evidence_manifest": "manifest.json"
+}

@@ -19,3 +19,15 @@
 查阅顺序：case.json→原始结果/日志→source_report→源码哈希和复现参数。评估真值仅用于评分，不能作为定位/规划/探索输入。失败修复另开记录、写失败回归并保留前后批次。本目录没有运动或ROS发布接口。
 
 - [20261030-stage1-stationary-incomplete/](20261030-stage1-stationary-incomplete/README.md)：10条观察/尝试，包含连接、空接口、源时间、算术回归、相机首次切换、网页先失败回归和odom/TF未运行证据；原始副本及SHA256清单已入库，大bag保留原位。阶段一未通过，没有请求或执行车轮动作。
+
+- [20261101-autonomy-planning-starvation/](20261101-autonomy-planning-starvation/case.json)：真实自主6.63秒因消息处理阻塞退出；保留原始失败、同地图修复前失败与修复后只读成功、源码哈希及SHA256清单。未由agent执行导航，完整自主成功未验证。
+
+
+- [20261101-autonomy-map-correction-reference/](20261101-autonomy-map-correction-reference/case.json)：上一轮修复后的真实重试仍在65.19秒退出；保留原始失败、停车TF、原点变换A/B、红绿回归和停车部署。完整自主待验证，原失败TF对与当时watchdog分项存在明确证据缺口。
+
+
+- [20261101-autonomy-odom-tf-stale/](20261101-autonomy-odom-tf-stale/case.json)：用户后续重试因odom→base源年龄1.00999秒退出；任务ID/历史日志尚缺。本地诊断增强73项通过，未部署，当前禁止agent发送任何底盘指令（含零速）。
+
+## 2026-11-05 发布范围
+
+本次Git版本发布新增案例的case.json和报告入口；原始采样、完整副本清单与历史诊断/部署脚本保留本地原位置，不随本次源码发布。旧取密helper及其调用脚本不得从历史记录直接运行。报告中的本机证据路径用于接手定位，不表示这些原始文件已全部上传GitHub。

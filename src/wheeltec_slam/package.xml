@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>wheeltec_slam</name><version>0.1.0</version>
+  <description>Motion keyframes for the installed asynchronous SLAM Toolbox.</description>
+  <maintainer email="189834982+KANYE-Shen@users.noreply.github.com">Kanye Shen</maintainer>
+  <license>LicenseRef-Proprietary</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <depend>slam_toolbox</depend>
+  <export><build_type>ament_cmake</build_type></export>
+</package>

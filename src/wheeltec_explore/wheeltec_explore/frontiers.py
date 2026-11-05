@@ -80,7 +80,8 @@ def select_frontiers(grid: Grid, robot: Tuple[float, float], robot_radius=DEFAUL
                      score_distance_offset=DEFAULTS['score_distance_offset'],
                      frontier_viewpoint_strategy=DEFAULTS['frontier_viewpoint_strategy'],
                      viewpoint_candidate_budget=DEFAULTS['viewpoint_candidate_budget'],
-                     viewpoint_frontier_budget=DEFAULTS['viewpoint_frontier_budget']) -> FrontierResult:
+                     viewpoint_frontier_budget=DEFAULTS['viewpoint_frontier_budget'],
+                     footprint_exclusion_radius=DEFAULTS['footprint_exclusion_radius']) -> FrontierResult:
     """Return frontier approach cells reachable through inflated known-free space.
 
     A frontier is a known-free cell beside unknown space. Unknown cells are never
@@ -93,6 +94,8 @@ def select_frontiers(grid: Grid, robot: Tuple[float, float], robot_radius=DEFAUL
         raise ValueError('unknown frontier viewpoint strategy')
     if viewpoint_candidate_budget<1 or viewpoint_frontier_budget<1:
         raise ValueError('positive viewpoint budgets required')
+    if not math.isfinite(footprint_exclusion_radius) or not 0 <= footprint_exclusion_radius <= robot_radius:
+        raise ValueError('Exclusion proof radius must be within the planning radius')
     viewpoint_diagnostics = []
     free = {(i % grid.width, i // grid.width) for i, v in enumerate(grid.data) if 0 <= v <= 25}
     unsafe = [(i % grid.width, i // grid.width) for i, v in enumerate(grid.data) if not 0 <= v <= 25]
@@ -105,7 +108,15 @@ def select_frontiers(grid: Grid, robot: Tuple[float, float], robot_radius=DEFAUL
                if math.hypot(dx,dy)*grid.resolution <= robot_radius+grid.resolution*0.5]
     blocked = {(x+dx,y+dy) for x,y in unsafe for dx,dy in offsets}
     # Diagnostics only: optimistic clearance ignores unknown, never used as a goal.
-    solid_blocked = {(x+dx,y+dy) for x,y in occupied for dx,dy in offsets}
+    # More conservative navigation clearance does NOT prove physical exclusion.
+    # Live launch explicitly retains the old calibrated reference for this proof;
+    # existing callers omitting the new argument keep their original meaning.
+    proof_radius = footprint_exclusion_radius or robot_radius
+    extent = math.ceil(proof_radius/grid.resolution)
+    proof_offsets = (offsets if proof_radius == robot_radius else
+        [(dx,dy) for dy in range(-extent,extent+1) for dx in range(-extent,extent+1)
+         if math.hypot(dx,dy)*grid.resolution <= proof_radius+grid.resolution*0.5])
+    solid_blocked = {(x+dx,y+dy) for x,y in occupied for dx,dy in proof_offsets}
 
     def visible(a, b):
         # Sample at half-cell spacing. Unknown cannot support a visibility claim.

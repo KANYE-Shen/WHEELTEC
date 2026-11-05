@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import type { State } from "./protocol";
-export function MapView({ state }: { state: State | null }) {
+export function MapView({ state, onReset, resetDisabled }: { state: State | null; onReset: () => void; resetDisabled: boolean }) {
   const ref = useRef<HTMLCanvasElement>(null),
     drag = useRef<[number, number] | null>(null);
   const [zoom, setZoom] = useState(58),
@@ -8,6 +8,12 @@ export function MapView({ state }: { state: State | null }) {
     [laser, setLaser] = useState(true),
     [grid, setGrid] = useState(true),
     [local, setLocal] = useState(false);
+  useEffect(() => {
+    if (!state?.map_reset?.sequence || state.map_reset.busy) return;
+    const p = local ? null : state.pose;
+    setPan(p ? [-p.x * 58, p.y * 58] : [0, 0]);
+    setZoom(58);
+  }, [state?.map_reset?.sequence]);
   useEffect(() => {
     const canvas = ref.current;
     if (!canvas) return;
@@ -34,7 +40,7 @@ export function MapView({ state }: { state: State | null }) {
         ctx.lineTo(30, i);
         ctx.stroke();
       }
-      const map = local ? undefined : state?.map;
+      const map = local || state?.map_reset?.busy ? undefined : state?.map;
       if (map && grid) {
         const image = document.createElement("canvas");
         image.width = map.width;
@@ -61,7 +67,7 @@ export function MapView({ state }: { state: State | null }) {
         ctx.restore();
       }
       const scan = state?.scan;
-      const pose = local ? null : state?.laser_pose;
+      const pose = local || state?.map_reset?.busy ? null : state?.laser_pose;
       if (scan && laser && state?.streams.scan?.fresh && (!map || pose)) {
         ctx.save();
         if (pose) {
@@ -81,7 +87,7 @@ export function MapView({ state }: { state: State | null }) {
         });
         ctx.restore();
       }
-      if (state?.pose && !local) {
+      if (state?.pose && !local && !state?.map_reset?.busy) {
         const p = state.pose;
         ctx.save();
         ctx.translate(p.x, p.y);
@@ -116,6 +122,17 @@ export function MapView({ state }: { state: State | null }) {
   return (
     <>
       <div className="map-tools">
+        <button disabled={resetDisabled || state?.map_reset?.busy} onClick={onReset}
+          title="停车并清空车端地图与网页显示，从当前位置重新建图">
+          {state?.map_reset?.busy ? "重置地图中…" : "Reset"}
+        </button>
+        <div className="zoom-tools" role="group" aria-label="视图缩放">
+        <button aria-label="放大视图" title="放大视图" disabled={zoom >= 350}
+          onClick={() => setZoom((v) => Math.min(350, v * 1.2))}>+</button>
+        <output aria-label="视图缩放比例">{Math.round(zoom / 58 * 100)}%</output>
+        <button aria-label="缩小视图" title="缩小视图" disabled={zoom <= 12}
+          onClick={() => setZoom((v) => Math.max(12, v / 1.2))}>−</button>
+        </div>
         <button onClick={() => setLocal(!local)}>
           {local ? "地图叠加" : "局部雷达"}
         </button>
@@ -137,7 +154,8 @@ export function MapView({ state }: { state: State | null }) {
         </label>
         <button
           onClick={() => {
-            setPan([0, 0]);
+            const p = local ? null : state?.pose;
+            setPan(p ? [-p.x * 58, p.y * 58] : [0, 0]);
             setZoom(58);
           }}
         >
@@ -147,26 +165,23 @@ export function MapView({ state }: { state: State | null }) {
       <canvas
         ref={ref}
         aria-label="占据栅格地图与雷达"
-        onWheel={(e) =>
-          setZoom((v) =>
-            Math.max(12, Math.min(350, v * (e.deltaY > 0 ? 0.9 : 1.1))),
-          )
-        }
         onPointerDown={(e) => {
           drag.current = [e.clientX, e.clientY];
           e.currentTarget.setPointerCapture(e.pointerId);
         }}
         onPointerUp={() => (drag.current = null)}
+        onPointerCancel={() => (drag.current = null)}
+        onLostPointerCapture={() => (drag.current = null)}
         onPointerMove={(e) => {
-          if (drag.current) {
-            setPan((p) => [
-              p[0] + e.clientX - drag.current![0],
-              p[1] + e.clientY - drag.current![1],
-            ]);
-            drag.current = [e.clientX, e.clientY];
-          }
+          const previous = drag.current;
+          if (!previous) return;
+          const x = e.clientX, y = e.clientY;
+          const dx = x - previous[0], dy = y - previous[1];
+          drag.current = [x, y];
+          setPan((p) => [p[0] + dx, p[1] + dy]);
         }}
       />
+      {state?.map_reset?.error && <div role="alert" className="map-note">{state.map_reset.error}</div>}
       {!state?.map && (
         <div className="map-note">尚未收到占据栅格地图 · 未自动启动 SLAM</div>
       )}

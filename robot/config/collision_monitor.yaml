@@ -8,7 +8,7 @@ collision_monitor:
     transform_tolerance: 0.2
     source_timeout: 0.5
     base_shift_correction: true
-    stop_pub_timeout: 1.0
+    stop_pub_timeout: 86400.0
     polygons:
     - StopZone
     StopZone:

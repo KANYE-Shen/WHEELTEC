@@ -4,6 +4,16 @@
 
 默认安全半径 0.35 米，覆盖参考小车足迹外接圆和一格地图误差。算法对障碍、未知区和地图外边界按足迹收缩空地，再在整车可落入的已知可通行区域内做四连通可达搜索；将已知区域与未知区域之间的边界聚类，从前沿向已知区域内退让，选择 0.6 米搜索范围内可达、整车落在已知空地内的接近点。目标按前沿长度和行驶距离评分。到达后的目标及实际观察位置进入访问记录，后续接近点与已访问位置至少相隔0.30米，避免在相邻点之间来回循环；接近点都已访问仍不足以认定完成：只有至少两个相距0.30米、地图版本不同且对整簇有已知空地视线的实际观察位置，才计为 multiview_observed；只被未知格阻挡的前沿不能据此算足迹不可进入。失败目标暂停 20 秒后再试，同一区域最多尝试 3 次；单目标 120 秒、整任务 900 秒，最多 60 个目标。
 
+## 当前观察点允许85%局部观测后换点（本地已验证，未部署）
+
+单目标120秒仍是导航硬上限；新增 `goal_no_progress_timeout=25.0`、`goal_progress_distance=0.1`：连续25秒有效位姿相对进展参考点未移动0.1m，就确认取消并按原规则冷却重选；正常绕障即使暂时远离目标也算移动进展，返航不使用局部提前换点。
+
+`local_observation_threshold=0.85`、`local_observation_radius=1.0`、`local_observation_distance=0.6`、`local_observation_maps=2` 定义当前点的近似观测：机器人在目标0.6m以内，目标周围1m完整圆域已知格比例连续两次不同地图更新≥85%。占据格也是已观察到的结构，不代表可通行；地图外仍为未知。此比例只决定换点，不改SLAM栅格或全局完成标准。
+
+`local_observation_events` 保存比例、半径、地图版本和结果。`locally_observed` 的导航成功字段为false，不把未达到的位置记成成功导航，也不据此生成多视角证明；仅当前实际位置在扫描新鲜时可留作观察记录。同一任务暂不重选该目标邻域，残余前沿保留；若只剩这些目标，保存/返航后以 `local_observation_residuals` 报告 `incomplete`。
+
+默认0.35m仍供参考仿真调用。实车启动入口从共享校准和原碰撞区计算全朝向规划半径，不再用裸车体外接圆代替StopZone净空；本次保存配置为0.477624m。前沿探索与Nav2 costmap必须一致更新。实车另以 `footprint_exclusion_radius` 保留旧校准参考半径作残余分类依据，不把新增规划余量误当物理不可进入的证明；旧调用默认0仍采用原robot_radius。见[本地修复与证据](../../setup/verification/2026-11-05-debug-local-observation-and-input.md)。
+
 ## 使用
 
 先启动建图与 Nav2，再执行：
@@ -58,3 +68,9 @@ python3 -m unittest discover -s /mnt/d/虚拟c盘/WHEELTEC/src/wheeltec_explore/
 `active_scan_angle_deg` 默认0，`initial_rotation_assumed_safe` 默认false。主动观测仅用于已隔离的仿真：须同时启用非零 `active_scan_angle_deg`（本次360）和起点例外参数；启用起点例外时，首次导航前一次完整旋转记录为 `assumed_start`、`clearance_proven=false`，不修改未知格；途中旋转仍检查完整扫掠净空，保留健康、取消和超时约束。新单种子演示有6个成功目标但严格0/1，见[证据](../../setup/verification/2026-10-29-startup-assumption/README.md)。没有新的多种子A/B结论。
 
 实车只按[三阶段清单](../../robot/准入关卡.md)执行；阶段三才使用自主探索，仿真起点例外不能用于实车。上面的 `use_sim_time:=true` 命令是仿真命令，不能复制为实车启动方式。实车map→odom只能由当前SLAM或AMCL之一发布。
+
+
+2026-11-01 自主退出根因已停车复现：同步候选计算阻塞ROS消息处理4.64秒，触发scan_stale/tf_stale。已把原候选计算移到工作线程，主线程继续收消息和健康检查，1秒门限不变；52项探索回归通过。用户Space停车后单文件修复已部署，同一真实地图对照仍29个候选且健康通过，未发导航、未清图，完整自主待用户重试。见[故障复现与修复](../../setup/verification/2026-11-01-debug-planning-starvation.md)。
+
+
+2026-11-01跳变度量修复：health_tick使用新鲜odom→base位置p，对相邻map→odom分别计算T_old(p)、T_new(p)，其距离作为车体定位校正量；不比较两个不同的车体位置，正常运动不计作跳变。0.5m位移与0.35rad角度门限保持，参考TF缺失/过期时拒绝继续。max_translation_jump_m现在表示车体参考点校正量，故障记录增加原始变换、参考位置/时间与原点平移分量。61项本地回归和车端静止验证通过且已部署；完整自主待用户验证，原失败TF对缺失的限制见[诊断](../../setup/verification/2026-11-01-debug-map-correction-reference.md)。

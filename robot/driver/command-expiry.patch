@@ -1,0 +1,51 @@
+--- a/src/wheeltec_robot.cpp
++++ b/src/wheeltec_robot.cpp
+@@ -1,4 +1,9 @@
+ #include "turn_on_wheeltec_robot/wheeltec_robot.h"
++#include <chrono>
++namespace {
++std::chrono::steady_clock::time_point last_velocity_command;
++bool velocity_command_active = false;
++}
+ 
+ 
+ /**************************************
+@@ -96,6 +101,8 @@
+ ***************************************/
+ void turn_on_robot::Cmd_Vel_Callback(const geometry_msgs::msg::Twist::SharedPtr ori_twist)
+ {
++  last_velocity_command = std::chrono::steady_clock::now();
++  velocity_command_active = ori_twist->linear.x != 0.0 || ori_twist->linear.y != 0.0 || ori_twist->angular.z != 0.0;
+   short  transition;  //intermediate variable //中间变量
+ 
+   Send_Data.tx[0]=FRAME_HEADER; //frame head 0x7B //帧头0X7B
+@@ -477,7 +484,7 @@
+   uint8_t check=0,check2=0,check3=0, error=1,error2=1,error3=1,Receive_Data_Pr[1]; //Temporary variable to save the data of the lower machine //临时变量，保存下位机数据
+   static int count,count2,count3; //Static variable for counting //静态变量，用于计数
+   static uint8_t Last_Receive;
+-  Stm32_Serial.read(Receive_Data_Pr,sizeof(Receive_Data_Pr)); //Read the data sent by the lower computer through the serial port //通过串口读取下位机发送过来的数据
++  if (Stm32_Serial.read(Receive_Data_Pr,sizeof(Receive_Data_Pr)) != sizeof(Receive_Data_Pr)) return false; //Read the data sent by the lower computer through the serial port //通过串口读取下位机发送过来的数据
+ 
+   Receive_Data.rx[count] = Receive_Data_Pr[0]; //Fill the array with serial data //串口数据填入数组
+   Receive_AutoCharge_Data.rx[count3] = Receive_Data_Pr[0];
+@@ -630,6 +637,11 @@
+   _Last_Time = this->now();
+   while(rclcpp::ok())
+   {
++      if (velocity_command_active && std::chrono::duration<double>(std::chrono::steady_clock::now() - last_velocity_command).count() >= 0.3)
++      {
++          Cmd_Vel_Callback(std::make_shared<geometry_msgs::msg::Twist>());
++          RCLCPP_WARN(this->get_logger(), "Command expired: sent zero velocity to controller");
++      }
+       try
+       {
+           _Now = this->now();
+@@ -800,7 +812,7 @@
+     //Attempts to initialize and open the serial port //尝试初始化与开启串口
+     Stm32_Serial.setPort(usart_port_name); //Select the serial port number to enable //选择要开启的串口号
+     Stm32_Serial.setBaudrate(serial_baud_rate); //Set the baud rate //设置波特率
+-    serial::Timeout _time = serial::Timeout::simpleTimeout(2000); //Timeout //超时等待
++    serial::Timeout _time = serial::Timeout::simpleTimeout(50); //Timeout //超时等待
+     Stm32_Serial.setTimeout(_time);
+     Stm32_Serial.open(); //Open the serial port //开启串口
+     Stm32_Serial.flushInput();

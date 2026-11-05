@@ -296,6 +296,24 @@ h2 {
   padding: 3px 7px;
   font-size: 10px;
 }
+.zoom-tools {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.zoom-tools button {
+  margin-left: 0;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  font-size: 18px;
+}
+.zoom-tools output {
+  min-width: 42px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
 .map-note {
   position: absolute;
   bottom: 45px;
@@ -635,3 +653,7 @@ footer {
 }
 
 .dot.warning { background: #e8bb7a; }
+
+.task-actions { display:flex; align-items:center; gap:8px; margin:10px 0; }
+.task-actions > button { flex:1; }
+.task-actions > span { white-space:nowrap; font-size:13px; }

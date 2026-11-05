@@ -1,8 +1,8 @@
 """Robot command gate. Do not run without the corresponding human gate approval."""
 import argparse,json,time
 from pathlib import Path
-from safety import MotionGate
-from preflight import validate
+from safety import MotionGate,StatusCadence
+from preflight import validate_runtime as validate
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__); parser.add_argument('--config',type=Path,required=True)
@@ -19,6 +19,7 @@ def main():
         def __init__(self):
             super().__init__('wheeltec_watchdog'); s=config['safety']
             self.gate=MotionGate(s['command_timeout_s'],s['operator_timeout_s'],s['max_linear_m_s'],s['max_yaw_rad_s'])
+            self.status_cadence=StatusCadence(.1)
             self.output_pub=self.create_publisher(Twist,config['driver_command_topic'],10)
             self.status_pub=self.create_publisher(String,'/safety/status',10)
             self.inputs=[self.create_subscription(Twist,'/safety/collision_cmd_vel',lambda m:self.gate.command((m.linear.x,m.angular.z),time.monotonic()),10),
@@ -32,9 +33,10 @@ def main():
             else: self.gate.stop('operator_hold'); response.success=True
             response.message=self.gate.reason; return response
         def tick(self):
-            v,w=self.gate.output(time.monotonic()); message=Twist(); message.linear.x=v; message.angular.z=w
+            now=time.monotonic(); v,w=self.gate.output(now); message=Twist(); message.linear.x=v; message.angular.z=w
             self.output_pub.publish(message)
-            self.status_pub.publish(String(data=json.dumps({'armed':self.gate.armed,'reason':self.gate.reason})))
+            if self.status_cadence.due((self.gate.armed,self.gate.reason),now):
+                self.status_pub.publish(String(data=json.dumps(self.gate.status(now))))
     rclpy.init(args=ros_args,signal_handler_options=SignalHandlerOptions.NO); node=Watchdog()
     try: rclpy.spin(node)
     except KeyboardInterrupt: pass

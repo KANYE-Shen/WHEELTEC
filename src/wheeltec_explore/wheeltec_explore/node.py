@@ -1,5 +1,6 @@
 """Bounded frontier exploration using SLAM maps and the Nav2 action interface."""
 import json
+from concurrent.futures import ThreadPoolExecutor
 import math
 import os
 from pathlib import Path
@@ -26,7 +27,7 @@ from .defaults import DEFAULTS
 from .active_scan import choose_scan, rotation_clearance, ScanBudget, simulation_observation_allowed, startup_assumption_allowed
 from .health import MapHealth, MapUnstableError
 from .frontiers import Grid, select_frontiers
-from .policy import RetryBook, completion_state, observation_fresh
+from .policy import RetryBook, completion_state, observation_fresh, local_known_ratio, ObservationProgress
 
 
 def yaw(q):
@@ -50,6 +51,12 @@ class Explorer(Node):
         for name,value in parameters.items():
             self.declare_parameter(name,value)
         self.config = {name:self.get_parameter(name).value for name in parameters}
+        if (not 0 < self.config['local_observation_threshold'] <= 1 or
+                self.config['local_observation_maps'] < 1 or
+                any(not math.isfinite(self.config[k]) or self.config[k] <= 0 for k in
+                    ('local_observation_radius','local_observation_distance',
+                     'goal_no_progress_timeout','goal_progress_distance'))):
+            raise ValueError('Invalid local observation/progress parameters')
         angle = self.config['active_scan_angle_deg']
         if not math.isfinite(angle) or not 0 <= angle <= 360:
             raise ValueError('Active scan angle must be between 0 and 360 degrees')
@@ -111,14 +118,27 @@ class Explorer(Node):
     def health_tick(self):
         now = self.ros_seconds()
         self.health.slam('slam_toolbox' in self.get_node_names())
+        reference_issue = 'tf_missing'
         try:
             t = self.tf.lookup_transform(self.config['map_frame'],self.config['odom_frame'],Time())
-            v = t.transform.translation
-            self.health.transform(t.header.stamp.sec+t.header.stamp.nanosec/1e9,
-                                  now,(v.x,v.y,yaw(t.transform.rotation)))
+            reference_issue = 'odom_tf_missing'
+            odom = self.tf.lookup_transform(self.config['odom_frame'],self.config['base_frame'],Time())
+            odom_stamp = odom.header.stamp.sec+odom.header.stamp.nanosec/1e9
+            reference_issue = 'odom_tf_stale'
+            if (odom_stamp > 0 and math.isfinite(odom_stamp) and
+                    -self.config['future_tolerance'] <= now-odom_stamp <= self.config['tf_max_age']):
+                v = t.transform.translation
+                p = odom.transform.translation
+                self.health.transform(t.header.stamp.sec+t.header.stamp.nanosec/1e9,
+                                      now,(v.x,v.y,yaw(t.transform.rotation)),
+                                      reference_xy=(p.x,p.y),reference_stamp=odom_stamp)
+                reference_issue = None
         except TransformException:
             pass
         snapshot = self.health.snapshot(now)
+        if reference_issue:
+            snapshot['healthy'] = False
+            snapshot['issues'] = sorted(set(snapshot['issues'])|{reference_issue})
         if self.health_active and not snapshot['healthy']:
             for issue in snapshot['issues']:
                 self.health_latched.setdefault(issue,now)
@@ -211,14 +231,35 @@ class Explorer(Node):
         self.active_goal = handle
         result = handle.get_result_async()
         self.active_result = result
-        if not self.wait(result.done,self.config['goal_timeout'],check_task=not returning,check_sensors=True):
-            timeout_reason = self.wait_reason
-            cancel = handle.cancel_goal_async()
-            self.wait(cancel.done,self.config['cancel_response_timeout'])
-            if not self.wait(result.done,self.config['cancel_result_timeout']):
-                raise RuntimeError('Nav2 goal timed out and did not confirm cancellation')
-            self.active_goal = None
-            return False,timeout_reason
+        pose = self.position()
+        progress = (ObservationProgress(self.ros_seconds(),math.dist(pose[:2],(x,y)),
+                                       self.map_updates,self.config,position=pose[:2]) if pose and not returning else None)
+        local_reason = None
+        sampled_revision = self.map_updates
+        ratio = 0.
+        def finished():
+            nonlocal local_reason, sampled_revision, ratio
+            if result.done():
+                return True
+            if progress is not None:
+                current = self.position()
+                if current is not None:
+                    if self.map_updates != sampled_revision:
+                        sampled_revision = self.map_updates
+                        ratio = local_known_ratio(self.grid(),(x,y),self.config['local_observation_radius'])
+                    local_reason = progress.update(self.ros_seconds(),math.dist(current[:2],(x,y)),
+                                                   self.map_updates,ratio,position=current[:2])
+            return local_reason is not None
+        done = self.wait(finished,self.config['goal_timeout'],check_task=not returning,check_sensors=True)
+        if not done or local_reason:
+            reason = local_reason or self.wait_reason
+            if not self.cancel_active():
+                raise RuntimeError('Nav2 goal cancellation not confirmed')
+            if local_reason:
+                self.report.setdefault('local_observation_events',[]).append({
+                    'target':[x,y], 'result':reason, 'known_ratio':ratio,
+                    'radius_m':self.config['local_observation_radius'], 'map_revision':self.map_updates})
+            return False,reason
         self.active_goal = None
         response = result.result()
         if response is None:
@@ -353,6 +394,27 @@ class Explorer(Node):
         return self.wait(lambda:self.status_publisher.get_subscription_count()>=expected,
                          self.config['initialization_timeout'])
 
+    def plan_frontiers(self, pose):
+        # Keep subscription, TF and health callbacks running during CPU work.
+        # The worker uses an immutable input snapshot and never accesses ROS.
+        grid = self.grid()
+        grid.data = tuple(grid.data)
+        with ThreadPoolExecutor(max_workers=1, thread_name_prefix='frontiers') as worker:
+            future = worker.submit(select_frontiers,grid,pose[:2],self.config['robot_radius'],
+                                              self.config['min_frontier_size'],visited=tuple(self.visited),observations=tuple(self.observations),
+                                              **{key:self.config[key] for key in (
+                                                  'min_goal_distance','visited_radius','observation_min_separation',
+                                                  'frontier_approach_radius','start_snap_distance',
+                                                  'distance_score_bias','score_distance_offset','frontier_viewpoint_strategy',
+                                                  'viewpoint_candidate_budget','viewpoint_frontier_budget','footprint_exclusion_radius')})
+            if not self.wait(future.done, self.config['task_timeout'],
+                             check_task=True, check_sensors=True):
+                future.cancel()
+                raise RuntimeError('Frontier computation stopped: '+self.wait_reason)
+            result = future.result()
+        self.require_health()
+        return result
+
     def run(self):
         self.status('starting','Waiting for SLAM map, robot transform and Nav2')
         if not self.wait_status_observers():
@@ -376,6 +438,7 @@ class Explorer(Node):
         self.status('exploring','Selecting reachable frontiers')
         stable_empty, attempts, latest_result = 0,0,None
         forced_reason = ''
+        locally_observed_targets = []
         while rclpy.ok():
             self.require_health()
             if self.started_ros is not None and self.ros_seconds()-self.started_ros>=self.config['task_timeout']:
@@ -389,13 +452,7 @@ class Explorer(Node):
                 if not self.wait(lambda:self.position() is not None,self.config['map_update_timeout'],check_sensors=True):
                     raise RuntimeError('Robot localization transform was lost')
                 continue
-            latest_result = select_frontiers(self.grid(),pose[:2],self.config['robot_radius'],
-                                              self.config['min_frontier_size'],visited=self.visited,observations=self.observations,
-                                              **{key:self.config[key] for key in (
-                                                  'min_goal_distance','visited_radius','observation_min_separation',
-                                                  'frontier_approach_radius','start_snap_distance',
-                                                  'distance_score_bias','score_distance_offset','frontier_viewpoint_strategy',
-                                                  'viewpoint_candidate_budget','viewpoint_frontier_budget')})
+            latest_result = self.plan_frontiers(pose)
             self.report.update(known_free_area_m2=round(latest_result.known_free_area,3),
                                frontier_clusters=latest_result.frontier_clusters,
                                unreachable_clusters=latest_result.unreachable_clusters,
@@ -403,7 +460,9 @@ class Explorer(Node):
                                residual_counts=latest_result.residual_counts,
                                residual_frontiers=latest_result.residual_frontiers,
                                viewpoint_diagnostics=latest_result.viewpoint_diagnostics)
-            candidates = [g for g in latest_result.goals
+            eligible = [g for g in latest_result.goals if not any(
+                math.dist((g.x,g.y),point) <= self.config['retry_radius'] for point in locally_observed_targets)]
+            candidates = [g for g in eligible
                           if self.retry.available((g.x,g.y),self.ros_seconds())]
             if not candidates:
                 if (not latest_result.goals and self.spin_action is not None
@@ -416,7 +475,10 @@ class Explorer(Node):
                     stable_empty = 0
                     continue
                 if latest_result.goals:
-                    if all(self.retry.exhausted((g.x,g.y)) for g in latest_result.goals):
+                    if not eligible:
+                        forced_reason = 'local_observation_residuals'
+                        break
+                    if all(self.retry.exhausted((g.x,g.y)) for g in eligible):
                         forced_reason = 'frontier_retries_exhausted'
                         break
                     self.status('exploring','Waiting before retrying blocked frontiers')
@@ -440,8 +502,11 @@ class Explorer(Node):
             attempts += 1
             success,reason = self.navigate(target.x,target.y,target.yaw)
             self.report['goals'].append({'target':[target.x,target.y], 'success':success, 'result':reason})
-            if success:
-                self.visited.append((target.x,target.y))
+            if success or reason == 'locally_observed':
+                if success:
+                    self.visited.append((target.x,target.y))
+                else:
+                    locally_observed_targets.append((target.x,target.y))
                 observed = self.position()
                 if observed is not None:
                     self.visited.append(observed[:2])

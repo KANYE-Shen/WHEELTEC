@@ -1,0 +1,15 @@
+{
+  "case_id": "20261101-autonomy-odom-tf-stale",
+  "task_id": null,
+  "state": "failed",
+  "direct_reason": "tf_stale: source_age",
+  "event_stamp": 1793525183.0900872,
+  "source_age_s": 1.0099921226501465,
+  "upstream_root_cause": null,
+  "local_change": "TF timing context and persistent task-stop evidence",
+  "tests_passed": 73,
+  "deployed": false,
+  "full_autonomy_validation": "not_run",
+  "user_scope": "local code and diagnosis only; no chassis commands including zero",
+  "source_report": "../../setup/verification/2026-11-03-debug-odom-tf-stale.md"
+}

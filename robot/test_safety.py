@@ -104,3 +104,73 @@ class ThreeStageApprovalTests(unittest.TestCase):
         for stage in (0,4,5,True,1.5):
             with self.subTest(stage=stage):
                 with self.assertRaises(ValueError):self.check(stage,self.record(1),complete=True,braking=.1)
+
+
+class TimeoutEvidenceTests(unittest.TestCase):
+    def gate(self):
+        from safety import MotionGate
+        gate=MotionGate(.5,.8,.1,.3)
+        gate.command((0.,0.),1.);gate.heartbeat(1.)
+        self.assertTrue(gate.arm(1.))
+        return gate
+
+    def test_command_timeout_is_latched_with_input_ages(self):
+        gate=self.gate();gate.heartbeat(1.6)
+        self.assertEqual(gate.output(1.6),(0.,0.));self.assertFalse(gate.armed)
+        detail=gate.status(1.6)['timeout_detail']
+        self.assertEqual(detail['expired'],['command'])
+        self.assertAlmostEqual(detail['command_age_s'],.6)
+        gate.stop('operator_hold');gate.command((0.,0.),2.);gate.heartbeat(2.)
+        self.assertEqual(gate.status(2.)['timeout_detail'],detail)
+        self.assertTrue(gate.arm(2.));self.assertIsNone(gate.status(2.)['timeout_detail'])
+
+    def test_operator_timeout_is_distinct_and_does_not_auto_resume(self):
+        gate=self.gate();gate.command((.05,0.),1.9)
+        self.assertEqual(gate.output(1.9),(0.,0.))
+        self.assertEqual(gate.status(1.9)['timeout_detail']['expired'],['operator'])
+        gate.heartbeat(2.);gate.command((.05,0.),2.)
+        self.assertEqual(gate.output(2.),(0.,0.));self.assertFalse(gate.armed)
+
+
+class StatusCadenceTests(unittest.TestCase):
+    def test_repeated_status_is_bounded_and_transitions_are_immediate(self):
+        from safety import StatusCadence
+        cadence=StatusCadence(.1)
+        self.assertTrue(cadence.due(('held',False),0.))
+        self.assertFalse(cadence.due(('held',False),.02))
+        self.assertTrue(cadence.due(('armed',True),.021))
+        self.assertFalse(cadence.due(('armed',True),.04))
+        self.assertTrue(cadence.due(('held',False),.041))
+        self.assertTrue(cadence.due(('held',False),.142))
+
+    def test_watchdog_keeps_every_driver_tick_while_bounding_status(self):
+        import ast,types
+        from pathlib import Path
+        from unittest.mock import patch
+        from safety import MotionGate,StatusCadence
+        source=ast.parse((Path(__file__).parent/'watchdog.py').read_text())
+        cls=next(n for f in source.body if isinstance(f,ast.FunctionDef) and f.name=='main' for n in f.body if isinstance(n,ast.ClassDef) and n.name=='Watchdog')
+        class Pub:
+            def __init__(self):self.messages=[]
+            def publish(self,m):self.messages.append(m)
+        class Node:
+            def __init__(self,*a):pass
+            def create_publisher(self,*a):return Pub()
+            def create_subscription(self,*a):return None
+            def create_service(self,*a):return None
+            def create_timer(self,*a,**kw):return None
+        class Twist:
+            def __init__(self):self.linear=types.SimpleNamespace(x=0.);self.angular=types.SimpleNamespace(z=0.)
+        import json,time
+        namespace=dict(Node=Node,MotionGate=MotionGate,StatusCadence=StatusCadence,Twist=Twist,String=lambda **kw:kw,Empty=object,Bool=object,SetBool=object,Clock=lambda **kw:None,ClockType=types.SimpleNamespace(STEADY_TIME=1),time=time,json=json,config={'safety':{'command_timeout_s':.5,'operator_timeout_s':.8,'max_linear_m_s':.1,'max_yaw_rad_s':.3},'driver_command_topic':'fixture_driver'})
+        exec(compile(ast.Module(body=[cls],type_ignores=[]),'actual-watchdog-fixture','exec'),namespace)
+        node=namespace['Watchdog']()
+        for i in range(50):
+            with patch.object(time,'monotonic',return_value=i*.02):node.tick()
+        self.assertEqual(len(node.output_pub.messages),50)
+        self.assertLessEqual(len(node.status_pub.messages),10)
+        self.assertGreaterEqual(len(node.status_pub.messages),8)
+        node.gate.command((0.,0.),1.);node.gate.heartbeat(1.);self.assertTrue(node.gate.arm(1.))
+        before=len(node.status_pub.messages)
+        with patch.object(time,'monotonic',return_value=1.):node.tick()
+        self.assertEqual(len(node.status_pub.messages),before+1)

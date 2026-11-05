@@ -54,8 +54,13 @@ class SSH:
             response = conn.getresponse()
             data = response.read(16*1024*1024)
             if response.status != 200:
-                raise ValueError('Target rejected request: ' +
-                                 str(response.status))
+                import json
+                try:
+                    detail = json.loads(data).get('detail')
+                except (ValueError, AttributeError):
+                    detail = None
+                raise ValueError(detail[:512] if isinstance(detail, str) else
+                                 'Target rejected request: '+str(response.status))
             return data
         finally:
             channel.close()
