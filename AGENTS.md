@@ -2,6 +2,51 @@
 
 > 整理日期：2026-10-29。本文件是 Coding Agent 的当前工作规则。用户操作说明见 `README.md`，实施阶段见 `PLAN.md`，环境状态见 `setup/STATUS.md`。历史结果以 `setup/verification/` 中原始证据为准。任何规划项目均不得写成已经实现或已经通过实测的功能。
 
+## 控制台设计与接手规则（2026-11-05）
+
+本节规定当前项目设计与接手方式；下方有日期的恢复、部署与批准记录是历史证据，不自动授予本次连接、部署或运动权限。
+
+### 控制终端是现有网页，不是命令行
+
+用户所说的“控制终端”“监看终端”指 `http://127.0.0.1:8766` 的现有网页控制台，不是 PowerShell、SSH shell、Codex 终端或旧离线回放页。沿用 `console/`，不要另造控制台或重复启动入口。
+
+```text
+浏览器（React/TypeScript，8766）
+  → 电脑网关（FastAPI/Paramiko）
+  → 固定主机指纹 SSH 隧道
+  → 车端适配器（默认回环 8767）
+  → ROS 2 探索 / SLAM / Nav2 / 选择器与安全控制链
+```
+
+- 电脑负责展示相机、地图、位姿、状态与日志及下发用户任务；探索、SLAM、Nav2 和底盘安全链在 RDK X5 车端运行。相机当前只监看，不参与定位。
+- 网页提供自主探索、远程接管、WASD 和 Space 停车；低/中/高为 0.03/0.06/0.10 m/s，探索每次默认中挡。尚无任意点选导航接口。保留已修复的空间拖动交互。
+- 入口为 `console/start.py`；前端 `console/frontend/`，网关 `console/backend/`，适配器 `console/target/adapter.py`，探索源码 `src/wheeltec_explore/`。Windows 实际源码仓库为 `D:\虚拟c盘\WHEELTEC`，Python 为 `D:\Python\python.exe`。
+
+### 连接和认证分层判断
+
+- 小车热点连通、SSH 认证成功、网关已连接适配器、任务实际运行是不同状态。浏览器能打开不证明车端在线；单独打开 SSH shell 不会给正在运行的网关注入认证会话。
+- 项目 `console/backend/transport.py` 的 `SSH(config, password=None)` 使用 Paramiko，支持显式密码、配置的 key_file、系统代理与默认密钥。代理没有身份只能排除一种来源。网关内存会话重启后不自动恢复。
+- 复用现有配置与固定 fingerprint；不自动接受未知主机，不覆写指纹来消除错误。区分网络超时、SSH 认证失败、主机身份不符、适配器不可达及令牌认证失败。SSH 密码与 adapter_token 不可互换。
+- 不打印整个 profiles.json，不在聊天、命令行参数、脚本、日志或仓库保存密码/令牌/私钥，不从旧聊天或历史文本取密。历史 task_ssh.py 的 connect() 含旧文本取密流程，不得直接沿用；先审查调用链，必要时由操作者经安全交互入口认证。
+- POST /api/v1/connect 会关闭旧会话并请求适配器 /state；旧会话关闭会尝试停车，/state 也可能因探索子进程已退出而触发 halt。维护 PTY 同样有停车流程。这些入口不是严格无副作用的探活，不用于反复 smoke test。
+
+### 排障只做能推进目标的检查
+
+- 当前交付目标是用户在网页点击自主探索后，任务实际进入并持续执行探索；不能以按钮存在、SSH 成功、服务 active、静止采样或单元测试通过代替完整自主结果。
+- 点击无反应或回退时先保存该次任务时间线、终态、适配器原因、watchdog timeout_detail 及对应 Nav2/SLAM/EKF 日志，再按证据最小修复。日志缺失要明确列出未知，不套用上次根因。
+- 只执行能区分当前故障假设的复现与受改动影响的回归；复用仍有效的检查证据，不重复整套 smoke test、不做无目的哈希。保留失败批次，区分本地测试、车端静止验证和用户完整自主验证。
+- 保留探索异步候选计算、地图校正参考点修复及 motion_gated_slam 的 scan_queue_size=3、stationary_keyframe_distance=0.03；不要退回旧版或 queue_size=1。实际 frame 为 map、odom_combined、base_footprint；历史观测 /scan 约10Hz、/odom 约20Hz，不当作当前在线证明。
+- 本对话最近取得的失败事件为 2026-11-01 17:26:23.090，odom_combined→base_footprint 的 source_age=1.0099921226501465 秒；上游原因尚缺车端证据。本地停止诊断补丁未部署，完整实车自主尚未验收。后续会话须用新证据更新状态，不把这段当作实时查询结果。
+
+### 实车操作与证据保护
+
+- 完整自主由用户在网页点击发起；agent 不自行启动、解锁或发送非零速度，运行期间不人工干预算法。当前“不向底盘发送任何指令”的限制包含零速、停车、心跳和模式切换；用户只说重新连接并不自动撤销该限制。
+- 有明确部署授权后，先核查 remote、无控制者、watchdog 新鲜且未解锁、选择器 hold、最终输出与原始 odom 速度为零、旧探索已退出。若正在遥控或探索，暂停部署，请用户 Space 停车。旧 PID 必须重新核验。
+- 用户曾允许最高0.10 m/s的受监督尝试，跳过完整校准/实测制动启动限制；不反复要求完整阶段一，也不把该例外标为校准通过或带到未经授权的新会话。
+- Space、断连/失焦停车、碰撞监控、watchdog与驱动超时保持。不放宽数据超时、不伪造 TF 时间、不绕过保护掩盖故障。
+- 保留当前地图、旧任务和失败日志；不随意 Reset、重启整套服务或新增开机项。车端进程索引为 `/home/wheeltec/.wheeltec-console/trial-20261031/owned-processes.json`，任务在 `/home/wheeltec/.wheeltec-console/tasks/`；命令与 PID 只作历史线索。
+- Git 发布按当前任务选择文件/补丁；不把其他会话未完成实现、认证配置或原始敏感证据随文档一起提交。推送到确认的分支，不强推、不擅自合并 main。
+
 ## 一、目标、架构与现状
 
 - 目标：WHEELTEC 小车在约 20–30 m² 有人监督的封闭房间中自主探索、二维激光建图、保存地图、AMCL 重定位、Nav2 目标导航与返航。网页显示地图、估计位姿、任务状态；用户定义的地图参考方向不是地理正北。首版目标位置精度约 20 cm，须由独立测量验证。
@@ -86,7 +131,7 @@
 
 ## 七、仓库与文档约定
 
-- Windows 根目录 `D:\\虚拟c盘\\WHEELTEC`；WSL 工作区 `/home/wheeltec/wheeltec_sim_ws`，源代码以仓库 `src/` 为唯一维护源；Linux 的 `build/install/log` 放在工作区，不维护第二份不同步源代码。
+- Windows 根目录 `D:\虚拟c盘\WHEELTEC`；WSL 工作区 `/home/wheeltec/wheeltec_sim_ws`，源代码以仓库 `src/` 为唯一维护源；Linux 的 `build/install/log` 放在工作区，不维护第二份不同步源代码。
 - `simulation/` 为仿真、场景、配置与测试；`robot/` 为车端配置、安全和校准；`console/` 为网页终端；`setup/` 为环境和验证；`data/` 为小样例与索引。大地图、rosbag 与批次数据保存在 Linux 工作区 `data/maps`、`data/bags`、`data/runs`。
 - 根目录保持现有六个 `.cmd` 用户操作入口，不增加重复快捷方式；网页终端从 `console/start.py` 按现有文档启动。
 - 用户可见功能或实际进度变化后同步 `README.md`；目标及阶段改变后同步 `PLAN.md`；环境改动同步 `setup/STATUS.md`。历史日志保留原貌。P0已有默认关闭的仿真研究原型，未通过独立验收；P1已有显式visibility视点候选但未证明闭环收益，P2–P3仍为计划。本次起点假设只获准仿真，不构成实车运动授权。
