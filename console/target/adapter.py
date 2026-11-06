@@ -166,7 +166,8 @@ def main():
                     self.nav_status_sub = self.create_subscription(GoalStatusArray, '/navigate_to_pose/_action/status',
                         lambda m: setattr(self, 'nav_busy', any(x.status in (1, 2, 3) for x in m.status_list)),
                         QoSProfile(depth=1, durability=DurabilityPolicy.TRANSIENT_LOCAL, reliability=ReliabilityPolicy.RELIABLE))
-            self.tasks = TaskController(self.explore_preflight, self.activate_exploration, self.spawn_exploration, self.stop_exploration)
+            self.tasks = TaskController(self.explore_preflight, self.activate_exploration, self.spawn_exploration, self.stop_exploration,
+                prepare=self.prepare_exploration, release=self.release_exploration)
             from .mapping import MapReset
             self.map_reset = MapReset(self.tasks.remote, self.perform_map_reset)
             self.map_serializer = self.create_client(SerializePoseGraph, '/slam_toolbox/serialize_map') if real_config else None
@@ -272,7 +273,10 @@ def main():
             _, exclusion_radius = calibrated_geometry(profile)
             run = args.token_file.parent/'tasks'/str(time.time_ns())
             run.mkdir(parents=True, mode=0o700)
+            gate = run/'start-gate'
+            gate.mkdir(mode=0o700)
             env = os.environ.copy()
+            env['WHEELTEC_CONSOLE_START_GATE'] = str(gate)
             env['PYTHONPATH'] = str(root/'src/wheeltec_explore')+os.pathsep+env.get('PYTHONPATH', '')
             command = [sys.executable, '-m', 'wheeltec_explore.node', '--ros-args',
                 '-p', 'use_sim_time:=false', '-p', 'base_frame:='+args.base_frame,
@@ -282,8 +286,27 @@ def main():
             with (run/'explore.log').open('wb') as log:
                 process = subprocess.Popen(command, stdin=subprocess.DEVNULL, stdout=log,
                     stderr=subprocess.STDOUT, env=env, start_new_session=True)
+                process.start_gate = gate
                 self.task_run_dir = run
                 return process
+
+        def prepare_exploration(self, process, current):
+            deadline = time.monotonic()+30.
+            while current() and time.monotonic() < deadline:
+                if process.poll() is not None:
+                    raise ValueError('探索进程初始化退出，未解锁；请查看任务日志')
+                ready = process.start_gate/'ready.json'
+                if ready.is_file() and json.loads(ready.read_text()).get('pid') == process.pid:
+                    return
+                time.sleep(.02)
+            raise ValueError('探索初始化超时或已取消，未解锁')
+
+        def release_exploration(self, process):
+            # Only the current user task reaches this after the safety handshake.
+            go = process.start_gate/'go'
+            temporary = go.with_suffix('.tmp')
+            temporary.write_text('start')
+            temporary.replace(go)
 
         def reset_map_guard(self):
             with self.lock:
@@ -531,6 +554,10 @@ def main():
                 self.arm.call_async(req)
 
         def blockers(self):
+            check_started = time.monotonic()
+            entry_selection_time = self.selection_time
+            self.selector_check = None
+            self.watchdog_check = None
             if not self.allowed:
                 return 'read_only'
             if not self.fresh('scan') or not self.fresh('odom'):
@@ -540,14 +567,28 @@ def main():
                 return 'tf_stale'
             if len(self.get_publishers_info_by_topic(self.command_topic)) != 1:
                 return 'autonomous_or_other_publisher_active'
-            if real_config and (time.monotonic()-self.selection_time > .5 or not self.autonomy_source.service_is_ready()):
-                return 'command_selector_unavailable'
+            if real_config:
+                source_ready = self.autonomy_source.service_is_ready()
+                checked_at = time.monotonic()
+                self.selector_check = dict(checked_monotonic=checked_at,
+                    receipt_age_s=checked_at-self.selection_time,
+                    entry_receipt_age_s=check_started-entry_selection_time,
+                    check_elapsed_s=checked_at-check_started,
+                    service_ready=source_ready)
+                if self.selector_check['receipt_age_s'] > .5 or not source_ready:
+                    return 'command_selector_unavailable'
             if real_config:
                 selected_output = self.get_publishers_info_by_topic('/safety/nav_cmd_vel')
                 if len(selected_output) != 1 or selected_output[0].node_name != 'wheeltec_command_selector':
                     return 'command_selector_output_not_exclusive'
-            if real_config and (time.monotonic()-self.robot_status_time > .5 or not self.arm.service_is_ready()):
-                return 'watchdog_unavailable'
+            if real_config:
+                arm_ready = self.arm.service_is_ready()
+                checked_at = time.monotonic()
+                self.watchdog_check = dict(checked_monotonic=checked_at,
+                    receipt_age_s=checked_at-self.robot_status_time,
+                    check_elapsed_s=checked_at-check_started, service_ready=arm_ready)
+                if self.watchdog_check['receipt_age_s'] > .5 or not arm_ready:
+                    return 'watchdog_unavailable'
             if real_config:
                 final = self.get_publishers_info_by_topic(
                     real_config['driver_command_topic'])
@@ -645,7 +686,9 @@ def main():
                                       'name': 'console.task', 'message': message})
                     details = dict(stamp=time.time(), monotonic=time.monotonic(), message=message,
                         tf_error=self.tf_error, watchdog=self.robot_status,
-                        selection_mode=self.selection_mode, source_stamps=dict(self.stamps),
+                        selection_mode=self.selection_mode, selector_check=getattr(self, "selector_check", None),
+                        watchdog_check=getattr(self, "watchdog_check", None),
+                        source_stamps=dict(self.stamps),
                         received_monotonic=dict(self.received))
                     try:
                         self.tasks.remote(message)

@@ -1,6 +1,7 @@
 """SSH with explicit SHA256 pinning. Never auto-accept a host key."""
 import socket
 import threading
+import time
 from pathlib import Path
 import paramiko
 from .policy import fingerprint
@@ -67,6 +68,69 @@ class SSH:
 
     def terminal(self):
         return self.client.invoke_shell(term='xterm-256color', width=100, height=30)
+
+    def adapter_token(self):
+        # Relative to the authenticated SSH account's SFTP home; never invoke a shell.
+        sftp = self.client.open_sftp()
+        try:
+            with sftp.open('.wheeltec-console/adapter.token', 'r') as source:
+                raw = source.read(1025)
+            if not raw or len(raw) > 1024:
+                raise ValueError('Invalid adapter token')
+            token = raw.decode('ascii').strip()
+            if not token or any(c.isspace() for c in token):
+                raise ValueError('Invalid adapter token')
+            return token
+        finally:
+            sftp.close()
+
+    def adapter_operation(self, operation):
+        # Fixed code from this installation, never caller-supplied source/commands.
+        if operation not in ('inspect', 'restore', 'plan', 'prepare'):
+            raise ValueError('Unsupported fixed adapter operation')
+        if operation in ('restore', 'prepare') and self.port != 8767:
+            raise ValueError('Fixed restore supports only the original adapter port')
+        import json
+        source = Path(__file__).with_name('recovery_script.py').read_text(encoding='utf-8')
+        source += '\nmain('+repr(operation)+')\n'
+        command = 'python3 -'
+        if operation != 'inspect':
+            command = ('bash --noprofile --norc -c \'source /opt/ros/humble/setup.bash && '
+                       'source "$HOME/wheeltec_ros2/install/setup.bash" && exec python3 -\'')
+        stdin, stdout, stderr = self.client.exec_command(command, timeout=90 if operation=='prepare' else 30)
+        stdin.write(source); stdin.flush(); stdin.channel.shutdown_write()
+        data = stdout.read(128*1024)
+        # Do not echo stderr: diagnostics may contain environment details.
+        stderr.read(8192)
+        if stdout.channel.recv_exit_status() != 0:
+            raise ValueError('Fixed adapter operation failed')
+        return json.loads(data)
+
+    def prepare_robot(self, password=None, progress=None):
+        def stage(name):
+            if progress:progress(name)
+        stage('checking')
+        plan=self.adapter_operation('plan')
+        if plan.get('status')!='planned':return plan
+        corrected=False
+        if abs(time.time()-float(plan['wall_time']))>2:
+            if not plan.get('clock_reset_allowed'):
+                return {'status':'blocked','reason':'clock_drift_live_stack'}
+            stage('clock')
+            # Password stays on encrypted stdin, never in a command or file.
+            command=('sudo -S -p "" ' if password is not None else 'sudo -n ')
+            command+='/usr/bin/date -u -s @'+format(time.time(),'.6f')
+            stdin,stdout,stderr=self.client.exec_command(command,timeout=10)
+            if password is not None:stdin.write(password+'\n');stdin.flush()
+            stdin.channel.shutdown_write()
+            stdout.read(1024);stderr.read(2048)
+            if stdout.channel.recv_exit_status()!=0:
+                return {'status':'blocked','reason':'clock_auth_required'}
+            corrected=True
+        stage('services')
+        result=self.adapter_operation('prepare')
+        result['clock_corrected']=corrected
+        return result
 
     def close(self): self.client.close()
 

@@ -24,6 +24,7 @@ from sensor_msgs.msg import LaserScan
 from tf2_ros import Buffer, TransformListener, TransformException
 
 from .defaults import DEFAULTS
+from .startup import wait_for_console_start
 from .active_scan import choose_scan, rotation_clearance, ScanBudget, simulation_observation_allowed, startup_assumption_allowed
 from .health import MapHealth, MapUnstableError
 from .frontiers import Grid, select_frontiers
@@ -574,6 +575,13 @@ def main(args=None):
     node = Explorer()
     code = 1
     try:
+        if os.environ.get('WHEELTEC_CONSOLE_START_GATE'):
+            # Warm subscriptions/action discovery while the console holds stop.
+            if not node.wait(lambda: node.latest_map is not None and node.position() is not None
+                             and observation_fresh(node.last_scan_ros, node.ros_seconds(), node.config['scan_max_age'])
+                             and node.nav.server_is_ready(), node.config['initialization_timeout']):
+                raise RuntimeError('Console preparation timed out; no navigation released')
+            wait_for_console_start(lambda: rclpy.spin_once(node, timeout_sec=.02))
         code = node.run()
     except KeyboardInterrupt:
         node.cancel_active()

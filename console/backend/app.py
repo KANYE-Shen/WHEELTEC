@@ -9,6 +9,7 @@ import time
 from contextlib import asynccontextmanager
 from pathlib import Path
 import httpx
+import paramiko
 from fastapi import FastAPI, Request, WebSocket, WebSocketDisconnect, HTTPException
 from fastapi.responses import FileResponse, Response, JSONResponse
 from fastapi.staticfiles import StaticFiles
@@ -49,6 +50,65 @@ class Session:
         self.profile = None
         self.lock = threading.Lock()
         self.maintenance = None
+        self.connecting = False
+        self.connection_generation = 0
+        self.recovery = None
+        self.preparation = None
+
+    def begin_connection(self, replace=False):
+        with self.lock:
+            if self.connecting or ((self.ssh or self.recovery) and not replace):
+                raise HTTPException(409, '已有连接或正在连接；请先断开现有连接')
+            self.connection_generation += 1
+            generation = self.connection_generation
+            self.connecting = True
+            self.preparation = None
+            old, token = self.ssh, self.token
+            pending, self.recovery = self.recovery, None
+            self.ssh, self.token, self.profile, self.maintenance = None, '', None, None
+        if pending:
+            pending['ssh'].close()
+        return generation, old, token
+
+    def accept_connection(self, generation, ssh, token, profile):
+        with self.lock:
+            if generation != self.connection_generation or not self.connecting:
+                raise HTTPException(409, '连接已取消，请重新连接')
+            self.ssh, self.token, self.profile = ssh, token, profile
+            self.recovery = None
+
+    def keep_for_recovery(self, generation, ssh, token, profile):
+        with self.lock:
+            if generation != self.connection_generation or not self.connecting:
+                raise HTTPException(409, '连接已取消，请重新连接')
+            self.recovery = {'ssh':ssh, 'token':token, 'profile':profile}
+
+    def begin_recovery(self):
+        with self.lock:
+            if not self.recovery or self.connecting or self.ssh:
+                raise HTTPException(409, '请先连接 SSH，且不要同时执行其他连接操作')
+            self.connecting = True
+            return self.connection_generation, self.recovery
+
+    def recovery_available(self):
+        with self.lock:
+            return self.recovery is not None
+
+    def set_preparation(self, generation, stage):
+        with self.lock:
+            if generation != self.connection_generation or not self.connecting:
+                raise HTTPException(409, '连接已取消')
+            self.preparation = stage
+
+    def preparation_stage(self):
+        with self.lock:
+            return self.preparation
+
+    def finish_connection(self, generation):
+        with self.lock:
+            if generation == self.connection_generation:
+                self.connecting = False
+                self.preparation = None
 
     def request(self, path, body=None):
         with self.lock:
@@ -64,14 +124,29 @@ class Session:
             pass
 
     def close(self):
-        self.stop()
         with self.lock:
-            if self.ssh:
-                self.ssh.close()
+            self.connection_generation += 1
+            self.connecting = False
+            self.preparation = None
+            ssh, token = self.ssh, self.token
+            pending, self.recovery = self.recovery, None
             self.ssh = None
             self.token = ''
             self.profile = None
             self.maintenance = None
+        if pending:
+            pending['ssh'].close()
+        close_connection(ssh, token)
+
+
+def close_connection(ssh, token):
+    if ssh:
+        try:
+            ssh.request('POST', '/control', b'{"action": "stop"}', token)
+        except Exception:
+            pass
+        finally:
+            ssh.close()
 
 
 session = Session()
@@ -173,23 +248,161 @@ async def probe_key(request: Request):
 async def connect(request: Request):
     d = await request.json()
     p = valid_profile(d['profile'])
-    await asyncio.to_thread(session.close)
+    generation, old, old_token = session.begin_connection(replace=True)
+    ssh = None
     try:
+        await asyncio.to_thread(close_connection, old, old_token)
         ssh = await asyncio.to_thread(SSH, p, d.get('password') or None)
-        session.ssh = ssh
-        session.token = d.get('adapter_token', '')
-        session.profile = p
-        state = json.loads(await asyncio.to_thread(session.request, '/state'))
+        token = d.get('adapter_token', '')
+        state = json.loads(await asyncio.to_thread(ssh.request, 'GET', '/state', token=token))
         if state['kind'] != p['kind']:
             raise ValueError('Target kind mismatch; refusing control')
+        session.accept_connection(generation, ssh, token, p)
+        ssh = None
         managed_event(
             'SSH and target adapter connected; explicit control claim required')
         return {'connected': True, 'kind': state['kind']}
+    except HTTPException:
+        raise
     except Exception:
-        await asyncio.to_thread(session.close)
         managed_event('SSH or adapter connection rejected', 40)
         raise HTTPException(
             400, 'Connection failed: verify fingerprint, credentials and adapter configuration')
+    finally:
+        if ssh:
+            await asyncio.to_thread(ssh.close)
+        session.finish_connection(generation)
+
+
+@app.post('/api/v1/connect-robot')
+async def connect_robot(request: Request):
+    data = await request.json()
+    password = data.get('password')
+    if not isinstance(password, str) or not password:
+        raise HTTPException(400, '请输入 SSH 密码')
+    robots = [p for p in profiles().values() if p.get('kind') == 'robot']
+    if len(robots) != 1:
+        raise HTTPException(400, '需要一个已保存且已验证指纹的实车配置')
+    profile = valid_profile(robots[0])
+    generation, _, _ = session.begin_connection()
+    session.set_preparation(generation, 'ssh')
+    ssh = None
+    try:
+        try:
+            ssh = await asyncio.to_thread(SSH, profile, password)
+        except Exception:
+            raise HTTPException(400, 'SSH 连接失败：请检查热点、密码和已保存的主机指纹')
+        try:
+            token = await asyncio.to_thread(ssh.adapter_token)
+        except Exception:
+            raise HTTPException(503, '无法读取车端适配器令牌，请检查车端配置')
+        try:
+            state = json.loads(await asyncio.to_thread(ssh.request, 'GET', '/state', token=token))
+            if state.get('kind') != 'robot':
+                raise ValueError('Unexpected target kind')
+        except paramiko.ChannelException as exc:
+            if exc.code != 2:
+                raise HTTPException(503, 'SSH 已连接，但 SSH 服务器拒绝适配器隧道；请检查转发权限')
+            session.keep_for_recovery(generation, ssh, token, profile)
+            managed_event('Robot adapter port unavailable; authenticated SSH retained for fixed recovery', 30)
+            try:
+                result = await asyncio.to_thread(ssh.prepare_robot, password,
+                    lambda stage: session.set_preparation(generation, stage))
+                if result.get('status') != 'ready':
+                    raise HTTPException(503, preparation_error(result))
+                token = await asyncio.to_thread(ssh.adapter_token)
+                state = json.loads(await asyncio.to_thread(ssh.request, 'GET', '/state', token=token))
+                if state.get('kind') != 'robot':
+                    raise HTTPException(503, '准备后的适配器目标身份不符')
+            except HTTPException:
+                ssh = None
+                raise
+            except Exception:
+                ssh = None
+                raise HTTPException(503, '自动停车准备未完成，SSH 已保留，可读取诊断后重试')
+        except Exception:
+            raise HTTPException(503, 'SSH 已连接，但车端适配器不可用或认证失败；请检查车端服务')
+        session.accept_connection(generation, ssh, token, profile)
+        ssh = None
+        managed_event('SSH and target adapter connected; explicit control claim required')
+        return {'connected': True, 'kind': 'robot'}
+    finally:
+        if ssh:
+            await asyncio.to_thread(ssh.close)
+        session.finish_connection(generation)
+
+
+def preparation_error(result):
+    reasons={'runtime_preflight_failed':'原运行配置核对未通过','unowned_ros_processes':'检测到未登记的ROS进程，未启动服务',
+             'clock_drift_live_stack':'现有运行进程存在时钟偏差，未修改系统时间','clock_auth_required':'校时认证失败，请断开并重新输入SSH密码连接',
+             'not_parked':'尚未确认停车保持','vehicle_moving':'检测到车辆运动或非零输出','parked_evidence_unavailable':'未收到新鲜停车状态',
+             'navigation_services_unavailable':'导航服务尚未就绪','adapter_still_running':'原适配器仍在运行，未重启',
+             'component_exited':'原服务启动后退出','adapter_start_timeout':'适配器启动未完成','runtime_manifest_missing':'原运行索引缺失'}
+    reason=result.get('reason','unknown')
+    detail=reasons.get(reason,reason)
+    if result.get('error'):detail+='：'+str(result['error'])[:256]
+    if result.get('missing_services'):detail+='；缺失服务：'+', '.join(result['missing_services'])
+    return 'SSH 已连接，适配器端口未就绪；自动停车准备未完成：'+detail
+
+
+@app.post('/api/v1/robot/prepare')
+async def prepare_robot(request: Request):
+    body=await request.json()
+    if body != {'confirm_parked':True} or body.get('confirm_parked') is not True:
+        raise HTTPException(400, '此接口只允许固定停车准备')
+    generation,pending=session.begin_recovery()
+    try:
+        ssh=pending['ssh']
+        result=await asyncio.to_thread(ssh.prepare_robot,None,lambda stage:session.set_preparation(generation,stage))
+        if result.get('status')!='ready':raise HTTPException(409,preparation_error(result))
+        token=await asyncio.to_thread(ssh.adapter_token)
+        state=json.loads(await asyncio.to_thread(ssh.request,'GET','/state',token=token))
+        if state.get('kind')!='robot':raise HTTPException(503,'适配器目标身份不符')
+        session.accept_connection(generation,ssh,token,pending['profile'])
+        managed_event('Robot parked preparation complete; adapter connected; explicit exploration request required')
+        return {'connected':True,'kind':'robot','preparation':result}
+    except HTTPException:raise
+    except Exception:raise HTTPException(503,'停车准备未完成，可读取诊断；不会自动重试或启动探索')
+    finally:session.finish_connection(generation)
+
+
+@app.get('/api/v1/adapter/diagnostics')
+async def adapter_diagnostics():
+    generation, pending = session.begin_recovery()
+    try:
+        return await asyncio.to_thread(pending['ssh'].adapter_operation, 'inspect')
+    except Exception:
+        raise HTTPException(503, '无法读取适配器诊断，请检查 SSH 连接')
+    finally:
+        session.finish_connection(generation)
+
+
+@app.post('/api/v1/adapter/restore')
+async def restore_adapter(request: Request):
+    body = await request.json()
+    if body != {'confirm_parked': True} or body.get('confirm_parked') is not True:
+        raise HTTPException(400, '请确认小车已停车；此接口只允许恢复原适配器')
+    generation, pending = session.begin_recovery()
+    try:
+        ssh = pending['ssh']
+        result = await asyncio.to_thread(ssh.adapter_operation, 'restore')
+        if result.get('status') != 'ready':
+            missing = result.get('missing_services', [])
+            reason = result.get('reason', 'unknown')
+            raise HTTPException(409, '未恢复适配器：'+reason+('；缺失服务：'+', '.join(missing) if missing else ''))
+        token = await asyncio.to_thread(ssh.adapter_token)
+        state = json.loads(await asyncio.to_thread(ssh.request, 'GET', '/state', token=token))
+        if state.get('kind') != 'robot':
+            raise HTTPException(503, '适配器目标身份不符，拒绝建立控制连接')
+        session.accept_connection(generation, ssh, token, pending['profile'])
+        managed_event('Original adapter available; SSH and target adapter connected; motion remains held')
+        return {'connected': True, 'kind': 'robot', 'recovery':result}
+    except HTTPException:
+        raise
+    except Exception:
+        raise HTTPException(503, '适配器恢复或连接检查失败，可读取诊断查看原因')
+    finally:
+        session.finish_connection(generation)
 
 
 @app.post('/api/v1/task')
@@ -244,7 +457,7 @@ async def events(ws: WebSocket):
                 data['control'].pop('owner', None)
                 await ws.send_json({'type': 'state', 'data': data})
             except Exception:
-                await ws.send_json({'type': 'offline', 'data': {'reason': 'Target unavailable; motion lease will expire', 'logs': list(managed_logs)}})
+                await ws.send_json({'type': 'offline', 'data': {'reason': 'Target unavailable; motion lease will expire', 'logs': list(managed_logs), 'adapter_recovery': session.recovery_available(), 'preparation':session.preparation_stage()}})
             await asyncio.sleep(.15)
     task = asyncio.create_task(stream())
     try:

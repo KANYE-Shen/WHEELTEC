@@ -45,6 +45,25 @@ input:focus,
 select:focus {
   outline: 1px solid #5acbb1;
 }
+.connection-form {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 18px;
+  padding: 14px 16px;
+  border: 1px solid #30404d;
+  border-radius: 6px;
+  background: #101923;
+}
+.connection-form label { color: #c6d4de; }
+.connection-form input { width: 220px; }
+.adapter-recovery { border:1px solid #385d6b; border-radius:6px; padding:16px; margin-bottom:18px; background:#101923; display:grid; gap:12px; }
+.recovery-actions { display:flex; flex-wrap:wrap; align-items:center; gap:14px; }
+.adapter-recovery label { display:flex; gap:8px; align-items:center; }
+.adapter-recovery > button { justify-self:start; }
+.adapter-recovery p { margin:0; color:#8fa8b7; line-height:1.6; }
+.adapter-recovery pre { max-height:240px; overflow:auto; white-space:pre-wrap; overflow-wrap:anywhere; color:#c6d4de; }
 header {
   height: 76px;
   display: flex;

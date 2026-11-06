@@ -69,6 +69,35 @@ class FrontierResult:
     viewpoint_diagnostics: list = field(default_factory=list)
 
 
+def _bounded_dilate(points, offsets, width, height):
+    """Inflate grid cells exactly, retaining only coordinates inside the grid.
+
+    Each integer represents one row of cells. The original unbounded inflation
+    is only queried at in-grid free cells, so clipping does not alter clearance.
+    """
+    if not points or not offsets:
+        return set()
+    rows = [0] * height
+    for x, y in points:
+        rows[y] |= 1 << x
+    inflated = [0] * height
+    mask = (1 << width) - 1
+    for dx, dy in offsets:
+        if abs(dx) >= width:
+            continue
+        for y in range(max(0, -dy), min(height, height-dy)):
+            bits = rows[y]
+            if bits:
+                inflated[y+dy] |= (bits << dx if dx >= 0 else bits >> -dx) & mask
+    cells = set()
+    for y, bits in enumerate(inflated):
+        while bits:
+            bit = bits & -bits
+            cells.add((bit.bit_length()-1, y))
+            bits ^= bit
+    return cells
+
+
 def select_frontiers(grid: Grid, robot: Tuple[float, float], robot_radius=DEFAULTS['robot_radius'],
                      min_frontier_size=DEFAULTS['min_frontier_size'],
                      min_goal_distance=DEFAULTS['min_goal_distance'],visited=(),observations=(),
@@ -106,7 +135,7 @@ def select_frontiers(grid: Grid, robot: Tuple[float, float], robot_radius=DEFAUL
     radius = math.ceil(robot_radius / grid.resolution)
     offsets = [(dx,dy) for dy in range(-radius,radius+1) for dx in range(-radius,radius+1)
                if math.hypot(dx,dy)*grid.resolution <= robot_radius+grid.resolution*0.5]
-    blocked = {(x+dx,y+dy) for x,y in unsafe for dx,dy in offsets}
+    blocked = _bounded_dilate(unsafe, offsets, grid.width, grid.height)
     # Diagnostics only: optimistic clearance ignores unknown, never used as a goal.
     # More conservative navigation clearance does NOT prove physical exclusion.
     # Live launch explicitly retains the old calibrated reference for this proof;

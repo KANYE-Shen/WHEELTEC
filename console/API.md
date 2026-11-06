@@ -1,4 +1,4 @@
-> 2026-10-30：网页已移除 SSH 连接表单；以下连接/配置接口继续供本机后台或 agent 使用。主机指纹校验、适配器令牌及会话/Origin 保护未删除，不允许由不可信页面代为连接。
+> 2026-11-06：原网页新增实车 SSH 密码连接栏；旧连接/配置接口继续供仿真和维护使用。固定主机指纹、适配器令牌及会话/Origin 保护保留，不允许由不可信页面代为连接。
 
 # 控制台接口 v1
 
@@ -10,9 +10,13 @@
 | GET /api/v1/profiles | 名称到非敏感连接配置的映射 |
 | POST /api/v1/profiles | 保存白名单字段；忽略 password、adapter_token 等非白名单字段 |
 | POST /api/v1/probe | host、port → fingerprint；仅探测，不代表身份已核实 |
-| POST /api/v1/connect | profile、临时 password、adapter_token；验证指纹和目标 kind 后建立会话 |
+| POST /api/v1/connect | profile、临时 password、adapter_token；验证指纹和目标 kind 后建立会话，保留原有替换连接用途 |
+| POST /api/v1/connect-robot | 仅password；固定指纹SSH与唯一保存的robot配置，SFTP读取令牌；适配器已在线直接连接，通道connect-failed时自动按原配置补缺失服务、必要安全校时，始终停车，kind通过才发布会话。已有/进行中连接409，空密码/配置不唯一400，准备或适配器失败503并保留恢复SSH；不解锁/探索 |
+| POST /api/v1/robot/prepare | 仅 `{ "confirm_parked": true }`；在已保留SSH上显式重试固定停车准备，不接收命令/路径/源代码；无新密码只允许sudo非交互校时，失败提示重新输入密码连接；准备失败409并保留SSH，成功核对kind后采用同一SSH |
+| GET /api/v1/adapter/diagnostics | 仅已认证的恢复SSH可用；固定读取原进程索引、/proc和有界脱敏退出日志，不请求/state，不发控制指令，附固定只读准备计划 |
+| POST /api/v1/adapter/restore | 仅 `{ "confirm_parked": true }`；固定核对原命令、其他组件和实时停车链，仅启动缺失原适配器；失败409并保留诊断连接，成功验证kind后采用同一SSH；不接受命令、路径或源代码 |
 | POST /api/v1/task | 固定action：explore / remote / stop，经SSH转发目标端/task；explore执行预检后异步启动已有算法，remote/stop抢占启动并停车 |
-| POST /api/v1/disconnect | 请求停车、关闭 SSH，不停止目标算法服务 |
+| POST /api/v1/disconnect | 取消尚未完成的连接，请求现有会话停车、关闭 SSH，不停止目标算法服务 |
 | GET /api/v1/camera | 单调接收年龄≤1秒的 JPEG；接收中断/不可用返回503；不保证源采集时间戳合格 |
 | WS /api/v1/events | state、offline、ack、error 事件；接收 control 命令 |
 | WS /api/v1/terminal | JSON input/resize 请求、二进制 PTY 输出；与手动控制互斥 |
@@ -40,7 +44,7 @@ owner 由网关为每条事件连接生成，不接受客户端指定身份；cl
 
 扩展面板：在 main.tsx 导入自己的模块，再调用 `registerPanel({id,title,component})`。组件收到当前 State|null；参见 frontend/src/examples/ClockPanel.tsx。新增 ROS 数据在 target/data.py 做纯数据转换、adapter.py 中订阅，经 state 的新增字段传递。附回归测试，保持旧字段含义，不把仿真真值接入 State、终端自动补全或控制器。
 
-通信失败由 offline/error 明确报告。传输层限定通道读超时及响应大小；日志固定最近400条、视频降采样/压缩，避免无界队列。没有隐式任务恢复、自动重连运动或后台操作者心跳。接口尚无任意导航目标提交。探索按钮调用现有wheeltec_explore，要求已有Nav2、地图、TF和安全链；不启动底盘驱动或代填硬件校准。
+通信失败由 offline/error 明确报告。offline.data.adapter_recovery=true 表示仅SSH已认证、适配器未就绪；它不表示已有控制权。offline.data.preparation为ssh/checking/clock/services或null，表示连接准备阶段；此时网页提供固定日志/重试操作，断开会关闭恢复SSH而不尝试通过失效适配器发送控制。传输层限定通道读超时及响应大小；日志固定最近400条、视频降采样/压缩，避免无界队列。没有隐式任务恢复、自动重连运动或后台操作者心跳。接口尚无任意导航目标提交。探索按钮调用现有wheeltec_explore，要求已有Nav2、地图、TF和安全链；不启动底盘驱动或代填硬件校准。
 
 
 日志来源为 ROS `/rosout`、适配器启动事件和网关管理的连接/PTY生命周期事件，最多合并500条；`console.gateway` 使用墙钟时间，ROS日志保留其源时间。SSH命令内容和PTY原始输出不进入聚合日志；第三方Gazebo/RViz详细进程日志仍通过终端/原始日志文件查看。桌面管理器的启动命令不会由网页隐式执行；探索子进程仅由明确的explore请求启动，停止时仅管理本次拥有的子进程。

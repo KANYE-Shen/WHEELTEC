@@ -11,6 +11,31 @@ except ImportError:
     Grid = select_frontiers = None
 
 
+class InflationEquivalenceTests(unittest.TestCase):
+    def test_empty_and_far_offsets_do_not_create_cells(self):
+        from wheeltec_explore.frontiers import _bounded_dilate
+        self.assertEqual(_bounded_dilate([], [(0, 0)], 3, 2), set())
+        self.assertEqual(_bounded_dilate([(1, 1)], [], 3, 2), set())
+        self.assertEqual(_bounded_dilate([(1, 1)], [(10**7, 0), (-10**7, 0),
+                                                   (0, 10**7)], 3, 2), set())
+
+    def test_bounded_inflation_matches_reference_at_map_edges(self):
+        import random
+        from wheeltec_explore.frontiers import _bounded_dilate
+        rng = random.Random(20261105)
+        for _ in range(500):
+            width, height = rng.randint(1, 20), rng.randint(1, 20)
+            points = [(x, y) for y in range(height) for x in range(width)
+                      if rng.random() < 0.35]
+            radius = rng.randint(0, 8)
+            offsets = [(dx, dy) for dy in range(-radius, radius+1)
+                       for dx in range(-radius, radius+1)
+                       if dx*dx + dy*dy <= radius*radius]
+            expected = {(x+dx, y+dy) for x, y in points for dx, dy in offsets
+                        if 0 <= x+dx < width and 0 <= y+dy < height}
+            self.assertEqual(_bounded_dilate(points, offsets, width, height), expected)
+
+
 class FrontierTests(unittest.TestCase):
     def setUp(self):
         self.assertIsNotNone(select_frontiers, 'Frontier selection is not implemented yet')

@@ -1,0 +1,35 @@
+import { chromium } from '@playwright/test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+const browser = await chromium.launch({headless:true, executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe'});
+const page = await browser.newPage({viewport:{width:1440,height:900}});
+let submitted, disconnects=0, unwanted=[];
+await page.route('**/*', route=>{
+  const name = new URL(route.request().url()).pathname;
+  const file = name === '/' ? 'index.html' : name.substring(1);
+  const mime = file.endsWith('.js') ? 'application/javascript' : file.endsWith('.css') ? 'text/css' : 'text/html';
+  return route.fulfill({body:fs.readFileSync(path.join('console/frontend/dist',file)),contentType:mime});
+});
+await page.route('**/bootstrap', route=>route.fulfill({json:{version:1}}));
+await page.route('**/api/v1/connect-robot', async route=>{
+  submitted=route.request().postDataJSON();
+  await route.fulfill({status:503,json:{detail:'SSH 已连接，但车端适配器不可用或认证失败；请检查车端服务'}});
+});
+await page.route('**/api/v1/disconnect',async route=>{disconnects++;await route.fulfill({json:{connected:false}})});
+await page.route('**/api/v1/task',async route=>{unwanted.push(route.request().postDataJSON());await route.fulfill({json:{}})});
+await page.routeWebSocket('**/api/v1/events',ws=>{ws.send(JSON.stringify({type:'offline',data:{logs:[]}}));ws.onMessage(data=>unwanted.push(String(data)));});
+await page.goto('http://localhost:18766/');
+const password=page.getByLabel('小车 SSH 密码');
+await password.fill('sample-password');
+await page.getByRole('button',{name:'连接小车'}).click();
+await page.getByText('SSH 已连接，但车端适配器不可用或认证失败；请检查车端服务').waitFor();
+assert.deepEqual(submitted,{password:'sample-password'});
+assert.equal(await password.inputValue(),'');
+assert.equal(unwanted.length,0);
+await page.screenshot({path:'password-connect.png',fullPage:true});
+await page.getByRole('button',{name:'断开连接'}).click();
+await page.waitForTimeout(200);
+assert.equal(disconnects,1);assert.equal(unwanted.length,0);
+await browser.close();
+console.log('isolated password UI, error, clear, offline disconnect: passed');

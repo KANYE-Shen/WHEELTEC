@@ -11,6 +11,9 @@ import "./style.css";
 function App() {
   const [state, setState] = useState<State | null>(null),
     [connected, setConnected] = useState(false),
+    [adapterRecovery, setAdapterRecovery] = useState(false),
+    [preparation, setPreparation] = useState(""),
+    [adapterEvidence, setAdapterEvidence] = useState<{log_tail?:string;missing_services?:string[];reason?:string}|null>(null),
     [error, setError] = useState(""),
     [terminal, setTerminal] = useState(false),
     [desktop, setDesktop] = useState(false),
@@ -24,6 +27,7 @@ function App() {
     [cameraFailed, setCameraFailed] = useState(false),
     [cameraStampWarning, setCameraStampWarning] = useState(false);
   const pendingManual = useRef<{ keys: Set<string>; until: number; sent: boolean; waitingRemote?: boolean } | null>(null);
+  const passwordInput = useRef<HTMLInputElement>(null);
   const logBox = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (!paused && logBox.current)
@@ -86,6 +90,8 @@ function App() {
             setCameraStampWarning(true);
           setState(m.data);
           setConnected(true);
+          setAdapterRecovery(false);
+          setPreparation("");
           setLastReceive(Date.now());
           lastGood.current = Date.now();
           if (!pause.current) {
@@ -95,6 +101,9 @@ function App() {
         } else if (m.type === "offline") {
           if (!pause.current && m.data.logs) setLogs(m.data.logs);
           setConnected(false);
+          setAdapterRecovery(Boolean(m.data.adapter_recovery));
+          setPreparation(m.data.preparation || "");
+          if (!m.data.adapter_recovery) setAdapterEvidence(null);
           keys.current.clear(); pendingManual.current = null;
         } else if (m.type === "error") {
           if (m.data.reason !== "stale_control_epoch") setError(m.data.reason);
@@ -106,6 +115,8 @@ function App() {
       };
       s.onclose = () => {
         setConnected(false);
+        setAdapterRecovery(false);
+        setPreparation("");
         keys.current.clear(); pendingManual.current = null;
         retry = setTimeout(open, 1500);
       };
@@ -217,6 +228,7 @@ function App() {
     };
     const focus = (e: FocusEvent) => {
       const el = e.target as HTMLElement;
+      if ((el === passwordInput.current || el.closest('.adapter-recovery')) && !current.current?.control.mine && !pendingManual.current) return;
       if (editable(el.tagName, el.isContentEditable) && (!autonomous() || pendingManual.current)) stop();
     };
     window.addEventListener("keydown", down, true);
@@ -268,6 +280,7 @@ function App() {
     }
   };
   const healthy = connected && now - lastReceive < 1000;
+  const preparationLabel = ({ssh:"正在认证 SSH",checking:"正在核对原有配置与进程",clock:"正在校准小车时间",services:"正在按停车顺序准备原有服务"} as Record<string,string>)[preparation] || "正在准备连接";
   const list = logs.filter((l) =>
     `${l.name} ${l.message}`.toLowerCase().includes(filter.toLowerCase()),
   );
@@ -304,10 +317,10 @@ function App() {
           </span>
         </div>
         <button
-          disabled={!connected || busy}
+          disabled={busy}
           onClick={() =>
             run(async () => {
-              stop();
+              if (connected) stop();
               setTerminal(false);
               await api("disconnect", {});
             })
@@ -359,7 +372,7 @@ function App() {
                   ? (state?.connection?.name || "当前目标") +
                     " · " +
                     (state?.connection?.host || "")
-                  : "等待后台连接小车或仿真环境；无需在网页填写密码或令牌"}
+                  : adapterRecovery ? "SSH 已认证 · 车端适配器未就绪" : "连接小车热点后，输入 SSH 密码连接"}
               </p>
             </div>
             <button
@@ -377,6 +390,33 @@ function App() {
               <button onClick={() => setError("")}>关闭</button>
             </div>
           )}
+          {!connected && !adapterRecovery && <form className="connection-form" onSubmit={(e) => {
+            e.preventDefault();
+            const password = passwordInput.current?.value ?? "";
+            if (passwordInput.current) passwordInput.current.value = "";
+            void run(() => api("connect-robot", { password }));
+          }}>
+            <label htmlFor="robot-password">小车 SSH 密码</label>
+            <input id="robot-password" ref={passwordInput} type="password" autoComplete="off" required disabled={busy} />
+            <button className="primary" type="submit" disabled={busy}>{busy ? "正在准备…" : "连接小车"}</button>
+            <span>连接后自动完成停车准备，不会启动探索。</span>
+          </form>}
+          {!connected && adapterRecovery && <section className="adapter-recovery" aria-label="适配器恢复">
+            <div className="recovery-actions">
+              <span role="status">{preparation ? preparationLabel + "…" : "自动准备未完成，SSH 已保留。"}</span>
+              <button disabled={busy || Boolean(preparation)} onClick={() => void run(async () => {
+                setAdapterEvidence(await api("adapter/diagnostics"));
+              })}>读取适配器日志</button>
+            </div>
+            <button className="primary" disabled={busy || Boolean(preparation)} onClick={() => void run(async () => {
+              await api("robot/prepare", {confirm_parked:true});
+            })}>{busy || preparation ? "正在准备…" : "重试停车准备"}</button>
+            <p>只补启动缺失的原有服务；不重启已运行进程、不覆盖已保存地图、不解锁、不启动探索。</p>
+            {adapterEvidence && <details open><summary>适配器退出记录</summary>
+              {adapterEvidence.missing_services?.length ? <p>缺失服务：{adapterEvidence.missing_services.join("、")}</p> : null}
+              <pre>{adapterEvidence.log_tail || adapterEvidence.reason || "未找到原适配器日志"}</pre>
+            </details>}
+          </section>}
           <div className="metrics">
             {["scan", "odom", "map", "camera"].map((key, i) => {
               const s = state?.streams[key];

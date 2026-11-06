@@ -29,8 +29,11 @@ def wait_for_stable_readiness(current, check, healthy_for=.5, timeout=5.,
 
 
 class TaskController:
-    def __init__(self, preflight, activate, spawn, halt):
+    def __init__(self, preflight, activate, spawn, halt, *, prepare=None, release=None):
         self.preflight, self.activate, self.spawn, self.halt = preflight, activate, spawn, halt
+        if (prepare is None) != (release is None):
+            raise ValueError("prepare and release must be supplied together")
+        self.prepare, self.release = prepare, release
         self.lock = threading.RLock()
         self.generation = 0
         self.mode = 'remote'
@@ -66,23 +69,39 @@ class TaskController:
 
     def _start(self, ticket):
         try:
+            if self.prepare is not None:
+                # Initialisation/discovery happens held, before any arm request.
+                self.halt()
+                with self.lock:
+                    if not self.current(ticket):
+                        return
+                    self.process = self.spawn()
+                    self.stop_sent = False
+                self.prepare(self.process, lambda: self.current(ticket))
+                with self.lock:
+                    if not self.current(ticket):
+                        return
+                    if self.process.poll() is not None:
+                        raise ValueError('探索进程准备时退出，未解锁')
             self.activate(lambda: self.current(ticket))
             with self.lock:
                 if not self.current(ticket):
                     return
-                self.process = self.spawn()
-                self.stop_sent = False
+                if self.prepare is None:
+                    self.process = self.spawn()
+                    self.stop_sent = False
+                else:
+                    if self.process.poll() is not None:
+                        raise ValueError('探索进程放行前退出')
+                    self.release(self.process)
                 self.mode = 'autonomous'
         except Exception as exc:
-            with self.lock:
-                if not self.current(ticket):
-                    return
-                self.generation += 1
-                self.mode, self.error = 'remote', str(exc)
-            self.halt()
+            self.remote(str(exc), expected_generation=ticket)
 
-    def remote(self, reason=""):
+    def remote(self, reason="", *, expected_generation=None):
         with self.lock:
+            if expected_generation is not None and self.generation != expected_generation:
+                return {"mode": self.mode, "error": self.error}
             self.generation += 1
             self.mode, self.error = 'remote', reason
             process = self.process
