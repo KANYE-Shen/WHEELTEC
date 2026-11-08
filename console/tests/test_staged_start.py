@@ -75,7 +75,7 @@ class ActualMainTests(unittest.TestCase):
     if gated:self.assertTrue((gate/'go').is_file())
     calls.append('run');return 0
    node=NS(latest_map=object(),position=lambda:(0,0,0),last_scan_ros=1.,ros_seconds=lambda:1.,
-    config={'scan_max_age':1.,'initialization_timeout':5.},nav=NS(server_is_ready=lambda:True),
+    config={'scan_max_age':1.,'initialization_timeout':5.,'frontier_backend':'grid','vendor_managed':False},vendor_runtime=None,nav=NS(server_is_ready=lambda:True),
     wait=lambda p,t:calls.append('warm') or p(),run=run,cancel_active=lambda:calls.append('cancel'),
     status=lambda *a,**kw:calls.append('status'),destroy_node=lambda:calls.append('destroy'))
    env={'rclpy':NS(init=lambda **kw:None,ok=lambda:True,shutdown=lambda:None,spin_once=spin),

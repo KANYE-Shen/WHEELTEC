@@ -282,7 +282,8 @@ def main():
                 '-p', 'use_sim_time:=false', '-p', 'base_frame:='+args.base_frame,
                 '-p', 'odom_frame:='+real_config['odom_frame'], '-p', 'robot_radius:='+str(radius),
                 '-p', 'footprint_exclusion_radius:='+str(exclusion_radius),
-                '-p', 'map_output:='+str(run/'room'), '-p', 'update_latest:=false']
+                '-p', 'map_output:='+str(run/'room'), '-p', 'update_latest:=false',
+                '-p', 'frontier_backend:=vendor', '-p', 'vendor_managed:=true']
             with (run/'explore.log').open('wb') as log:
                 process = subprocess.Popen(command, stdin=subprocess.DEVNULL, stdout=log,
                     stderr=subprocess.STDOUT, env=env, start_new_session=True)

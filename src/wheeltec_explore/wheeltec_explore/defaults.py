@@ -1,6 +1,7 @@
 """Single source for explorer engineering defaults; runtime ROS parameters override them."""
 DEFAULTS = {
     'expected_status_observers':0,
+    'frontier_backend':'grid', 'vendor_bounds':'', 'vendor_max_age':5., 'vendor_managed':False,
     'initial_rotation_assumed_safe':False,
     'active_scan_angle_deg':0., 'active_scan_fov_deg':270.,
     'active_scan_timeout':45., 'active_scan_max_attempts':1,

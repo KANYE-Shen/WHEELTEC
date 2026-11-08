@@ -98,6 +98,38 @@ def _bounded_dilate(points, offsets, width, height):
     return cells
 
 
+
+def reachable_free_space(grid, robot, robot_radius, start_snap_distance):
+    """Return free cells, inflation offsets and reachable safe cells for this grid."""
+    free = {(i % grid.width, i // grid.width) for i, v in enumerate(grid.data) if 0 <= v <= 25}
+    unsafe = [(i % grid.width, i // grid.width) for i, v in enumerate(grid.data) if not 0 <= v <= 25]
+    radius = math.ceil(robot_radius / grid.resolution)
+    offsets = [(dx,dy) for dy in range(-radius,radius+1) for dx in range(-radius,radius+1)
+               if math.hypot(dx,dy)*grid.resolution <= robot_radius+grid.resolution*0.5]
+    blocked = _bounded_dilate(unsafe, offsets, grid.width, grid.height)
+    # A center is safe only when the full reference footprint is observed free.
+    # Treat the map extent as unknown even if its last raster cell says free.
+    safe = {p for p in free-blocked if min((p[0]+0.5)*grid.resolution,
+            (p[1]+0.5)*grid.resolution,(grid.width-p[0]-0.5)*grid.resolution,
+            (grid.height-p[1]-0.5)*grid.resolution) >= robot_radius}
+    start = grid.world_to_cell(*robot)
+    if start not in safe:
+        # Quantization can put a valid footprint center one cell into inflation.
+        nearby = [p for p in safe if math.hypot(p[0]-start[0], p[1]-start[1])*grid.resolution <= start_snap_distance]
+        start = min(nearby, key=lambda p: math.hypot(p[0]-start[0],p[1]-start[1])) if nearby else None
+    distances = {}
+    if start is not None:
+        distances[start] = 0
+        queue = deque([start])
+        while queue:
+            current = queue.popleft()
+            for nxt in grid.neighbors(current):
+                if nxt in safe and nxt not in distances:
+                    distances[nxt] = distances[current]+1
+                    queue.append(nxt)
+    return free, offsets, distances
+
+
 def select_frontiers(grid: Grid, robot: Tuple[float, float], robot_radius=DEFAULTS['robot_radius'],
                      min_frontier_size=DEFAULTS['min_frontier_size'],
                      min_goal_distance=DEFAULTS['min_goal_distance'],visited=(),observations=(),
@@ -126,16 +158,11 @@ def select_frontiers(grid: Grid, robot: Tuple[float, float], robot_radius=DEFAUL
     if not math.isfinite(footprint_exclusion_radius) or not 0 <= footprint_exclusion_radius <= robot_radius:
         raise ValueError('Exclusion proof radius must be within the planning radius')
     viewpoint_diagnostics = []
-    free = {(i % grid.width, i // grid.width) for i, v in enumerate(grid.data) if 0 <= v <= 25}
-    unsafe = [(i % grid.width, i // grid.width) for i, v in enumerate(grid.data) if not 0 <= v <= 25]
+    free, offsets, distances = reachable_free_space(grid, robot, robot_radius, start_snap_distance)
     occupied = [(i % grid.width, i // grid.width) for i, v in enumerate(grid.data) if v > 25]
     residual_counts = {'reachable_unexplored': 0, 'footprint_excluded': 0,
                        'multiview_observed': 0}
     residual_frontiers = []
-    radius = math.ceil(robot_radius / grid.resolution)
-    offsets = [(dx,dy) for dy in range(-radius,radius+1) for dx in range(-radius,radius+1)
-               if math.hypot(dx,dy)*grid.resolution <= robot_radius+grid.resolution*0.5]
-    blocked = _bounded_dilate(unsafe, offsets, grid.width, grid.height)
     # Diagnostics only: optimistic clearance ignores unknown, never used as a goal.
     # More conservative navigation clearance does NOT prove physical exclusion.
     # Live launch explicitly retains the old calibrated reference for this proof;
@@ -178,26 +205,6 @@ def select_frontiers(grid: Grid, robot: Tuple[float, float], robot_radius=DEFAUL
                                        sum(p[0] for p in cluster)/len(cluster),
                                        sum(p[1] for p in cluster)/len(cluster))),
                                    'reachable_approach_cells':len(approaches)})
-    # A center is safe only when the full reference footprint is observed free.
-    # Treat the map extent as unknown even if its last raster cell says free.
-    safe = {p for p in free-blocked if min((p[0]+0.5)*grid.resolution,
-            (p[1]+0.5)*grid.resolution,(grid.width-p[0]-0.5)*grid.resolution,
-            (grid.height-p[1]-0.5)*grid.resolution) >= robot_radius}
-    start = grid.world_to_cell(*robot)
-    if start not in safe:
-        # Quantization can put a valid footprint center one cell into inflation.
-        nearby = [p for p in safe if math.hypot(p[0]-start[0], p[1]-start[1])*grid.resolution <= start_snap_distance]
-        start = min(nearby, key=lambda p: math.hypot(p[0]-start[0],p[1]-start[1])) if nearby else None
-    distances = {}
-    if start is not None:
-        distances[start] = 0
-        queue = deque([start])
-        while queue:
-            current = queue.popleft()
-            for nxt in grid.neighbors(current):
-                if nxt in safe and nxt not in distances:
-                    distances[nxt] = distances[current]+1
-                    queue.append(nxt)
     frontiers = {p for p in free if any(grid.value(*n) < 0 for n in grid.neighbors(p))}
     goals, total, unreachable, small = [], 0, 0, 0
     approach_radius = max(frontier_approach_radius, robot_radius+2*grid.resolution)
