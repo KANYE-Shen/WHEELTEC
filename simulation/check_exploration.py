@@ -17,13 +17,13 @@ import time
 
 ROOT=Path(__file__).resolve().parents[1]
 from resource_monitor import ProcessResources
+from room_session import exploration_setup, stop_owned
 from truth_capture import GazeboTruthCapture,truth_quality,synchronize_terminal_truth
 
 
 def parse_arguments(argv=None):
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--realism',choices=['on','off'],default='on')
-    parser.add_argument('--viewpoint-strategy',choices=['centroid','visibility'],default='centroid')
     parser.add_argument('--active-scan-angle',type=float,choices=[0.,90.,180.,360.],default=0.)
     parser.add_argument('--initial-rotation-assumed-safe',action='store_true',help='Simulation-only one-time startup 360 degree assumption; later scans retain clearance checks')
     parser.add_argument('--seed',type=int,default=0)
@@ -52,56 +52,6 @@ def parse_arguments(argv=None):
         parser.error('--spawn must be nonnegative and requires --scenario for nonzero starts')
     return args
 
-
-def _live_group_members(pgid):
-    """Linux owned-group liveness; terminated zombies need no more signals."""
-    members=[]
-    for entry in Path('/proc').iterdir():
-        if not entry.name.isdecimal():
-            continue
-        try:
-            fields=(entry/'stat').read_text().rpartition(')')[2].split()
-            if int(fields[2])==pgid and fields[0] not in ('Z','X','x'):
-                members.append(int(entry.name))
-        except (FileNotFoundError,ProcessLookupError,PermissionError):
-            pass
-    return sorted(members)
-
-
-def stop_owned(process,timeout=25.0):
-    """Reap the owned leader and stop its group even if the leader died first."""
-    if process is None:
-        return None
-    pgid=process.pid
-    forced=False
-    deadline=time.monotonic()+timeout
-    try:
-        os.killpg(pgid,signal.SIGINT)
-    except ProcessLookupError:
-        pass
-    try:
-        process.wait(timeout=max(0,deadline-time.monotonic()))
-    except subprocess.TimeoutExpired:
-        pass
-    members=_live_group_members(pgid)
-    while members and time.monotonic()<deadline:
-        time.sleep(min(.05,max(0,deadline-time.monotonic())))
-        process.poll()
-        members=_live_group_members(pgid)
-    if members:
-        try:
-            os.killpg(pgid,signal.SIGKILL)
-            forced=True
-        except ProcessLookupError:
-            pass
-    process.wait(timeout=5)
-    deadline=time.monotonic()+2
-    members=_live_group_members(pgid)
-    while members and time.monotonic()<deadline:
-        time.sleep(.02)
-        members=_live_group_members(pgid)
-    return {'returncode':process.returncode,'forced_kill':forced,
-            'process_group_id':pgid,'remaining_live_group_members':members}
 
 def shutdown_abnormal(name, state, terminal):
     if state is None:
@@ -156,6 +106,7 @@ def verify_bag(path):
 
 def main(argv=None):
     args=parse_arguments(argv)
+    overlay = exploration_setup()
     from scenarios import load_scenario
     from map_metrics import initial_alignment,load_saved_grid,score_map,trajectory_safety
     from process_capture import ProcessCapture,yaw
@@ -173,7 +124,7 @@ def main(argv=None):
     os.environ.update(ROS_LOCALHOST_ONLY='1',ROS_DOMAIN_ID=str(domain))
     result={'success':False,'run_dir':str(run),'ros_domain_id':domain,
             'scenario':scene['id'],'spawn_index':args.spawn,'spawn':spawn,
-            'viewpoint_strategy':args.viewpoint_strategy,'active_scan_angle_deg':args.active_scan_angle,
+            'frontier_backend':'vendor','active_scan_angle_deg':args.active_scan_angle,
             'initial_rotation_assumed_safe':args.initial_rotation_assumed_safe,
             'realism_mode':args.realism,'seed':args.seed,'noise_scale':args.noise_scale,
             'real_robot_admission_ready':False,
@@ -243,7 +194,7 @@ def main(argv=None):
             recorder_process=launch(['ros2','bag','record','--use-sim-time','--qos-profile-overrides-path',str(qos),
                                      '-o',str(run/'bag'),'/scan','/odom','/tf','/tf_static','/map','/exploration/status','/clock','/plan'],'bag.log')
         command=[sys.executable,str(ROOT/'simulation/run_room.py'),'gui:=false','rviz:=false',
-                 'mode:=mapping','navigation:=true','explore:=false','ros_domain_id:='+str(domain),
+                 'mode:=mapping','navigation:=true','explore:=false','vendor_frames:=true','ros_domain_id:='+str(domain),
                  'partition:='+partition,'realism:='+args.realism,'seed:='+str(args.seed),
                  'noise_scale:='+str(args.noise_scale),'realism_assets:='+str(run/'realism')]
         if args.scenario:
@@ -269,12 +220,12 @@ def main(argv=None):
         result['map_from_world']=initial_alignment(spawn['pose'],capture.initial_pose)
         if args.realism=='on':
             result['realism']=json.loads((run/'realism/manifest.json').read_text())
-        setup=Path.home()/'wheeltec_sim_ws/install/setup.bash'
         command='source /opt/ros/humble/setup.bash && source "$1" && shift && exec ros2 run wheeltec_explore explore "$@"'
         task_start_wall_t=time.monotonic()-started
-        explorer_command=['bash','-lc',command,'wheeltec-exploration-check',str(setup),
+        explorer_command=['bash','-lc',command,'wheeltec-exploration-check',str(overlay),
                                 '--ros-args','-p','use_sim_time:=true','-p','map_output:='+str(run/'map'),
-                                '-p','update_latest:=false','-p','frontier_viewpoint_strategy:='+args.viewpoint_strategy,
+                                '-p','update_latest:=false','-p','base_frame:=base_footprint',
+                                '-p','frontier_backend:=vendor','-p','vendor_managed:=true',
                                 '-p','active_scan_angle_deg:='+str(args.active_scan_angle),
                                 '-p','initial_rotation_assumed_safe:='+str(args.initial_rotation_assumed_safe).lower(),
                                 '-p','expected_status_observers:='+str(2 if args.record else 1),
@@ -285,8 +236,12 @@ def main(argv=None):
         if affinity: explorer_command=['taskset','-c',','.join(map(str,affinity)),*explorer_command]
         explorer_process=launch(explorer_command,'explore.log')
         wait(lambda:capture.status.get('state') in ('completed','completed_with_residual_frontiers','incomplete','failed','map_unstable'),args.timeout,'exploration terminal status',True)
-        until=time.monotonic()+1
-        wait(lambda:time.monotonic()>=until,3,'final truth settling')
+        settled=time.monotonic()+1
+        grace=settled+12
+        # The terminal message precedes the ROS-time status flush and managed
+        # vendor shutdown. Wait for the runner's actual task return code.
+        wait(lambda:(explorer_process.poll() is not None and time.monotonic()>=settled)
+                    or time.monotonic()>=grace,15,'final truth and explorer shutdown')
     except KeyboardInterrupt:
         result['failures'].append('operator_interrupted')
     except Exception as exc:

@@ -676,3 +676,162 @@ footer {
 .task-actions { display:flex; align-items:center; gap:8px; margin:10px 0; }
 .task-actions > button { flex:1; }
 .task-actions > span { white-space:nowrap; font-size:13px; }
+
+.console-link {
+  color: #88dec9;
+  font-weight: 600;
+  padding: 8px;
+  text-underline-offset: 4px;
+  white-space: nowrap;
+}
+.console-link:hover { color: #b9f1e5; }
+
+.simulation-main {
+  max-width: 1520px;
+  margin-inline: auto;
+  padding: 30px 32px;
+}
+.simulation-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 22px;
+  row-gap: 14px;
+  margin-bottom: 24px;
+}
+.simulation-title h1 {
+  margin: 0 0 6px;
+  font-size: clamp(25px, 3vw, 32px);
+  letter-spacing: 0.02em;
+}
+.simulation-title p, .simulation-section p {
+  margin: 0;
+  color: #9bafba;
+  line-height: 1.5;
+}
+.simulation-run {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border: 1px solid #30404d;
+  border-radius: 5px;
+  background: #101923;
+}
+.simulation-run-mode {
+  color: #9bafba;
+  border-left: 1px solid #30404d;
+  margin-left: 2px;
+  padding-left: 10px;
+}
+.simulation-alert {
+  margin: 0 0 16px;
+  border-left: 3px solid #e8bb7a;
+  padding: 10px 14px;
+  background: #251e1a;
+  color: #f7c88f;
+  overflow-wrap: anywhere;
+}
+.simulation-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 322px);
+  gap: 20px;
+  align-items: start;
+}
+.simulation-sidebar {
+  min-width: 0;
+  display: grid;
+  gap: 16px;
+}
+.simulation-workspace h2 {
+  font-size: 15px;
+  margin: 0 auto 0 0;
+}
+.simulation-map .map-tools { flex-wrap: wrap; gap: 8px 14px; }
+.simulation-map .map-tools button { margin-left: 0; }
+.simulation-map .map-tools > button { min-height: 32px; padding-inline: 10px; }
+.simulation-map canvas {
+  display: block;
+  width: 100%;
+  height: clamp(370px, 58vh, 650px);
+  cursor: grab;
+  touch-action: none;
+}
+.simulation-map canvas[data-selectable="true"] { cursor: crosshair; }
+.simulation-map canvas:active { cursor: grabbing; }
+.simulation-map-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  justify-content: space-between;
+  border-top: 1px solid #283744;
+  padding: 12px 16px;
+  color: #9bafba;
+  font-variant-numeric: tabular-nums;
+}
+.simulation-map-status span:first-child { color: #88dec9; }
+.simulation-section {
+  display: grid;
+  gap: 12px;
+  padding: 15px 16px;
+  margin: 0;
+}
+.simulation-section fieldset {
+  display: grid;
+  min-width: 0;
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+.simulation-section label {
+  display: grid;
+  min-width: 0;
+  gap: 5px;
+  color: #c6d4de;
+}
+.simulation-section :is(input, select) { width: 100%; }
+.simulation-section :is(input, select):disabled { opacity: 0.55; }
+.simulation-fields, .simulation-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.simulation-goal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  align-items: baseline;
+  overflow-wrap: anywhere;
+}
+.simulation-goal span { color: #a9bbc8; font-variant-numeric: tabular-nums; }
+.simulation-goal p { flex-basis: 100%; }
+.simulation-start {
+  font-weight: 700;
+  background: #64dcbf;
+  border-color: #64dcbf;
+  color: #08271e;
+}
+.simulation-start:hover:not(:disabled) {
+  background: #92e9d2;
+  border-color: #92e9d2;
+}
+.simulation-stop:not(:disabled) {
+  background: #332329;
+  color: #ffd1d1;
+  border-color: #80535c;
+}
+.simulation-stop:hover:not(:disabled) { background: #4c2c32; }
+@media (max-width: 850px) {
+  .simulation-main { padding: 22px 18px; }
+  .simulation-workspace { grid-template-columns: minmax(0, 1fr); }
+  .simulation-map canvas { height: 390px; }
+}
+@media (max-width: 500px) {
+  .simulation-header { height: 66px; padding-inline: 14px; }
+  .simulation-main { padding: 20px 12px; }
+  .simulation-map canvas { height: 330px; }
+  .simulation-map .map-tools > button { min-height: 36px; }
+  .simulation-section :is(button, input, select) { min-height: 42px; }
+}

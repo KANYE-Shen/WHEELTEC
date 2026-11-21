@@ -46,6 +46,35 @@ class WebVendorTests(unittest.TestCase):
             self.assertEqual(commands[0][1:3],['-m','wheeltec_explore.vendor_supervisor'])
             self.assertEqual(kill.call_count,1)
 
+    def test_vendor_supervisor_receives_sim_clock(self):
+        with patch('wheeltec_explore.vendor_runtime.subprocess.Popen') as spawn:
+            VendorProcesses(use_sim_time=True).start()
+            self.assertEqual(spawn.call_args.args[0][-1], 'true')
+
+    def test_vendor_supervisor_execs_candidate_binaries_directly(self):
+        from wheeltec_explore import vendor_supervisor as supervisor
+        supervisor_package = types.ModuleType('ament_index_python.packages')
+        supervisor_package.get_package_share_directory = lambda name: '/vendor/share/' + name
+        supervisor_package.get_package_prefix = lambda name: '/vendor'
+        children = []
+        class Child:
+            def __init__(self, command, **kwargs):
+                children.append(command)
+            def poll(self):
+                return 1
+        with patch.dict(sys.modules, {'ament_index_python.packages': supervisor_package}), \
+             patch.object(supervisor.sys, 'argv', ['vendor_supervisor', '1', 'true']), \
+             patch.object(supervisor, 'bind_parent'), patch.object(supervisor.signal, 'signal'), \
+             patch.object(supervisor, 'stop_children'), patch.object(supervisor.subprocess, 'Popen', Child):
+            with self.assertRaisesRegex(RuntimeError, '异常退出'):
+                supervisor.main()
+        prefix = Path('/vendor/lib/wheeltec_robot_rrt')
+        self.assertEqual([Path(cmd[0]) for cmd in children],
+                         [prefix/'global_rrt', prefix/'local_rrt', prefix/'filter'])
+        for command in children:
+            self.assertIn('use_sim_time:=true', command)
+            self.assertIn('/filtered_goal_points:=/wheeltec_explore/vendor_points', command)
+
     def test_managed_prepare_restarts_when_map_changes(self):
         tree=ast.parse((ROOT/'src/wheeltec_explore/wheeltec_explore/node.py').read_text(encoding='utf-8'))
         cls=next(n for n in tree.body if isinstance(n,ast.ClassDef) and n.name=='Explorer')
@@ -57,6 +86,8 @@ class WebVendorTests(unittest.TestCase):
         from concurrent.futures import ThreadPoolExecutor
         import threading
         class Runtime:
+            def __init__(self, *, use_sim_time):
+                self_test.assertFalse(use_sim_time)
             def start(self):
                 self_test.assertIs(threading.current_thread(),threading.main_thread())
                 events.append('start')
@@ -68,6 +99,7 @@ class WebVendorTests(unittest.TestCase):
         obj=NS(latest_map=NS(info=info()),vendor_initialized=False,vendor_runtime=None,
                vendor_map_bounds=None,vendor_points=(),vendor_received=None,config={},
                boundary_pub=NS(get_subscription_count=lambda:0),
+               get_parameter=lambda name:NS(value=False),
                get_publishers_info_by_topic=lambda topic:[],wait=lambda predicate,*a,**k:predicate())
         def initialize(pose):events.append('initialize');obj.vendor_initialized=True
         obj.initialize_vendor=initialize

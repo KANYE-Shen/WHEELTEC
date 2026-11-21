@@ -1,6 +1,5 @@
-"""Occupancy-grid frontiers and safe approach goals, independent of ROS."""
+"""Clearance and independent map census for an exploration task."""
 from .defaults import DEFAULTS
-from .viewpoints import choose_viewpoint
 from collections import deque
 from dataclasses import dataclass, field
 import math
@@ -52,21 +51,17 @@ class FrontierGoal:
     x: float
     y: float
     yaw: float
-    distance: float
-    frontier_size: int
-    score: float
 
 
 @dataclass
-class FrontierResult:
-    goals: List[FrontierGoal]
+class FrontierCensus:
+    approaches: List[Tuple[float, float]]
     known_free_area: float
     frontier_clusters: int
     unreachable_clusters: int
     ignored_small_clusters: int
     residual_counts: dict = field(default_factory=dict)
     residual_frontiers: list = field(default_factory=list)
-    viewpoint_diagnostics: list = field(default_factory=list)
 
 
 def _bounded_dilate(points, offsets, width, height):
@@ -130,20 +125,15 @@ def reachable_free_space(grid, robot, robot_radius, start_snap_distance):
     return free, offsets, distances
 
 
-def select_frontiers(grid: Grid, robot: Tuple[float, float], robot_radius=DEFAULTS['robot_radius'],
+def census_frontiers(grid: Grid, robot: Tuple[float, float], robot_radius=DEFAULTS['robot_radius'],
                      min_frontier_size=DEFAULTS['min_frontier_size'],
                      min_goal_distance=DEFAULTS['min_goal_distance'],visited=(),observations=(),
                      visited_radius=DEFAULTS['visited_radius'],
                      observation_min_separation=DEFAULTS['observation_min_separation'],
                      frontier_approach_radius=DEFAULTS['frontier_approach_radius'],
                      start_snap_distance=DEFAULTS['start_snap_distance'],
-                     distance_score_bias=DEFAULTS['distance_score_bias'],
-                     score_distance_offset=DEFAULTS['score_distance_offset'],
-                     frontier_viewpoint_strategy=DEFAULTS['frontier_viewpoint_strategy'],
-                     viewpoint_candidate_budget=DEFAULTS['viewpoint_candidate_budget'],
-                     viewpoint_frontier_budget=DEFAULTS['viewpoint_frontier_budget'],
-                     footprint_exclusion_radius=DEFAULTS['footprint_exclusion_radius']) -> FrontierResult:
-    """Return frontier approach cells reachable through inflated known-free space.
+                     footprint_exclusion_radius=DEFAULTS['footprint_exclusion_radius']) -> FrontierCensus:
+    """Collect residual evidence and possible approach positions for exhaustion checks.
 
     A frontier is a known-free cell beside unknown space. Unknown cells are never
     navigation targets or traversed by the reachability search. The whole robot
@@ -151,13 +141,8 @@ def select_frontiers(grid: Grid, robot: Tuple[float, float], robot_radius=DEFAUL
     travel deliberately refuses diagonal shortcuts through occupied corners.
     Frontier clustering uses eight neighbours to retain slanted visible edges.
     """
-    if frontier_viewpoint_strategy not in ('centroid','visibility'):
-        raise ValueError('unknown frontier viewpoint strategy')
-    if viewpoint_candidate_budget<1 or viewpoint_frontier_budget<1:
-        raise ValueError('positive viewpoint budgets required')
     if not math.isfinite(footprint_exclusion_radius) or not 0 <= footprint_exclusion_radius <= robot_radius:
         raise ValueError('Exclusion proof radius must be within the planning radius')
-    viewpoint_diagnostics = []
     free, offsets, distances = reachable_free_space(grid, robot, robot_radius, start_snap_distance)
     occupied = [(i % grid.width, i // grid.width) for i, v in enumerate(grid.data) if v > 25]
     residual_counts = {'reachable_unexplored': 0, 'footprint_excluded': 0,
@@ -206,7 +191,8 @@ def select_frontiers(grid: Grid, robot: Tuple[float, float], robot_radius=DEFAUL
                                        sum(p[1] for p in cluster)/len(cluster))),
                                    'reachable_approach_cells':len(approaches)})
     frontiers = {p for p in free if any(grid.value(*n) < 0 for n in grid.neighbors(p))}
-    goals, total, unreachable, small = [], 0, 0, 0
+    eligible_positions = set()
+    total, unreachable, small = 0, 0, 0
     approach_radius = max(frontier_approach_radius, robot_radius+2*grid.resolution)
     approach_cells = math.ceil(approach_radius/grid.resolution)
     approach_offsets = [(dx,dy) for dy in range(-approach_cells,approach_cells+1)
@@ -237,35 +223,15 @@ def select_frontiers(grid: Grid, robot: Tuple[float, float], robot_radius=DEFAUL
             residual(cluster,kind,candidates)
             unreachable += int(kind == 'reachable_unexplored')
             continue
-        approaches = candidates.copy()
-        # Prefer an interior approach near the frontier center, then short travel.
-        cx = sum(p[0] for p in cluster)/len(cluster)
-        cy = sum(p[1] for p in cluster)/len(cluster)
-        candidates = [p for p in candidates if math.dist(grid.cell_to_world(*p),robot) >= min_goal_distance
-                      and all(math.dist(grid.cell_to_world(*p),v) >= visited_radius for v in visited)]
-        if not candidates:
-            kind = 'multiview_observed' if multiview(cluster, approaches) else 'reachable_unexplored'
-            residual(cluster,kind,approaches)
+        positions = [grid.cell_to_world(*cell) for cell in candidates]
+        eligible = {position for position in positions
+                    if math.dist(position, robot) >= min_goal_distance
+                    and all(math.dist(position, v) >= visited_radius for v in visited)}
+        if not eligible:
+            kind = 'multiview_observed' if multiview(cluster, candidates) else 'reachable_unexplored'
+            residual(cluster,kind,candidates)
             unreachable += int(kind == 'reachable_unexplored')
             continue
-        goal = min(candidates, key=lambda p: math.hypot(p[0]-cx,p[1]-cy) + distance_score_bias*distances[p])
-        visible_size = len(cluster)
-        if frontier_viewpoint_strategy == 'visibility':
-            selected,diagnostics = choose_viewpoint(candidates,cluster,free,distances,
-                grid.resolution,score_distance_offset,distance_score_bias,
-                viewpoint_candidate_budget,viewpoint_frontier_budget)
-            viewpoint_diagnostics.append(diagnostics)
-            if selected is None:
-                residual(cluster,'reachable_unexplored',approaches)
-                unreachable += 1
-                continue
-            goal,aim,visible_size = selected
-            fx,fy = grid.cell_to_world(*aim)
-        else:
-            fx,fy = grid.cell_to_world(cx,cy)
-        x, y = grid.cell_to_world(*goal)
-        distance = distances[goal]*grid.resolution
-        score = visible_size*grid.resolution / (score_distance_offset+distance)
-        goals.append(FrontierGoal(x, y, math.atan2(fy-y,fx-x), distance, len(cluster), score))
-    goals.sort(key=lambda g: (-g.score,g.distance,g.x,g.y))
-    return FrontierResult(goals, len(free)*grid.resolution**2, total, unreachable, small, residual_counts, residual_frontiers, viewpoint_diagnostics)
+        eligible_positions.update(eligible)
+    return FrontierCensus(sorted(eligible_positions), len(free)*grid.resolution**2,
+                          total, unreachable, small, residual_counts, residual_frontiers)

@@ -82,7 +82,7 @@ def completion_state(known_free_area, unreachable_clusters, unresolved_failures,
                      map_saved, returned, minimum_area=DEFAULTS['minimum_free_area'], residual_clusters=0):
     if not map_saved or not returned:
         return 'failed'
-    if known_free_area < minimum_area or unreachable_clusters or unresolved_failures:
+    if known_free_area < minimum_area or unreachable_clusters is None or unreachable_clusters or unresolved_failures:
         return 'incomplete'
     return 'completed_with_residual_frontiers' if residual_clusters else 'completed'
 

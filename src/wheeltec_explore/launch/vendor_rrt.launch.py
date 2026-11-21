@@ -19,7 +19,7 @@ def generate_launch_description():
                   parameters=[params, {'use_sim_time': ParameterValue(LaunchConfiguration('use_sim_time'), value_type=bool)}],
                   remappings=remaps, output='screen') for name in ('global_rrt','local_rrt','filter')]
     nodes.append(Node(package='wheeltec_explore', executable='explore', name='wheeltec_explore',
-                      parameters=[{'frontier_backend':'vendor',
+                      parameters=[{'frontier_backend':'vendor', 'vendor_managed':False,
                                    'vendor_bounds':ParameterValue(LaunchConfiguration('bounds'), value_type=str),
                                    'map_output':ParameterValue(LaunchConfiguration('map_output'), value_type=str),
                                    'use_sim_time':ParameterValue(LaunchConfiguration('use_sim_time'), value_type=bool),

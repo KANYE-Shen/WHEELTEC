@@ -5,14 +5,14 @@ import os
 from pathlib import Path
 import sys
 from build_gui_sync import ensure_gui_sync
-from room_session import prepare_exploration, register_session, resolve_session
+from room_session import exploration_setup, prepare_exploration, register_session, resolve_session
 from scenarios import load_scenario, generate_world
 from realism import load_profile,prepare_assets,value
 
 
 def main(argv=None):
     arguments = list(sys.argv[1:] if argv is None else argv)
-    data_root = Path.home()/'wheeltec_sim_ws/data'
+    data_root = Path(os.environ.get('WHEELTEC_SIM_DATA_ROOT', Path.home()/'wheeltec_sim_ws/data'))
     try:
         session = resolve_session(arguments,data_root)
     except (ValueError,KeyError,OSError) as exc:
@@ -56,20 +56,24 @@ def main(argv=None):
         arguments = [arg for arg in arguments if not arg.startswith('map:=')]
         arguments.append('map:='+str(session['map']))
     if session['explore']:
+        overlay = str(exploration_setup())
         prepare_exploration(session,data_root)
         arguments = [arg for arg in arguments if not arg.startswith(('map_output:=','capture_run:=','capture_metadata:='))]
         arguments += ['map_output:='+str(session['map_output']),
                       'capture_run:='+str(session['run_dir']),
                       'capture_metadata:='+json.dumps(session['metadata'],ensure_ascii=False,separators=(',',':'))]
         print('地图保存前缀 '+str(session['map_output'])+'\n过程目录 '+str(session['run_dir']),flush=True)
+    else:
+        overlay = ''
     if options.get('gui','true').lower() not in ('false','0'):
         ensure_gui_sync()
     register_session(session,data_root,options.get('ros_domain_id','77'),
                      Path('/tmp')/('wheeltec-room-'+options.get('ros_domain_id','77')+'.lock'))
     launch_file = Path(__file__).resolve().parent/'launch/room.launch.py'
     setup = Path.home()/'wheeltec_sim_ws/install/setup.bash'
-    command = 'source /opt/ros/humble/setup.bash; if [ -f "$1" ]; then source "$1"; fi; shift; exec ros2 launch "$@"'
-    os.execv('/bin/bash',['bash','-lc',command,'wheeltec-room',str(setup),str(launch_file),*arguments])
+    command = ('source /opt/ros/humble/setup.bash; if [ -f "$1" ]; then source "$1"; fi; '
+               'if [ -n "$2" ]; then source "$2" || exit 1; fi; shift 2; exec ros2 launch "$@"')
+    os.execv('/bin/bash',['bash','-lc',command,'wheeltec-room',str(setup),overlay,str(launch_file),*arguments])
 
 
 if __name__ == '__main__':

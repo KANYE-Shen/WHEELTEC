@@ -26,9 +26,10 @@ class OutcomeTests(unittest.TestCase):
                            lambda:ticks[0]*.1,timeout=1.))
         self.assertLessEqual(ticks[0],11)
 
-    def test_viewpoint_strategy_is_explicit_and_recordable(self):
-        self.assertEqual(runner.parse_arguments([]).viewpoint_strategy,'centroid')
-        self.assertEqual(runner.parse_arguments(['--viewpoint-strategy','visibility']).viewpoint_strategy,'visibility')
+    def test_current_runner_excludes_retired_viewpoint_switch(self):
+        self.assertFalse(hasattr(runner.parse_arguments([]), 'viewpoint_strategy'))
+        with self.assertRaises(SystemExit):
+            runner.parse_arguments(['--viewpoint-strategy', 'visibility'])
 
     def test_rc2_requires_a_confirmed_terminal_and_clean_shutdown(self):
         self.assertTrue(hasattr(runner,'shutdown_abnormal'))

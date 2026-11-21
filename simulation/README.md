@@ -4,6 +4,10 @@
 
 房间内部 5×5 米，包含三处静态障碍。差速参考车起始世界位置 (-1.7,-1.5)，朝 +X；建图地图原点位于小车起点附近。车体、轮径与轮距是仿真参考，实车阶段按实际测量配置。
 
+## 网页点选与存图
+
+在 Windows 监看终端打开「本机仿真」，按[项目首页的步骤](../README.md#在网页中运行本机仿真)启动、保存和重载。网关使用 `web_session.sh` 启动 WSL 工作进程，进程调用既有 `run_room.py` 和 `save_map.py`，等 SLAM 或 AMCL 和 Nav2 就绪后再接收目标。网页会话使用本机 ROS 域 218，每次启动获分配独立 Gazebo partition。地图、场景信息和运行日志放在 `~/wheeltec_sim_ws/data/web/`。
+
 ## 启动模式
 
 Windows 默认双击 `启动_手动建图.cmd`。Linux 仿真终端也可运行：
@@ -21,6 +25,8 @@ python3 /mnt/d/虚拟c盘/WHEELTEC/simulation/run_room.py gui:=false rviz:=false
 ```
 
 普通会话使用域77，启动器会阻止在同一域打开第二套房间。启动终端 Ctrl+C 结束整个会话。
+
+自动探索还需要预装厂家的 `wheeltec_robot_rrt` 和 `wheeltec_rrt_msg`，并在引用它们的 ROS 环境构建本仓库的探索包。构建口径见[探索器说明](../src/wheeltec_explore/README.md)。`explore:=true` 会加载 `~/.local/share/wheeltec-refactor-sim/install/setup.bash`，可用 `WHEELTEC_SIM_EXPLORER_SETUP` 选择自己已构建的 overlay。
 
 `mapping` 使用 SLAM Toolbox 在线更新地图；`localization` 用 AMCL 在已存地图中定位。两个模式共用 Nav2，规划 A*、控制 Regulated Pure Pursuit（RPP）、实时激光障碍层及速度平滑。Nav2 只穿越已知空地，位置容差0.15米，终点朝向不限。封路时保留激光障碍观测，停车等待并每5秒重试，最多60次（约5分钟）；移除障碍后原目标继续，随时可以取消。此行为由 `config/navigate_wait.xml` 定义，不调用旋转、后退或清空全局障碍的恢复；跟踪失败时仅刷新局部图，并等待0.5秒接收新激光后才重试。键盘遥控不经过 Nav2，使用时由操作者避障，并在导航前退出遥控。
 
@@ -73,7 +79,7 @@ python3 /mnt/d/虚拟c盘/WHEELTEC/simulation/save_map.py --reference-yaw 0.5235
 | 房间与图形工具 | worlds/room_25m2.sdf |
 | 话题桥接、SLAM、Nav2、RViz参数 | config/ |
 | 仿真与算法启动 | launch/room.launch.py、launch/navigation.launch.py |
-| 前沿探索算法与任务状态 | ../src/wheeltec_explore/ |
+| 厂家候选接入与探索任务 | ../src/wheeltec_explore/ |
 | 保存地图、键盘遥控 | save_map.py、teleop.py |
 
 仿真输入为 `/clock`、`/scan`、`/odom`、`/tf`，速度输出为 `/cmd_vel`。完整坐标链为 `map → odom → base_link → wheeltec_reference/base_link/laser`；接口模式没有 map。激光360°、720束、10Hz，里程计约30Hz。

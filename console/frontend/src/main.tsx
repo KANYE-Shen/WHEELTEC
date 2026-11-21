@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { lazy, Suspense, useState, useEffect, useRef } from "react";
 import { createRoot } from "react-dom/client";
 import { api, socket } from "./api";
 import type { State, Log } from "./protocol";
@@ -8,6 +8,7 @@ import { velocity, editable, controlStatus } from "./control";
 import { getPanels } from "./panels";
 import { streamReadout } from "./streamReadout";
 import "./style.css";
+const SimulationView = lazy(() => import("./SimulationView"));
 function App() {
   const [state, setState] = useState<State | null>(null),
     [connected, setConnected] = useState(false),
@@ -309,6 +310,7 @@ function App() {
             <small>ROBOT OPERATIONS CONSOLE</small>
           </div>
         </div>
+        <a className="console-link" href="/simulation" target="_blank" rel="noopener">仿真操作台 ↗</a>
         <div className="connection">
           <span className={`dot ${healthy ? "live" : ""}`} />
           <span>{healthy ? "数据通道在线" : "未连接 / 数据通道离线"}</span>
@@ -669,6 +671,10 @@ function App() {
 }
 createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
+    {location.pathname === "/simulation" ? (
+      <Suspense fallback={<main role="status">正在打开仿真操作台…</main>}>
+        <SimulationView />
+      </Suspense>
+    ) : <App />}
   </React.StrictMode>,
 );

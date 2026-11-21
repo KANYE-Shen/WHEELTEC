@@ -27,12 +27,14 @@ def bounds_changed(old, new, resolution):
 
 class VendorProcesses:
     """Own one supervisor; it reaps its three nodes even if this process dies."""
-    def __init__(self):
+    def __init__(self, use_sim_time=False):
         self.process = None
+        self.use_sim_time = use_sim_time
 
     def start(self):
         self.process = subprocess.Popen(
-            [sys.executable, '-m', 'wheeltec_explore.vendor_supervisor', str(os.getpid())],
+            [sys.executable, '-m', 'wheeltec_explore.vendor_supervisor', str(os.getpid()),
+             'true' if self.use_sim_time else 'false'],
             stdin=subprocess.DEVNULL, start_new_session=True)
 
     def check(self):

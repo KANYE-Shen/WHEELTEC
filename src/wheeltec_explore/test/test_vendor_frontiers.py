@@ -43,6 +43,16 @@ class VendorFrontiersTests(unittest.TestCase):
         grid = Grid(30, 20, .1, 0., 0., 0., [100 if x == 10 else (0 if x < 24 else -1) for y in range(20) for x in range(30)])
         self.assertEqual(safe_vendor_goals(grid, (.55, 1.05), [(2.45, 1.05)], .15, .1, .6, .1, (), .3), [])
 
+    def test_clearance_adapter_keeps_vendor_order_and_deduplicates_approaches(self):
+        grid = Grid(24, 30, .1, 0., 0., 0., [0 if x < 12 else -1 for y in range(30) for x in range(24)])
+        near, far = (1.25, 1.05), (1.25, 2.45)
+        adapted_near = safe_vendor_goals(grid, (.55, 1.05), [near], .15, .1, .6, .1, (), .3)
+        adapted_far = safe_vendor_goals(grid, (.55, 1.05), [far], .15, .1, .6, .1, (), .3)
+        combined = safe_vendor_goals(grid, (.55, 1.05), [far, near, far], .15, .1, .6, .1, (), .3)
+        self.assertTrue(adapted_near and adapted_far)
+        self.assertNotEqual(adapted_near[0], adapted_far[0])
+        self.assertEqual(combined, adapted_far + adapted_near)
+
 
 if __name__ == '__main__':
     unittest.main()

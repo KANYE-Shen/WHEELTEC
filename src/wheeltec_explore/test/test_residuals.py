@@ -4,7 +4,7 @@ from pathlib import Path
 import sys
 import unittest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from wheeltec_explore.frontiers import Grid, select_frontiers
+from wheeltec_explore.frontiers import Grid, census_frontiers
 from wheeltec_explore.policy import completion_state
 
 
@@ -22,43 +22,43 @@ def pocket(width):
 
 class ResidualTests(unittest.TestCase):
     def test_narrow_pocket_reports_footprint_exclusion_without_entering_unknown(self):
-        result=select_frontiers(pocket(.6),(.8,1.2))
-        self.assertFalse(result.goals)
+        result=census_frontiers(pocket(.6),(.8,1.2))
+        self.assertFalse(result.approaches)
         self.assertEqual(getattr(result,'residual_counts',{}).get('footprint_excluded'),1)
         self.assertEqual(result.unreachable_clusters,0)
 
     def test_extra_planning_clearance_does_not_prove_physical_exclusion(self):
         import inspect
-        self.assertIn('footprint_exclusion_radius',inspect.signature(select_frontiers).parameters)
-        result=select_frontiers(pocket(.8),(.8,1.2),robot_radius=.478,
+        self.assertIn('footprint_exclusion_radius',inspect.signature(census_frontiers).parameters)
+        result=census_frontiers(pocket(.8),(.8,1.2),robot_radius=.478,
                                 footprint_exclusion_radius=.35)
-        self.assertFalse(result.goals)
+        self.assertFalse(result.approaches)
         self.assertEqual(result.residual_counts['footprint_excluded'],0)
         self.assertGreater(result.unreachable_clusters,0)
 
     def test_wide_pocket_still_requires_exploration(self):
-        result=select_frontiers(pocket(.8),(.8,1.2))
-        self.assertTrue(result.goals)
+        result=census_frontiers(pocket(.8),(.8,1.2))
+        self.assertTrue(result.approaches)
         self.assertEqual(getattr(result,'residual_counts',{}).get('footprint_excluded'),0)
 
     def test_legacy_visit_proximity_alone_does_not_prove_multiview(self):
         grid=pocket(.8)
         visited=[grid.cell_to_world(x,y) for y in range(50,70) for x in range(30,46)]
-        result=select_frontiers(grid,(1.9,3.0),visited=visited)
-        self.assertFalse(result.goals)
+        result=census_frontiers(grid,(1.9,3.0),visited=visited)
+        self.assertFalse(result.approaches)
         self.assertGreater(result.unreachable_clusters,0)
 
     def test_wide_static_shadow_needs_distinct_visible_observations(self):
         import inspect
-        self.assertIn('observations',inspect.signature(select_frontiers).parameters)
+        self.assertIn('observations',inspect.signature(census_frontiers).parameters)
         grid=pocket(.8)
         visited=[grid.cell_to_world(x,y) for y in range(50,70) for x in range(30,46)]
         observations=[(1.875,2.875,10),(1.875,3.225,11)]
-        result=select_frontiers(grid,(1.875,3.225),visited=visited,observations=observations)
-        self.assertFalse(result.goals)
+        result=census_frontiers(grid,(1.875,3.225),visited=visited,observations=observations)
+        self.assertFalse(result.approaches)
         self.assertEqual(result.residual_counts['multiview_observed'],1)
         self.assertEqual(result.unreachable_clusters,0)
-        duplicate=select_frontiers(grid,(1.875,3.225),visited=visited,
+        duplicate=census_frontiers(grid,(1.875,3.225),visited=visited,
                                   observations=[(1.875,3.225,11)]*4)
         self.assertGreater(duplicate.unreachable_clusters,0)
 

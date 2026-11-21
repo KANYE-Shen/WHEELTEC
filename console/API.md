@@ -25,6 +25,22 @@
 
 配置字段：name、kind（robot/simulation）、host、port、username、fingerprint（完整 SHA256:...）、key_file（电脑本机路径）、adapter_port（默认8767）、desktop_port（默认6080）。密码/令牌不包含在可保存结构中。目标端适配器只监听 localhost:8767，要求随机 Bearer token；不暴露原始 ROS 网络。
 
+## 本机仿真接口
+
+浏览器仿真页使用 `/api/v1/simulation`。继续使用同源会话认证，由 Windows 网关调用独立 WSL 进程，使用本机 ROS 图。
+
+| 方法和路径 | 数据 |
+| --- | --- |
+| `GET /state` | 返回阶段、运行 ID、模式、地图、位姿、激光、Nav2 就绪状态与目标状态。 |
+| `GET /maps` | 返回可选地图 `{maps: [{id, name}]}`。 |
+| `POST /start` | `mode` 取 `mapping` 或 `localization`。建图可设 `scenario`、`spawn`（0–2），定位时提交已保存地图的 `map_id`。两种模式均可设 `seed`（0–2147483647）和 `lidar_noise_stddev`（0–0.03 m）。 |
+| `POST /goal` | `x`、`y`（m），`yaw`（rad），`frame`（map），`run_id` 与 `map_revision`。仿真进程检查地图会话、栅格占据及 Nav2 规划结果。 |
+| `POST /cancel` | 取消当前仿真导航，等待 `state.goal.status` 回报终态。 |
+| `POST /save` | 在建图模式下停稳后保存地图，返回地图 ID。 |
+| `POST /stop` | 停止该网关启动的 WSL 仿真。 |
+
+请求参数无效返回 422，仿真任务拒绝返回 409，工作进程不可用返回 503。任务错误的 `detail` 含 `code` 和 `message`。
+
 事件包：`{ "type": "state", "data": State }`。State 包含 kind、clock、connection、streams、scan、map、pose、laser_pose、odom、logs、control、task。task.mode为remote/starting/autonomous，task.error为启动/退出错误。control.epoch为任务代次，control.gear为0/1/2，selection_mode为车端速度源确认。streams 含原始 stamp、age、hz、fresh；缺失数据为 null/缺少字段，不生成假数据。地图原点包含 x、y、yaw；栅格 -1 为未知，0–100 为占据概率。雷达无效束保留数组位置并编码为 null。laser_pose 按该次 scan 源时间查询 TF，无法查询则 null；这时切局部雷达查看。
 
 控制请求：

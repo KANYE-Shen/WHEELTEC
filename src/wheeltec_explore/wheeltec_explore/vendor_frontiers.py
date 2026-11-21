@@ -28,6 +28,7 @@ def safe_vendor_goals(grid, robot, samples, robot_radius, start_snap_distance,
     """Build reachable known-free approach goals; samples are not safety evidence."""
     free, _, distances = reachable_free_space(grid, robot, robot_radius, start_snap_distance)
     goals = []
+    used = set()
     extent = math.ceil(approach_radius / grid.resolution)
     for sx, sy in samples:
         if not math.isfinite(sx) or not math.isfinite(sy):
@@ -43,7 +44,7 @@ def safe_vendor_goals(grid, robot, samples, robot_radius, start_snap_distance,
                     and any(grid.value(*n) < 0 for n in grid.neighbors((x, y)))}
         if not frontier:
             continue
-        edge = min(frontier, key=lambda p: math.dist(grid.cell_to_world(*p), (sx, sy)))
+        edge = min(frontier, key=lambda p: (math.dist(grid.cell_to_world(*p), (sx, sy)), p))
         ex, ey = grid.cell_to_world(*edge)
         valid = [p for p in distances if math.dist(grid.cell_to_world(*p), (ex, ey)) <= approach_radius
                  and math.dist(grid.cell_to_world(*p), robot) >= min_goal_distance
@@ -51,7 +52,9 @@ def safe_vendor_goals(grid, robot, samples, robot_radius, start_snap_distance,
         if not valid:
             continue
         point = min(valid, key=lambda p: (math.dist(grid.cell_to_world(*p), (ex, ey)), distances[p], p))
+        if point in used:
+            continue
+        used.add(point)
         x, y = grid.cell_to_world(*point)
-        distance = distances[point]*grid.resolution
-        goals.append(FrontierGoal(x, y, math.atan2(ey-y, ex-x), distance, 1, -distance))
-    return sorted(goals, key=lambda g: (g.distance, g.x, g.y))
+        goals.append(FrontierGoal(x, y, math.atan2(ey-y, ex-x)))
+    return goals

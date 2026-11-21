@@ -81,7 +81,7 @@ def main():
                      '--domain',str(args.domain)])
     plan = paired_plan(args.scenarios,args.seeds)
     settings = dict(realism='on',task_timeout=args.task_timeout,timeout=args.timeout,
-                    domain=args.domain,viewpoint_strategy='centroid')
+                    domain=args.domain,frontier_backend='vendor')
     root = args.output.expanduser().resolve()
     source = source_manifest()
     if args.resume:
@@ -103,7 +103,7 @@ def main():
             command = [sys.executable,str(Path(__file__).with_name('check_exploration.py')),
                 '--scenario',trial['scenario'],'--spawn',str(trial['spawn']),
                 '--spawn-pose',*map(str,trial['pose']),'--seed',str(trial['seed']),
-                '--noise-scale','1','--realism','on','--viewpoint-strategy','centroid',
+                '--noise-scale','1','--realism','on',
                 '--active-scan-angle',str(trial['angle']),'--task-timeout',str(args.task_timeout),
                 '--timeout',str(args.timeout),'--domain',str(args.domain),'--record','--output',str(run)]
             with console_log.open('x') as log:

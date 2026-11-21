@@ -23,8 +23,9 @@ def write_record(output, record, data_root, domain, expected_session, *, update_
         atomic_json(Path(data_root)/'maps/latest.json',record)
 
 def main():
+    data_root = Path(os.environ.get('WHEELTEC_SIM_DATA_ROOT', Path.home()/'wheeltec_sim_ws/data'))
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--output', type=Path, default=Path.home()/'wheeltec_sim_ws/data/maps'/datetime.now().strftime('%Y%m%d-%H%M%S-%f')/'room')
+    parser.add_argument('--output', type=Path, default=data_root/'maps'/datetime.now().strftime('%Y%m%d-%H%M%S-%f')/'room')
     parser.add_argument('--reference-yaw', type=float, default=0.0, help='Reference heading in map frame, radians')
     parser.add_argument('--no-latest', action='store_true', help='Do not replace the operator most recent map selection')
     args = parser.parse_args()
@@ -34,7 +35,6 @@ def main():
     output.parent.mkdir(parents=True, exist_ok=True)
     os.environ.setdefault('ROS_DOMAIN_ID','77')
     os.environ['ROS_LOCALHOST_ONLY'] = '1'
-    data_root = Path.home()/'wheeltec_sim_ws/data'
     domain = os.environ['ROS_DOMAIN_ID']
     current_session = active_session(data_root,domain)
     if current_session is not None and current_session.get('simulation') is None:

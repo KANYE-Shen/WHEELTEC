@@ -38,7 +38,9 @@ def algorithms(context, simulation):
                               'params_file':LaunchConfiguration('nav2_config').perform(context)}.items()))
     if explore:
         actions.append(Node(package='wheeltec_explore', executable='explore', name='wheeltec_explore',
-                            parameters=[{'use_sim_time': True, 'robot_radius':float(LaunchConfiguration('explorer_radius').perform(context)), **({'map_output': LaunchConfiguration('map_output').perform(context)} if LaunchConfiguration('map_output').perform(context) else {})}], output='screen'))
+                            parameters=[{'use_sim_time': True, 'base_frame': 'base_footprint',
+                                         'frontier_backend': 'vendor', 'vendor_managed': True,
+                                         'robot_radius':float(LaunchConfiguration('explorer_radius').perform(context)), **({'map_output': LaunchConfiguration('map_output').perform(context)} if LaunchConfiguration('map_output').perform(context) else {})}], output='screen'))
     capture_run = LaunchConfiguration('capture_run').perform(context)
     if explore and capture_run:
         actions.append(ExecuteProcess(cmd=['python3', str(simulation/'capture_process.py'),
@@ -64,6 +66,11 @@ def generate_launch_description():
                     arguments=['--x','0','--y','0','--z','0.25','--frame-id','base_link',
                                '--child-frame-id','wheeltec_reference/base_link/laser'],
                     parameters=[{'use_sim_time': True}], output='screen')
+    vendor_tf = Node(package='tf2_ros', executable='static_transform_publisher', name='vendor_base_footprint_tf',
+                     arguments=['--frame-id', 'base_link', '--child-frame-id', 'base_footprint'],
+                     parameters=[{'use_sim_time': True}], output='screen',
+                     condition=IfCondition(PythonExpression(["'", LaunchConfiguration('explore'),
+                         "'.lower() == 'true' or '", LaunchConfiguration('vendor_frames'), "'.lower() == 'true'"])))
     rviz = Node(package='rviz2', executable='rviz2', arguments=['-d',str(simulation/'config/room.rviz'), '-f',
                            PythonExpression(["'odom' if '",LaunchConfiguration('mode'),"' == 'interfaces' else 'map'"])],
                 parameters=[{'use_sim_time': True}], condition=IfCondition(LaunchConfiguration('rviz')), output='screen')
@@ -83,6 +90,7 @@ def generate_launch_description():
         DeclareLaunchArgument('mode', default_value='mapping'),
         DeclareLaunchArgument('navigation', default_value='true'),
         DeclareLaunchArgument('explore', default_value='false'),
+        DeclareLaunchArgument('vendor_frames', default_value='false'),
         DeclareLaunchArgument('map', default_value=''),
         DeclareLaunchArgument('world', default_value=str(simulation/'worlds/room_25m2.sdf')),
         DeclareLaunchArgument('map_output', default_value=''),
@@ -97,6 +105,6 @@ def generate_launch_description():
         SetEnvironmentVariable('QT_QPA_PLATFORM','xcb'),
         SetEnvironmentVariable('IGN_GUI_PLUGIN_PATH',str(Path.home()/'wheeltec_sim_ws/build/gui_sync')+os.pathsep+os.environ.get('IGN_GUI_PLUGIN_PATH','')),
         SetEnvironmentVariable('IGN_GAZEBO_RESOURCE_PATH',str(simulation/'models')+os.pathsep+os.environ.get('IGN_GAZEBO_RESOURCE_PATH','')),
-        *handlers, gui, server, bridge, realism, laser_tf,
+        *handlers, gui, server, bridge, realism, laser_tf, vendor_tf,
         OpaqueFunction(function=algorithms, kwargs={'simulation':simulation}), rviz,
     ])

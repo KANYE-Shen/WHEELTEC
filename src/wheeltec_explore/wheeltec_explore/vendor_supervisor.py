@@ -27,13 +27,10 @@ def stop_children(children):
         try:
             child.wait(timeout=3.)
         except subprocess.TimeoutExpired:
-            pass
-        # The ros2 CLI may have exited before its executable: clear its own group.
-        try:
-            os.killpg(child.pid, signal.SIGKILL)
-        except ProcessLookupError:
-            pass
-        if child.poll() is None:
+            try:
+                os.killpg(child.pid, signal.SIGKILL)
+            except ProcessLookupError:
+                pass
             child.wait(timeout=3.)
 
 
@@ -44,8 +41,11 @@ def main():
     signal.signal(signal.SIGINT, stop)
     signal.signal(signal.SIGTERM, stop)
     bind_parent(int(sys.argv[1]))
-    from ament_index_python.packages import get_package_share_directory
-    params = Path(get_package_share_directory('wheeltec_robot_rrt'))/'config'/'exploration_params.yaml'
+    use_sim_time = sys.argv[2]
+    from ament_index_python.packages import get_package_prefix, get_package_share_directory
+    package = 'wheeltec_robot_rrt'
+    executables = Path(get_package_prefix(package))/'lib'/package
+    params = Path(get_package_share_directory(package))/'config'/'exploration_params.yaml'
     remaps = [('/clicked_point', '/wheeltec_explore/vendor_boundary'),
               ('/detected_frontiers', '/wheeltec_explore/vendor_detected'),
               ('/filtered_goal_points', '/wheeltec_explore/vendor_points')]
@@ -54,8 +54,8 @@ def main():
         for name in ('global_rrt', 'local_rrt', 'filter'):
             if stopping[0]:
                 return 1
-            command = ['ros2', 'run', 'wheeltec_robot_rrt', name, '--ros-args',
-                       '--params-file', str(params), '-p', 'use_sim_time:=false']
+            command = [str(executables/name), '--ros-args',
+                       '--params-file', str(params), '-p', 'use_sim_time:='+use_sim_time]
             for source, target in remaps:
                 command += ['-r', source+':='+target]
             children.append(subprocess.Popen(command, stdin=subprocess.DEVNULL,
