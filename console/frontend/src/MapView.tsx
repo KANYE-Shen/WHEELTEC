@@ -1,13 +1,29 @@
 import { useEffect, useRef, useState } from "react";
-import type { State } from "./protocol";
-export function MapView({ state, onReset, resetDisabled }: { state: State | null; onReset: () => void; resetDisabled: boolean }) {
+import { canvasToWorld, movedPastClickTolerance } from "./mapGeometry";
+import type { MapPoint } from "./mapGeometry";
+import type { Grid, State } from "./protocol";
+
+type MapViewProps = {
+  state: Pick<State, "map" | "map_reset" | "pose" | "laser_pose" | "scan" | "streams"> | null;
+  onReset?: () => void;
+  resetDisabled?: boolean;
+  onMapPoint?: (point: MapPoint, map: Grid) => void;
+  marker?: MapPoint | null;
+  emptyMessage?: string;
+};
+
+export function MapView({
+  state, onReset, resetDisabled, onMapPoint, marker,
+  emptyMessage = "尚未收到占据栅格地图 · 未自动启动 SLAM",
+}: MapViewProps) {
   const ref = useRef<HTMLCanvasElement>(null),
-    drag = useRef<[number, number] | null>(null);
+    drag = useRef<{ pointerId: number; start: [number, number]; last: [number, number]; moved: boolean } | null>(null);
   const [zoom, setZoom] = useState(58),
     [pan, setPan] = useState<[number, number]>([0, 0]),
     [laser, setLaser] = useState(true),
     [grid, setGrid] = useState(true),
     [local, setLocal] = useState(false);
+  const selectable = onMapPoint && !local && grid && !state?.map_reset?.busy && !!state?.map;
   useEffect(() => {
     if (!state?.map_reset?.sequence || state.map_reset.busy) return;
     const p = local ? null : state.pose;
@@ -101,6 +117,17 @@ export function MapView({ state, onReset, resetDisabled }: { state: State | null
         ctx.fill();
         ctx.restore();
       }
+      if (map && grid && marker) {
+        ctx.strokeStyle = "#83e6d0";
+        ctx.lineWidth = 2 / zoom;
+        ctx.beginPath();
+        ctx.arc(marker.x, marker.y, 8 / zoom, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.arc(marker.x, marker.y, 2 / zoom, 0, Math.PI * 2);
+        ctx.fillStyle = "#83e6d0";
+        ctx.fill();
+      }
       ctx.restore();
       ctx.fillStyle = "#9bafba";
       ctx.font = "11px monospace";
@@ -118,14 +145,14 @@ export function MapView({ state, onReset, resetDisabled }: { state: State | null
     const o = new ResizeObserver(draw);
     o.observe(canvas);
     return () => o.disconnect();
-  }, [state, zoom, pan, laser, grid, local]);
+  }, [state, zoom, pan, laser, grid, local, marker]);
   return (
     <>
       <div className="map-tools">
-        <button disabled={resetDisabled || state?.map_reset?.busy} onClick={onReset}
+        {onReset && <button disabled={resetDisabled || state?.map_reset?.busy} onClick={onReset}
           title="停车并清空车端地图与网页显示，从当前位置重新建图">
           {state?.map_reset?.busy ? "重置地图中…" : "Reset"}
-        </button>
+        </button>}
         <div className="zoom-tools" role="group" aria-label="视图缩放">
         <button aria-label="放大视图" title="放大视图" disabled={zoom >= 350}
           onClick={() => setZoom((v) => Math.min(350, v * 1.2))}>+</button>
@@ -165,25 +192,47 @@ export function MapView({ state, onReset, resetDisabled }: { state: State | null
       <canvas
         ref={ref}
         aria-label="占据栅格地图与雷达"
+        data-selectable={selectable ? "true" : undefined}
         onPointerDown={(e) => {
-          drag.current = [e.clientX, e.clientY];
+          if (e.button !== 0 || !e.isPrimary) return;
+          drag.current = { pointerId: e.pointerId, start: [e.clientX, e.clientY], last: [e.clientX, e.clientY], moved: false };
           e.currentTarget.setPointerCapture(e.pointerId);
         }}
-        onPointerUp={() => (drag.current = null)}
-        onPointerCancel={() => (drag.current = null)}
-        onLostPointerCapture={() => (drag.current = null)}
+        onPointerUp={(e) => {
+          const previous = drag.current;
+          if (!previous || previous.pointerId !== e.pointerId) return;
+          drag.current = null;
+          if (previous.moved || !selectable || !state?.map ||
+              movedPastClickTolerance(e.clientX - previous.start[0], e.clientY - previous.start[1])) return;
+          const canvas = e.currentTarget;
+          const rect = canvas.getBoundingClientRect();
+          const point = canvasToWorld(
+            e.clientX - rect.left, e.clientY - rect.top,
+            canvas.clientWidth, canvas.clientHeight, pan, zoom,
+          );
+          onMapPoint?.(point, state.map);
+        }}
+        onPointerCancel={(e) => {
+          if (drag.current?.pointerId === e.pointerId) drag.current = null;
+        }}
+        onLostPointerCapture={(e) => {
+          if (drag.current?.pointerId === e.pointerId) drag.current = null;
+        }}
         onPointerMove={(e) => {
           const previous = drag.current;
-          if (!previous) return;
+          if (!previous || previous.pointerId !== e.pointerId) return;
           const x = e.clientX, y = e.clientY;
-          const dx = x - previous[0], dy = y - previous[1];
-          drag.current = [x, y];
+          if (selectable && !previous.moved &&
+              !movedPastClickTolerance(x - previous.start[0], y - previous.start[1])) return;
+          const dx = x - previous.last[0], dy = y - previous.last[1];
+          previous.last = [x, y];
+          previous.moved = true;
           setPan((p) => [p[0] + dx, p[1] + dy]);
         }}
       />
       {state?.map_reset?.error && <div role="alert" className="map-note">{state.map_reset.error}</div>}
       {!state?.map && (
-        <div className="map-note">尚未收到占据栅格地图 · 未自动启动 SLAM</div>
+        <div className="map-note">{emptyMessage}</div>
       )}
     </>
   );

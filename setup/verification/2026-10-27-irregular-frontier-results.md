@@ -1,5 +1,7 @@
 # 不规则边界自主探索：夜间本地验证
 
+历史复现请检出 [c220286](https://github.com/KANYE-Shen/WHEELTEC/tree/c22028626065ebedcd4fd7da5d8ded98723ad1fb)。下文的 centroid/visibility 选择器及专用对照脚本已从维护分支退出。
+
 当前是试验策略，不替换默认，不推送。真车物理参数仍待测，没有连接或部署实车，没有通过任何实车关卡。
 
 ## 方法与改动

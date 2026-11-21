@@ -1,17 +1,16 @@
 """Single source for explorer engineering defaults; runtime ROS parameters override them."""
 DEFAULTS = {
     'expected_status_observers':0,
+    'frontier_backend':'vendor', 'vendor_bounds':'', 'vendor_max_age':5., 'vendor_managed':True,
     'initial_rotation_assumed_safe':False,
     'active_scan_angle_deg':0., 'active_scan_fov_deg':270.,
     'active_scan_timeout':45., 'active_scan_max_attempts':1,
-    'frontier_viewpoint_strategy':'centroid',
-    'viewpoint_candidate_budget':48, 'viewpoint_frontier_budget':96,
-    'map_frame':'map', 'odom_frame':'odom', 'base_frame':'base_link',
+    'map_frame':'map', 'odom_frame':'odom', 'base_frame':'base_footprint',
     'footprint_exclusion_radius':0.,  # zero preserves the original robot_radius contract
     'robot_radius':.35, 'min_frontier_size':.25, 'min_goal_distance':.2,
     'visited_radius':.30, 'observation_min_separation':.30,
     'frontier_approach_radius':.6, 'start_snap_distance':.15,
-    'return_tolerance':.15, 'distance_score_bias':.1, 'score_distance_offset':.5,
+    'return_tolerance':.15,
     'minimum_free_area':8., 'goal_timeout':120., 'task_timeout':900., 'max_goals':60,
     'local_observation_threshold':.85, 'local_observation_radius':1.,
     'local_observation_distance':.6, 'local_observation_maps':2,

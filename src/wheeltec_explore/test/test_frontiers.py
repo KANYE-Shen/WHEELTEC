@@ -5,10 +5,7 @@ import sys
 import unittest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-try:
-    from wheeltec_explore.frontiers import Grid, select_frontiers
-except ImportError:
-    Grid = select_frontiers = None
+from wheeltec_explore.frontiers import Grid, census_frontiers
 
 
 class InflationEquivalenceTests(unittest.TestCase):
@@ -37,38 +34,35 @@ class InflationEquivalenceTests(unittest.TestCase):
 
 
 class FrontierTests(unittest.TestCase):
-    def setUp(self):
-        self.assertIsNotNone(select_frontiers, 'Frontier selection is not implemented yet')
-
-    def test_goal_stays_in_known_free_space_with_robot_clearance(self):
+    def test_approaches_stay_in_known_free_space_with_robot_clearance(self):
         # Known room half, with unknown continuation east and a wall to the north.
         cells = [0 if x < 12 else -1 for y in range(16) for x in range(24)]
         for x in range(24):
             cells[x] = 100
         grid = Grid(24, 16, 0.1, 0., 0., 0., cells)
-        result = select_frontiers(grid, (0.4, 0.8), robot_radius=0.25, min_frontier_size=0.25)
-        self.assertGreater(len(result.goals), 0)
-        goal = result.goals[0]
-        gx, gy = grid.world_to_cell(goal.x, goal.y)
-        self.assertEqual(grid.value(gx, gy), 0)
-        self.assertGreater(goal.y, 0.25)
-        self.assertLess(goal.x, 1.2)
-        self.assertGreater(goal.distance, 0.2)
+        start = (0.4, 0.8)
+        result = census_frontiers(grid, start, robot_radius=0.25, min_frontier_size=0.25)
+        self.assertTrue(result.approaches)
+        for x, y in result.approaches:
+            self.assertEqual(grid.value(*grid.world_to_cell(x, y)), 0)
+            self.assertGreater(y, 0.25)
+            self.assertLess(x, 1.2)
+            self.assertGreaterEqual(math.dist((x, y), start), 0.2)
 
     def test_frontier_behind_solid_wall_is_reported_unreachable(self):
         cells = [0 if x < 12 else -1 for y in range(12) for x in range(18)]
         for y in range(12):
             cells[y*18+6] = 100
         grid = Grid(18, 12, 0.1, 0., 0., 0., cells)
-        result = select_frontiers(grid, (0.25, 0.6), robot_radius=0.1, min_frontier_size=0.2)
-        self.assertFalse(result.goals)
+        result = census_frontiers(grid, (0.25, 0.6), robot_radius=0.1, min_frontier_size=0.2)
+        self.assertFalse(result.approaches)
         self.assertGreater(result.unreachable_clusters, 0)
 
     def test_closed_room_has_no_frontier(self):
         cells = [100 if x in (0, 19) or y in (0, 19) else 0 for y in range(20) for x in range(20)]
         grid = Grid(20, 20, 0.1, 0., 0., 0., cells)
-        result = select_frontiers(grid, (1., 1.), robot_radius=0.2)
-        self.assertFalse(result.goals)
+        result = census_frontiers(grid, (1., 1.), robot_radius=0.2)
+        self.assertFalse(result.approaches)
         self.assertEqual(result.unreachable_clusters, 0)
         self.assertAlmostEqual(result.known_free_area, 3.24)
 
@@ -83,8 +77,8 @@ class FrontierTests(unittest.TestCase):
         cells[2*7+2] = 0
         cells[2*7+3] = -1
         grid = Grid(7, 7, 0.1, 0., 0., 0., cells)
-        result = select_frontiers(grid, (0.15, 0.15), robot_radius=0.0, min_frontier_size=0.05)
-        self.assertFalse(result.goals)
+        result = census_frontiers(grid, (0.15, 0.15), robot_radius=0.0, min_frontier_size=0.05)
+        self.assertFalse(result.approaches)
         self.assertGreater(result.unreachable_clusters, 0)
 
     def test_default_clearance_keeps_corner_frontier_inside_reference_footprint_margin(self):
@@ -96,36 +90,36 @@ class FrontierTests(unittest.TestCase):
                 if y>=25:
                     cells[y*50+x] = -1
         grid = Grid(50,40,0.05,0.,0.,0.,cells)
-        result = select_frontiers(grid,(0.6,0.6))
-        self.assertTrue(result.goals)
+        result = census_frontiers(grid,(0.6,0.6))
+        self.assertTrue(result.approaches)
         wall = [grid.cell_to_world(40,y) for y in range(40)]
-        for goal in result.goals:
-            self.assertGreaterEqual(min(math.dist((goal.x,goal.y),p) for p in wall),0.35)
+        for approach in result.approaches:
+            self.assertGreaterEqual(min(math.dist(approach,p) for p in wall),0.35)
 
-    def test_entire_goal_footprint_is_in_known_map_not_unknown_or_outside(self):
+    def test_entire_approach_footprint_is_in_known_map(self):
         # No measured wall at the map edge: free pixels are not permission to
         # put the robot footprint into unknown space or beyond the grid extent.
         cells = [0 if x<12 else -1 for y in range(16) for x in range(24)]
         grid = Grid(24,16,0.1,0.,0.,0.,cells)
-        result = select_frontiers(grid,(0.45,0.8))
-        self.assertTrue(result.goals)
+        result = census_frontiers(grid,(0.45,0.8))
+        self.assertTrue(result.approaches)
         unknown = [grid.cell_to_world(x,y) for y in range(16) for x in range(12,24)]
-        for goal in result.goals:
-            self.assertGreaterEqual(goal.x,0.35)
-            self.assertGreaterEqual(goal.y,0.35)
-            self.assertGreaterEqual(2.4-goal.x,0.35)
-            self.assertGreaterEqual(1.6-goal.y,0.35)
-            self.assertGreaterEqual(min(math.dist((goal.x,goal.y),p) for p in unknown),0.35)
+        for x, y in result.approaches:
+            self.assertGreaterEqual(x,0.35)
+            self.assertGreaterEqual(y,0.35)
+            self.assertGreaterEqual(2.4-x,0.35)
+            self.assertGreaterEqual(1.6-y,0.35)
+            self.assertGreaterEqual(min(math.dist((x,y),p) for p in unknown),0.35)
 
-    def test_visited_approach_is_replaced_by_another_safe_viewpoint(self):
+    def test_visited_approaches_are_not_eligible(self):
         cells = [0 if x < 12 else -1 for y in range(20) for x in range(24)]
         grid = Grid(24,20,0.1,0.,0.,0.,cells)
-        first = select_frontiers(grid,(0.45,0.8)).goals[0]
-        visited = [(first.x,first.y)]
-        result = select_frontiers(grid,(first.x,first.y),visited=visited)
-        self.assertTrue(result.goals)
-        self.assertGreaterEqual(math.dist((result.goals[0].x,result.goals[0].y),visited[0]),0.30)
-        self.assertEqual(grid.value(*grid.world_to_cell(result.goals[0].x,result.goals[0].y)),0)
+        first = census_frontiers(grid,(0.45,0.8)).approaches[0]
+        result = census_frontiers(grid,first,visited=[first])
+        self.assertTrue(result.approaches)
+        for approach in result.approaches:
+            self.assertGreaterEqual(math.dist(approach,first),0.30)
+            self.assertEqual(grid.value(*grid.world_to_cell(*approach)),0)
 
     def test_diagonal_unknown_boundary_is_one_frontier_not_tiny_fragments(self):
         # A diagonal visible edge is a single exploration boundary even though
@@ -133,13 +127,13 @@ class FrontierTests(unittest.TestCase):
         # uses four neighbours; clustering must not lose the whole unseen area.
         cells = [0 if x+y <= 22 else -1 for y in range(20) for x in range(20)]
         grid = Grid(20, 20, 0.1, 0., 0., 0., cells)
-        result = select_frontiers(grid, (0.65, 0.65), robot_radius=0.2,
-                                  min_frontier_size=0.5)
-        self.assertTrue(result.goals)
+        result = census_frontiers(grid, (0.65, 0.65), robot_radius=0.2,
+                                  min_frontier_size=1.0)
+        self.assertTrue(result.approaches)
         self.assertEqual(result.frontier_clusters, 1)
-        self.assertGreater(result.goals[0].frontier_size, 10)
-        for goal in result.goals:
-            self.assertEqual(grid.value(*grid.world_to_cell(goal.x, goal.y)), 0)
+        self.assertEqual(result.ignored_small_clusters, 0)
+        for approach in result.approaches:
+            self.assertEqual(grid.value(*grid.world_to_cell(*approach)), 0)
 
     def test_malformed_grid_is_rejected(self):
         with self.assertRaises(ValueError):

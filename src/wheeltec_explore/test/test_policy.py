@@ -23,6 +23,7 @@ class ExplorationPolicyTests(unittest.TestCase):
         self.assertEqual(completion_state(15, 0, 0, True, False), 'failed')
         self.assertEqual(completion_state(2, 0, 0, True, True), 'incomplete')
         self.assertEqual(completion_state(15, 1, 0, True, True), 'incomplete')
+        self.assertEqual(completion_state(15, None, 0, True, True), 'incomplete')
         self.assertEqual(completion_state(15, 0, 1, True, True), 'incomplete')
 
     def test_missing_or_stale_scans_cannot_support_exploration(self):

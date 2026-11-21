@@ -10,7 +10,7 @@ import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from wheeltec_explore.defaults import DEFAULTS
-from wheeltec_explore.frontiers import Grid, FrontierResult, FrontierGoal
+from wheeltec_explore.frontiers import Grid, FrontierGoal
 from wheeltec_explore.health import MapHealth, MapUnstableError
 
 
@@ -21,10 +21,12 @@ class ReachedNavigation(Exception):
 class PlanningCallbacksTests(unittest.TestCase):
     def make_node(self, fail_inputs=False, task_timeout=30., selection_error=False):
         start = time.monotonic()
-        node = SimpleNamespace(config={**DEFAULTS, 'task_timeout':task_timeout},
+        node = SimpleNamespace(config={**DEFAULTS, 'task_timeout':task_timeout, 'vendor_managed':False},
             latest_map=object(), last_scan_ros=100., started_ros=None,
             health=MapHealth(), health_latched={}, health_active=False,
             visited=[], observations=[], report={}, map_updates=0,
+            vendor_initialized=True, vendor_runtime=None,
+            vendor_points=((1., 0.),), vendor_received=start,
             spin_action=None, nav=SimpleNamespace(server_is_ready=lambda:True),
             nav_calls=0, feed=True, polls=0)
         node.ros_seconds=lambda:100.+time.monotonic()-start
@@ -49,11 +51,12 @@ class PlanningCallbacksTests(unittest.TestCase):
             if fail_inputs:node.feed=False
             # Longer than the unchanged one-second health threshold.
             time.sleep(1.15)
-            return FrontierResult([FrontierGoal(1.,0.,0.,1.,10,1.)],10.,1,0,0)
+            return [FrontierGoal(1., 0., 0.)]
         node.wait_status_observers=lambda:True
         node.status=lambda *a,**k:None
         node.position=lambda:(0.,0.,0.)
         node.grid=lambda:Grid(10,10,.1,0.,0.,0.,[0]*100)
+        node.report_census=lambda census:None
         node.retry=SimpleNamespace(available=lambda *a:True)
         def navigate(*a,**k):
             node.require_health();node.nav_calls+=1
@@ -61,9 +64,10 @@ class PlanningCallbacksTests(unittest.TestCase):
         node.navigate=navigate
         source=ast.parse((Path(__file__).resolve().parents[1]/'wheeltec_explore/node.py').read_text(encoding='utf-8'))
         explorer=next(n for n in source.body if isinstance(n,ast.ClassDef) and n.name=='Explorer')
-        methods=[n for n in explorer.body if isinstance(n,ast.FunctionDef) and n.name in ('run','wait','require_health','plan_frontiers')]
+        methods=[n for n in explorer.body if isinstance(n,ast.FunctionDef) and
+                 n.name in ('run','wait','require_health','plan_vendor_frontiers')]
         env={'rclpy':SimpleNamespace(ok=lambda:True,spin_once=spin),
-             'ThreadPoolExecutor':ThreadPoolExecutor,'select_frontiers':select,
+             'ThreadPoolExecutor':ThreadPoolExecutor,'safe_vendor_goals':select,'time':time,
              'MapUnstableError':MapUnstableError,'observation_fresh':lambda *a:True,
              'math':math,'Grid':Grid}
         exec(compile(ast.Module(body=methods,type_ignores=[]),'actual_explorer_methods','exec'),env)

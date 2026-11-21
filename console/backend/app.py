@@ -14,6 +14,7 @@ from fastapi import FastAPI, Request, WebSocket, WebSocketDisconnect, HTTPExcept
 from fastapi.responses import FileResponse, Response, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from .policy import check_origin
+from . import simulation
 from .transport import SSH, probe
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -27,9 +28,11 @@ async def lifespan(app):
     try:
         yield
     finally:
-        await asyncio.to_thread(session.close)
+        await asyncio.gather(asyncio.to_thread(simulation.worker.close),
+                             asyncio.to_thread(session.close))
 
 app = FastAPI(docs_url=None, redoc_url=None, lifespan=lifespan)
+app.include_router(simulation.router)
 secret = secrets.token_urlsafe(32)
 managed_logs = deque(maxlen=100)
 
@@ -621,6 +624,7 @@ async def desktop_ws(ws: WebSocket):
 
 
 @app.get('/')
+@app.get('/simulation')
 def index(): return FileResponse(DIST/'index.html')
 
 
@@ -628,9 +632,9 @@ if (DIST/'assets').exists():
     app.mount('/assets', StaticFiles(directory=DIST/'assets'))
 
 
-def main():
+def main(port=8766):
     import uvicorn
-    uvicorn.run(app, host='127.0.0.1', port=8766,
+    uvicorn.run(app, host='127.0.0.1', port=port,
                 log_level='warning', access_log=False)
 
 

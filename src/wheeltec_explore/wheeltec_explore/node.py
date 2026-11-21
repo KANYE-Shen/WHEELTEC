@@ -27,7 +27,8 @@ from .defaults import DEFAULTS
 from .startup import wait_for_console_start
 from .active_scan import choose_scan, rotation_clearance, ScanBudget, simulation_observation_allowed, startup_assumption_allowed
 from .health import MapHealth, MapUnstableError
-from .frontiers import Grid, select_frontiers
+from .frontiers import Grid, census_frontiers
+from .vendor_frontiers import safe_vendor_goals, validate_vendor_geometry, validate_vendor_output
 from .policy import RetryBook, completion_state, observation_fresh, local_known_ratio, ObservationProgress
 
 
@@ -52,6 +53,10 @@ class Explorer(Node):
         for name,value in parameters.items():
             self.declare_parameter(name,value)
         self.config = {name:self.get_parameter(name).value for name in parameters}
+        if self.config['frontier_backend'] != 'vendor':
+            raise ValueError('Exploration requires the vendor frontier backend')
+        if not math.isfinite(self.config['vendor_max_age']) or self.config['vendor_max_age'] <= 0:
+            raise ValueError('Invalid vendor candidate age')
         if (not 0 < self.config['local_observation_threshold'] <= 1 or
                 self.config['local_observation_maps'] < 1 or
                 any(not math.isfinite(self.config[k]) or self.config[k] <= 0 for k in
@@ -69,7 +74,7 @@ class Explorer(Node):
                 raise RuntimeError('Active observation is available only in localhost simulation')
         self.scan_budget = ScanBudget(self.config['active_scan_max_attempts'])
         self.spin_action = ActionClient(self,Spin,'spin') if angle else None
-        self.output = Path(self.config['map_output']).expanduser().resolve()
+        self.output = validate_vendor_output(self.config['map_output'])
         self.maps_root = maps
         self.health = MapHealth(
             jump_translation=self.config['map_jump_translation'],
@@ -79,6 +84,19 @@ class Explorer(Node):
             tf_future_offset=self.config['slam_transform_timeout'])
         self.health_active = False
         self.health_latched = {}
+        self.vendor_points = ()
+        self.vendor_received = None
+        self.vendor_revision = 0
+        self.vendor_initialized = False
+        self.vendor_runtime = None
+        self.vendor_map_bounds = None
+        validate_vendor_geometry(self.config['robot_radius'],self.config['footprint_exclusion_radius'])
+        from geometry_msgs.msg import PointStamped
+        from wheeltec_rrt_msg.msg import PointArray
+        if self.config['map_frame'] != 'map' or self.config['base_frame'] != 'base_footprint':
+            raise ValueError('Vendor RRT requires map and base_footprint frames')
+        self.boundary_pub = self.create_publisher(PointStamped, '/wheeltec_explore/vendor_boundary', 10)
+        self.vendor_sub = self.create_subscription(PointArray, '/wheeltec_explore/vendor_points', self.receive_vendor_points, 10)
         self.latest_map = None
         self.map_updates = 0
         self.last_scan_ros = None
@@ -108,6 +126,84 @@ class Explorer(Node):
         self.wait_reason = None
         self.visited = []
         self.observations = []
+
+    def receive_vendor_points(self, message):
+        self.vendor_points = tuple((p.x, p.y) for p in message.points)
+        self.vendor_received = time.monotonic()
+        self.vendor_revision += 1
+
+    def run_vendor_operation(self, operation):
+        # Process startup/reaping may take seconds; keep TF/scan callbacks alive.
+        with ThreadPoolExecutor(max_workers=1, thread_name_prefix='vendor-process') as worker:
+            future = worker.submit(operation)
+            if not self.wait(future.done, 20., check_task=True, check_sensors=True):
+                raise RuntimeError('厂家探索节点操作超时: '+str(self.wait_reason))
+            return future.result()
+
+    def prepare_managed_vendor(self, pose):
+        from .vendor_runtime import VendorProcesses, bounds_changed, map_sampling_bounds
+        bounds = map_sampling_bounds(self.latest_map.info)
+        if self.vendor_initialized and not bounds_changed(self.vendor_map_bounds,bounds,self.latest_map.info.resolution):
+            self.vendor_runtime.check()
+            return
+        if self.vendor_runtime is not None:
+            previous, self.vendor_runtime = self.vendor_runtime, None
+            self.run_vendor_operation(previous.stop)
+            # Wait for old DDS endpoints to disappear before sending new five points.
+            if not self.wait(lambda:self.boundary_pub.get_subscription_count() == 0 and
+                             len(self.get_publishers_info_by_topic('/wheeltec_explore/vendor_points')) == 0,
+                             10.,check_task=True,check_sensors=True):
+                raise RuntimeError('旧厂家探索节点尚未退出')
+        self.vendor_initialized = False
+        self.vendor_points, self.vendor_received = (), None
+        candidate = VendorProcesses(use_sim_time=self.get_parameter('use_sim_time').value)
+        self.vendor_runtime = candidate
+        # Linux parent-death notification follows the creating thread. Popen is
+        # nonblocking; create the supervisor on this long-lived ROS thread.
+        candidate.start()
+        self.config['vendor_bounds'] = ','.join(str(v) for v in bounds)
+        self.initialize_vendor(pose)
+        self.vendor_map_bounds = bounds
+
+    def initialize_vendor(self, pose):
+        from geometry_msgs.msg import PointStamped
+        try:
+            bounds = [float(v) for v in self.config['vendor_bounds'].split(',')]
+        except ValueError as exc:
+            raise ValueError('Vendor bounds require xmin,ymin,xmax,ymax') from exc
+        if (len(bounds) != 4 or not all(math.isfinite(v) for v in bounds) or
+                bounds[0] >= bounds[2] or bounds[1] >= bounds[3] or
+                not (bounds[0] <= pose[0] <= bounds[2] and bounds[1] <= pose[1] <= bounds[3])):
+            raise ValueError('Invalid vendor bounds or start pose outside bounds')
+        if not self.wait(lambda:self.boundary_pub.get_subscription_count() == 2 and
+                         len(self.get_publishers_info_by_topic('/wheeltec_explore/vendor_boundary')) == 1 and
+                         len(self.get_publishers_info_by_topic('/wheeltec_explore/vendor_points')) == 1,
+                         self.config['initialization_timeout'],check_task=True,check_sensors=True):
+            raise RuntimeError('Vendor RRT candidate nodes unavailable or topic ownership is ambiguous')
+        xmin,ymin,xmax,ymax = bounds
+        for x,y in ((xmin,ymin),(xmax,ymin),(xmax,ymax),(xmin,ymax),pose[:2]):
+            msg=PointStamped()
+            msg.header.frame_id='map'
+            msg.header.stamp=self.get_clock().now().to_msg()
+            msg.point.x=float(x);msg.point.y=float(y)
+            self.boundary_pub.publish(msg)
+        self.vendor_initialized = True
+
+    def plan_vendor_frontiers(self, pose):
+        grid=self.grid()
+        grid.data=tuple(grid.data)
+        samples = (self.vendor_points if self.vendor_received is not None and
+                   0 <= time.monotonic()-self.vendor_received <= self.config['vendor_max_age'] else ())
+        with ThreadPoolExecutor(max_workers=1, thread_name_prefix='vendor-frontiers') as worker:
+            future=worker.submit(safe_vendor_goals,grid,pose[:2],samples,self.config['robot_radius'],
+                self.config['start_snap_distance'],self.config['frontier_approach_radius'],
+                self.config['min_goal_distance'],tuple(self.visited),self.config['visited_radius'])
+            if not self.wait(future.done,self.config['task_timeout'],check_task=True,check_sensors=True):
+                future.cancel()
+                raise RuntimeError('Vendor frontier validation stopped: '+self.wait_reason)
+            goals=future.result()
+        self.require_health()
+        return goals
 
     def receive_scan(self,message):
         self.last_scan_ros = self.ros_seconds()
@@ -146,6 +242,8 @@ class Explorer(Node):
         return snapshot
 
     def require_health(self):
+        if self.vendor_initialized and self.vendor_runtime is not None:
+            self.vendor_runtime.check()
         snapshot = self.health_tick()
         if self.health_latched or not snapshot['healthy']:
             raise MapUnstableError(','.join(sorted(set(snapshot['issues'])|set(self.health_latched))))
@@ -395,26 +493,53 @@ class Explorer(Node):
         return self.wait(lambda:self.status_publisher.get_subscription_count()>=expected,
                          self.config['initialization_timeout'])
 
-    def plan_frontiers(self, pose):
+    def check_vendor_full_map(self, pose, locally_observed_targets):
+        """Determine task-wide exhaustion independently of a sampled batch."""
+        result = self.census_frontiers(pose)
+        if not result.approaches:
+            return result, ''
+        eligible = [approach for approach in result.approaches if not any(
+            math.dist(approach, target) <= self.config['retry_radius'] for target in locally_observed_targets)]
+        if not eligible:
+            return result, 'local_observation_residuals'
+        if all(self.retry.exhausted(approach) for approach in eligible):
+            return result, 'frontier_retries_exhausted'
+        return result, 'wait_vendor'
+
+    def census_frontiers(self, pose):
         # Keep subscription, TF and health callbacks running during CPU work.
         # The worker uses an immutable input snapshot and never accesses ROS.
         grid = self.grid()
         grid.data = tuple(grid.data)
         with ThreadPoolExecutor(max_workers=1, thread_name_prefix='frontiers') as worker:
-            future = worker.submit(select_frontiers,grid,pose[:2],self.config['robot_radius'],
+            future = worker.submit(census_frontiers,grid,pose[:2],self.config['robot_radius'],
                                               self.config['min_frontier_size'],visited=tuple(self.visited),observations=tuple(self.observations),
                                               **{key:self.config[key] for key in (
                                                   'min_goal_distance','visited_radius','observation_min_separation',
                                                   'frontier_approach_radius','start_snap_distance',
-                                                  'distance_score_bias','score_distance_offset','frontier_viewpoint_strategy',
-                                                  'viewpoint_candidate_budget','viewpoint_frontier_budget','footprint_exclusion_radius')})
+                                                  'footprint_exclusion_radius')})
             if not self.wait(future.done, self.config['task_timeout'],
                              check_task=True, check_sensors=True):
                 future.cancel()
-                raise RuntimeError('Frontier computation stopped: '+self.wait_reason)
+                raise RuntimeError('Frontier census stopped: '+self.wait_reason)
             result = future.result()
         self.require_health()
         return result
+
+    def report_census(self, census):
+        if census is None:
+            grid = self.grid()
+            free_area = sum(0 <= value <= 25 for value in grid.data) * grid.resolution**2
+        else:
+            free_area = census.known_free_area
+        self.report.update(
+            known_free_area_m2=round(free_area, 3),
+            frontier_clusters=census.frontier_clusters if census is not None else None,
+            unreachable_clusters=census.unreachable_clusters if census is not None else None,
+            ignored_small_clusters=census.ignored_small_clusters if census is not None else None,
+            residual_counts=census.residual_counts if census is not None else {},
+            residual_frontiers=census.residual_frontiers if census is not None else [],
+        )
 
     def run(self):
         self.status('starting','Waiting for SLAM map, robot transform and Nav2')
@@ -436,8 +561,14 @@ class Explorer(Node):
                 self.status('incomplete',reason,map_saved=False,returned=False,
                             manual_intervention_required=True)
                 return 2
+        if not self.vendor_initialized:
+            if self.config['vendor_managed']:
+                self.prepare_managed_vendor(start)
+            else:
+                self.initialize_vendor(start)
         self.status('exploring','Selecting reachable frontiers')
-        stable_empty, attempts, latest_result = 0,0,None
+        stable_empty, attempts = 0, 0
+        latest_census = None
         forced_reason = ''
         locally_observed_targets = []
         while rclpy.ok():
@@ -453,38 +584,36 @@ class Explorer(Node):
                 if not self.wait(lambda:self.position() is not None,self.config['map_update_timeout'],check_sensors=True):
                     raise RuntimeError('Robot localization transform was lost')
                 continue
-            latest_result = self.plan_frontiers(pose)
-            self.report.update(known_free_area_m2=round(latest_result.known_free_area,3),
-                               frontier_clusters=latest_result.frontier_clusters,
-                               unreachable_clusters=latest_result.unreachable_clusters,
-                               ignored_small_clusters=latest_result.ignored_small_clusters,
-                               residual_counts=latest_result.residual_counts,
-                               residual_frontiers=latest_result.residual_frontiers,
-                               viewpoint_diagnostics=latest_result.viewpoint_diagnostics)
-            eligible = [g for g in latest_result.goals if not any(
+            if self.config['vendor_managed']:
+                self.prepare_managed_vendor(pose)
+            goals = self.plan_vendor_frontiers(pose)
+            eligible = [g for g in goals if not any(
                 math.dist((g.x,g.y),point) <= self.config['retry_radius'] for point in locally_observed_targets)]
             candidates = [g for g in eligible
                           if self.retry.available((g.x,g.y),self.ros_seconds())]
             if not candidates:
-                if (not latest_result.goals and self.spin_action is not None
-                        and self.scan_budget.take()):
+                # Only an independent map census can establish exhaustion.
+                latest_census, reason = self.check_vendor_full_map(pose, locally_observed_targets)
+                self.report_census(latest_census)
+                if reason == 'wait_vendor':
+                    stable_empty = 0
+                    message = ('Waiting for another vendor frontier' if goals
+                               else 'Waiting for a fresh vendor frontier')
+                    self.status('exploring', message)
+                    revision = self.vendor_revision
+                    self.wait(lambda: self.vendor_revision != revision, self.config['retry_map_wait'],
+                              check_task=True, check_sensors=True)
+                    continue
+                if reason:
+                    forced_reason = reason
+                    break
+                if self.spin_action is not None and self.scan_budget.take():
                     success, reason = self.active_observe(pose,initial=attempts==0)
                     if not success:
                         forced_reason = reason
                         self.report['manual_intervention_required'] = 'clearance' in reason
                         break
                     stable_empty = 0
-                    continue
-                if latest_result.goals:
-                    if not eligible:
-                        forced_reason = 'local_observation_residuals'
-                        break
-                    if all(self.retry.exhausted((g.x,g.y)) for g in eligible):
-                        forced_reason = 'frontier_retries_exhausted'
-                        break
-                    self.status('exploring','Waiting before retrying blocked frontiers')
-                    old_revision = self.map_updates
-                    self.wait(lambda:self.map_updates>old_revision,self.config['retry_map_wait'],check_task=True,check_sensors=True)
                     continue
                 stable_empty += 1
                 if stable_empty>=self.config['stable_empty_maps']:
@@ -498,6 +627,8 @@ class Explorer(Node):
                     raise MapUnstableError('map_update_timeout')
                 continue
             stable_empty = 0
+            latest_census = None
+            self.report_census(None)
             target = candidates[0]
             self.status('exploring','Navigating to a frontier approach',target=[target.x,target.y])
             attempts += 1
@@ -521,8 +652,10 @@ class Explorer(Node):
                     forced_reason = 'task_timeout'
                     break
                 raise MapUnstableError('map_update_timeout')
-        if latest_result is None:
-            raise RuntimeError('No valid occupancy grid was processed')
+        if latest_census is None:
+            # A task limit may interrupt the next census. An incomplete run
+            # still saves and returns, while its residual metrics remain unknown.
+            self.report_census(None)
         self.require_health()
         saved = self.save_map()
         self.status('returning','Returning to the exploration start position')
@@ -532,10 +665,11 @@ class Explorer(Node):
         else:
             returned,_ = self.navigate(*start,returning=True)
         self.require_health()
-        unresolved = 1 if forced_reason else 0
-        final = completion_state(latest_result.known_free_area,latest_result.unreachable_clusters,
+        unresolved = bool(forced_reason) or stable_empty < self.config['stable_empty_maps']
+        final = completion_state(latest_census.known_free_area if latest_census is not None else 0.,
+                                 self.report['unreachable_clusters'],
                                  unresolved,saved,returned,self.config['minimum_free_area'],
-                                 residual_clusters=sum(latest_result.residual_counts[k] for k in
+                                 residual_clusters=sum(self.report['residual_counts'].get(k, 0) for k in
                                                        ('footprint_excluded','multiview_observed')))
         reason = (forced_reason or ('no_reachable_frontiers' if final in ('completed','completed_with_residual_frontiers') else
                                    'remaining_unreachable_frontiers_or_insufficient_observed_area'))
@@ -544,7 +678,7 @@ class Explorer(Node):
         self.status(final,reason,map_saved=saved,returned=returned,
                     completion_criteria={'stable_empty_maps':stable_empty,
                     'minimum_free_area_m2':self.config['minimum_free_area'],
-                    'no_unreachable_clusters':latest_result.unreachable_clusters==0},history=self.history[:])
+                    'no_unreachable_clusters':(None if latest_census is None else latest_census.unreachable_clusters==0)},history=self.history[:])
         self.wait(lambda:False,0.5)
         return 0 if final in ('completed','completed_with_residual_frontiers') else 2
 
@@ -581,6 +715,8 @@ def main(args=None):
                              and observation_fresh(node.last_scan_ros, node.ros_seconds(), node.config['scan_max_age'])
                              and node.nav.server_is_ready(), node.config['initialization_timeout']):
                 raise RuntimeError('Console preparation timed out; no navigation released')
+            if node.config['vendor_managed']:
+                node.prepare_managed_vendor(node.position())
             wait_for_console_start(lambda: rclpy.spin_once(node, timeout_sec=.02))
         code = node.run()
     except KeyboardInterrupt:
@@ -595,6 +731,8 @@ def main(args=None):
         node.cancel_active()
         node.status('failed',str(error))
     finally:
+        if node.vendor_runtime is not None:
+            node.vendor_runtime.stop()
         node.destroy_node()
         if rclpy.ok():
             rclpy.shutdown()

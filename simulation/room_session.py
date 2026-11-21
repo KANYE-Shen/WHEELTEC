@@ -8,9 +8,20 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import signal
+import subprocess
+import time
 
 
 SCENARIOS = Path(__file__).resolve().parent/'scenarios'
+
+
+def exploration_setup():
+    default = Path.home()/'.local/share/wheeltec-refactor-sim/install/setup.bash'
+    path = Path(os.environ.get('WHEELTEC_SIM_EXPLORER_SETUP', default)).expanduser()
+    if not path.is_file():
+        raise RuntimeError(f'Build the simulation explorer overlay before launching autonomy: {path}')
+    return path
 
 
 def scenario_hash(name):
@@ -145,3 +156,54 @@ def active_session(data_root, domain, lock_path=None, proc_root=Path('/proc')):
     except (OSError,ValueError,KeyError,TypeError,IndexError):
         return None
     return None
+
+
+def _live_group_members(pgid):
+    """Linux process group members that still need to be stopped."""
+    members = []
+    for entry in Path('/proc').iterdir():
+        if not entry.name.isdecimal():
+            continue
+        try:
+            fields = (entry/'stat').read_text().rpartition(')')[2].split()
+            if int(fields[2]) == pgid and fields[0] not in ('Z', 'X', 'x'):
+                members.append(int(entry.name))
+        except (FileNotFoundError, ProcessLookupError, PermissionError):
+            pass
+    return sorted(members)
+
+
+def stop_owned(process, timeout=25.0):
+    """Reap a new-session process and stop its descendants even after leader exit."""
+    if process is None:
+        return None
+    pgid = process.pid
+    forced = False
+    deadline = time.monotonic() + timeout
+    try:
+        os.killpg(pgid, signal.SIGINT)
+    except ProcessLookupError:
+        pass
+    try:
+        process.wait(timeout=max(0., deadline - time.monotonic()))
+    except subprocess.TimeoutExpired:
+        pass
+    members = _live_group_members(pgid)
+    while members and time.monotonic() < deadline:
+        time.sleep(min(.05, max(0., deadline - time.monotonic())))
+        process.poll()
+        members = _live_group_members(pgid)
+    if members:
+        try:
+            os.killpg(pgid, signal.SIGKILL)
+            forced = True
+        except ProcessLookupError:
+            pass
+    process.wait(timeout=5)
+    deadline = time.monotonic() + 2
+    members = _live_group_members(pgid)
+    while members and time.monotonic() < deadline:
+        time.sleep(.02)
+        members = _live_group_members(pgid)
+    return {'returncode': process.returncode, 'forced_kill': forced, 'process_group_id': pgid,
+            'remaining_live_group_members': members}

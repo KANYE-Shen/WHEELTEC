@@ -3,7 +3,7 @@ import math
 from pathlib import Path
 from types import SimpleNamespace
 import unittest
-from wheeltec_explore.frontiers import Grid
+from wheeltec_explore.frontiers import FrontierGoal, Grid
 from wheeltec_explore.defaults import DEFAULTS
 import wheeltec_explore.policy as policy
 
@@ -51,12 +51,8 @@ class LocalObservationTests(unittest.TestCase):
         self.assertEqual(progress.update(25.,1.,5,.4,position=(.02,0.)),'goal_no_progress')
 
     def test_actual_run_moves_to_next_point_without_marking_target_reached(self):
-        from test_planning_callbacks import PlanningCallbacksTests, ReachedNavigation
-        from wheeltec_explore.frontiers import FrontierResult, FrontierGoal
-        node=PlanningCallbacksTests().make_node()
-        node.report={"goals":[]}
-        goals=[FrontierGoal(1.,0.,0.,1.,10,1.),FrontierGoal(3.,0.,0.,3.,10,.5)]
-        node.plan_frontiers=lambda pose:FrontierResult(goals,10.,2,0,0)
+        from test_vendor_run import VendorTaskTests, ReachedNavigation
+        node=VendorTaskTests().make_node([FrontierGoal(1.,0.,0.),FrontierGoal(3.,0.,0.)])
         def wait(predicate,timeout,**kw):
             node.map_updates+=1
             return predicate()
@@ -73,12 +69,8 @@ class LocalObservationTests(unittest.TestCase):
         self.assertEqual(node.report['goals'][0]['success'],False)
 
     def test_approximately_observed_last_point_keeps_global_task_incomplete(self):
-        from test_planning_callbacks import PlanningCallbacksTests
-        from wheeltec_explore.frontiers import FrontierResult, FrontierGoal
-        node=PlanningCallbacksTests().make_node()
-        node.report={'goals':[]};node.history=[]
-        node.run.__func__.__globals__['completion_state']=policy.completion_state
-        node.plan_frontiers=lambda pose:FrontierResult([FrontierGoal(1.,0.,0.,1.,10,1.)],10.,1,0,0,residual_counts={'footprint_excluded':0,'multiview_observed':0,'reachable_unexplored':1})
+        from test_vendor_run import VendorTaskTests
+        node=VendorTaskTests().make_node([FrontierGoal(1.,0.,0.)])
         def wait(predicate,timeout,**kw):
             node.map_updates+=1
             return predicate()
@@ -91,12 +83,9 @@ class LocalObservationTests(unittest.TestCase):
         self.assertEqual(states[-1],('incomplete','local_observation_residuals'))
 
     def test_no_progress_cools_current_goal_and_tries_next(self):
-        from test_planning_callbacks import PlanningCallbacksTests, ReachedNavigation
-        from wheeltec_explore.frontiers import FrontierResult, FrontierGoal
-        node=PlanningCallbacksTests().make_node()
-        node.report={'goals':[]};node.retry=policy.RetryBook()
-        node.plan_frontiers=lambda pose:FrontierResult([
-            FrontierGoal(1.,0.,0.,1.,10,1.),FrontierGoal(3.,0.,0.,3.,10,.5)],10.,2,0,0)
+        from test_vendor_run import VendorTaskTests, ReachedNavigation
+        node=VendorTaskTests().make_node([FrontierGoal(1.,0.,0.),FrontierGoal(3.,0.,0.)])
+        node.retry=policy.RetryBook()
         def wait(predicate,timeout,**kw):
             node.map_updates+=1
             return predicate()
